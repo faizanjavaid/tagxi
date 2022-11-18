@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+  >
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel2"
+            type="com.tyt.driver.ui.homeScreen.inAppChat.AppChatViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/_42sdp"
+    android:layout_marginEnd="@dimen/_4sdp"
+    android:id="@+id/CL_chats"
+     tools:showIn="@layout/fragment_in_app_chat">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/msg_send_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_5sdp"
+    android:layout_marginStart="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_4sdp"
+    app:cardElevation="@dimen/_6sdp"
+    app:cardCornerRadius="@dimen/_6sdp"
+    android:elevation="@dimen/_6sdp"
+    android:layout_margin="@dimen/_2sdp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_2sdp">
+
+        <EditText
+            android:id="@+id/text_send"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginStart="@dimen/_1sdp"
+
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@null"
+            android:hint="Type a message..."
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/bt_black"
+            android:textColorHint="@color/colorBlack"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_send"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_centerVertical="true"
+
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:background="@drawable/ic_msg_con"
+            android:backgroundTint="@color/colorPrimary"
+            android:padding="@dimen/_8sdp"
+            android:onClick="@{viewModel2::sendSmsClick}"
+            app:layout_constraintBottom_toBottomOf="@+id/text_send"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="@+id/text_send" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+<!--    &lt;!&ndash; empty state &ndash;&gt;-->
+<!--    <include-->
+<!--        android:id="@+id/es_layout"-->
+<!--        android:visibility="gone"-->
+<!--        layout="@layout/empty_state"/>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

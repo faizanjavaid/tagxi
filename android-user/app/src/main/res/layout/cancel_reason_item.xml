@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_cancel_desc"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:paddingLeft="@dimen/_8sdp"
+    android:paddingRight="@dimen/_8sdp">
+
+    <TextView
+        android:id="@+id/cancel_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/radio_cancel_desc"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:text="My driver took long or incorrect"
+        android:textColor="@color/clr_black"
+        android:textSize="@dimen/_13sdp" />
+
+    <RadioButton
+        android:id="@+id/radio_cancel_desc"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_centerVertical="true"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/radio_cutom_style"
+        android:button="@null"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/cancel_txt"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@color/gray_holo_light" />
+
+</RelativeLayout>

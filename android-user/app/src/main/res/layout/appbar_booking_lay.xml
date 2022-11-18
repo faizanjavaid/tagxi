@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModelAppBarBook"
+            type="com.tyt.client.ui.homeScreen.makeTrip.MakeTripViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/backimgbook"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/whit_circle"
+            android:foregroundGravity="center_vertical"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic__backarrow" />
+
+    </LinearLayout>
+
+</layout>

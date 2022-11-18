@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.EnableLocationAct">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/track_loc"
+        android:layout_marginBottom="@dimen/_30sdp"
+        app:srcCompat="@drawable/gps_arrow" />
+
+    <TextView
+        android:id="@+id/track_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Tracking Taxi Location"
+        android:textColor="@color/clr_0A2463"
+        android:textSize="@dimen/_16sdp" />
+
+    <TextView
+        android:id="@+id/track_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/track_loc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:fontFamily="@font/roboto_reg"
+        android:text="Live Tracking for Real Time location of your ride."
+        android:textAlignment="center"
+        android:textColor="@color/clr_0A2463"
+        android:textSize="@dimen/_11sdp" />
+
+    <RelativeLayout
+        android:id="@+id/enableloc"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/blue_border">
+
+        <TextView
+            android:id="@+id/enableLocTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Enable Location"
+            android:textColor="@color/clr_white"
+            android:textSize="@dimen/_14sdp"
+            app:drawableEndCompat="@drawable/ic_gps_fixed" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

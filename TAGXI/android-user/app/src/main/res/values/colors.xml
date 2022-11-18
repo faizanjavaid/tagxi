@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<color name="colorPrimary">#F15A29</color>-->
+    <color name="colorAccent">#FFF</color>
+
+    <color name="colorPrimary">#E70000</color>
+    <color name="colorPrimaryDark">#E70000</color>
+    <color name="colorPrimaryAccent">#E70000</color>
+    <!--<color name="colorPrimaryDarkActionbar">#ff6f6f</color>-->
+    <color name="clr_0B4DD8">#E70000</color>
+    <color name="clr_0A2463">#0A2463</color>
+    <color name="clr_white">#ffffff</color>
+    <color name="clr_black">#000000</color>
+    <color name="clr_222B45">#222B45</color>
+    <color name="clr_8491B1">#8491B1</color>
+    <color name="clr_FF0000">#FF0000</color>
+    <color name="clr_353B50">#353B50</color>
+    <color name="clr_F8F8F8">#F8F8F8</color>
+    <color name="clr_323643">#323643</color>
+    <color name="clr_black_t">#a8000000</color>
+    <color name="clr_36B990">#36B990</color>
+    <color name="clr_565656">#565656</color>
+    <color name="rating_yellow">#FDC60A</color>
+
+    <color name="clr_green">#09B925</color>
+    <color name="clr_474747">#474747</color>
+    <color name="clr_929292">#929292</color>
+    <color name="clr_979797">#979797</color>
+
+    <color name="clr_FF6E1D">#FF6E1D</color>
+
+    <color name="colorPrimaryDisabled">#C7D7F8</color>
+    <item name="blue_map_stroke" type="color">#8000ACED</item>
+    <item name="blue_map_fill" type="color">#1A00ACED</item>
+    <color name="clr_2361E2">#2361E2</color>
+    <color name="clr_E70000">#E70000</color>
+    <color name="clr_transparent">#00000000</color>
+
+    <color name="picker_default_divider_color">@android:color/transparent</color>
+    <drawable name="picker_default_divider">@drawable/picker_divider</drawable>
+    <dimen name="picker_default_divider_height">1dp</dimen>
+    <!--<color name="picker_default_divider_color">#474747</color>-->
+
+</resources>

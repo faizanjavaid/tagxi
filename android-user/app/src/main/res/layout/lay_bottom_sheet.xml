@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModelBT1"
+            type="com.tyt.client.ui.homeScreen.mapFrag.MapFragViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/map_sheet_co_ord_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/map_bottom_sheet"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/clr_white"
+            android:layout_height="wrap_content"
+            tools:showIn="@layout/act_home"
+            app:behavior_hideable="false"
+            android:visibility="visible"
+            android:nestedScrollingEnabled="true"
+            app:layout_behavior=".utilz.CustomBottomSheetBehavior">
+
+            <!--app:layout_behavior="@string/bottom_sheet_behavior"-->
+
+            <include
+                android:id="@+id/tabs"
+                layout="@layout/layout_bt_sht_content"
+                app:BtCntviewModel="@{viewModelBT1}"/>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

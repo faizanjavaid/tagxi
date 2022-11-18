@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+
+            name="viewModel"
+            type="com.tyt.driver.ui.homeScreen.manageCard.ManageCardViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:onClick="@{viewModel::onClickBackImg}"
+            app:srcCompat="@drawable/ic_back_img" />
+
+        <TextView
+            android:id="@+id/back_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/back_arrow"
+            android:fontFamily="@font/roboto_med"
+            android:text="@{viewModel.translationModel.side_Menu_mange_card}"
+            android:textColor="@color/clr_0A2463"
+            android:textSize="@dimen/_14sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/manage_card_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/update_btn"
+            android:layout_below="@+id/back_txt"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:visibility="@{!viewModel.noItemFound ? View.VISIBLE : View.GONE}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto_med"
+            android:text="@{viewModel.translationModel.txt_no_card_found}"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_14sdp"
+            android:visibility="@{viewModel.noItemFound ? View.VISIBLE : View.GONE}" />
+
+        <RelativeLayout
+            android:id="@+id/update_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/blue_border"
+            android:onClick="@{viewModel::onClickAddCard}">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:drawableEnd="@drawable/card_img"
+                android:fontFamily="@font/roboto_med"
+                android:text="@{viewModel.translationModel.txt_add_new_card}"
+                android:textColor="@color/clr_white"
+                android:textSize="@dimen/_14sdp" />
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            tools:visibility="gone"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

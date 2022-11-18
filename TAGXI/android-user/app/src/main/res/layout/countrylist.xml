@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.client.ui.country.Countrylistdialogviewmodel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/countrcode_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/roboto_reg"
+            android:padding="@dimen/_5sdp"
+            android:text="@{viewModel.translationModel.txt_countries}"
+            android:textColor="@color/clr_black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/search_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/countrcode_txt"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/places_ic_search" />
+
+        <EditText
+            android:id="@+id/search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/countrcode_txt"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/search_img"
+            android:background="@null"
+            android:fontFamily="@font/roboto_reg"
+            android:hint="@{viewModel.translationModel.txt_search_country}"
+            android:padding="@dimen/_2sdp"
+            android:textAlignment="textStart"
+            android:textColor="@color/clr_0B4DD8"
+            android:textSize="@dimen/_14sdp" />
+
+        <View
+            android:id="@+id/edit_view"
+            android:layout_width="match_parent"
+            android:layout_height="0.9sp"
+            android:layout_below="@+id/search_img"
+            android:layout_marginStart="@dimen/_9sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_9sdp"
+            android:background="@color/clr_black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/cancelTxt"
+            android:layout_below="@+id/edit_view"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/cancelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:onClick="@{viewModel::cancelClicked}"
+            android:padding="@dimen/_5sdp"
+            android:text="@{viewModel.translationModel.txt_cancel}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+</layout>

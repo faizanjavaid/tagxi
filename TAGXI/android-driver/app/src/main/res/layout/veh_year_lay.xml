@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+
+            name="viewModel"
+            type="com.tyt.driver.ui.carDetails.carYear.VehYearViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_white">
+
+        <ImageView
+            android:id="@+id/back_imag"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:onClick="@{viewModel::onclickBack}"
+            app:srcCompat="@drawable/ic_back_img" />
+
+        <TextView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back_imag"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/roboto_reg"
+            android:text="@{viewModel.translationModel.txt_what_car_year}"
+            android:textColor="@color/clr_0A2463"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/year_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/year"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:fontFamily="@font/roboto_reg"
+            android:text="@{viewModel.translationModel.txt_car_modern_vintage}"
+            android:textColor="@color/gray_holo_light"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/num_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/year_desc"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:hint="@{viewModel.translationModel.txt_enter_year}"
+            app:hintTextColor="@color/clr_222B45">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:afterTextChanged="@{viewModel::onYearChanged}"
+                android:background="@null"
+                android:fontFamily="@font/roboto_reg"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="@color/clr_black"
+                android:textSize="@dimen/_14sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_below="@+id/num_lay"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@color/clr_black" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_above="@+id/continue_butt7" />
+
+        <Button
+            android:id="@+id/continue_butt7"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@color/clr_0B4DD8"
+            android:fontFamily="@font/roboto_reg"
+            android:onClick="@{viewModel::onClickContinue}"
+            android:text="@{viewModel.translationModel.txt_confirm}"
+            android:textAllCaps="false"
+            android:textColor="@color/clr_white"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            tools:visibility="gone"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

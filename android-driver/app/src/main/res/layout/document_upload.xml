@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.tyt.driver.ui.documentUpload.DocumentUploadViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_white">
+
+        <ImageView
+            android:id="@+id/back_imag"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_back_img" />
+
+        <TextView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_toEndOf="@+id/back_imag"
+            android:fontFamily="@font/roboto_reg"
+            android:text="@{viewModel.translationModel.txt_manage_docs}"
+            android:textColor="@color/clr_222B45"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/year"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:alpha="0.2"
+            android:background="@color/clr_222B45" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/submit"
+            android:layout_below="@+id/view" />
+
+        <TextView
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@drawable/primary_rect"
+            android:fontFamily="@font/roboto_reg"
+            android:gravity="center"
+            android:onClick="@{viewModel::onCLickSubmit}"
+            android:text="@{viewModel.translationModel.txt_submit}"
+            android:textColor="@color/clr_white"
+            android:textSize="@dimen/_14sdp"
+            android:visibility="@{viewModel.enableButon?View.VISIBLE:View.GONE}" />
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            tools:visibility="gone"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

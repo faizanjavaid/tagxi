@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/otp_one_edit_text"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/otp_rect"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:minWidth="30dp"
+        android:nextFocusLeft="@+id/otp_one_edit_text"
+        android:nextFocusRight="@+id/otp_two_edit_text" />
+
+    <EditText
+        android:id="@+id/otp_two_edit_text"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/otp_rect"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_one_edit_text"
+        android:nextFocusRight="@+id/otp_three_edit_text" />
+
+    <EditText
+        android:id="@+id/otp_three_edit_text"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/otp_rect"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_two_edit_text"
+        android:nextFocusRight="@+id/otp_four_edit_text" />
+
+    <EditText
+        android:id="@+id/otp_four_edit_text"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/otp_rect"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_three_edit_text"
+        android:nextFocusRight="@+id/otp_five_edit_text" />
+
+    <EditText
+        android:id="@+id/otp_five_edit_text"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/otp_rect"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_four_edit_text"
+        android:nextFocusRight="@+id/otp_six_edit_text" />
+
+    <EditText
+        android:id="@+id/otp_six_edit_text"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/otp_rect"
+        android:gravity="center"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusLeft="@+id/otp_three_edit_text"
+        android:nextFocusRight="@+id/otp_five_edit_text" />
+
+</LinearLayout>

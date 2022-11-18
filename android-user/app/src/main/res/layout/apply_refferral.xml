@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+
+            name="viewModel"
+            type="com.tyt.client.ui.applyRefferal.ApplyRefferalViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:srcCompat="@drawable/ic_back_img" />
+
+
+        <TextView
+            android:id="@+id/back_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/back_arrow"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@{viewModel.translationModel.txt_apply}"
+            android:textColor="@color/clr_0A2463"
+            android:textSize="@dimen/_14sdp" />
+
+        <EditText
+            android:id="@+id/refferal_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back_txt"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:afterTextChanged="@{viewModel::onRefferalChanged}"
+            android:background="@drawable/rect_border"
+            android:fontFamily="@font/roboto_reg"
+            android:hint="@{viewModel.translationModel.txt_enter_refferal}"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/clr_222B45" />
+
+        <LinearLayout
+            android:id="@+id/add_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/refferal_code"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@drawable/rect_nor_cur"
+                android:fontFamily="@font/roboto_reg"
+                android:gravity="center"
+                android:onClick="@{viewModel::onClickSkip}"
+                android:text="@{viewModel.translationModel.txt_skip}"
+                android:textColor="@color/clr_white"
+                android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@drawable/primary_rect"
+                android:fontFamily="@font/roboto_reg"
+                android:gravity="center"
+                android:onClick="@{viewModel::onClickApply}"
+                android:text="@{viewModel.translationModel.txt_apply}"
+                android:textColor="@color/clr_white"
+                android:textSize="@dimen/_14sdp" />
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            tools:visibility="gone"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+</layout>

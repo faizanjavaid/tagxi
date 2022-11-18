@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+<data>
+    <import type="android.view.View" />
+
+    <variable
+        name="viewModel"
+        type="com.tyt.client.ui.homeScreen.mapFrag.MapFragViewModel" />
+</data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/My_Tile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Someone else taking this ride?"
+        android:textColor="@color/clr_black"
+        android:textSize="@dimen/_18sdp" />
+
+    <TextView
+        android:id="@+id/Mydesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_reg"
+        android:gravity="start"
+        android:text="Choose a contact so that they also get driver number,vehicle details and ride OTP via SMS"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/_10sdp" />
+
+    <RadioGroup
+        android:id="@+id/rad_grp_myself"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rdbt_myself"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:buttonTint="@color/clr_black"
+            android:drawableStart="@drawable/ic_myself"
+            android:drawablePadding="@dimen/_10sdp"
+            android:text="Myself" />
+
+        <RadioButton
+            android:id="@+id/rdbt_contact1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:buttonTint="@color/clr_black"
+            android:visibility="@{viewModel.show_myself_1?View.VISIBLE:View.GONE}"
+            android:drawableStart="@drawable/ic_myself"
+            android:drawablePadding="@dimen/_10sdp"
+            android:text="Contact 1" />
+
+        <RadioButton
+            android:id="@+id/rdbt_contact2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:buttonTint="@color/clr_black"
+            android:visibility="@{viewModel.show_myself_2?View.VISIBLE:View.GONE}"
+            android:drawableStart="@drawable/ic_myself"
+            android:drawablePadding="@dimen/_10sdp"
+            android:text="Contact 2" />
+
+        <RadioButton
+            android:id="@+id/rdbt_contact3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:buttonTint="@color/clr_black"
+            android:drawableStart="@drawable/ic_myself"
+            android:visibility="@{viewModel.show_myself_3?View.VISIBLE:View.GONE}"
+            android:drawablePadding="@dimen/_10sdp"
+            android:text="Contact 3" />
+
+    </RadioGroup>
+
+    <!--Place For Showing 3 List Tiles Of Contacts-->
+    <RelativeLayout
+        android:id="@+id/lay_chse_cnat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp">
+
+        <TextView
+            android:id="@+id/Mychsecnt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:drawableStart="@drawable/ic_choose_contact"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/roboto_reg"
+            android:gravity="center_vertical"
+            android:text="Choose another contact"
+            android:textColor="@color/clr_black" />
+
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_prof_arrow" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/bt_skip_myslf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_nor_cur"
+            android:fontFamily="@font/roboto_reg"
+            android:text="Skip"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            android:id="@+id/bt_continue_myslf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:background="@drawable/primary_rect"
+            android:fontFamily="@font/roboto_reg"
+            android:text="Continue"
+            android:textColor="@color/colorWhite" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">54.193.155.147</domain>
+        <domain includeSubdomains="true">3.90.25.20</domain>
+        <domain includeSubdomains="true">ip-api.com</domain>
+        <domain includeSubdomains="true">admin.tagyourtaxi.com</domain>
+    </domain-config>
+</network-security-config>

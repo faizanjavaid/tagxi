@@ -1,0 +1,78 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        //maven { url 'https://maven.fabric.io/public' }
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath 'com.google.gms:google-services:4.3.8'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.7.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://jitpack.io' }
+        maven {
+            url "https://cardinalcommerce.bintray.com/android"
+            credentials {
+                username 'braintree-team-sdk@cardinalcommerce'
+                password '220cc9476025679c4e5c843666c27d97cfb0f951'
+            }
+        }
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // Sdk and tools
+    minSdkVersion = 16
+    targetSdkVersion = 29
+    compileSdkVersion = 29
+    buildToolsVersion = '29.0.2'
+
+    // App dependencies
+    supportLibraryVersion = '25.4.0'
+    gsonVersion = '2.8.0'
+    calligraphyVersion = '2.2.0'
+    glideVersion = '3.7.0'
+    roomDatabase = '1.0.0-alpha3'
+    rx2FastAndroidNetworking = '1.0.0'
+
+    dagger2Version = '2.25.2'
+    rxjava2Version = '2.0.6'
+    rxandroidVersion = '2.0.1'
+    placeholderviewVersion = '0.6.1'
+    debugDBVersion = '1.0.0'
+    timberVersion = '4.5.1'
+    lifecycle = '1.0.0-alpha3'
+
+    retrofitVersion='2.3.0'
+    GsonVersion='2.7'
+    okhttpVersion= '3.8.0'
+    googleplus= '17.0.0'
+    glideversion= '4.1.1'
+
+    //Test dependencies
+    junitVersion = '4.12'
+    espressoVersion = '2.2.2'
+    mockitoVersion = '2.7.1'
+    googleSignIn= '16.0.1'
+    firebaseAuth= '17.0.0'
+
+}

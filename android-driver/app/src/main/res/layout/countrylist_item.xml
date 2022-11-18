@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/flag_img"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:padding="@dimen/_5sdp" />
+
+    <TextView
+        android:id="@+id/country_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_toStartOf="@+id/countryCode"
+        android:fontFamily="@font/roboto_reg"
+        android:maxLines="2"
+        android:textColor="@color/clr_black"
+        android:textSize="@dimen/_14sdp" />
+
+    <TextView
+        android:id="@+id/countryCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:fontFamily="@font/roboto_reg"
+        android:textColor="@color/clr_black"
+        android:textSize="@dimen/_14sdp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3sp"
+        android:layout_below="@+id/country_name"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@color/clr_black" />
+
+</RelativeLayout>

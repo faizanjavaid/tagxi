@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!-- Newly Added -->
+
+    <!-- Newly Added For History Item -->
+
+    <!-- Newly Added For Sign in Screen -->
+
+    <!-- Newly Added for Profile Screen -->
+
+    <!-- Newly Added for Feedback Screen -->
+
+    <!-- Newly Added for Job fragment -->
+
+    <!-- Newly Added for Bill Layout -->
+
+    <!-- Menu -->
+
+    <!-- Grid View -->
+    <!--<dimen name="gridview_height">270dp</dimen>-->
+
+    <!-- Newly Added for Register Screen -->
+
+    <!-- Newly Added for Forgot Password -->
+
+    <!-- Newly Added for Cutstome ActionBar -->
+    <!--@mukesh for background change from image bg_name to color 27-8-16-->
+</resources>

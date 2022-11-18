@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.client.ui.homeScreen.mapFrag.MapFragViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_fav_save_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Save as favourite"
+            android:textColor="@color/clr_black"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_fav_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Getting Address"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:id="@+id/fav_content_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            tools:visibility="visible">
+
+            <RadioGroup
+                android:id="@+id/rdgroup_fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <!-- Place For Radio Group -->
+
+                <RadioButton
+                    android:id="@+id/rdbt_fav_home"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/clr_black"
+                    android:checked="true"
+                    android:text="Home" />
+
+                <RadioButton
+                    android:id="@+id/rdbt_fav_work"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/clr_black"
+                    android:text="Work" />
+
+                <RadioButton
+                    android:id="@+id/rdbt_fav_others"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/clr_black"
+                    android:text="Others" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/et_fav_others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:afterTextChanged="@{viewModel::onAddressNameChanged}"
+                android:hint="Name Of Your Favourite Place" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/bt_fav_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_nor_cur"
+                    android:fontFamily="@font/roboto_reg"
+                    android:text="Cancel"
+                    android:textColor="@color/colorWhite" />
+
+                <Button
+                    android:id="@+id/bt_fav_save"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/primary_rect"
+                    android:fontFamily="@font/roboto_reg"
+                    android:text="Save"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fav_loader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_full_heart" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_full_heart" />
+
+            <ProgressBar
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:progressTint="@color/blue"
+                android:indeterminateTint="@color/blue"
+                android:backgroundTint="@color/blue"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateOnly="true" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_full_heart" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_full_heart" />
+
+        </LinearLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+</layout>

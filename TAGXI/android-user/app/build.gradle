@@ -1,0 +1,189 @@
+apply plugin: 'com.android.application'
+
+//apply plugin: 'io.fabric'
+
+repositories {
+   /* maven {
+        url 'https://maven.fabric.io/public'
+    }*/
+}
+buildscript {
+    repositories {
+        //maven { url 'https://maven.fabric.io/public' }
+        google()
+    }
+
+    dependencies {
+        // These docs use an open ended version so that our plugin
+        // can be updated quickly in response to Android tooling updates
+
+        // We recommend changing it to the latest version from our changelog:
+        // https://docs.fabric.io/android/changelog.html#fabric-gradle-plugin
+        //classpath 'io.fabric.tools:gradle:1.+'
+
+        //classpath 'com.google.gms:google-services:4.3.5'
+    }
+}
+android {
+    ndkVersion "22.1.7171670"
+    compileSdkVersion 30
+//    buildToolsVersion "28.0.0"
+    signingConfigs {
+        ReleaseConfig {
+            keyAlias 'GoTaxiClient'
+            keyPassword 'GoTaxiClient'
+            storeFile file('../KeyStore/GoTaxiClient.jks')
+            storePassword 'GoTaxiClient'
+        }
+    }
+    defaultConfig {
+        applicationId "com.tyt.client"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 30
+        multiDexEnabled true
+
+        versionName "3.0"
+
+        vectorDrawables.useSupportLibrary = true
+        signingConfig signingConfigs.ReleaseConfig
+        setProperty("archivesBaseName", "$parent.name-$versionName")
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures{
+        dataBinding true
+    }
+   /* dataBinding {
+        enabled = true
+        version = '3.3.2'
+    }*/
+    buildToolsVersion = '29.0.2'
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':slideDateTimePicker')
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    /*compile 'uk.co.chrisjenx:calligraphy:2.3.0'*/
+
+    // dependency injection
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+
+    /*implementation('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
+        transitive = true
+    }*/
+
+    //Firebase
+/*    implementation platform('com.google.firebase:firebase-bom:28.2.1')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.firebase:geofire-android:3.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'*/
+
+    implementation platform('com.google.firebase:firebase-bom:26.6.0')
+    implementation 'com.google.firebase:firebase-auth:20.0.4'
+    implementation 'com.google.firebase:firebase-messaging:21.1.0'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
+    implementation 'com.firebase:geofire-android:3.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.4.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation('io.socket:socket.io-client:1.0.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+    implementation 'com.braintreepayments.api:drop-in:5.2.0'
+
+    /*compile 'com.android.support:appcompat-v7:25.0.+'
+    compile 'com.android.support:design:25.0.+'
+    compile 'com.android.support:support-v4:25.0.0-alpha1'*/
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.4'
+    implementation 'com.facebook.android:facebook-login:4.42.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0@aar'
+    implementation 'com.google.zxing:core:3.3.2'
+
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.0'
+    implementation 'com.google.android.gms:play-services-identity:17.0.0'
+    implementation 'com.google.android.gms:play-services-plus:17.0.0'
+    testImplementation 'junit:junit:4.13.2'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:25.0.0'
+
+    implementation 'com.github.florent37:singledateandtimepicker:2.2.6'
+
+    implementation "com.ncorti:slidetoact:0.8.0"
+
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+    implementation 'com.github.clans:fab:1.6.4'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.browser:browser:1.3.0'
+    implementation 'com.google.android.play:core:1.10.0'
+    implementation 'com.github.tingyik90:snackprogressbar:6.4.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.google.firebase:firebase-appcheck-debug:16.0.0-beta01'
+    implementation 'com.google.firebase:firebase-appcheck-safetynet:16.0.0-beta01'
+
+    //Map-box
+    //implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.1'
+    //implementation "com.airbnb.android:lottie:3.4.0"
+    //implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    implementation 'com.github.aarsy.googlemapsanimations:googlemapsanimations:1.0.5'
+    implementation 'com.wang.avi:library:2.1.3'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
+}
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'

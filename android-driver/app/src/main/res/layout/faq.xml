@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.driver.ui.homeScreen.faq.FaqViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_white">
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_33sdp"
+            android:onClick="@{viewModel::onClickBack}"
+            android:padding="@dimen/_3sdp"
+            app:srcCompat="@drawable/ic_back_img" />
+
+        <TextView
+            android:id="@+id/faq_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_28sdp"
+            android:layout_toEndOf="@+id/back_img"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@{viewModel.translationModel.txt_faq}"
+            android:textAllCaps="true"
+            android:textColor="@color/clr_black"
+            android:textSize="@dimen/_18sdp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/faq_title"
+            android:layout_marginTop="@dimen/_10sdp" />
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

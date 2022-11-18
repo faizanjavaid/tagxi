@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_15sdp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/info_carnam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Car Type "
+                android:textAlignment="viewStart"
+                android:textColor="@color/clr_black"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/info_cardesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_reg"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Search across multiple categories to find next available ride"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/info_carimg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:src="@drawable/car_marker" />
+
+    </LinearLayout>
+
+    <!-- android:id="@+id/info_carseats"-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Supported Vehicles :"
+        android:textColor="@color/clr_black"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/info_sprtd_vhcls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/roboto_reg"
+        android:textColor="@color/grey"
+        android:text="Mahndra , Tata , etc..."/>
+
+    <TextView
+        android:id="@+id/info_totalpay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/clr_black"
+        android:text="Total Payable" />
+
+    <RelativeLayout
+        android:id="@+id/info_done_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/black_round_bg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="DONE"
+            android:textAlignment="center"
+            android:textColor="@color/clr_white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

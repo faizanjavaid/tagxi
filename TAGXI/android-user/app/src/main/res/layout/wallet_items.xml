@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Receieved form xxxx"
+        android:textColor="@color/clr_474747"
+        android:textSize="@dimen/_13sdp" />
+
+    <TextView
+        android:id="@+id/title_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="FEB 6th,2016"
+        android:textColor="@color/clr_929292"
+        android:textSize="@dimen/_13sdp" />
+
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="+ $65"
+        android:textColor="@color/clr_green"
+        android:textSize="@dimen/_13sdp" />
+
+</RelativeLayout>

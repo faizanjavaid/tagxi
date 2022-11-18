@@ -1,0 +1,93 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/clr_0B4DD8</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryAccent</item>
+        <item name="colorAccent">@color/colorPrimaryAccent</item>
+
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="colorControlNormal">@color/clr_white</item>
+
+    </style>
+
+    <style name="splashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/clr_white</item>
+    </style>
+
+    <style name="Button.ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:padding">5dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:background">@null</item>
+    </style>
+
+
+    <!-- <style name="customRatingBar" parent="@android:style/Widget.RatingBar">
+         <item name="android:progressDrawable">@drawable/customratingbar</item>
+         &lt;!&ndash;<item name="android:minHeight">22dip</item>&ndash;&gt;
+         &lt;!&ndash;<item name="android:maxHeight">22dip</item>&ndash;&gt;
+     </style>
+ -->
+
+
+    <!--<style name="TextAppearance.FontPath" parent="android:TextAppearance">-->
+    <!--&lt;!&ndash; Custom Font Attr&ndash;&gt;-->
+    <!--<item name="fontPath">fonts/Laksaman.ttf</item>-->
+    <!--</style>-->
+
+    <style name="TextStyle">
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:textColor">@color/clr_white</item>
+    </style>
+
+    <style name="TextStyle.Heading" parent="TextStyle">
+        <item name="android:textSize">16sp</item>
+        <!--<item name="android:textAppearance">@style/TextAppearance.Text.Bold</item>-->
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextStyle.Heading">
+        <item name="android:textColor">@color/clr_white</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Toolbar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="colorControlNormal">@color/clr_white</item>
+    </style>
+
+    <style name="MyCardView" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Cut</item>
+
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Cut" parent="MyCardView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">48dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="FullViewDialog" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <style name="RoundedDialogNarrow" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="dialogCornerRadius">@dimen/_12sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+</resources>

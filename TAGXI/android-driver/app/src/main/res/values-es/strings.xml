@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TYT Driver</string>
+    <string name="txt_NoInternet">Internet no disponible</string>
+    <string name="Alert_title_Permission">permisos</string>
+    <string name="Alert_Msg_Location">Ubicación y estado del teléfono son permisos obligatorios, por favor permita el acceso. Estás seguro de que quieres continuar ?</string>
+    <string name="Txt_Continue">Continuar</string>
+    <string name="Txt_Forgot">Contraseña olvidada</string>
+    <string name="DeviceNotSupport">Este dispositivo no es compatible.</string>
+    <string name="txt_cash">Efectivo</string>
+    <string name="txt_wallet">Billetera</string>
+    <string name="txt_Setting">Ajuste</string>
+    <string name="txt_card">Tarjeta</string>
+    <string name="dialog_no_gps">Sin GPS</string>
+    <string name="dialog_no_gps_messgae">Parece que no ha comenzado su servicio de ubicación.</string>
+    <string name="dialog_enable_gps">Habilitar GPS</string>
+    <string name="Txt_Exit">salida</string>
+    <string name="text_enable_internet">No se detectó conexión a Internet</string>
+    <string name="text_double_tap_exit">Presione nuevamente para salir</string>
+</resources>

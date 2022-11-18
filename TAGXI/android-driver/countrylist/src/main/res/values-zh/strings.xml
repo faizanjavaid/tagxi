@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TYT Driver</string>
+    <string name="txt_Setting">Settings</string>
+    <string name="text_country_codes">Country codes</string>
+
+</resources>

@@ -1,0 +1,11 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+/app/release
+/opwa.mobile-2.40.0/build
+/slideDateTimePicker/build
+.DS_Store
+/build
+/captures
+.externalNativeBuild

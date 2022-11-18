@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tyt.driver.ui.splash.SplashScreen">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.driver.ui.splash.SplashViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/whte_cir"
+            app:srcCompat="@mipmap/ic_launcher_new_icon_foreground"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:gravity="center_vertical|center_horizontal">
+
+            <ImageView
+                android:id="@+id/logo_tv"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:foregroundGravity="center_horizontal"
+                android:src="@mipmap/ic_launcher_new_icon_foreground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_toEndOf="@id/logo_tv"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center_vertical"
+                android:text="Tagyourtaxi"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_28sdp" />
+
+        </RelativeLayout>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            app:indicatorColor="@color/colorPrimary"
+            app:indicatorName="BallPulseIndicator" />
+
+        <!--<ImageView
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@mipmap/ic_launcher_foreground"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@drawable/whte_cir"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="visible" />-->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/splash_anim" />
+
+       <!-- <ImageView
+            android:id="@+id/splash_loader_gf_view"
+            android:layout_width="290dp"
+            android:layout_height="251dp"
+           app:layout_constraintVertical_bias="0.8"
+            tools:src="@drawable/splash_loader"
+            android:alpha="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+    </RelativeLayout>
+
+</layout>

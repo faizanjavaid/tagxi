@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.client.ui.homeScreen.HomeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/homw_main_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coorlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/home_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:id="@+id/fragment_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/bott_card" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/bott_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    app:cardElevation="@dimen/_5sdp">
+
+                    <!--android:visibility="@{viewModel.hideBar?View.VISIBLE:View.GONE}"-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_1sdp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel::onClickHome}"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/home_iconimg"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:padding="@dimen/_5sdp"/>
+                               <!-- android:src="@{!viewModel.homeClicked?@drawable/icon_home:@drawable/anim_home}"-->
+
+                            <!-- -->
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/roboto_reg"
+                                android:text="@{viewModel.translationModel.txt_home}"
+                                android:textColor="@{viewModel.homeClicked?@color/clr_0B4DD8:@color/clr_black}"
+                                android:textSize="@dimen/_10sdp"
+                                tools:text="Home" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel::onClickHistory}"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:padding="@dimen/_5sdp"
+                                 />
+
+                            <!--android:src="@{!viewModel.historyClicked?@drawable/icon_history:@drawable/anim_history}"-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/roboto_reg"
+                                android:text="@{viewModel.translationModel.txt_history}"
+                                android:textColor="@{viewModel.historyClicked?@color/clr_0B4DD8:@color/clr_black}"
+                                android:textSize="@dimen/_10sdp"
+                                tools:text="History" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:onClick="@{viewModel::onClickProfile}"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:padding="@dimen/_5sdp"
+                                />
+
+                            <!-- android:src="@{!viewModel.profileClicked?@drawable/icon_profile:@drawable/anim_profile}"-->
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/roboto_reg"
+                                android:text="@{viewModel.translationModel.txt_profile}"
+                                android:textColor="@{viewModel.profileClicked?@color/clr_0B4DD8:@color/clr_black}"
+                                android:textSize="@dimen/_10sdp"
+                                tools:text="Profile" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <include
+                    android:id="@+id/progressBar"
+                    layout="@layout/progress_dialog"
+                    android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}"
+                    tools:visibility="gone" />
+
+            </RelativeLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+
+</layout>

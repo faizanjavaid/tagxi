@@ -1,0 +1,59 @@
+<resources>
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiZGhpbGlwMDciLCJhIjoiY2txZGN5ZmZ1MGNtbzJvcGhnbG1yN2JtNiJ9._nK0oesncbpbPxmuSII0ZQ</string>
+    <string name="app_name">TYT User</string>
+    <string name="facebook_app_id" translatable="false">276966796008290</string>
+    <string name="Map_key" translatable="false">AIzaSyCYoAMnPRlyeDAFf6DI1DtW1AmrB1YMXXI</string>
+
+    <!--AIzaSyBVE-WE-lwXhxWFHJthZ6FleF1WQ3NmGAU-->
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="txt_NoInternet">Please Check Internet Connection</string>
+    <string name="Alert_title_Permission">Permission</string>
+    <string name="Alert_Msg_Location">Location and Phone State are mandatory permission please allow to access.  Are you sure you want to continue ?</string>
+    <string name="Txt_Continue">Continue</string>
+    <string name="Txt_Forgot">Forget Password</string>
+    <string name="DeviceNotSupport">This device is not supported.</string>
+    <string name="txt_cash">Cash</string>
+    <string name="txt_wallet">Wallet</string>
+    <string name="txt_Setting">Setting</string>
+    <string name="choose_txt" translatable="false"><u>Choose</u></string>
+
+    <string name="txt_card">Card</string>
+    <string name="dialog_no_gps">No GPS</string>
+    <string name="dialog_no_gps_messgae">Seems like you have not started your location service.</string>
+    <string name="dialog_enable_gps">Enable GPS</string>
+    <string name="Txt_Exit">exit</string>
+    <string name="text_enable_internet">No Internet Connection Detected</string>
+    <string name="text_double_tap_exit">Please click BACK again to exit</string>
+    <string name="txt_otp_send">OTP Sent</string>
+    <string name="text_corporate">Corporate</string>
+    <string name="text_mail_phNum">Please enter your Mobile or Email</string>
+    <string name="demo_key_desc"><u>Did not Have Demo Key..? Click Here</u></string>
+    <string name="visit_us"><u>Visit Us</u></string>
+
+    <string name="txt_try_again">Try again</string>
+
+    <string name="txt_update_avail">Update Available</string>
+    <string name="txt_update_desc">Your Application update is available</string>
+    <string name="txt_update">Update</string>
+    <string name="text_camera">Camera</string>
+    <string name="text_galary">Gallery</string>
+    <string name="txt_Choose">Choose</string>
+
+    <string name="txt_completed">Completed</string>
+    <string name="txt_cancelled">Cancelled</string>
+    <string name="txt_raise_reason">Raise your Reason</string>
+    <string name="txt_confirm">Confirm</string>
+    <string name="txt_choose_reason">Choose Reason</string>
+    <string name="txt_pls_enter_reason">Please enter a reason to continue</string>
+    <string name="sos_call">sos call</string>
+
+    <string name="txt_cc_invalid">Country Code Invaid</string>
+
+    <string name="txt_phone_required">Phone Required</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="txt_bg_location_msg">TYT User needs Your Permissions to access your Location Services to make Smooth App Experience.</string>
+
+
+</resources>

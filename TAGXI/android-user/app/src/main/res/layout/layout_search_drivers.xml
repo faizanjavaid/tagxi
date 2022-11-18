@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModelBookSearch"
+            type="com.tyt.client.ui.homeScreen.makeTrip.MakeTripViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/search_driver_co_ordlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/search_drive_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@color/clr_white"
+            android:nestedScrollingEnabled="true"
+            android:orientation="vertical"
+            app:behavior_hideable="true"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <ImageView
+                android:id="@+id/divideric"
+                android:layout_width="@dimen/_29sdp"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:src="@drawable/ic_divider_bottom_menu" />
+
+            <TextView
+                android:id="@+id/main_title_searchbook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{viewModelBookSearch.SearchTitle}"
+                android:textAlignment="center"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textColor="@color/clr_black"
+                android:textSize="@dimen/_12sdp"
+                tools:text="Waiting For a near driver around you to accept your booking"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/short_title_searchbook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="searching in progress..."
+                android:textAlignment="center"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:visibility="gone"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_10sdp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@color/colorBlack" />
+
+                <pl.droidsonroids.gif.GifTextView
+                    android:id="@+id/anim_searchbook"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bk_searching"
+                    />
+
+            <TextView
+                android:id="@+id/try_again__searchbook"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/black_round_bg"
+                android:gravity="center"
+                android:visibility="gone"
+                android:text="Try Again"
+                android:textAlignment="center"
+                android:textColor="#fff" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cancel_button_book"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:elevation="@dimen/_30sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel Ride"
+                    android:textColor="@color/clr_black"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:elevation="@dimen/_30sdp"
+                app:cardCornerRadius="@dimen/_5sdp">
+
+                <LinearLayout
+                    android:id="@+id/pickdropdetailcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/green_dot" />
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@color/grey"
+                            android:foregroundGravity="center_vertical"
+                            android:visibility="@{viewModelBookSearch.showdropbookui?View.VISIBLE:View.GONE}" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/red_dot"
+                            android:visibility="@{viewModelBookSearch.showdropbookui?View.VISIBLE:View.GONE}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/pick_tv_book"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite"
+                            android:drawablePadding="@dimen/_10sdp"
+                            android:fontFamily="@font/roboto_reg"
+                            android:hint="Pickup Address"
+                            android:maxLines="1"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:text="@{viewModelBookSearch.pickupAddress}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/clr_black"
+                            android:textSize="@dimen/_9sdp"
+                            app:boxBackgroundMode="none" />
+
+                        <View
+                            android:id="@+id/drop_line_view_book"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.3dp"
+                            android:background="@color/clr_black"
+                            android:visibility="@{viewModelBookSearch.showdropbookui?View.VISIBLE:View.GONE}" />
+
+                        <TextView
+                            android:id="@+id/droptv_book"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite"
+                            android:drawablePadding="@dimen/_10sdp"
+                            android:editable="false"
+                            android:focusable="true"
+                            android:fontFamily="@font/roboto_reg"
+                            android:hint="Drop Address"
+                            android:maxLines="1"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:text="@{viewModelBookSearch.dropAddress}"
+                            android:textColor="@color/clr_black"
+                            android:textSize="@dimen/_9sdp"
+                            android:visibility="@{viewModelBookSearch.showdropbookui?View.VISIBLE:View.GONE}"
+                            app:boxBackgroundMode="none" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

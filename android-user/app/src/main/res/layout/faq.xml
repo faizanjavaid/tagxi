@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.client.ui.homeScreen.faq.FaqViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_white">
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:onClick="@{viewModel::onClickBack}"
+            android:padding="@dimen/_3sdp"
+            app:srcCompat="@drawable/ic_back_img" />
+
+        <TextView
+            android:id="@+id/faq_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_toEndOf="@+id/back_img"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@{viewModel.PageTitle}"
+            android:textAllCaps="true"
+            tools:text="FAQ"
+            android:textColor="@color/clr_black"
+            android:textSize="@dimen/_18sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/faq_title"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:visibility="@{viewModel.is_Fav?View.GONE:View.VISIBLE}"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fav_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recycle"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:visibility="@{viewModel.is_Fav?View.VISIBLE:View.GONE}"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"/>
+
+        <ImageView
+            android:id="@+id/nofav_img"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:src="@drawable/no_fav"
+            android:layout_centerVertical="true"
+            android:visibility="@{viewModel.nofav?View.VISIBLE:View.GONE}"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Favourites to show"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/nofav_img"
+            android:textAlignment="center"
+            android:visibility="@{viewModel.nofav?View.VISIBLE:View.GONE}"
+            android:textColor="@color/clr_black"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="@dimen/_11sdp"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            tools:visibility="gone"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

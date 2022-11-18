@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TYT Driver</string>
+    <string name="txt_NoInternet">インターネット接続を確認してください</string>
+    <string name="Alert_title_Permission">許可</string>
+    <string name="Alert_Msg_Location">アクセスするには、ロケーションと電話の状態を許可する必要があります。 続行してもよろしいですか？</string>
+    <string name="Txt_Continue">持続する</string>
+    <string name="Txt_Forgot">国コードは空であってはいけません</string>
+    <string name="DeviceNotSupport">このデバイスはサポートされていません</string>
+    <string name="txt_cash">現金</string>
+    <string name="txt_Setting">設定</string>
+    <string name="dialog_no_gps">GPSなし</string>
+    <string name="dialog_no_gps_messgae">位置情報サービスが利用されていません。</string>
+    <string name="dialog_enable_gps">GPSを作動する</string>
+    <string name="Txt_Exit">出口</string>
+    <string name="text_enable_internet">No Internet Connection Detected</string>
+    <string name="text_double_tap_exit">Please click BACK again to exit</string>
+    <string name="txt_card">card</string>
+    <string name="txt_wallet">Wallet</string>
+</resources>

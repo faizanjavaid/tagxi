@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tyt.client.ui.splash.SplashScreen">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.client.ui.splash.SplashViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:background="@drawable/whit_circle"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:drawableStart="@drawable/app_icon"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center_vertical"
+            android:text="Tagyourtaxi"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_28sdp" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="visible"
+            app:indicatorColor="@color/colorPrimary"
+            app:indicatorName="BallPulseIndicator" />
+
+        <!-- <ImageView
+             android:id="@+id/progressBar"
+             android:layout_width="@dimen/_45sdp"
+             android:layout_height="@dimen/_45sdp"
+             android:src="@mipmap/ic_launcher_foreground"
+             android:layout_gravity="center"
+             android:layout_centerInParent="true"
+             android:background="@drawable/whit_circle"/>
+
+         <ProgressBar
+             style="?android:attr/progressBarStyleLarge"
+             android:layout_width="80dp"
+             android:layout_height="100dp"
+             android:layout_centerInParent="true"
+             android:layout_gravity="center"
+             android:visibility="visible" />-->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/splash_anim" />
+
+        <!-- <pl.droidsonroids.gif.GifTextView
+             android:layout_width="290dp"
+             android:layout_height="251dp"
+             android:layout_alignParentBottom="true"
+             android:layout_centerHorizontal="true"
+             android:alpha="1"
+             android:background="@drawable/splash_loader" />-->
+
+    </RelativeLayout>
+</layout>
+
+
+    <!--
+
+    <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.5"
+                app:srcCompat="@drawable/bot_bg" />-->
+
+    <!--
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Customer"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_14sdp" />
+
+        -->

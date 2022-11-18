@@ -1,0 +1,209 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.client.ui.homeScreen.mapFrag.MapFragViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_white">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/map_co_ord_lay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/clr_white">
+
+            <RelativeLayout
+                android:id="@+id/Parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- <com.mapbox.mapboxsdk.maps.MapView
+                     android:id="@+id/map"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent" />-->
+
+                <fragment
+                    android:id="@+id/mapview"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    class="com.tyt.client.utilz.MySupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{viewModel.pickupClicked?View.VISIBLE:View.GONE}"
+                    app:srcCompat="@drawable/pick_marker" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{viewModel.dropClicked?View.VISIBLE:View.GONE}"
+                    app:srcCompat="@drawable/drop_marker" />
+
+
+                <include
+                    android:id="@+id/map_home_lay"
+                    layout="@layout/appbar_home_lay"
+                    android:visibility="@{viewModel.in_home?View.VISIBLE:View.GONE}"
+                    app:viewModelAppBarHome="@{viewModel}"
+                    tools:visibility="visible" />
+
+
+                <include
+                    android:id="@+id/map_pick_drop_lay"
+                    layout="@layout/appbar_pickdrop_lay"
+                    android:visibility="@{viewModel.in_pickDrop?View.VISIBLE:View.GONE}"
+                    app:viewModelAppBarPickDrop="@{viewModel}"
+                    tools:visibility="gone" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:onClick="@{viewModel::showmyselfDialog}"
+                    android:visibility="@{viewModel.show_dropui?View.VISIBLE:View.GONE}"
+                    app:cardBackgroundColor="@color/clr_E70000"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    app:cardUseCompatPadding="true"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:fontFamily="@font/roboto_reg"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:text="@{viewModel.translationModel.txt_book_ride}"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_13sdp"
+                        tools:text="Book Ride" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/confirm_loc_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:visibility="@{viewModel.show_dropui?View.GONE:View.VISIBLE}"
+                    app:cardBackgroundColor="@color/clr_E70000"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    tools:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:fontFamily="@font/roboto_reg"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="Confirm Location"
+                        android:textAlignment="center"
+                        android:textColor="@color/clr_white"
+                        android:textSize="@dimen/_13sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!--android:onClick="@{viewModel::openPickDrop}"-->
+
+            </RelativeLayout>
+
+            <!--  <FrameLayout
+                  android:id="@+id/map_sheet_holder"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  app:behavior_hideable="false"
+                  app:layout_behavior="com.tyt.client.utilz.CustomBottomSheetBehavior">-->
+
+            <include
+                android:id="@+id/mapsheet"
+                layout="@layout/lay_bottom_sheet"
+                android:visibility="visible"
+                app:viewModelBT1="@{viewModel}"
+                tools:visibility="gone" />
+
+            <!-- </FrameLayout>-->
+
+            <!-- <FrameLayout
+                 android:id="@+id/pickdrop_sheet_holder"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 app:behavior_hideable="false"
+                 app:layout_behavior="com.tyt.client.utilz.CustomBottomSheetBehavior">
+ -->
+            <include
+                android:id="@+id/pickdropsheet"
+                layout="@layout/layout_pick_drop_sheet"
+                android:visibility="visible"
+                app:pdsheetviewModel="@{viewModel}"
+                tools:visibility="gone" />
+
+            <!--<include
+                android:id="@+id/search_sheet"
+                layout="@layout/layout_search_drivers"
+                app:viewModelBookSearch="@{viewModel}"
+                tools:visibility="visible"/>-->
+
+            <!--    </FrameLayout>-->
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/curr_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="false"
+                android:layout_centerVertical="false"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foregroundGravity="center|center_vertical|center_horizontal"
+                android:onClick="@{viewModel::onClickCurrentLoc}"
+                android:translationY="-50dp"
+                android:translationZ="@dimen/_90sdp"
+                android:visibility="@{viewModel.show_dropui?View.GONE:viewModel.in_pickDrop?View.GONE:View.VISIBLE}"
+                app:backgroundTint="@color/clr_white"
+                app:layout_anchor="@+id/map_bottom_sheet"
+                app:layout_anchorGravity="top|end"
+                app:rippleColor="#E2E2E2"
+                tools:visibility="visible"
+                app:srcCompat="@drawable/curr_loc_butt" />
+
+            <include
+                android:id="@+id/progressBar"
+                layout="@layout/progress_dialog"
+                android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}"
+                tools:visibility="gone" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </RelativeLayout>
+
+</layout>

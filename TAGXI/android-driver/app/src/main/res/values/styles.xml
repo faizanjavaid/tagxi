@@ -1,0 +1,172 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/clr_0B4DD8</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/clr_0B4DD8</item>
+
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="colorControlNormal">@color/clr_white</item>
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/window_bg</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/clr_white</item>
+    </style>
+
+    <style name="Button.ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:padding">5dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="CustomhorizontalProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal" />
+
+
+    <!-- <style name="customRatingBar" parent="@android:style/Widget.RatingBar">
+         <item name="android:progressDrawable">@drawable/customratingbar</item>
+         &lt;!&ndash;<item name="android:minHeight">22dip</item>&ndash;&gt;
+         &lt;!&ndash;<item name="android:maxHeight">22dip</item>&ndash;&gt;
+     </style>
+ -->
+
+
+    <!--<style name="TextAppearance.FontPath" parent="android:TextAppearance">-->
+    <!--&lt;!&ndash; Custom Font Attr&ndash;&gt;-->
+    <!--<item name="fontPath">fonts/Laksaman.ttf</item>-->
+    <!--</style>-->
+
+    <style name="TextStyle">
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:textColor">@color/clr_white</item>
+    </style>
+
+    <style name="TextStyle.Heading" parent="TextStyle">
+        <item name="android:textSize">16sp</item>
+        <!--<item name="android:textAppearance">@style/TextAppearance.Text.Bold</item>-->
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextStyle.Heading">
+        <item name="android:textColor">@color/clr_white</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Toolbar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="colorControlNormal">@color/clr_white</item>
+    </style>
+
+    <style name="RoundedDialogNarrow" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="dialogCornerRadius">@dimen/_12sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="LoginTextView" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:color">@color/colorPrimary</item>
+        <item name="android:textCursorDrawable">@color/colorPrimary</item>
+        <item name="boxBackgroundColor">@color/bt_very_light_gray</item>
+    </style>
+
+    <style name="HintText" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+    <style name="HelperText" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:gravity">start</item>
+          <item name="helperTextTextColor">@color/clr_FF0000</item>    </style>
+    <style name="AppTheme.TextFloatLabelAppearance" parent="TextAppearance.Design.Hint">
+        <!-- Floating label appearance here -->
+        <item name="android:textColorHint">@drawable/text_input_text_color</item>
+    </style>
+
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="theme">@style/Theme.MaterialComponents</item>
+        <item name="boxStrokeColor">@drawable/text_input_box_stroke_country</item>
+        <item name="android:textColor">@drawable/disabled_color</item>
+        <item name="hintTextAppearance">@style/AppTheme.TextFloatLabelAppearance</item>
+        <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_2sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_2sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_5sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_5sdp</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorSurface">@color/colorWhite</item>
+<!--        <item name="colorAccent">#FF6E40</item>-->
+<!--        <item name="colorOnBackground">#FF0000</item>-->
+<!--        <item name="colorButtonNormal">#B30000</item>-->
+<!--        <item name="colorBackgroundFloating">#89FF00</item>-->
+<!--        <item name="colorControlActivated">#EAA44C</item>-->
+<!--        <item name="colorControlNormal">#18005A</item>-->
+<!--        <item name="colorControlHighlight">#534C65</item>-->
+<!--        <item name="colorOnPrimary">#B095FD</item>-->
+<!--        <item name="colorOnPrimarySurface">#B9E6FA</item>-->
+<!--        <item name="colorOnSecondary">#023247</item>-->
+<!--       -->
+<!--        <item name="colorPrimaryDark">#E4155C</item>-->
+<!--        <item name="colorPrimarySurface">#FF4105</item>-->
+<!--        <item name="colorSecondaryVariant">#EAEA3B</item>-->
+<!--       -->
+<!--        <item name="android:colorActivatedHighlight">#1F7C4E</item>-->
+<!--        <item name="android:colorPressedHighlight">#635565</item>-->
+<!--        <item name="android:colorButtonNormal">#330D00</item>-->
+<!--        <item name="android:shadowColor">#F38E6E</item>-->
+
+        <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow
+        </item>
+
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Pill">
+        <item name="cornerSize">50%</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.Cut">
+        <item name="cornerSize">105%</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="android:topLeftRadius">@dimen/_50sdp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_20sdp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Cut.Medium">
+        <item name="cornerSize">16dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="MyCardView" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Cut</item>
+
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Cut" parent="MyCardView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">48dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="RIDEOTP_Theme_Dialog" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+
+
+</resources>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.tyt.driver.ui.homeScreen.HomeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/home_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/on_off"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/clr_white"
+            android:gravity="center"
+            android:paddingTop="@dimen/_2sdp"
+            android:fontFamily="@font/roboto_reg"
+            android:text="@{viewModel.isOnline ? viewModel.translationModel.txt_your_online : viewModel.translationModel.txt_your_offline}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12sdp" />
+<!--        android:visibility="@{viewModel.isOnline ? View.GONE : View.VISIBLE}"-->
+
+        <FrameLayout
+            android:id="@+id/fragment_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/on_off"
+            android:layout_above="@+id/bott_card" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bott_card"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@{viewModel.isOnline?@drawable/red_border_cir:@drawable/green_border_cir}"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@{viewModel.isOnline?@string/OFF:@string/ON}"
+            android:textColor="@color/clr_white"
+            android:textSize="@dimen/_14sdp"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/online_offline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_above="@+id/space"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_8sdp">
+
+            <TextView
+                android:id="@+id/stop"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/white_circle"
+                android:fontFamily="@font/roboto_reg"
+                android:gravity="center"
+                android:elevation="@dimen/_5sdp"
+                android:onClick="@{viewModel::onClickGo}"
+                android:text="@{viewModel.translationModel.txt_stop}"
+                android:textColor="@color/clr_white"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="@{viewModel.isOnline?View.VISIBLE:View.GONE}" />
+
+            <TextView
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/green_border_cir"
+                android:elevation="@dimen/_5sdp"
+                android:fontFamily="@font/roboto_reg"
+                android:gravity="center"
+                android:onClick="@{viewModel::onClickGo}"
+                android:text="@{viewModel.translationModel.txt_go}"
+                android:textColor="@color/clr_white"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="@{viewModel.isOnline ? View.GONE : View.VISIBLE}" />
+
+        </RelativeLayout>
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_above="@+id/bott_card" />
+
+        <!--        <RelativeLayout-->
+        <!--            android:id="@+id/online_offline"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="@dimen/_38sdp"-->
+        <!--            android:layout_above="@+id/bott_card"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:layout_marginBottom="@dimen/_10sdp"-->
+        <!--            android:background="@drawable/border_rect_curve"-->
+        <!--            android:visibility="gone">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/status"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_centerVertical="true"-->
+        <!--                android:layout_marginStart="10dp"-->
+        <!--                android:fontFamily="@font/roboto_bold"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text="@{!viewModel.isOnline?@string/OFF:@string/ON}"-->
+        <!--                android:textColor="@color/clr_black" />-->
+
+        <!--            <androidx.appcompat.widget.SwitchCompat-->
+        <!--                android:id="@+id/switch_compat"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_centerVertical="true"-->
+        <!--                android:layout_toEndOf="@+id/status"-->
+        <!--                android:gravity="center"-->
+        <!--                android:paddingStart="@dimen/_12sdp"-->
+        <!--                android:paddingEnd="@dimen/_10sdp"-->
+        <!--                android:thumb="@{viewModel.isOnline?@drawable/green_dot:@drawable/red_dot}"-->
+        <!--                app:track="@color/clr_transparent" />-->
+
+        <!--            &lt;!&ndash;            android:checked="@{viewModel.setToglleStatus}"&ndash;&gt;-->
+
+        <!--        </RelativeLayout>-->
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bott_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+           android:visibility="gone"
+            app:cardElevation="@dimen/_5sdp">
+
+            <!-- android:visibility="@{viewModel.hideBar?View.VISIBLE:View.GONE}"-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/_1sdp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:onClick="@{viewModel::onClickHome}"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@{!viewModel.homeClicked?@drawable/icon_home:@drawable/icon_color_home}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_reg"
+                        android:text="@{viewModel.translationModel.txt_home}"
+                        android:textColor="@{viewModel.homeClicked?@color/clr_E70000:@color/clr_black}"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{viewModel::onClickHistory}"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@{!viewModel.historyClicked?@drawable/icon_history:@drawable/icon_color_history}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_reg"
+                        android:text="@{viewModel.translationModel.txt_my_booking}"
+                        android:textColor="@{viewModel.historyClicked?@color/clr_E70000:@color/clr_black}"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{viewModel::onClickProfile}"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@{!viewModel.profileClicked?@drawable/icon_profile:@drawable/icon_clr_profile}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_reg"
+                        android:text="@{viewModel.translationModel.txt_profile}"
+                        android:textColor="@{viewModel.profileClicked?@color/clr_E70000:@color/clr_black}"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_dialog"
+            android:visibility="@{viewModel.mIsLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>
