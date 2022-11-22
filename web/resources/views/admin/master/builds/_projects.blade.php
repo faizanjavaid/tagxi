@@ -9,7 +9,7 @@
     </span>
     </th>
 
-    <th> Project
+    <th>  @lang('view_pages.project')
     <span style="float: right;">
     </span>
     </th>

@@ -9,5 +9,7 @@ class SettingCategory
     const GENERAL = 'general';
     const INSTALLATION ='installation';
     const REFERRAL ='Referral';
+    const WALLET ='Wallet';
     const MAP_SETTINGS ='map_settings';
+    const FIREBASE_SETTINGS ='firebase_settings';
 }

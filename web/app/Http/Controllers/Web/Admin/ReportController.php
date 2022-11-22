@@ -22,6 +22,9 @@ use App\Base\Filters\Master\CommonMasterFilter;
 use App\Models\Request\Request as RequestRequest;
 use App\Base\Libraries\QueryFilter\QueryFilterContract;
 use Carbon\Carbon;
+use App\Models\Admin\Owner;
+use App\Exports\OwnerExport;
+use App\Base\Filters\Admin\OwnerFilter;
 
 class ReportController extends Controller
 {
@@ -49,6 +52,18 @@ class ReportController extends Controller
 
         return view('admin.reports.driver_report', compact('page', 'main_menu', 'sub_menu', 'formats', 'vehicletype'));
     }
+    public function ownerReport()
+    {
+        $page = trans('pages_names.owner_report');
+
+        $main_menu = 'reports';
+        $sub_menu = 'owner_report';
+        $formats = $this->format;
+        $vehicletype = VehicleType::active()->get();
+
+        return view('admin.reports.owner_report', compact('page', 'main_menu', 'sub_menu', 'formats', 'vehicletype'));
+    }
+
     public function driverDutiesReport()
     {
         $page = trans('pages_names.driver_duties_report');
@@ -62,7 +77,7 @@ class ReportController extends Controller
 
     public function travelReport()
     {
-        $page = trans('pages_names.travel_report');
+        $page = trans('pages_names.finance_report');
 
         $main_menu = 'reports';
         $sub_menu = 'travel_report';
@@ -74,6 +89,7 @@ class ReportController extends Controller
 
     public function downloadReport(Request $request, QueryFilterContract $queryFilter)
     {
+
         $method = "download".$request->model."Report";
 
         $filename = $this->$method($request, $queryFilter);
@@ -174,6 +190,26 @@ class ReportController extends Controller
         $filename = "$request->model Report-".date('ymdis').'.'.$format;
 
         Excel::store(new TravelExport($data), $filename, 'local');
+
+        return $filename;
+    }
+    public function downloadOwnerReport(Request $request, QueryFilterContract $queryFilter)
+    {
+     
+     $format = $request->format;
+
+        $query = Owner::query();
+        if (env('APP_FOR')=='demo') {
+            $query = Owner::whereHas('owner_id', function ($query) {
+                $query->where('active', $request->status);
+            });
+        }
+
+        $data = $queryFilter->builder($query)->customFilter(new OwnerFilter)->defaultSort('-date')->get();
+
+        $filename = "$request->model Report-".date('ymdis').'.'.$format;
+
+        Excel::store(new OwnerExport($data), $filename, 'local');
 
         return $filename;
     }

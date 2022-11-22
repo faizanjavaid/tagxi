@@ -31,10 +31,15 @@ Route::prefix('user')->namespace('User')->middleware('auth')->group(function () 
         Route::post('profile', 'ProfileController@updateProfile');
         Route::post('driver-profile', 'ProfileController@updateDriverProfile');
         Route::post('update-my-lang', 'ProfileController@updateMyLanguage');
+        Route::post('update-bank-info','ProfileController@updateBankinfo');
+        Route::get('get-bank-info','ProfileController@getBankInfo');
         // Add Favourite location
         Route::get('list-favourite-location','ProfileController@FavouriteLocationList');
         Route::post('add-favourite-location','ProfileController@addFavouriteLocation');
         Route::get('delete-favourite-location/{favourite_location}','ProfileController@deleteFavouriteLocation');
+        // Delete user Account.
+        Route::post('delete-user-account','ProfileController@userDeleteAccount');
+
     });
 });
 

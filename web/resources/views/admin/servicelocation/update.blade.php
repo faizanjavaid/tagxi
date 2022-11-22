@@ -48,7 +48,7 @@
 
         </div>
     </div>
-
+<!-- 
     <input type="hidden" name="currency_name" id="currency_name" value="{{ $item->currency_name }}">
     <div class="col-sm-6">
             <div class="form-group">
@@ -66,7 +66,7 @@
             <span class="text-danger">{{ $errors->first('currency_symbol') }}</span>
 
         </div>
-    </div>
+    </div> -->
 
     <div class="col-sm-6">
             <div class="form-group">
@@ -108,7 +108,7 @@
 
 </div>
 <!-- content -->
-
+<!-- 
 <script type="text/javascript"> 
 function changeCurrencyByCountry(){
     var id = $('#country').val();
@@ -132,5 +132,5 @@ $(document).on('change','#country',function(e){
 });
 
 changeCurrencyByCountry();
-</script>
+</script> -->
 @endsection

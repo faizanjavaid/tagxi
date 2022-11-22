@@ -47,7 +47,7 @@
     </span>
     </th>
 
-    <th> Environment
+    <th> @lang('view_pages.environment')
     <span style="float: right;">
     </span>
     </th>

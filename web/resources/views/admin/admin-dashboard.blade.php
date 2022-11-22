@@ -135,7 +135,7 @@
                         </h4>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item flexbox" href="#">
-                            <span>Tagyourtaxi</span>
+                            <span>Tagxi</span>
                             <span class="badge badge-pill badge-dark">5</span>
                         </a>
                         <a class="dropdown-item" href="#">Tagyourtruck</a>
@@ -174,6 +174,7 @@
                 <button class="btn btn-outline btn-dark bg-dark text-white w-full w-md-auto" type="button">Go</button>
             </div>
         </div> --}}
+      
         <div class="row g-3">
             <div class="col-sm-6 col-md-3">
                 <div class="card overflow-hidden" style="min-width: 12rem">
@@ -182,12 +183,11 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Drivers registered<span class="badge badge-soft-warning rounded-pill ml-2">-0.23%</span>
+                        <h6>@lang('view_pages.drivers_registered')<span class="badge badge-soft-warning rounded-pill ml-2">-0.23%</span>
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
-                            {{ $total_drivers }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#">See
-                            all<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
+                            {{ $total_drivers }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#">@lang('view_pages.see_all')<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
                     </div>
                 </div>
             </div>
@@ -198,12 +198,11 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Drivers Approved<span class="badge badge-soft-success rounded-pill ml-2">25%</span>
+                        <h6>@lang('view_pages.drivers_approved')<span class="badge badge-soft-success rounded-pill ml-2">25%</span>
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-success"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
-                            {{ $driver_approval }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#">See
-                            all<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
+                            {{ $driver_approval }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#">@lang('view_pages.see_all')<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
                     </div>
                 </div>
             </div>
@@ -215,13 +214,13 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Drivers waiting for approval<span
+                        <h6>>@lang('view_pages.drivers_waiting_for_approval')<span
                                 class="badge badge-soft-warning rounded-pill ml-2">-0.23%</span>
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
                             {{ $driver_approval_waiting }}</div><a class="font-weight-semi-bold fs--1 text-nowrap"
-                            href="#">See all<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
+                            href="#">@lang('view_pages.see_all')<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
                     </div>
                 </div>
             </div>
@@ -233,12 +232,11 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Users registered<span class="badge badge-soft-warning rounded-pill ml-2">-0.23%</span>
+                        <h6> @lang('view_pages.users_registered')<span class="badge badge-soft-warning rounded-pill ml-2">-0.23%</span>
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-danger"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
-                            {{ $total_users }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#">See
-                            all<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
+                            {{ $total_users }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#">@lang('view_pages.see_all')<span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
                     </div>
                 </div>
             </div>
@@ -251,7 +249,7 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="font-weight-600">Today's Trips</h3>
+                                <h3 class="font-weight-600">@lang('view_pages.todays_trips')</h3>
                                 <ul class="box-controls pull-right">
                                     <li><a class="box-btn-close" href="#"></a></li>
                                     <li><a class="box-btn-slide" href="#"></a></li>
@@ -275,7 +273,7 @@
                                                     <h4 class="font-weight-600">
                                                         $15,956
                                                         <br>
-                                                        Today Earnings
+                                                       @lang('view_pages.today_earnings')
                                                     </h4>
                                                 </div>
                                             </div>
@@ -284,7 +282,7 @@
                                         <div class="col-md-6">
                                             <div class="box box-body">
                                                 <div class="font-size-18 flexbox align-items-center" style="color: #7460ee">
-                                                    <span style="color: #455a80">By Cash</span>
+                                                    <span style="color: #455a80">B  @lang('view_pages.by_cash')</span>
                                                     <span>$5,956</span>
                                                 </div>
                                                 <div class="progress progress-xxs mt-10 mb-0">
@@ -301,7 +299,7 @@
                                         <div class="col-md-6">
                                             <div class="box box-body">
                                                 <div class="font-size-18 flexbox align-items-center" style="color: #7460ee">
-                                                    <span style="color: #455a80">By Wallet</span>
+                                                    <span style="color: #455a80">@lang('view_pages.by_wallet')</span>
                                                     <span>$1,025</span>
                                                 </div>
                                                 <div class="progress progress-xxs mt-10 mb-0">
@@ -318,7 +316,7 @@
                                         <div class="col-md-6">
                                             <div class="box box-body">
                                                 <div class="font-size-18 flexbox align-items-center" style="color: #7460ee">
-                                                    <span style="color: #455a80">By Card/Online</span>
+                                                    <span style="color: #455a80"> @lang('view_pages.by_card_online')</span>
                                                     <span>$5,902</span>
                                                 </div>
                                                 <div class="progress progress-xxs mt-10 mb-0">
@@ -340,7 +338,7 @@
                                                     <h4 class="font-weight-600">
                                                         $5,000
                                                         <br>
-                                                        Commision
+                                                      @lang('view_pages.commision')
                                                     </h4>
                                                 </div>
                                             </div>
@@ -354,7 +352,7 @@
                                                     <h4 class="font-weight-600">
                                                         $10,956
                                                         <br>
-                                                        Driver Earnings
+                                                        @lang('view_pages.driver_earnings')
                                                     </h4>
                                                 </div>
                                             </div>
@@ -371,7 +369,7 @@
             <div class="col-12 col-lg-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="font-weight-600">Cancellation Chart</h3>
+                        <h3 class="font-weight-600">@lang('view_pages.cancellation_chart')</h3>
                         <ul class="box-controls pull-right">
                             <li><a class="box-btn-close" href="#"></a></li>
                             <li><a class="box-btn-slide" href="#"></a></li>
@@ -391,7 +389,7 @@
                                                 <span class="ion ion-ios-person-outline font-size-50"></span>
                                                 <span class="font-size-40 font-weight-200">45,965</span>
                                             </div>
-                                            <div class="text-right">Total Request Cancelled</div>
+                               <div class="text-right">@lang('view_pages.total_request_cancelled')</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -400,7 +398,7 @@
                                                 <span class="ion ion-ios-person-outline font-size-50"></span>
                                                 <span class="font-size-40 font-weight-200">45,965</span>
                                             </div>
-                                            <div class="text-right">Cancelled due to no Drivers</div>
+                                            <div class="text-right">@lang('view_pages.cancelled_due_to_no_drivers')</div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -409,7 +407,8 @@
                                                 <span class="ion ion-ios-person-outline font-size-50"></span>
                                                 <span class="font-size-40 font-weight-200">45,965</span>
                                             </div>
-                                            <div class="text-right">Cancelled by User</div>
+                                                    <div class="text-right">@lang('view_pages.cancelled_by_user')</div>
+                                        </div> 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -418,7 +417,7 @@
                                                 <span class="ion ion-ios-person-outline font-size-50"></span>
                                                 <span class="font-size-40 font-weight-200">45,965</span>
                                             </div>
-                                            <div class="text-right">Cancelled by Driver</div>
+                                             <div class="text-right">@lang('view_pages.cancelled_by_driver')</div>
                                         </div>
                                     </div>
                                 </div>
@@ -434,7 +433,7 @@
                     <div class="box-header with-border pb-0 mb-20">
                         <div class="row">
                             <div class="col-md-4">
-                                <h3 class="font-weight-600">Overall Earnings</h3>
+                                <h3 class="font-weight-600">@lang('view_pages.overall_earnings')</h3>
                             </div>
                             <div class="col-md-8">
                                 <div class="row g-3 pb-15 pb-md-0 justify-content-end">
@@ -449,7 +448,7 @@
                                                 </h4>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item flexbox" href="#">
-                                                    <span>Tagyourtaxi</span>
+                                                    <span>Tagxi</span>
                                                     <span class="badge badge-pill badge-dark">5</span>
                                                 </a>
                                                 <a class="dropdown-item" href="#">Tagyourtruck</a>
@@ -510,7 +509,7 @@
                                             <h4 class="font-weight-600">
                                                 $15,956
                                                 <br>
-                                                Overall Earnings
+                                               @lang('view_pages.overall_earnings')
                                             </h4>
                                         </div>
                                     </div>
@@ -626,7 +625,7 @@
                                                 </h4>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item flexbox" href="#">
-                                                    <span>Tagyourtaxi</span>
+                                                    <span>Tagxi</span>
                                                     <span class="badge badge-pill badge-dark">5</span>
                                                 </a>
                                                 <a class="dropdown-item" href="#">Tagyourtruck</a>
@@ -765,7 +764,7 @@
                                                 </h4>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item flexbox" href="#">
-                                                    <span>Tagyourtaxi</span>
+                                                    <span>Tagxi</span>
                                                     <span class="badge badge-pill badge-dark">5</span>
                                                 </a>
                                                 <a class="dropdown-item" href="#">Tagyourtruck</a>
@@ -879,7 +878,7 @@
                                                     </h4>
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item flexbox" href="#">
-                                                        <span>Tagyourtaxi</span>
+                                                        <span>Tagxi</span>
                                                         <span class="badge badge-pill badge-dark">5</span>
                                                     </a>
                                                     <a class="dropdown-item" href="#">Tagyourtruck</a>
@@ -1115,7 +1114,7 @@
                                                     </h4>
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item flexbox" href="#">
-                                                        <span>Tagyourtaxi</span>
+                                                        <span>Tagxi</span>
                                                         <span class="badge badge-pill badge-dark">5</span>
                                                     </a>
                                                     <a class="dropdown-item" href="#">Tagyourtruck</a>
@@ -1211,7 +1210,6 @@
 
     </section>
 
-    <script src="http://localhost/tagyourtaxi/future/public/assets/vendor_components/jquery.peity/jquery.peity.js"></script>
 
     <script>
         $(function() {

@@ -234,7 +234,7 @@
                             <div id="map"></div>
 
                             <div id="legend">
-                                <h5>Legend</h5>
+                                <h5>@lang('view_pages.legend')</h5>
                             </div>
 
                             {{-- List requests --}}
@@ -244,7 +244,7 @@
                                 </div>
                                 <div id="request-lists-target">
                                     <include-fragment src="{{ url('fetch/request_lists') }}">
-                                        <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                                        <span style="text-align: center;font-weight: bold;"> @lang('view_pages.loading')</span>
                                     </include-fragment>
                                 </div>
                             </div>
@@ -268,7 +268,7 @@
 
 
     <script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
+        src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=places"></script>
 
     <script>
         var lat = parseFloat("{{ auth()->user()->admin->serviceLocationDetail->zones()->pluck('lat')->first() ?? 11.015956}}");
@@ -353,14 +353,14 @@
 
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyBVE-WE-lwXhxWFHJthZ6FleF1WQ3NmGAU",
-            authDomain: "cabeezie.firebaseapp.com",
-            databaseURL: "https://cabeezie.firebaseio.com",
-            projectId: "cabeezie",
-            storageBucket: "cabeezie.appspot.com",
-            messagingSenderId: "656697310655",
-            appId: "1:656697310655:web:b2b93485dff3591cb9f50a",
-            measurementId: "G-TJZ64ECJB0"
+                apiKey: "{{get_settings('firebase-api-key')}}",
+    authDomain: "{{get_settings('firebase-auth-domain')}}",
+    databaseURL: "{{get_settings('firebase-db-url')}}",
+    projectId: "{{get_settings('firebase-project-id')}}",
+    storageBucket: "{{get_settings('firebase-storage-bucket')}}",
+    messagingSenderId: "{{get_settings('firebase-messaging-sender-id')}}",
+    appId: "{{get_settings('firebase-app-id')}}",
+    measurementId: "{{get_settings('firebase-measurement-id')}}"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);

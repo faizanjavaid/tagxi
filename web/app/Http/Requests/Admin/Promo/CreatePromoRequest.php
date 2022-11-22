@@ -19,8 +19,8 @@ class CreatePromoRequest extends FormRequest
             'minimum_trip_amount' => 'required|integer',
             'maximum_discount_amount' => 'required|integer',
             'discount_percent' => 'required|integer|max:100',
-            'total_uses' => 'required|integer',
-            'uses_per_user' => 'required|integer',
+            // 'total_uses' => 'required|integer',
+            // 'uses_per_user' => 'required|integer',
             'from' => 'required|date_format:Y-m-d',
             'to' => 'required|date_format:Y-m-d|after:from',
         ];

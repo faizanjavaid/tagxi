@@ -25,7 +25,8 @@
                 </button>
             </a>
 
-            <span class="text-danger">NOTE : Please Update to save changes</span>
+
+            <span class="text-danger">@lang('view_pages.note') : @lang('view_pages.please_update_to_save_changes')</span>
         </div>
 
         <div class="col-sm-12">
@@ -37,7 +38,7 @@
                     <th> @lang('view_pages.start_time') <span class="text-danger">*</span></th>
                     <th>@lang('view_pages.end_time') <span class="text-danger">*</span></th>
                     <th> @lang('view_pages.surge_price_in_percentage') <span class="text-danger">*</span></th>
-                    <th style="width:100px;">Action</th>
+                    <th style="width:100px;">@lang('view_pages.action')</th>
                 </thead>
                 <tbody class="append_row">
                     @if (!$zone->zoneSurge->isEmpty())

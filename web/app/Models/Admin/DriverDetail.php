@@ -23,7 +23,7 @@ class DriverDetail extends Model {
 	 * @var array
 	 */
 	protected $fillable = [
-		'driver_id', 'latitude', 'longitude','bearing','is_socket_connected','current_zone','rating','rated_by','company','is_company_driver'
+		'driver_id', 'latitude', 'longitude','bearing','is_socket_connected','current_zone','rating','rated_by','owner','is_company_driver'
 	];
 
 	

@@ -17,6 +17,7 @@ use App\Models\Payment\DriverWalletHistory;
 use App\Base\Constants\Masters\WalletRemarks;
 use App\Base\Payment\BrainTreeTasks\BraintreeTask;
 use Exception;
+use App\Base\Constants\Setting\Settings;
 
 
 class DriverPayment implements DriverPaymentContract {
@@ -42,7 +43,7 @@ class DriverPayment implements DriverPaymentContract {
     */
     public function addDriverMoneyToWallet(Request $request,Driver $driver)
     {
-        $user_currency_code = auth()->user()->countryDetail->currency_code?:env('SYSTEM_DEFAULT_CURRENCY');
+        $user_currency_code = get_settings('currency_code');
 
         // dd($user_currency_code);
 

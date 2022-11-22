@@ -34,6 +34,7 @@ Route::namespace('Common')->group(function () {
     Route::get('countries', 'CountryController@index');
     // Get Language translation for mobile
     Route::get('translation/get', 'TranslationController@index');
+    Route::get('translation-flutter/get', 'TranslationController@flutterTrnaslation');
 
     // Get all the ServiceLocation.
     Route::get('servicelocation', 'ServiceLocationController@index');

@@ -31,7 +31,7 @@
 
         <div id="js-needed_doc-partial-target">
             <include-fragment src="owner_needed_doc/fetch">
-                <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                <span style="text-align: center;font-weight: bold;">@lang('view_pages.loading')</span>
             </include-fragment>
         </div>
 

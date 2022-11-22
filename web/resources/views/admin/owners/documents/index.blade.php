@@ -22,11 +22,11 @@
 <div class="row p-0 m-0">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18">Manage Document</h4>
+            <h4 class="mb-0 font-size-18"> @lang('view_pages.manage_document')</h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ url('owners/by_area',$owner->service_location_id) }}">Manage Owner</a></li>
-                    <li class="breadcrumb-item active">Owner Document</li>
+                    <li class="breadcrumb-item"><a href="{{ url('owners/by_area',$owner->service_location_id) }}"> @lang('view_pages.manage_owner')</a></li>
+                    <li class="breadcrumb-item active">@lang('view_pages.owner_document')</li>
                 </ol>
             </div>
         </div>
@@ -39,7 +39,7 @@
             <div class="card-body">
                 <div class="col-sm-12 p-0">
                     <div class="form-group">
-                        {{-- <p><span> <strong> {{strtoupper($driver->firstname) .' '. strtoupper($driver->lastname)}} </strong></span> <span class="float-right"><b>REG CODE</b>: {{ $driver->registration_code }}</span></p> --}}
+                        {{-- <p><span> <strong> {{strtoupper($driver->firstname) .' '. strtoupper($driver->lastname)}} </strong></span> <span class="float-right"><b>@lang('view_pages.reg_code')</b>: {{ $driver->registration_code }}</span></p> --}}
                     </div>
                 </div>
                 <div class="col-sm-12 p-0">
@@ -174,9 +174,9 @@
                 <img src="" class="imagepreview" style="width: 100%;">
             </div>
             <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-danger btn-sm float-right">Close</button>
+                <button type="button" data-dismiss="modal" class="btn btn-danger btn-sm float-right"> @lang('view_pages.close')</button>
                 <a href="" class="downloadImage" download>
-                    <button type="button" class="btn btn-success btn-sm float-right mr-2">Download</button>
+                    <button type="button" class="btn btn-success btn-sm float-right mr-2">@lang('view_pages.download')</button>
                 </a>
             </div>
         </div>

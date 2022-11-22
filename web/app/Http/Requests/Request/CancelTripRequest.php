@@ -15,7 +15,7 @@ class CancelTripRequest extends BaseRequest
     {
         return [
             'request_id'=>'required|exists:requests,id',
-            'custom_reason'=>'sometimes|required|exists:cancellation_reasons,id',
+            'reason'=>'sometimes|required',
             'custom_reason'=>'sometimes|required|min:2|max:100',
         ];
     }

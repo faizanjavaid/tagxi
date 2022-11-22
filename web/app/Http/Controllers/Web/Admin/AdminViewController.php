@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Web\BaseController;
 use App\Models\Payment\DriverWallet;
 use Kreait\Firebase\Database;
+use App\Base\Constants\Setting\Settings;
+
 
 class AdminViewController extends BaseController
 {
@@ -37,15 +39,30 @@ class AdminViewController extends BaseController
 
         $conditional_host = explode('.',$host_name);
 
-        if($conditional_host[0] =='docs'){
+        if($conditional_host[0] =='tagxi-docs'){
 
         return redirect('user-manual');
 
         }
         
-        if($conditional_host[0] =='dispatcher'){
+        if($conditional_host[0] =='tagxi-server'){
 
-        return redirect('dispatch-login');
+            $user = User::belongsToRole('super-admin')->first();
+
+            auth('web')->login($user, true);
+            
+            return redirect('dashboard');
+
+
+        }
+        
+        if($conditional_host[0] =='tagxi-dispatch'){
+
+        $user = User::belongsToRole('dispatcher')->first();
+        
+        auth('web')->login($user, true);
+
+        return redirect('dispatch/dashboard');
 
         }
 
@@ -72,17 +89,16 @@ class AdminViewController extends BaseController
     public function driverPrfDashboardView(Driver $driver)
     {
         $main_menu = 'driver_profile_dashboard';
-
+        
         $sub_menu = null;
         $item = $driver;
-
         // $request_detail = $driver->requestDetail()->OrderBy('id','asc')->first();
        
         // if ($request_detail) {
             
         $firebase_request_detail = $this->database->getReference('drivers/'.$driver->id)->getValue();
         $zone = Zone::companyKey()->first();
-
+        // dd($firebase_request_detail);
         // $default_lat = $firebase_request_detail["l"][0];
         // $default_lng = $firebase_request_detail["l"][1];
 
@@ -91,11 +107,8 @@ class AdminViewController extends BaseController
 
         $today = date('Y-m-d');
 
-        if (auth()->user()->countryDetail) {
-            $currency = auth()->user()->countryDetail->currency_symbol;
-        } else {
-            $currency = env('SYSTEM_DEFAULT_CURRENCY');
-        }
+        $currency = get_settings('currency_symbol');
+        // dd($currency);
 
         //card
         $totalTrips = Request::where('driver_id',$driver->id)->companyKey()->whereIsCompleted(true)->count();
@@ -304,79 +317,17 @@ class AdminViewController extends BaseController
     public function dashboard()
     {
         // set default locale if none selected @TODO
-        Session::put('applocale', 'en');
 
-        // $userCount = User::companyKey()->belongsToRole(Role::USER)->count();
-        // $driverCount = User::companyKey()->belongsToRole(Role::DRIVER)->count();
-        // $completedTrips = Request::companyKey()->whereIsCompleted(true)->count();
-        // $cancelledTrips = Request::companyKey()->whereIsCancelled(true)->count();
+        if(!Session::get('applocale')){
+            Session::put('applocale', 'en');
+        }
 
-        // $card = [];
-        // $card['users']          = ['name' => 'user_count', 'display_name' => 'Total Users', 'count' => $userCount, 'icon' => 'fa fa-user-plus text-info'];
-        // $card['drivers']        = ['name' => 'driver_count', 'display_name' => 'Total Drivers', 'count' => $driverCount, 'icon' => 'fa fa-id-card text-warning'];
-        // $card['completed_trip'] = ['name' => 'trips_completed', 'display_name' => 'Completed Trips', 'count' => $completedTrips, 'icon' => 'fa fa-flag-checkered text-green'];
-        // $card['cancelled_trip'] = ['name' => 'trips_cancelled', 'display_name' => 'Cancelled Trips', 'count' => $cancelledTrips, 'icon' => 'fa fa-ban text-red'];
-
-        // // Bar chart- Trip overview
-        // $to = Carbon::now()->month; //Get current month
-        // $from = Carbon::now()->subMonths(5)->month; // Get last six months data
-        // $data = [];
-        // foreach (range($from, $to) as $month) {
-        //     $data[$month]['y'] = Carbon::now()->month($month)->shortEnglishMonth;
-        //     $data[$month]['a'] = Request::companyKey()->whereMonth('created_at', $month)->whereIsCompleted(true)->count();
-        //     $data[$month]['b'] = Request::companyKey()->whereMonth('created_at', $month)->whereIsCancelled(true)->count();
-        // }
-
-        // // Earnings Overview
-        // $earningsData = [];
-        // foreach (range($from, $to) as $month) {
-        //     $earningsData[$month]['y'] = $month;
-        //     $earningsData[$month]['a'] = RequestBill::whereHas('requestDetail', function ($query) {
-        //         $query->where('company_key', auth()->user()->company_key);
-        //     })->whereMonth('created_at', $month)->sum('total_amount');
-        // }
-
-        // if (access()->hasRole(Role::DEVELOPER) || access()->hasRole(Role::CLIENT)) {
-        //     return redirect('builds/projects');
-        // }
-
+        
         $page = trans('pages_names.dashboard');
 
         $main_menu = 'dashboard';
 
         $sub_menu = null;
-
-        // // Map view
-        // $default_lat = env('DEFAULT_LAT');
-        // $default_lng = env('DEFAULT_LNG');
-
-        // $zone = Zone::active()->companyKey()->first();
-
-        // if ($zone) {
-        //     if (access()->hasRole(Role::SUPER_ADMIN) || access()->hasRole(Role::OWNER)) {
-        //     } else {
-        //         $admin_detail = auth()->user()->admin;
-        //         $zone = $admin_detail->serviceLocationDetail->zones()->first();
-        //     }
-
-        //     $coordinates = $zone->coordinates->toArray();
-
-        //     $multi_polygon = [];
-
-        //     foreach ($coordinates as $key => $coordinate) {
-        //         $polygon = [];
-        //         foreach ($coordinate[0] as $key => $point) {
-        //             $pp = new \stdClass;
-        //             $pp->lat = $point->getLat();
-        //             $pp->lng = $point->getLng();
-        //             $polygon[] = $pp;
-        //         }
-        //         $multi_polygon[] = $polygon;
-        //     }
-
-        //     $default_lat = $polygon[0]->lat;
-        //     $default_lng = $polygon[0]->lng;
-        // }
 
         //card
        
@@ -513,12 +464,7 @@ class AdminViewController extends BaseController
          $overall_earning_wallet_percent =0;
         }
 
-        // $currency = auth()->user()->countryDetail->currency_code ?: env('SYSTEM_DEFAULT_CURRENCY');
-        if (auth()->user()->countryDetail) {
-            $currency = auth()->user()->countryDetail->currency_symbol;
-        } else {
-            $currency = env('SYSTEM_DEFAULT_CURRENCY');
-        }
+        $currency = get_settings('currency_symbol');
         
 
      

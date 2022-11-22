@@ -10,13 +10,13 @@
 
             <div class="text-center">
                 <a href="{{ url("api/v1/verify/email/{$token}?email=".$user->email) }}" target="_blank" class="btn btn-default">
-                    Verify your email
+                   @lang('view_pages.verify_your_email')
                 </a>
             </div>
 
             <div class="hr-line"></div>
 
-            <p>We are committed to offering not just a Convenience but a Choice Driven by Technology.</p>
+            <p>@lang('view_pages.commitment_text').</p>
 
             <ul>
 

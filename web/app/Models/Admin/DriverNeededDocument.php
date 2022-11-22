@@ -21,7 +21,7 @@ class DriverNeededDocument extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'doc_type', 'has_identify_number','has_expiry_date','active','identify_number_locale_key'
+        'name', 'doc_type', 'has_identify_number','has_expiry_date','active','identify_number_locale_key','is_individual'
     ];
 
     /**

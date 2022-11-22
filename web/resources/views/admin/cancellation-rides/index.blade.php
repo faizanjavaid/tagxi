@@ -52,7 +52,7 @@
                      <div class="col-md-12 text-center text-md-right">
                                 <button class="btn btn-outline btn-sm btn-danger py-2" type="button" data-toggle="modal"
                                     data-target="#request-modal">
-                                    Filter Requests
+                                    @lang('view_pages.filter_requests')
                                 </button>
                             </div>
 
@@ -86,11 +86,10 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" data-dismiss="modal"
-                                            class="btn btn-success btn-sm float-right filter">Apply Filters</button>
+                                            class="btn btn-success btn-sm float-right filter">@lang('view_pages.apply_filters')</button>
 
                                         <button type="button" data-dismiss="modal"
-                                            class="btn btn-danger btn-sm resetfilter float-right mr-2">Reset
-                                            Filters</button>
+                                            class="btn btn-danger btn-sm resetfilter float-right mr-2">@lang('view_pages.reset_filters')</button>
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
@@ -103,7 +102,7 @@
 
         <div id="js-cancellation-partial-target">
             <include-fragment src="cancellation-rides/fetch">
-                <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                <span style="text-align: center;font-weight: bold;">@lang('view_pages.loading')</span>
             </include-fragment>
         </div>
 

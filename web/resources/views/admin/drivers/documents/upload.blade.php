@@ -13,7 +13,7 @@
         <div class="col-sm-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <a href="{{ url('drivers/document/view',$driver->id) }}">
+                    <a href="{{ url()->previous() }}">
                         <button class="btn btn-danger btn-sm pull-right" type="submit">
                             <i class="mdi mdi-keyboard-backspace mr-2"></i>
                             @lang('view_pages.back')
@@ -62,8 +62,8 @@
                         <label for="document">@lang('view_pages.document')</label><br>
                         <img id="blah" src="{{ $driverDoc ? $driverDoc->image : '' }}" alt=""><br>
                         <input type="file" id="document" onchange="readURL(this)" name="document" style="display:none">
-                        <button class="btn btn-primary btn-sm" type="button" onclick="$('#document').click()" id="upload">Browse</button>
-                        <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+                        <button class="btn btn-primary btn-sm" type="button" onclick="$('#document').click()" id="upload">@lang('view_pages.browse')</button>
+                        <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">@lang('view_pages.remove')</button><br>
                         <span class="text-danger">{{ $errors->first('document') }}</span>
                     </div>
                 </div>

@@ -35,7 +35,8 @@ return [
     'versions'      => [
         'default'   => '1.0',
         'published' => [
-            '1.0'
+            '1.0',
+            '2.0'
         ]
     ],
 
@@ -123,16 +124,12 @@ return [
     */
 
     'ui'                 => [
-        'code_theme'     => 'dark', // or: light
+        'code_theme'     => 'light', // or: light
         'fav'            => '',     // eg: fav.png
-        'fa_v4_shims'    => true, // Add FontAwesome v4 shims prevent BC break
-        'show_side_bar'  => true,
         'colors'         => [
             'primary'    => '#787AF6',
             'secondary'  => '#2b9cf2'
-        ],
-
-        'theme_order'    => null // ['LaRecipeDarkTheme', 'customTheme']
+        ]
     ],
 
     /*

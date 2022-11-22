@@ -39,6 +39,25 @@ return [
         ],
     ],
 
+/**
+    |--------------------------------------------------------------------------
+    | FrontPage images specific configurations
+    |--------------------------------------------------------------------------
+     */
+
+    'cms' => [
+        'upload' => [
+            'web-picture' => [
+                'path' => 'uploadwebfrontfiles/',
+                'image' => [
+                    'min_resolution' => 100,
+                    'store_resolution' => 150,
+                    'max_file_size_kb' => 50000,
+                ],
+
+            ],
+        ],
+    ],
 
     /**
     |--------------------------------------------------------------------------
@@ -79,7 +98,7 @@ return [
                 'path' => 'uploads/system-admin/logo/',
                 'image' => [
                     'min_resolution' => 1000,
-                    'store_resolution' => 1000,
+                    'store_resolution' => 150,
                     'max_file_size_kb' => 500,
                 ],
             ],
@@ -180,7 +199,7 @@ return [
     'country' => [
         'upload' => [
             'flag' => [
-                'path' => 'uploads/country/flags/',
+                'path' => 'images/country/flags/',
                 'image' => [
                     'min_resolution' => 100,
                     'store_resolution' => 150,

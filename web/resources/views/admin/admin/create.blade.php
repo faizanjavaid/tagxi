@@ -214,9 +214,9 @@
                                         <input type="file" id="profile_picture" onchange="readURL(this)"
                                             name="profile_picture" style="display:none">
                                         <button class="btn btn-primary btn-sm" type="button"
-                                            onclick="$('#profile_picture').click()" id="upload">Browse</button>
+                                            onclick="$('#profile_picture').click()" id="upload">@lang('view_pages.browse')</button>
                                         <button class="btn btn-danger btn-sm" type="button" id="remove_img"
-                                            style="display: none;">Remove</button><br>
+                                            style="display: none;">@lang('view_pages.remove')</button><br>
                                         <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
                                     </div>
                                 </div>

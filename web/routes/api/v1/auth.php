@@ -51,6 +51,9 @@ Route::namespace('Auth')->group(function () {
         Route::post('driver/validate-mobile-for-login', 'DriverSignupController@validateDriverMobileForLogin');
         // Send the OTP for mobile verification during User registration.
         Route::post('user/register/send-otp', 'UserRegistrationController@sendOTP');
+
+        // Owner Register
+        Route::post('owner/register','DriverSignupController@ownerRegister');
         // Update Referral code after signup
         Route::post('update/user/referral', 'ReferralController@updateUserReferral')->middleware('auth');
         Route::post('update/driver/referral', 'ReferralController@updateDriverReferral')->middleware('auth');

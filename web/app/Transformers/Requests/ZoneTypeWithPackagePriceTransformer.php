@@ -42,7 +42,11 @@ class ZoneTypeWithPackagePriceTransformer extends Transformer
             'supported_vehicles'=>$zone_type['supported_vehicles'],
             'icon'=>$zone_type['icon'],
             'driver_arival_estimation'=>'--',
-            'is_default'=>$zone_type['is_default']
+            'is_default'=>$zone_type['is_default'],
+            'payment_type'=>$zone_type['payment_type'],
+            'discounted_totel'=>$zone_type['discounted_totel'],
+            'has_discount'=>$zone_type['has_discount'],
+            'promocode_id'=>$zone_type['promocode_id'],
         ];
 
 

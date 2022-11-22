@@ -46,7 +46,7 @@ class SettingController extends BaseController
     public function index()
     {
         $settings = Setting::select('*')->get()->groupBy('category');
-
+        // dd($settings);
         $page = trans('pages_names.system_settings');
 
         $main_menu = 'settings';
@@ -61,7 +61,8 @@ class SettingController extends BaseController
     */
     public function store(Request $request)
     {
-        if (env('APP_FOR')=='demo' && auth()->user()->company_key) {
+        // dd($request);
+        if (env('APP_FOR')=='demo') {
             $message = trans('succes_messages.you_are_not_authorised');
 
             return redirect('system/settings')->with('warning', $message);

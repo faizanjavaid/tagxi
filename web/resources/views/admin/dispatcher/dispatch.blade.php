@@ -141,23 +141,23 @@
             <div>
                 <div class="box mb-0">
                     <div class="box-header with-border">
-                        <h4 class="box-title">New Booking</h4>
+                        <h4 class="box-title">@lang('view_pages.new_booking')</h4>
                     </div>
                     <div class="box-header with-border">
                         <div class="filters-group-wrap">
                             <div class="filters-group">
                                 <div class="btn-group filter-options">
                                     <button class="btn btn--primary ml-1" data-group="all">
-                                        All
+                                      @lang('view_pages.all')
                                     </button>
                                     <button class="btn btn--primary ml-1" data-group="pending">
-                                        Pending
+                                      @lang('view_pages.pending')
                                     </button>
                                     <button class="btn btn--primary ml-1" data-group="accept">
-                                        Accept
+                                        @lang('view_pages.accept')
                                     </button>
                                     <button class="btn btn--primary ml-1" data-group="active">
-                                        Active
+                                        @lang('view_pages.active')
                                     </button>
                                     <!-- <button class="btn btn--primary ml-1" data-group="completed">
                                         Completed
@@ -178,29 +178,29 @@
                             <figure class="col-12 picture-item accept" data-groups='["accept"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                       @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                         @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Accept
-                                        </div>
+                                         @lang('view_pages.accept')                                  
+                                          </div>
                                     </div>
                                 </div>
                             </figure>
                             <figure class="col-12 picture-item active" data-groups='["active"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                         @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                        @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Active
+                                            @lang('view_pages.active')
                                         </div>
                                     </div>
                                 </div>
@@ -208,14 +208,14 @@
                             <figure class="col-12 picture-item pending" data-groups='["pending"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                        @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                        @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Pending
+                                              @lang('view_pages.pending')
                                         </div>
                                     </div>
                                 </div>
@@ -223,14 +223,14 @@
                             <figure class="col-12 picture-item accept" data-groups='["accept"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                       @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                       @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Accept
+                                            @lang('view_pages.accept')  
                                         </div>
                                     </div>
                                 </div>
@@ -238,14 +238,14 @@
                             <figure class="col-12 picture-item active" data-groups='["active"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                        @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                       @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Active
+                                           @lang('view_pages.active')
                                         </div>
                                     </div>
                                 </div>
@@ -253,14 +253,14 @@
                             <figure class="col-12 picture-item pending" data-groups='["pending"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                       @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                      @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Pending
+                                              @lang('view_pages.pending')
                                         </div>
                                     </div>
                                 </div>
@@ -268,14 +268,14 @@
                             <figure class="col-12 picture-item accept" data-groups='["accept"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                      @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
-                                    </div>
+                                            @lang('view_pages.personal_id')                                  
+                                              </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Accept
+                                             @lang('view_pages.accept')
                                         </div>
                                     </div>
                                 </div>
@@ -283,14 +283,14 @@
                             <figure class="col-12 picture-item active" data-groups='["active"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                    @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                        @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Active
+                                          @lang('view_pages.active')
                                         </div>
                                     </div>
                                 </div>
@@ -298,14 +298,14 @@
                             <figure class="col-12 picture-item pending" data-groups='["pending"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                   @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                       @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Pending
+                                              @lang('view_pages.pending')
                                         </div>
                                     </div>
                                 </div>
@@ -313,14 +313,14 @@
                             <figure class="col-12 picture-item accept" data-groups='["accept"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                   @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                       @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Accept
+                                           @lang('view_pages.accept')
                                         </div>
                                     </div>
                                 </div>
@@ -328,14 +328,14 @@
                             <figure class="col-12 picture-item active" data-groups='["active"]'>
                                 <div class="row">
                                     <div class="col-3">
-                                        Name
+                                   @lang('view_pages.name')
                                     </div>
                                     <div class="col-6">
-                                        Personal ID
+                                      @lang('view_pages.personal_id')
                                     </div>
                                     <div class="col-3">
                                         <div class="ststus">
-                                            Active
+                                          @lang('view_pages.active')
                                         </div>
                                     </div>
                                 </div>
@@ -354,14 +354,14 @@
                         <h4 class="box-title">
                             <button type="button" class="btn btn-primary btn-lg turned-button mx-2" data-toggle="modal"
                                 data-target="#book-latter">
-                                Book Latter
+                                 @lang('view_pages.book_later')
                             </button>
 
                             <button type="button" class="btn btn-primary btn-lg turned-button mr-auto" data-toggle="modal"
                                 data-target="#book-now">
-                                Book Now
+                               @lang('view_pages.book_now')
                             </button>
-                            Booking Details
+                           @lang('view_pages.booking_details')
                         </h4>
                     </div>
                 </div>
@@ -374,7 +374,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">
-                            Book Now
+                            @lang('view_pages.book_now')
                         </h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -383,21 +383,21 @@
                             <div class="col-md-6">
                                 <div class="box">
                                     <div class="box-header with-border">
-                                        <h4 class="box-title">Passenger details</h4>
+                                        <h4 class="box-title"> @lang('view_pages.passenger_details')</h4>
                                     </div>
                                     <div class="box-body py-0">
                                         <div class="row">
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Full name</label>
+                                                    <label>@lang('view_pages.full_name')</label>
                                                     <input type="text" class="form-control"
                                                         placeholder="Eg. your text here">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Email or Phone number</label>
+                                                    <label>@lang('view_pages.email_or_phone')</label>
                                                     <input type="text" class="form-control"
                                                         placeholder="Eg. your text here">
                                                 </div>
@@ -405,14 +405,14 @@
                                         </div>
                                     </div>
                                     <div class="box-header with-border">
-                                        <h4 class="box-title">Location details</h4>
+                                        <h4 class="box-title">@lang('view_pages.location_details')</h4>
                                     </div>
                                     <div class="box-body py-0">
                                         <div class="row">
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Pickup</label>
+                                                    <label>@lang('view_pages.pickup')</label>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">
@@ -426,7 +426,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Drop</label>
+                                                    <label>@lang('view_pages.drop')</label>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">
@@ -442,7 +442,7 @@
                                     </div>
                                     <div class="col-12 route-details chs-cls text-center p-0">
                                         <div class="box-header with-border text-left">
-                                            <h4 class="box-title">Choose Type</h4>
+                                            <h4 class="box-title">@lang('view_pages.choose_type')</h4>
                                         </div>
                                         <div class="box-body py-0">
                                             <div class="row">
@@ -487,7 +487,7 @@
                                     </div>
                                     <div class="col-12 text-center login-btn">
                                         <button class="btn btn-info btn-block margin-top-10 submit_button"
-                                            type="submit">Book Now</button>
+                                            type="submit"> @lang('view_pages.book_now')</button>
                                     </div>
                                 </div>
                             </div>
@@ -515,7 +515,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">
-                            Book Latter
+                            @lang('view_pages.book_later')
                         </h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -524,20 +524,20 @@
                             <div class="col-md-6">
                                 <div class="box">
                                     <div class="box-header with-border">
-                                        <h4 class="box-title">Passenger details</h4>
+                                        <h4 class="box-title">@lang('view_pages.passenger_details')</h4>
                                     </div>
                                     <div class="box-body py-0">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Full name</label>
+                                                    <label>@lang('view_pages.full_name')</label>
                                                     <input type="text" class="form-control"
                                                         placeholder="Eg. your text here">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Email or Phone number</label>
+                                                    <label>@lang('view_pages.email_or_phone')</label>
                                                     <input type="text" class="form-control"
                                                         placeholder="Eg. your text here">
                                                 </div>
@@ -566,14 +566,14 @@
                                         </div>
                                     </div>
                                     <div class="box-header with-border">
-                                        <h4 class="box-title">Location details</h4>
+                                        <h4 class="box-title">@lang('view_pages.location_details')</h4>
                                     </div>
                                     <div class="box-body py-0">
                                         <div class="row">
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Pickup</label>
+                                                    <label>@lang('view_pages.pickup')</label>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">
@@ -587,7 +587,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Drop</label>
+                                                    <label>@lang('view_pages.drop')</label>
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">
@@ -603,7 +603,7 @@
                                     </div>
                                     <div class="col-12 route-details chs-cls text-center p-0">
                                         <div class="box-header with-border text-left">
-                                            <h4 class="box-title">Choose Type</h4>
+                                            <h4 class="box-title">@lang('view_pages.choose_type')</h4>
                                         </div>
                                         <div class="box-body py-0">
                                             <div class="row">
@@ -648,7 +648,7 @@
                                     </div>
                                     <div class="col-12 text-center login-btn">
                                         <button class="btn btn-info btn-block margin-top-10 submit_button"
-                                            type="submit">Book Now</button>
+                                            type="submit"> @lang('view_pages.book_now')</button>
                                     </div>
                                 </div>
                             </div>

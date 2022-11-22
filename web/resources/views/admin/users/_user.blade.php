@@ -57,7 +57,6 @@
     @endif
     <td>
 
-    <div class="dropdown">
     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
     </button>
         <div class="dropdown-menu">
@@ -76,6 +75,11 @@
 
               <a class="dropdown-item" href="{{url('users/request-list',$result->id)}}">
               <i class="fa fa-dot-circle-o"></i>@lang('view_pages.request_list')</a>
+
+
+            <a class="dropdown-item" href="{{url('users/payment-history',$result->id)}}">
+            <i class="fa fa-dot-circle-o"></i>@lang('view_pages.user_payment_history')</a>
+
         </div>
     </div>
 

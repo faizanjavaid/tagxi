@@ -17,8 +17,8 @@
 <a name="introduction"></a>
 ## Introduction
 
-Tag Your Taxi is a taxi ride hailing based system that provides services such as Transportation and Ride Sharing system.
-Tag Your Taxi provides client with all the much needed service like transportation, booking different kinds of vehicles, booking parameters and booking details. our application supports multiple currency and multiple timezone, so you can launch this application world wide. And tagyourtaxi supports multilingual as well. you can also customise the localisation contents through translation option in our admin app.
+Tagxi is a taxi ride hailing based system that provides services such as Transportation and Ride Sharing system.
+Tagxi provides client with all the much needed service like transportation, booking different kinds of vehicles, booking parameters and booking details. our application supports multiple currency and multiple timezone, so you can launch this application world wide. And tagxi supports multilingual as well. you can also customise the localisation contents through translation option in our admin app.
 
 ## Major Modules are
 1. Dashboard
@@ -32,6 +32,11 @@ Tag Your Taxi provides client with all the much needed service like transportati
 9. Reports
 10. FAQ & SOS
 11. System settings
+
+<a name="demo"></a>
+## 0. Demo
+[demo](https://www.youtube.com/embed/rccjPWdnQVs)
+
 
 <a name="dashboard"></a>
 ## 1.Dashboard

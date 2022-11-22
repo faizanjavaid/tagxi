@@ -22,16 +22,18 @@
                         </button>
                     </div> --}}
 
+                   
                     <div class="col-12 text-right">
                         <a href="{{url('package_type/create')}}" class="btn btn-primary btn-sm">
                             <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_package_type')</a>
                     </div>
+                   
                 </div>
             </div>
 
         <div id="js-packageType-partial-target">
             <include-fragment src="package_type/fetch">
-                <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                <span style="text-align: center;font-weight: bold;">@lang('view_pages.loading')</span>
             </include-fragment>
         </div>
 

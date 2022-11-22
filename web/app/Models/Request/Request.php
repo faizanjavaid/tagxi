@@ -15,6 +15,7 @@ use App\Models\Traits\HasActiveCompanyKey;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use App\Models\Admin\CancellationReason;
 use App\Models\Master\PackageType;
+use App\Models\Admin\Owner;
 
 class Request extends Model
 {
@@ -31,7 +32,7 @@ class Request extends Model
      *
      * @var array
      */
-    protected $fillable = ['request_number','is_later','user_id','driver_id','trip_start_time','arrived_at','accepted_at','completed_at','cancelled_at','is_driver_started','is_driver_arrived','is_trip_start','is_completed','is_cancelled','reason','cancel_method','total_distance','total_time','payment_opt','is_paid','user_rated','driver_rated','promo_id','timezone','unit','if_dispatch','zone_type_id','requested_currency_code','custom_reason','attempt_for_schedule','service_location_id','company_key','dispatcher_id','book_for_other_contact','book_for_other','ride_otp','is_rental','rental_package_id','is_out_station'];
+    protected $fillable = ['request_number','is_later','user_id','driver_id','trip_start_time','arrived_at','accepted_at','completed_at','cancelled_at','is_driver_started','is_driver_arrived','is_trip_start','is_completed','is_cancelled','reason','cancel_method','total_distance','total_time','payment_opt','is_paid','user_rated','driver_rated','promo_id','timezone','unit','if_dispatch','zone_type_id','requested_currency_code','custom_reason','attempt_for_schedule','service_location_id','company_key','dispatcher_id','book_for_other_contact','book_for_other','ride_otp','is_rental','rental_package_id','is_out_station','request_eta_amount','is_surge_applied','owner_id','fleet_id'];
 
     /**
     * The accessors to append to the model's array form.
@@ -64,7 +65,7 @@ class Request extends Model
     
     public function requestRating()
     {
-        return $this->belongsTo(RequestRating::class, 'id','request_id');
+        return $this->hasMany(RequestRating::class, 'request_id','id');
     }
 
     /**
@@ -113,6 +114,10 @@ class Request extends Model
     {
         return $this->belongsTo(Driver::class, 'driver_id', 'id');
     }
+    public function ownerDetail()
+    {
+        return $this->belongsTo(Owner::class, 'owner_id', 'id');
+    }
 
     public function userDetail()
     {
@@ -121,7 +126,7 @@ class Request extends Model
 
     public function zoneType()
     {
-        return $this->belongsTo(ZoneType::class, 'zone_type_id', 'id');
+        return $this->belongsTo(ZoneType::class, 'zone_type_id', 'id')->withTrashed();
     }
 
     /**
@@ -217,6 +222,9 @@ class Request extends Model
     */
     public function getVehicleTypeNameAttribute()
     {
+        if ($this->zoneType == null) {
+            return null;
+        }
         if (!$this->zoneType->vehicleType()->exists()) {
             return null;
         }
@@ -229,6 +237,9 @@ class Request extends Model
     */
     public function getVehicleTypeImageAttribute()
     {
+        if ($this->zoneType == null) {
+            return null;
+        }
         if (!$this->zoneType->vehicleType()->exists()) {
             return null;
         }
@@ -322,7 +333,7 @@ class Request extends Model
 
     public function getRequestUnitAttribute()
     {
-        if ($this->unit == 0) {
+        if ($this->unit == '1') {
             return 'Km';
         } else {
             return 'Miles';
@@ -331,10 +342,10 @@ class Request extends Model
 
     public function getCurrencyAttribute()
     {
-        if ($this->zoneType->zone->serviceLocation->exists()) {
-            return $this->zoneType->zone->serviceLocation->currency_symbol;
-        }
-        return null;
+        // if ($this->zoneType->zone->serviceLocation->exists()) {
+        //     return $this->zoneType->zone->serviceLocation->currency_symbol;
+        // }
+        return get_settings('currency_symbol');
     }
 
     protected $searchable = [

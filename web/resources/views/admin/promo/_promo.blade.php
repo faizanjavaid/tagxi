@@ -5,7 +5,7 @@
             <th> @lang('view_pages.code')</th>
             <th> @lang('view_pages.from')</th>
             <th> @lang('view_pages.to')</th>
-            <th> @lang('view_pages.promo_total_uses')</th>
+            <!-- <th> @lang('view_pages.promo_total_uses')</th> -->
             <th> @lang('view_pages.status')</th>
             <th> @lang('view_pages.action')</th>
         </tr>
@@ -21,7 +21,7 @@
             <td>{{ $result->code }}</td>
             <td>{{ $result->from_date }}</td>
             <td>{{ $result->to_date }}</td>
-            <td>{{ $result->total_uses }}</td>
+            <!-- <td>{{ $result->total_uses }}</td> -->
             @if($result->active)
                 <td><span class="label label-success">@lang('view_pages.active')</span></td>
             @else
@@ -29,7 +29,6 @@
             @endif
             <td>
 
-            <div class="dropdown">
             <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
             </button>
                 <div class="dropdown-menu">
@@ -52,7 +51,7 @@
             <td colspan="11">
                 <p id="no_data" class="lead no-data text-center">
                     <img src="{{asset('assets/img/dark-data.svg')}}" style="width:150px;margin-top:25px;margin-bottom:25px;" alt="">
-                    <h4 class="text-center" style="color:#333;font-size:25px;">NO DATA FOUND</h4>
+                    <h4 class="text-center" style="color:#333;font-size:25px;">@lang('view_pages.no_data_found')</h4>
                 </p>
             </td>
         </tr>

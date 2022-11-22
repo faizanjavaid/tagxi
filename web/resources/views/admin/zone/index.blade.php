@@ -28,13 +28,13 @@
                             </div>
 
 
-
                             <div class="col-md-7 text-center text-md-right">
                                 <a href="{{ url('zone/create') }}" class="btn btn-primary btn-sm">
                                     <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_zone')</a>
                                 <!--  <a class="btn btn-danger">
                                         Export</a> -->
                             </div>
+              
                             <!-- <div class="box-controls pull-right">
                     <div class="lookup lookup-circle lookup-right">
                       <input type="text" name="s">
@@ -46,7 +46,7 @@
 
                     <div id="js-zone-partial-target">
                         <include-fragment src="zone/fetch">
-                            <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                            <span style="text-align: center;font-weight: bold;"> @lang('view_pages.loading')</span>
                         </include-fragment>
                     </div>
 

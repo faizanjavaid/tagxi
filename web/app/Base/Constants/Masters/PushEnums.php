@@ -25,4 +25,8 @@ class PushEnums
     const NEW_MESSAGE = 'new_message';
     const DROP_CHANGED = 'drop_changed';
 
+    const AMOUNT_CREDITED = 'amount_credited';
+    const CARD_TO_WALLET_TRANSACTION_FAILED = 'card_to_wallet_transaction_failed';
+  
+
 }

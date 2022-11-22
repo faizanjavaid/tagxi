@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ app_name() ?? 'Tagyourtaxi' }} - Dispatcher</title>
+    <title>{{ app_name() ?? 'Tagxi' }} - Dispatcher</title>
 
     <link rel="shortcut icon" href="{{ fav_icon() ?? asset('assets/images/favicon.jpg') }}">
     <link rel="manifest" href="assets/img/favicons/manifest.json">

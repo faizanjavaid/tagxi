@@ -34,10 +34,10 @@ class CreateRequestsTable extends Migration
             $table->boolean('is_cancelled')->default(0);
             $table->uuid('reason')->nullable();
             $table->string('custom_reason')->nullable();
-            $table->enum('cancel_method', [0,1,2])->comment('0 => Automatic,1 => User,2 => Driver');
-            $table->double('total_distance', 15, 8)->default(0);
+            $table->enum('cancel_method', [0,1,2,3])->comment('0 => Automatic,1 => User,2 => Driver,3=> Dispatcher');
+            $table->double('total_distance', 15, 2)->default(0);
             $table->double('total_time', 15, 2)->default(0);
-            $table->enum('payment_opt', [0,1,2,3])->comment('0 => card,1 => cash,2 => wallet,3=>wallet/cash');
+            $table->string('payment_opt')->comment('0 => card,1 => cash,2 => wallet,3=>wallet/cash');
             $table->boolean('is_paid')->default(0);
             $table->boolean('user_rated')->default(0);
             $table->boolean('driver_rated')->default(0);
@@ -45,7 +45,7 @@ class CreateRequestsTable extends Migration
             $table->string('timezone')->nullable();
             $table->string('requested_currency_code')->nullable();
             $table->string('requested_currency_symbol')->nullable();
-            $table->enum('unit', [0,1])->comment('0 => miles,1 => kilometers');
+            $table->enum('unit', [1,2])->comment('1 => kilometers,2 => miles');
             $table->boolean('if_dispatch')->default(0);
             $table->uuid('dispatcher_id')->nullable();
             $table->timestamps();

@@ -107,19 +107,19 @@
     <div class="content">
         <div class="title m-b-md">
             @if (!auth('web')->check())
-                <div class="form-header">Not logged in</div>
+                <div class="form-header">@lang('view_pages.not_logged_in')</div>
                 <form id="login_form" class="login-form">
                     <div class="login-form_group">
-                        <label class="form-label">Email</label>
+                        <label class="form-label">@lang('view_pages.email')</label>
                         <input class="input-box" name="email">
                     </div>
                     <div class="login-form_group">
-                        <label class="form-label">Password</label>
+                        <label class="form-label">@lang('view_pages.password')</label>
                         <input class="input-box" name="password">
                     </div>
                     <div class="login-form_group">
                         <input type="checkbox" name="remember" id="remember">
-                        <label for="remember">Remember</label>
+                        <label for="remember">@lang('view_pages.remember')</label>
                     </div>
                     <div class="login-form_group">
                         <input class="btn" type="submit" value="Login">
@@ -131,7 +131,7 @@
                 <small>[ {{ $user->roles->implode('name', ' | ') }} ]</small><br>
             @endif
 
-            <button class="btn" onclick="user()">Get current user</button><br>
+            <button class="btn" onclick="user()">@lang('view_pages.get_current_user')</button><br>
             <form method="post" action="logout">
                 {{ csrf_field() }}
                 <input class="btn" type="submit" value="Logout">

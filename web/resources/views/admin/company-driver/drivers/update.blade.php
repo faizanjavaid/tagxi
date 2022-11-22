@@ -13,7 +13,7 @@
                     <div class="box">
 
                         <div class="box-header with-border">
-                            <a href="{{ url('drivers') }}">
+                            <a href="{{ url('company/drivers') }}">
                                 <button class="btn btn-danger btn-sm pull-right" type="submit">
                                     <i class="mdi mdi-keyboard-backspace mr-2"></i>
                                     @lang('view_pages.back')
@@ -23,27 +23,9 @@
 
                         <div class="col-sm-12">
 
-                            <form method="post" class="form-horizontal" action="{{ url('drivers/update', $item->id) }}"
+                            <form method="post" class="form-horizontal" action="{{ url('company/drivers/update', $item->id) }}"
                                 enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="admin_id">@lang('view_pages.select_area')
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <select name="service_location_id" id="service_location_id" class="form-control"
-                                                onchange="getypesAndCompanys()" required>
-                                                <option value="" selected disabled>@lang('view_pages.select_area')</option>
-                                                @foreach ($services as $key => $service)
-                                                    <option value="{{ $service->id }}"
-                                                        {{ old('service_location_id', $item->service_location_id) == $service->id ? 'selected' : '' }}>
-                                                        {{ $service->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -56,19 +38,6 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="address">@lang('view_pages.address') <span class="text-danger">*</span></label>
-                                            <input class="form-control" type="text" id="address" name="address"
-                                                value="{{ old('address', $item->address) }}" required=""
-                                                placeholder="@lang('view_pages.enter_address')">
-                                            <span class="text-danger">{{ $errors->first('address') }}</span>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="gender">@lang('view_pages.gender')
@@ -90,37 +59,16 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="">@lang('view_pages.is_company_driver') <span class="text-danger">*</span></label>
-                                            <select name="is_company_driver" id="is_company_driver" class="form-control">
-                                                <option value="" selected disabled>@lang('view_pages.select')</option>
-                                                <option value="1"
-                                                    {{ old('is_company_driver', $item->driverDetail->is_company_driver) == '1' ? 'selected' : '' }}>
-                                                    @lang('view_pages.yes')</option>
-                                                <option value="0"
-                                                    {{ old('is_company_driver', $item->driverDetail->is_company_driver) == '0' ? 'selected' : '' }}>
-                                                    @lang('view_pages.no')</option>
-                                            </select>
-                                            <span class="text-danger">{{ $errors->first('is_company_driver') }}</span>
-                                        </div>
-                                    </div>
+                                </div>
 
-                                    <div class="col-6" style="display:none" id="companyShow">
+                                <div class="row">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="company">@lang('view_pages.select_company')
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <select name="company" id="company" class="form-control">
-                                                <option value="">@lang('view_pages.select_company')</option>
-                                                <option value=0>@lang('view_pages.individual')</option>
-                                                @foreach ($companies as $key => $company)
-                                                    <option value="{{ $company->id }}"
-                                                        {{ old('company', $item->driverDetail->company) == $company->id ? 'selected' : '' }}>
-                                                        {{ $company->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            <span class="text-danger">{{ $errors->first('company') }}</span>
+                                            <label for="address">@lang('view_pages.address') <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="text" id="address" name="address"
+                                                value="{{ old('address', $item->address) }}" required=""
+                                                placeholder="@lang('view_pages.enter_address')">
+                                            <span class="text-danger">{{ $errors->first('address') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +100,6 @@
 
 
                                 <div class="row">
-
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="country">@lang('view_pages.select_country')
@@ -207,53 +154,6 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="type">@lang('view_pages.select_type')
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <select name="type" id="type" class="form-control" required>
-                                                <option value="">@lang('view_pages.select_type')</option>
-                                                @foreach ($types as $key => $type)
-                                                    <option value="{{ $type->id }}"
-                                                        {{ old('type', $item->vehicle_type) == $type->id ? 'selected' : '' }}>
-                                                        {{ $type->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="car_make">@lang('view_pages.car_make')<span
-                                                    class="text-danger">*</span></label>
-                                            <select name="car_make" id="car_make" class="form-control select2" required>
-                                                <option value="" selected disabled>@lang('view_pages.select')</option>
-                                                @foreach ($carmake as $key => $make)
-                                                    <option value="{{ $make->id }}"
-                                                        {{ old('car_make', $item->car_make) == $make->id ? 'selected' : '' }}>
-                                                        {{ $make->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="car_model">@lang('view_pages.car_model')<span
-                                                    class="text-danger">*</span></label>
-                                            <select name="car_model" id="car_model" class="form-control select2" required>
-                                                <option value="" selected disabled>@lang('view_pages.select')</option>
-                                                @foreach ($carmodel as $key => $model)
-                                                    <option value="{{ $model->id }}"
-                                                        {{ old('car_model', $item->car_model) == $model->id ? 'selected' : '' }}>
-                                                        {{ $model->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="car_color">@lang('view_pages.car_color') <span class="text-danger">*</span></label>
@@ -285,9 +185,9 @@
                                         <input type="file" id="icon" onchange="readURL(this)" name="icon"
                                             style="display:none">
                                         <button class="btn btn-primary btn-sm" type="button" onclick="$('#icon').click()"
-                                            id="upload">Browse</button>
+                                            id="upload">@lang('view_pages.browse')</button>
                                         <button class="btn btn-danger btn-sm" type="button" id="remove_img"
-                                            style="display: none;">Remove</button><br>
+                                            style="display: none;">@lang('view_pages.remove')</button><br>
                                         <span class="text-danger">{{ $errors->first('icon') }}</span>
                                     </div>
                                 </div>

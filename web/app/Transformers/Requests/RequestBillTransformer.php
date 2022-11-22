@@ -44,6 +44,8 @@ class RequestBillTransformer extends Transformer
             'requested_currency_code' => $request->requested_currency_code,
             'requested_currency_symbol' => $request->requested_currency_symbol,
             'admin_commision_with_tax' => $request->admin_commision_with_tax,
+            'calculated_waiting_time'=>$request->calculated_waiting_time,
+            'waiting_charge_per_min'=>$request->waiting_charge_per_min
         ];
     }
 }

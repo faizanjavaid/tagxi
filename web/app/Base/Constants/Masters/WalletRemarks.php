@@ -11,4 +11,5 @@ class WalletRemarks
     const MONEY_DEPOSITED_TO_E_WALLET_FROM_ADMIN = 'Money Deposited By Admin';
     const REFERRAL_COMMISION = 'Referral Commission';
     const SPENT_FOR_TRIP_REQUEST = 'Spent For Trip Request';
+    const WITHDRAWN_FROM_WALLET = 'Withdrawn From Wallet';
 }

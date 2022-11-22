@@ -24,7 +24,7 @@ class PackageType extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','active'];
+    protected $fillable = ['name','active','description','short_description'];
 
    
 }

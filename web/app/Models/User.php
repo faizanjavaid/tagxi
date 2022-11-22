@@ -30,6 +30,8 @@ use App\Base\Services\OTP\CanSendOTPContract;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Request\FavouriteLocation;
+use App\Models\Payment\UserBankInfo;
+use App\Models\Payment\WalletWithdrawalRequest;
 
 class User extends Authenticatable implements CanSendOTPContract
 {
@@ -214,6 +216,16 @@ class User extends Authenticatable implements CanSendOTPContract
     }
 
     /**
+     * The Bank info associated with the user's id.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
+    public function bankInfo()
+    {
+        return $this->hasOne(UserBankInfo::class, 'user_id', 'id');
+    }
+
+    /**
      * The Staff associated with the user's id.
      *
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
@@ -250,6 +262,11 @@ class User extends Authenticatable implements CanSendOTPContract
     public function driverWallet()
     {
         return $this->hasOne(DriverWallet::class, 'user_id', 'id');
+    }
+
+    public function withdrawalRequestsHistory()
+    {
+        return $this->hasMany(WalletWithdrawalRequest::class, 'user_id', 'id');
     }
     /**
      * The Driver associated with the user's id.

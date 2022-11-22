@@ -75,13 +75,12 @@
 
     </td>
     @if($result->user->active)
-    <td><button class="btn btn-success btn-sm">Active</button></td>
+    <td><button class="btn btn-success btn-sm">@lang('view_pages.active')</button></td>
     @else
-    <td><button class="btn btn-danger btn-sm">InActive</button></td>
+    <td><button class="btn btn-danger btn-sm">@lang('view_pages.inactive')</button></td>
     @endif
     <td>
 
-    <div class="dropdown">
     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
     </button>
         <div class="dropdown-menu">
@@ -96,7 +95,9 @@
             <i class="fa fa-dot-circle-o"></i>@lang('view_pages.active')</a>
             @endif
             <a class="dropdown-item sweet-delete" href="#" data-url="{{url('admins/delete',$result->user->id)}}">
+            
             <i class="fa fa-trash-o"></i>@lang('view_pages.delete')</a>
+            
         </div>
     </div>
 

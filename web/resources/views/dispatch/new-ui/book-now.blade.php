@@ -222,17 +222,17 @@
 
 @section('dispatch-content')
 <main class="main">
-	<div id="book-now">
+    <div id="book-now">
     <div class="container-fluid">
 
-    	<div class="card my-2">
+        <div class="card my-2">
     <div class="card-body  py-0 position-relative">
         <nav class="navbar navbar-light navbar-top navbar-expand-xl">
             <a class="navbar-brand me-1 me-sm-3" href="#">
                 <div class="d-flex align-items-center"><img class="me-2"
                         src="{{ app_logo() ?? asset('images/email/logo.svg') }}" style="width: 26px;padding-right: 5px;" alt="" />
                         <span>
-                            {{ app_name() ?? 'Tagyourtaxi' }}
+                            {{ app_name() ?? 'Tagxi' }}
                         </span>
                         
                     </div>
@@ -254,9 +254,9 @@
                                     class="fas fa-crown me-1"></span><span>{{ ucfirst(auth()->user()->name) }}</span></span>
                             <div class="dropdown-divider"></div>
     
-                            {{-- <a class="dropdown-item" href="{{ url('dispatch/profile') }}">Profile</a> --}}
+                            {{-- <a class="dropdown-item" href="{{ url('dispatch/profile') }}">@lang('view_pages.profile')</a> --}}
                             
-                            <a class="dropdown-item" href="{{ url('api/spa/logout') }}">Logout</a>
+                            <a class="dropdown-item" href="{{ url('api/spa/logout') }}">@lang('view_pages.admin_logout')</a>
                         </div>
                     </div>
                 </li>
@@ -264,7 +264,7 @@
             @else
                 <div class="pull-right" style="float: right">
                     <a href="{{ url('dispatch/dashboard') }}"  class="btn btn-danger btn-sm turned-button mr-auto">
-                        Back
+                        @lang('view_pages.back')
                     </a>
                 </div>
             @endif
@@ -281,7 +281,7 @@
                                     <div class="card p-3 mb-3 book">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h6 class="box-title">User Details</h6>
+                                                <h6 class="box-title">@lang('view_pages.user_details')</h6>
                                             </div>
 
                                             <input id="dialcodes" name="dialcodes" type="hidden">
@@ -310,7 +310,7 @@
                                     {{-- <div class="card p-3 mb-3 book">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h6 class="box-title">Receiver Details</h6>
+                                        <h6 class="box-title">@lang('view_pages.receiver_details')</h6>
                                     </div>
                                     
                                     <input id="receiverDialCode" name="receiverDialCode" type="hidden">
@@ -318,7 +318,7 @@
                                     <div class="col-md-6">
                                         <div class="form-check" style="float: right;padding: 0;">
                                             <input class="form-check-input" id="same_as_sender" type="checkbox"/>
-                                            <label class="form-check-label" for="same_as_sender">Same as Sender</label>
+                                            <label class="form-check-label" for="same_as_sender">@lang('view_pages.same_as_sender')</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -338,7 +338,7 @@
                                     <div class="card p-3 mb-3 book">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h6 class="box-title">Location Details</h6>
+                                                <h6 class="box-title">@lang('view_pages.location_details')</h6>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-3">
@@ -374,30 +374,30 @@
                                         <div class="row">
                                             {{-- <div class="col-12" id="vehicle-body">
                                     <div class="box-header with-border text-left">
-                                        <h6 class="box-title">Truck Type</h6>
+                                        <h6 class="box-title">@lang('view_pages.truck_type')</h6>
                                     </div>
                                     <div class="box-body py-0">
                                         <div class="row">
                                             <div class="col-md-4 m-auto truckType">
                                                 <ul class="body-type">
-                                                    <li data-id="1">Open</li>
+                                                    <li data-id="1">@lang('view_pages.open')</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-4 m-auto truckType">
                                                 <ul class="body-type">
-                                                    <li data-id="0">Closed</li>
+                                                    <li data-id="0">@lang('view_pages.closed')</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-4 m-auto truckType">
                                                 <ul class="body-type">
-                                                    <li data-id="2">Any</li>
+                                                    <li data-id="2">@lang('view_pages.any')</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div> --}}
                                             <div class="col-12">
-                                                <h6 class="box-title">Vehicle Type</h6>
+                                                <h6 class="box-title">@lang('view_pages.type')</h6>
                                             </div>
                                             <div class="col-12">
                                                 <div class="row">
@@ -417,7 +417,7 @@
                                                     <div class="collapse text-center" id="collapseExample">
                                                         <hr>
                                                         <h4>
-                                                            Packages
+                                                            @lang('view_pages.packages')
                                                         </h4>
                                                         <div class="packages" id="packageList">
 
@@ -432,7 +432,7 @@
                                     <div class="card p-3 mb-3 book date-option d-none">
                                         <div class="row">
                                             <div class="mb-3">
-                                                <label class="form-label" for="datepicker">Start Date</label>
+                                                <label class="form-label" for="datepicker">@lang('view_pages.start_date')</label>
                                                 <input class="form-control datetimepicker required_for_valid"
                                                     name="date" id="datepicker" type="text" required placeholder="d/m/y"
                                                     data-options='{"disableMobile":true}' />
@@ -440,7 +440,7 @@
                                                     id="error-date">{{ $errors->first('date') }}</span>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label" for="timepicker">Start Time</label>
+                                                <label class="form-label" for="timepicker">@lang('view_pages.start_time')</label>
                                                 <input class="form-control datetimepicker required_for_valid"
                                                     name="time" id="timepicker" type="text" required placeholder="H:i"
                                                     data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true}' />
@@ -453,7 +453,7 @@
                                     <div class="card p-3 mb-3 book">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h6 class="box-title">Payment Method</h6>
+                                                <h6 class="box-title">@lang('view_pages.payment_method')</h6>
                                             </div>
                                             <div class="col-md-12 chq-radio">
                                                 <div class="form-check form-check-inline">
@@ -630,7 +630,7 @@
                                                                 </linearGradient>
                                                             </defs>
                                                         </svg>
-                                                        &nbsp; Cash
+                                                        &nbsp; @lang('view_pages.cash')
                                                     </label>
                                                 </div>
                                                 <span class="text-danger"
@@ -640,7 +640,7 @@
                                     </div>
 
                                     {{-- <p class="mb-0">
-                                    <a data-fancybox data-animation-duration="500" data-src="#animatedModal" href="javascript:;" class="btn btn-primary">Success!</a>
+                                    <a data-fancybox data-animation-duration="500" data-src="#animatedModal" href="javascript:;" class="btn btn-primary">@lang('view_pages.success')!</a>
                                 </p> --}}
 
 
@@ -648,7 +648,7 @@
                                         <button type="button"
                                             class="btn btn-primary btn-md "
                                             style="float: right">
-                                            Book
+                                            @lang('view_pages.book')
                                         </button>
                                     </div>
                             </div>

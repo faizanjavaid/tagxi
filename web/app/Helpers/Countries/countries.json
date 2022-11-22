@@ -16,7 +16,9 @@
     "dial_code": "+93",
     "currency_symbol": "؋",
     "currency_decimals": "2",
-    "flag": "AF.png"
+    "flag": "AF.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Tirana",
@@ -35,7 +37,9 @@
     "dial_code": "+355",
     "currency_symbol": "Lek",
     "currency_decimals": "2",
-    "flag": "AL.png"
+    "flag": "AL.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Antartica",
@@ -54,7 +58,9 @@
     "dial_code": "+672",
     "currency_symbol": "",
     "currency_decimals": "2",
-    "flag": "AQ.png"
+    "flag": "AQ.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Algiers",
@@ -73,7 +79,9 @@
     "dial_code": "+213",
     "currency_symbol": "DZD",
     "currency_decimals": "2",
-    "flag": "DZ.png"
+    "flag": "DZ.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Pago Pago",
@@ -92,7 +100,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "AS.png"
+    "flag": "AS.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Andorra la Vella",
@@ -111,7 +121,10 @@
     "dial_code": "+376",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "AD.png"
+    "flag": "AD.png",
+    "minLength": 9,
+    "maxLength": 9
+
 },
 {
     "capital": "Luanda",
@@ -130,7 +143,9 @@
     "dial_code": "+244",
     "currency_symbol": "Kz",
     "currency_decimals": "2",
-    "flag": "AO.png"
+    "flag": "AO.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "St John’s",
@@ -149,7 +164,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "AG.png"
+    "flag": "AG.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Baku",
@@ -168,7 +185,9 @@
     "dial_code": "+994",
     "currency_symbol": "\u043c\u0430\u043d",
     "currency_decimals": "2",
-    "flag": "AZ.png"
+    "flag": "AZ.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Buenos Aires",
@@ -187,7 +206,9 @@
     "dial_code": "+54",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "AR.png"
+    "flag": "AR.png",
+    "minLength": 10,
+    "maxLength": 12
 },
 {
     "capital": "Canberra",
@@ -206,7 +227,9 @@
     "dial_code": "+61",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "AU.png"
+    "flag": "AU.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Vienna",
@@ -225,7 +248,9 @@
     "dial_code": "+43",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "AT.png"
+    "flag": "AT.png",
+    "minLength": 13,
+    "maxLength": 13
 },
 {
     "capital": "Nassau",
@@ -244,7 +269,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "BS.png"
+    "flag": "BS.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Manama",
@@ -263,7 +290,9 @@
     "dial_code": "+973",
     "currency_symbol": "BHD",
     "currency_decimals": "3",
-    "flag": "BH.png"
+    "flag": "BH.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Dhaka",
@@ -282,7 +311,9 @@
     "dial_code": "+880",
     "currency_symbol": "BDT",
     "currency_decimals": "2",
-    "flag": "BD.png"
+    "flag": "BD.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Yerevan",
@@ -301,7 +332,9 @@
     "dial_code": "+374",
     "currency_symbol": "AMD",
     "currency_decimals": "2",
-    "flag": "AM.png"
+    "flag": "AM.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Bridgetown",
@@ -320,7 +353,10 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "BB.png"
+    "flag": "BB.png",
+    "minLength": 7,
+    "maxLength": 7
+
 },
 {
     "capital": "Brussels",
@@ -339,7 +375,9 @@
     "dial_code": "+32",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "BE.png"
+    "flag": "BE.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Hamilton",
@@ -358,7 +396,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "BM.png"
+    "flag": "BM.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Thimphu",
@@ -377,7 +417,9 @@
     "dial_code": "+975",
     "currency_symbol": "BTN",
     "currency_decimals": "2",
-    "flag": "BT.png"
+    "flag": "BT.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Sucre (BO1)",
@@ -396,7 +438,9 @@
     "dial_code": "+591",
     "currency_symbol": "$b",
     "currency_decimals": "2",
-    "flag": "BO.png"
+    "flag": "BO.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Sarajevo",
@@ -415,7 +459,9 @@
     "dial_code": "+387",
     "currency_symbol": "KM",
     "currency_decimals": "2",
-    "flag": "BA.png"
+    "flag": "BA.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Gaborone",
@@ -434,7 +480,9 @@
     "dial_code": "+267",
     "currency_symbol": "P",
     "currency_decimals": "2",
-    "flag": "BW.png"
+    "flag": "BW.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Bouvet island",
@@ -453,7 +501,9 @@
     "dial_code": "+47",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "BV.png"
+    "flag": "BV.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Brasilia",
@@ -472,7 +522,9 @@
     "dial_code": "+55",
     "currency_symbol": "R$",
     "currency_decimals": "2",
-    "flag": "BR.png"
+    "flag": "BR.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Belmopan",
@@ -491,7 +543,9 @@
     "dial_code": "+501",
     "currency_symbol": "BZ$",
     "currency_decimals": "2",
-    "flag": "BZ.png"
+    "flag": "BZ.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Diego Garcia",
@@ -510,7 +564,9 @@
     "dial_code": "+246",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "IO.png"
+    "flag": "IO.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Honiara",
@@ -529,7 +585,9 @@
     "dial_code": "+677",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "SB.png"
+    "flag": "SB.png",
+    "minLength": 5,
+    "maxLength": 5
 },
 {
     "capital": "Road Town",
@@ -548,7 +606,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "VG.png"
+    "flag": "VG.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Bandar Seri Begawan",
@@ -567,7 +627,9 @@
     "dial_code": "+673",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "BN.png"
+    "flag": "BN.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Sofia",
@@ -586,7 +648,9 @@
     "dial_code": "+359",
     "currency_symbol": "\u043b\u0432",
     "currency_decimals": "2",
-    "flag": "BG.png"
+    "flag": "BG.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Yangon",
@@ -605,7 +669,9 @@
     "dial_code": "+95",
     "currency_symbol": "K",
     "currency_decimals": "2",
-    "flag": "MM.png"
+    "flag": "MM.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Bujumbura",
@@ -624,7 +690,9 @@
     "dial_code": "+257",
     "currency_symbol": "BIF",
     "currency_decimals": "0",
-    "flag": "BI.png"
+    "flag": "BI.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Minsk",
@@ -643,7 +711,9 @@
     "dial_code": "+375",
     "currency_symbol": "p.",
     "currency_decimals": "2",
-    "flag": "BY.png"
+    "flag": "BY.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Phnom Penh",
@@ -662,7 +732,9 @@
     "dial_code": "+855",
     "currency_symbol": "\u17db",
     "currency_decimals": "2",
-    "flag": "KH.png"
+    "flag": "KH.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Yaound\u00e9",
@@ -681,7 +753,9 @@
     "dial_code": "+237",
     "currency_symbol": "FCF",
     "currency_decimals": "0",
-    "flag": "CM.png"
+    "flag": "CM.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Ottawa",
@@ -700,7 +774,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "CA.png"
+    "flag": "CA.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Praia",
@@ -719,7 +795,9 @@
     "dial_code": "+238",
     "currency_symbol": "CVE",
     "currency_decimals": "2",
-    "flag": "CV.png"
+    "flag": "CV.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "George Town",
@@ -738,7 +816,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "KY.png"
+    "flag": "KY.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Bangui",
@@ -757,7 +837,9 @@
     "dial_code": "+236",
     "currency_symbol": "CFA",
     "currency_decimals": "0",
-    "flag": "CF.png"
+    "flag": "CF.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Colombo",
@@ -776,7 +858,9 @@
     "dial_code": "+94",
     "currency_symbol": "\u20a8",
     "currency_decimals": "2",
-    "flag": "LK.png"
+    "flag": "LK.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "N\u2019Djamena",
@@ -795,7 +879,9 @@
     "dial_code": "+235",
     "currency_symbol": "XAF",
     "currency_decimals": "0",
-    "flag": "TD.png"
+    "flag": "TD.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Santiago",
@@ -814,7 +900,9 @@
     "dial_code": "+56",
     "currency_symbol": "CLP",
     "currency_decimals": "0",
-    "flag": "CL.png"
+    "flag": "CL.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Beijing",
@@ -833,7 +921,9 @@
     "dial_code": "+86",
     "currency_symbol": "\u00a5",
     "currency_decimals": "2",
-    "flag": "CN.png"
+    "flag": "CN.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Taipei",
@@ -852,7 +942,9 @@
     "dial_code": "+886",
     "currency_symbol": "NT$",
     "currency_decimals": "2",
-    "flag": "TW.png"
+    "flag": "TW.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Flying Fish Cove",
@@ -871,7 +963,9 @@
     "dial_code": "+61",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "CX.png"
+    "flag": "CX.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Bantam",
@@ -890,7 +984,9 @@
     "dial_code": "+61",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "CC.png"
+    "flag": "CC.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Santa Fe de Bogot\u00e1",
@@ -909,7 +1005,9 @@
     "dial_code": "+57",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "CO.png"
+    "flag": "CO.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Moroni",
@@ -928,7 +1026,9 @@
     "dial_code": "+269",
     "currency_symbol": "KMF",
     "currency_decimals": "0",
-    "flag": "KM.png"
+    "flag": "KM.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Mamoudzou",
@@ -947,7 +1047,9 @@
     "dial_code": "+262",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "YT.png"
+    "flag": "YT.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Brazzaville",
@@ -966,7 +1068,9 @@
     "dial_code": "+242",
     "currency_symbol": "FCF",
     "currency_decimals": "0",
-    "flag": "CG.png"
+    "flag": "CG.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Kinshasa",
@@ -978,14 +1082,16 @@
     "full_name": "Democratic Republic of the Congo",
     "iso_3166_2": "CD",
     "iso_3166_3": "COD",
-    "name": "Congo, the Democratic Republic of the",
+    "name": "Congo, the Democratic Republic of the Congo",
     "region_code": "002",
     "sub_region_code": "017",
     "eea": false,
     "dial_code": "+243",
     "currency_symbol": "CDF",
     "currency_decimals": "2",
-    "flag": "CD.png"
+    "flag": "CD.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Avarua",
@@ -1004,7 +1110,9 @@
     "dial_code": "+682",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "CK.png"
+    "flag": "CK.png",
+    "minLength": 5,
+    "maxLength": 5
 },
 {
     "capital": "San José",
@@ -1023,7 +1131,9 @@
     "dial_code": "+506",
     "currency_symbol": "\u20a1",
     "currency_decimals": "2",
-    "flag": "CR.png"
+    "flag": "CR.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Zagreb",
@@ -1042,7 +1152,9 @@
     "dial_code": "+385",
     "currency_symbol": "kn",
     "currency_decimals": "2",
-    "flag": "HR.png"
+    "flag": "HR.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Havana",
@@ -1061,7 +1173,9 @@
     "dial_code": "+53",
     "currency_symbol": "\u20b1",
     "currency_decimals": "2",
-    "flag": "CU.png"
+    "flag": "CU.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Nicosia",
@@ -1080,7 +1194,9 @@
     "dial_code": "+357",
     "currency_symbol": "CYP",
     "currency_decimals": "2",
-    "flag": "CY.png"
+    "flag": "CY.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Prague",
@@ -1099,7 +1215,9 @@
     "dial_code": "+420",
     "currency_symbol": "K\u010d",
     "currency_decimals": "2",
-    "flag": "CZ.png"
+    "flag": "CZ.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Porto Novo (BJ1)",
@@ -1118,7 +1236,9 @@
     "dial_code": "+229",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "BJ.png"
+    "flag": "BJ.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Copenhagen",
@@ -1137,7 +1257,9 @@
     "dial_code": "+45",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "DK.png"
+    "flag": "DK.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Roseau",
@@ -1156,7 +1278,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "DM.png"
+    "flag": "DM.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Santo Domingo",
@@ -1175,7 +1299,9 @@
     "dial_code": "+1",
     "currency_symbol": "RD$",
     "currency_decimals": "2",
-    "flag": "DO.png"
+    "flag": "DO.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Quito",
@@ -1194,7 +1320,9 @@
     "dial_code": "+593",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "EC.png"
+    "flag": "EC.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "San Salvador",
@@ -1213,7 +1341,9 @@
     "dial_code": "+503",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "SV.png"
+    "flag": "SV.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Malabo",
@@ -1232,7 +1362,9 @@
     "dial_code": "+240",
     "currency_symbol": "FCF",
     "currency_decimals": "2",
-    "flag": "GQ.png"
+    "flag": "GQ.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Addis Ababa",
@@ -1251,7 +1383,9 @@
     "dial_code": "+251",
     "currency_symbol": "ETB",
     "currency_decimals": "2",
-    "flag": "ET.png"
+    "flag": "ET.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Asmara",
@@ -1270,7 +1404,9 @@
     "dial_code": "+291",
     "currency_symbol": "Nfk",
     "currency_decimals": "2",
-    "flag": "ER.png"
+    "flag": "ER.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Tallinn",
@@ -1289,7 +1425,9 @@
     "dial_code": "+372",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "EE.png"
+    "flag": "EE.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "T\u00f3rshavn",
@@ -1308,7 +1446,9 @@
     "dial_code": "+298",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "FO.png"
+    "flag": "FO.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Stanley",
@@ -1327,7 +1467,9 @@
     "dial_code": "+500",
     "currency_symbol": "\u00a3",
     "currency_decimals": "2",
-    "flag": "FK.png"
+    "flag": "FK.png",
+    "minLength": 5,
+    "maxLength": 5
 },
 {
     "capital": "King Edward Point (Grytviken)",
@@ -1346,7 +1488,9 @@
     "dial_code": "+44",
     "currency_symbol": "\u00a3",
     "currency_decimals": "2",
-    "flag": "GS.png"
+    "flag": "GS.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Suva",
@@ -1365,7 +1509,9 @@
     "dial_code": "+679",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "FJ.png"
+    "flag": "FJ.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Helsinki",
@@ -1384,23 +1530,9 @@
     "dial_code": "+358",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "FI.png"
-},
-{
-    "capital": "Mariehamn",
-    "citizenship": "\u00c5land Islander",
-    "country_code": "248",
-    "currency": "euro",
-    "currency_code": "EUR",
-    "currency_sub_unit": "cent",
-    "full_name": "\u00c5land Islands",
-    "iso_3166_2": "AX",
-    "iso_3166_3": "ALA",
-    "name": "\u00c5land Islands",
-    "region_code": "150",
-    "sub_region_code": "154",
-    "eea": false,
-    "dial_code": "+358"
+    "flag": "FI.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Paris",
@@ -1419,7 +1551,9 @@
     "dial_code": "+33",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "FR.png"
+    "flag": "FR.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Cayenne",
@@ -1438,7 +1572,9 @@
     "dial_code": "+594",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "GF.png"
+    "flag": "GF.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Papeete",
@@ -1457,7 +1593,9 @@
     "dial_code": "+689",
     "currency_symbol": "XPF",
     "currency_decimals": "0",
-    "flag": "PF.png"
+    "flag": "PF.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Port-aux-Francais",
@@ -1476,7 +1614,9 @@
     "dial_code": "+33",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "TF.png"
+    "flag": "TF.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Djibouti",
@@ -1495,7 +1635,9 @@
     "dial_code": "+253",
     "currency_symbol": "DJF",
     "currency_decimals": "0",
-    "flag": "DJ.png"
+    "flag": "DJ.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Libreville",
@@ -1514,7 +1656,9 @@
     "dial_code": "+241",
     "currency_symbol": "FCF",
     "currency_decimals": "0",
-    "flag": "GA.png"
+    "flag": "GA.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Tbilisi",
@@ -1533,7 +1677,9 @@
     "dial_code": "+995",
     "currency_symbol": "GEL",
     "currency_decimals": "2",
-    "flag": "GE.png"
+    "flag": "GE.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Banjul",
@@ -1552,7 +1698,9 @@
     "dial_code": "+220",
     "currency_symbol": "D",
     "currency_decimals": "2",
-    "flag": "GM.png"
+    "flag": "GM.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "citizenship": "Palestinian",
@@ -1566,7 +1714,9 @@
     "dial_code": "+970",
     "currency_symbol": "\u20aa",
     "currency_decimals": "2",
-    "flag": "PS.png"
+    "flag": "PS.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Berlin",
@@ -1585,7 +1735,9 @@
     "dial_code": "+49",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "DE.png"
+    "flag": "DE.png",
+    "minLength": 9,
+    "maxLength": 13
 },
 {
     "capital": "Accra",
@@ -1604,7 +1756,9 @@
     "dial_code": "+233",
     "currency_symbol": "\u00a2",
     "currency_decimals": "2",
-    "flag": "GH.png"
+    "flag": "GH.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Gibraltar",
@@ -1623,7 +1777,9 @@
     "dial_code": "+350",
     "currency_symbol": "\u00a3",
     "currency_decimals": "2",
-    "flag": "GI.png"
+    "flag": "GI.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Tarawa",
@@ -1642,7 +1798,9 @@
     "dial_code": "+686",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "KI.png"
+    "flag": "KI.png",
+    "minLength": 5,
+    "maxLength": 5
 },
 {
     "capital": "Athens",
@@ -1661,7 +1819,9 @@
     "dial_code": "+30",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "GR.png"
+    "flag": "GR.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Nuuk",
@@ -1680,7 +1840,9 @@
     "dial_code": "+299",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "GL.png"
+    "flag": "GL.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "St George\u2019s",
@@ -1699,7 +1861,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "GD.png"
+    "flag": "GD.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Basse Terre",
@@ -1718,7 +1882,9 @@
     "dial_code": "+590",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "GP.png"
+    "flag": "GP.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Aga\u00f1a (Hag\u00e5t\u00f1a)",
@@ -1737,7 +1903,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "GU.png"
+    "flag": "GU.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Guatemala City",
@@ -1756,7 +1924,9 @@
     "dial_code": "+502",
     "currency_symbol": "Q",
     "currency_decimals": "2",
-    "flag": "GT.png"
+    "flag": "GT.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Conakry",
@@ -1775,7 +1945,9 @@
     "dial_code": "+224",
     "currency_symbol": "GNF",
     "currency_decimals": "0",
-    "flag": "GN.png"
+    "flag": "GN.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Georgetown",
@@ -1794,7 +1966,9 @@
     "dial_code": "+592",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "GY.png"
+    "flag": "GY.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Port-au-Prince",
@@ -1813,7 +1987,9 @@
     "dial_code": "+509",
     "currency_symbol": "G",
     "currency_decimals": "2",
-    "flag": "HT.png"
+    "flag": "HT.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Territory of Heard Island and McDonald Islands",
@@ -1832,7 +2008,9 @@
     "dial_code": "+61",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "HM.png"
+    "flag": "HM.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Vatican City",
@@ -1851,7 +2029,9 @@
     "dial_code": "+39",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "VA.png"
+    "flag": "VA.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Tegucigalpa",
@@ -1870,7 +2050,9 @@
     "dial_code": "+504",
     "currency_symbol": "L",
     "currency_decimals": "2",
-    "flag": "HN.png"
+    "flag": "HN.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "(HK3)",
@@ -1889,7 +2071,9 @@
     "dial_code": "+852",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "HK.png"
+    "flag": "HK.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Budapest",
@@ -1908,7 +2092,9 @@
     "dial_code": "+36",
     "currency_symbol": "Ft",
     "currency_decimals": "2",
-    "flag": "HU.png"
+    "flag": "HU.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Reykjavik",
@@ -1927,7 +2113,9 @@
     "dial_code": "+354",
     "currency_symbol": "kr",
     "currency_decimals": "0",
-    "flag": "IS.png"
+    "flag": "IS.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "New Delhi",
@@ -1946,7 +2134,9 @@
     "dial_code": "+91",
     "currency_symbol": "₹",
     "currency_decimals": "2",
-    "flag": "IN.png"
+    "flag": "IN.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Jakarta",
@@ -1965,7 +2155,9 @@
     "dial_code": "+62",
     "currency_symbol": "Rp",
     "currency_decimals": "2",
-    "flag": "ID.png"
+    "flag": "ID.png",
+    "minLength": 13,
+    "maxLength": 13
 },
 {
     "capital": "Tehran",
@@ -1984,7 +2176,9 @@
     "dial_code": "+98",
     "currency_symbol": "\ufdfc",
     "currency_decimals": "2",
-    "flag": "IR.png"
+    "flag": "IR.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Baghdad",
@@ -2003,7 +2197,9 @@
     "dial_code": "+964",
     "currency_symbol": "IQD",
     "currency_decimals": "3",
-    "flag": "IQ.png"
+    "flag": "IQ.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Dublin",
@@ -2022,7 +2218,9 @@
     "dial_code": "+353",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "IE.png"
+    "flag": "IE.png",
+    "minLength": 7,
+    "maxLength": 9
 },
 {
     "capital": "(IL1)",
@@ -2041,7 +2239,9 @@
     "dial_code": "+972",
     "currency_symbol": "\u20aa",
     "currency_decimals": "2",
-    "flag": "IL.png"
+    "flag": "IL.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Rome",
@@ -2060,7 +2260,9 @@
     "dial_code": "+39",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "IT.png"
+    "flag": "IT.png",
+    "minLength": 13,
+    "maxLength": 13
 },
 {
     "capital": "Yamoussoukro (CI1)",
@@ -2069,17 +2271,19 @@
     "currency": "CFA franc (BCEAO)",
     "currency_code": "XOF",
     "currency_sub_unit": "centime",
-    "full_name": "Republic of C\u00f4te d\u2019Ivoire",
+    "full_name": "Republic ofCôte d'Ivoire",
     "iso_3166_2": "CI",
     "iso_3166_3": "CIV",
-    "name": "C\u00f4te d'Ivoire",
+    "name": "Côte d'Ivoire",
     "region_code": "002",
     "sub_region_code": "011",
     "eea": false,
     "dial_code": "+225",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "CI.png"
+    "flag": "CI.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Kingston",
@@ -2098,7 +2302,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "JM.png"
+    "flag": "JM.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Tokyo",
@@ -2117,7 +2323,9 @@
     "dial_code": "+81",
     "currency_symbol": "\u00a5",
     "currency_decimals": "0",
-    "flag": "JP.png"
+    "flag": "JP.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Astana",
@@ -2136,7 +2344,9 @@
     "dial_code": "+7",
     "currency_symbol": "\u043b\u0432",
     "currency_decimals": "2",
-    "flag": "KZ.png"
+    "flag": "KZ.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Amman",
@@ -2155,7 +2365,9 @@
     "dial_code": "+962",
     "currency_symbol": "JOD",
     "currency_decimals": "2",
-    "flag": "JO.png"
+    "flag": "JO.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Nairobi",
@@ -2174,7 +2386,9 @@
     "dial_code": "+254",
     "currency_symbol": "KES",
     "currency_decimals": "2",
-    "flag": "KE.png"
+    "flag": "KE.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Pyongyang",
@@ -2193,7 +2407,9 @@
     "dial_code": "+850",
     "currency_symbol": "\u20a9",
     "currency_decimals": "2",
-    "flag": "KP.png"
+    "flag": "KP.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Seoul",
@@ -2212,7 +2428,9 @@
     "dial_code": "+82",
     "currency_symbol": "\u20a9",
     "currency_decimals": "0",
-    "flag": "KR.png"
+    "flag": "KR.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Kuwait City",
@@ -2231,7 +2449,9 @@
     "dial_code": "+965",
     "currency_symbol": "KWD",
     "currency_decimals": "3",
-    "flag": "KW.png"
+    "flag": "KW.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Bishkek",
@@ -2250,7 +2470,9 @@
     "dial_code": "+996",
     "currency_symbol": "\u043b\u0432",
     "currency_decimals": "2",
-    "flag": "KG.png"
+    "flag": "KG.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Vientiane",
@@ -2269,7 +2491,9 @@
     "dial_code": "+856",
     "currency_symbol": "\u20ad",
     "currency_decimals": "0",
-    "flag": "LA.png"
+    "flag": "LA.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Beirut",
@@ -2288,7 +2512,9 @@
     "dial_code": "+961",
     "currency_symbol": "\u00a3",
     "currency_decimals": "2",
-    "flag": "LB.png"
+    "flag": "LB.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Maseru",
@@ -2307,7 +2533,9 @@
     "dial_code": "+266",
     "currency_symbol": "L",
     "currency_decimals": "2",
-    "flag": "LS.png"
+    "flag": "LS.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Riga",
@@ -2326,7 +2554,9 @@
     "dial_code": "+371",
     "currency_symbol": "Ls",
     "currency_decimals": "2",
-    "flag": "LV.png"
+    "flag": "LV.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Monrovia",
@@ -2345,7 +2575,9 @@
     "dial_code": "+231",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "LR.png"
+    "flag": "LR.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Tripoli",
@@ -2364,7 +2596,9 @@
     "dial_code": "+218",
     "currency_symbol": "LYD",
     "currency_decimals": "3",
-    "flag": "LY.png"
+    "flag": "LY.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Vaduz",
@@ -2383,7 +2617,9 @@
     "dial_code": "+423",
     "currency_symbol": "CHF",
     "currency_decimals": "2",
-    "flag": "LI.png"
+    "flag": "LI.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Vilnius",
@@ -2402,7 +2638,9 @@
     "dial_code": "+370",
     "currency_symbol": "Lt",
     "currency_decimals": "2",
-    "flag": "LT.png"
+    "flag": "LT.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Luxembourg",
@@ -2421,7 +2659,9 @@
     "dial_code": "+352",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "LU.png"
+    "flag": "LU.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Macao (MO3)",
@@ -2440,7 +2680,9 @@
     "dial_code": "+853",
     "currency_symbol": "MOP",
     "currency_decimals": "2",
-    "flag": "MO.png"
+    "flag": "MO.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Antananarivo",
@@ -2459,7 +2701,9 @@
     "dial_code": "+261",
     "currency_symbol": "MGA",
     "currency_decimals": "2",
-    "flag": "MG.png"
+    "flag": "MG.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Lilongwe",
@@ -2478,7 +2722,9 @@
     "dial_code": "+265",
     "currency_symbol": "MK",
     "currency_decimals": "2",
-    "flag": "MW.png"
+    "flag": "MW.png",
+    "minLength": 7,
+    "maxLength": 9
 },
 {
     "capital": "Kuala Lumpur (MY1)",
@@ -2497,7 +2743,9 @@
     "dial_code": "+60",
     "currency_symbol": "RM",
     "currency_decimals": "2",
-    "flag": "MY.png"
+    "flag": "MY.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Mal\u00e9",
@@ -2516,7 +2764,9 @@
     "dial_code": "+960",
     "currency_symbol": "Rf",
     "currency_decimals": "2",
-    "flag": "MV.png"
+    "flag": "MV.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Bamako",
@@ -2535,7 +2785,9 @@
     "dial_code": "+223",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "ML.png"
+    "flag": "ML.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Valletta",
@@ -2554,7 +2806,9 @@
     "dial_code": "+356",
     "currency_symbol": "MTL",
     "currency_decimals": "2",
-    "flag": "MT.png"
+    "flag": "MT.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Fort-de-France",
@@ -2573,7 +2827,9 @@
     "dial_code": "+596",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "MQ.png"
+    "flag": "MQ.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Nouakchott",
@@ -2592,7 +2848,9 @@
     "dial_code": "+222",
     "currency_symbol": "UM",
     "currency_decimals": "2",
-    "flag": "MR.png"
+    "flag": "MR.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Port Louis",
@@ -2611,7 +2869,9 @@
     "dial_code": "+230",
     "currency_symbol": "\u20a8",
     "currency_decimals": "2",
-    "flag": "MU.png"
+    "flag": "MU.png",
+    "minLength": 7,
+    "maxLength": 8
 },
 {
     "capital": "Mexico City",
@@ -2630,7 +2890,9 @@
     "dial_code": "+52",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "MX.png"
+    "flag": "MX.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Monaco",
@@ -2649,7 +2911,9 @@
     "dial_code": "+377",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "MC.png"
+    "flag": "MC.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Ulan Bator",
@@ -2668,7 +2932,9 @@
     "dial_code": "+976",
     "currency_symbol": "\u20ae",
     "currency_decimals": "2",
-    "flag": "MN.png"
+    "flag": "MN.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Chisinau",
@@ -2687,7 +2953,9 @@
     "dial_code": "+373",
     "currency_symbol": "MDL",
     "currency_decimals": "2",
-    "flag": "MD.png"
+    "flag": "MD.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Podgorica",
@@ -2706,7 +2974,9 @@
     "dial_code": "+382",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "ME.png"
+    "flag": "ME.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Plymouth (MS2)",
@@ -2725,7 +2995,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "MS.png"
+    "flag": "MS.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Rabat",
@@ -2744,7 +3016,9 @@
     "dial_code": "+212",
     "currency_symbol": "MAD",
     "currency_decimals": "2",
-    "flag": "MA.png"
+    "flag": "MA.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Maputo",
@@ -2763,7 +3037,9 @@
     "dial_code": "+258",
     "currency_symbol": "MT",
     "currency_decimals": "2",
-    "flag": "MZ.png"
+    "flag": "MZ.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Muscat",
@@ -2782,7 +3058,9 @@
     "dial_code": "+968",
     "currency_symbol": "\ufdfc",
     "currency_decimals": "3",
-    "flag": "OM.png"
+    "flag": "OM.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Windhoek",
@@ -2801,7 +3079,9 @@
     "dial_code": "+264",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "NA.png"
+    "flag": "NA.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Yaren",
@@ -2820,7 +3100,9 @@
     "dial_code": "+674",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "NR.png"
+    "flag": "NR.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Kathmandu",
@@ -2839,7 +3121,9 @@
     "dial_code": "+977",
     "currency_symbol": "\u20a8",
     "currency_decimals": "2",
-    "flag": "NP.png"
+    "flag": "NP.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Amsterdam (NL2)",
@@ -2858,7 +3142,9 @@
     "dial_code": "+31",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "NL.png"
+    "flag": "NL.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Willemstad",
@@ -2874,7 +3160,9 @@
     "region_code": "019",
     "sub_region_code": "029",
     "eea": false,
-    "dial_code": "+599"
+    "dial_code": "+599",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Oranjestad",
@@ -2893,37 +3181,9 @@
     "dial_code": "+297",
     "currency_symbol": "ƒ",
     "currency_decimals": "2",
-    "flag": "AW.png"
-},
-{
-    "capital": "Philipsburg",
-    "citizenship": "Sint Maartener",
-    "country_code": "534",
-    "currency": "Netherlands Antillean guilder (SX1)",
-    "currency_code": "ANG",
-    "currency_sub_unit": "cent",
-    "full_name": "Sint Maarten",
-    "iso_3166_2": "SX",
-    "iso_3166_3": "SXM",
-    "name": "Sint Maarten (Dutch part)",
-    "region_code": "019",
-    "sub_region_code": "029",
-    "eea": false,
-    "dial_code": "+721"
-},
-{
-    "citizenship": "of Bonaire, Sint Eustatius and Saba",
-    "country_code": "535",
-    "currency": "US dollar",
-    "currency_code": "USD",
-    "currency_sub_unit": "cent",
-    "iso_3166_2": "BQ",
-    "iso_3166_3": "BES",
-    "name": "Bonaire, Sint Eustatius and Saba",
-    "region_code": "019",
-    "sub_region_code": "029",
-    "eea": false,
-    "dial_code": "+599"
+    "flag": "AW.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Noum\u00e9a",
@@ -2942,7 +3202,9 @@
     "dial_code": "+687",
     "currency_symbol": "XPF",
     "currency_decimals": "0",
-    "flag": "NC.png"
+    "flag": "NC.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Port Vila",
@@ -2961,7 +3223,9 @@
     "dial_code": "+678",
     "currency_symbol": "Vt",
     "currency_decimals": "0",
-    "flag": "VU.png"
+    "flag": "VU.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Wellington",
@@ -2980,7 +3244,9 @@
     "dial_code": "+64",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "NZ.png"
+    "flag": "NZ.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Managua",
@@ -2999,7 +3265,9 @@
     "dial_code": "+505",
     "currency_symbol": "C$",
     "currency_decimals": "2",
-    "flag": "NI.png"
+    "flag": "NI.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Niamey",
@@ -3018,7 +3286,9 @@
     "dial_code": "+227",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "NE.png"
+    "flag": "NE.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Abuja",
@@ -3037,7 +3307,9 @@
     "dial_code": "+234",
     "currency_symbol": "₦",
     "currency_decimals": "2",
-    "flag": "NG.png"
+    "flag": "NG.png",
+    "minLength": 10,
+    "maxLength": 11
 },
 {
     "capital": "Alofi",
@@ -3056,7 +3328,9 @@
     "dial_code": "+683",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "NU.png"
+    "flag": "NU.png",
+    "minLength": 4,
+    "maxLength": 4
 },
 {
     "capital": "Kingston",
@@ -3075,7 +3349,9 @@
     "dial_code": "+672",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "NF.png"
+    "flag": "NF.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Oslo",
@@ -3094,7 +3370,9 @@
     "dial_code": "+47",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "NO.png"
+    "flag": "NO.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Saipan",
@@ -3113,7 +3391,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "MP.png"
+    "flag": "MP.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "United States Minor Outlying Islands",
@@ -3132,7 +3412,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "UM.png"
+    "flag": "UM.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Palikir",
@@ -3144,14 +3426,16 @@
     "full_name": "Federated States of Micronesia",
     "iso_3166_2": "FM",
     "iso_3166_3": "FSM",
-    "name": "Micronesia, Federated States of",
+    "name": "Micronesia, Federated States of Micronesia",
     "region_code": "009",
     "sub_region_code": "057",
     "eea": false,
     "dial_code": "+691",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "FM.png"
+    "flag": "FM.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Majuro",
@@ -3170,7 +3454,9 @@
     "dial_code": "+692",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "MH.png"
+    "flag": "MH.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Melekeok",
@@ -3189,7 +3475,9 @@
     "dial_code": "+680",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "PW.png"
+    "flag": "PW.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Islamabad",
@@ -3208,7 +3496,9 @@
     "dial_code": "+92",
     "currency_symbol": "₨",
     "currency_decimals": "2",
-    "flag": "PK.png"
+    "flag": "PK.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Panama City",
@@ -3227,7 +3517,9 @@
     "dial_code": "+507",
     "currency_symbol": "B\/.",
     "currency_decimals": "2",
-    "flag": "PA.png"
+    "flag": "PA.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Port Moresby",
@@ -3246,7 +3538,9 @@
     "dial_code": "+675",
     "currency_symbol": "PGK",
     "currency_decimals": "2",
-    "flag": "PG.png"
+    "flag": "PG.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Asunci\u00f3n",
@@ -3265,7 +3559,9 @@
     "dial_code": "+595",
     "currency_symbol": "Gs",
     "currency_decimals": "0",
-    "flag": "PY.png"
+    "flag": "PY.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Lima",
@@ -3284,7 +3580,9 @@
     "dial_code": "+51",
     "currency_symbol": "S\/.",
     "currency_decimals": "2",
-    "flag": "PE.png"
+    "flag": "PE.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Manila",
@@ -3303,7 +3601,9 @@
     "dial_code": "+63",
     "currency_symbol": "Php",
     "currency_decimals": "2",
-    "flag": "PH.png"
+    "flag": "PH.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Adamstown",
@@ -3322,7 +3622,9 @@
     "dial_code": "+649",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "PN.png"
+    "flag": "PN.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Warsaw",
@@ -3341,7 +3643,9 @@
     "dial_code": "+48",
     "currency_symbol": "zł",
     "currency_decimals": "2",
-    "flag": "PL.png"
+    "flag": "PL.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Lisbon",
@@ -3360,7 +3664,9 @@
     "dial_code": "+351",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "PT.png"
+    "flag": "PT.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Bissau",
@@ -3379,7 +3685,9 @@
     "dial_code": "+245",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "GW.png"
+    "flag": "GW.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Dili",
@@ -3398,7 +3706,9 @@
     "dial_code": "+670",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "TL.png"
+    "flag": "TL.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "San Juan",
@@ -3417,7 +3727,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "PR.png"
+    "flag": "PR.png",
+    "minLength": 15,
+    "maxLength": 15
 },
 {
     "capital": "Doha",
@@ -3436,7 +3748,9 @@
     "dial_code": "+974",
     "currency_symbol": "﷼",
     "currency_decimals": "2",
-    "flag": "QA.png"
+    "flag": "QA.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Saint-Denis",
@@ -3445,17 +3759,19 @@
     "currency": "euro",
     "currency_code": "EUR",
     "currency_sub_unit": "cent",
-    "full_name": "R\u00e9union",
+    "full_name": "Reunion",
     "iso_3166_2": "RE",
     "iso_3166_3": "REU",
-    "name": "R\u00e9union",
+    "name": "Reunion",
     "region_code": "002",
     "sub_region_code": "014",
     "eea": false,
     "dial_code": "+262",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "RE.png"
+    "flag": "RE.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Bucharest",
@@ -3474,7 +3790,9 @@
     "dial_code": "+40",
     "currency_symbol": "lei",
     "currency_decimals": "2",
-    "flag": "RO.png"
+    "flag": "RO.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Moscow",
@@ -3493,7 +3811,9 @@
     "dial_code": "+7",
     "currency_symbol": "руб",
     "currency_decimals": "2",
-    "flag": "RU.png"
+    "flag": "RU.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Kigali",
@@ -3512,23 +3832,27 @@
     "dial_code": "+250",
     "currency_symbol": "RWF",
     "currency_decimals": "0",
-    "flag": "RW.png"
+    "flag": "RW.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Gustavia",
-    "citizenship": "of Saint Barth\u00e9lemy",
+    "citizenship": "of Saint Barthelemy",
     "country_code": "652",
     "currency": "euro",
     "currency_code": "EUR",
     "currency_sub_unit": "cent",
-    "full_name": "Collectivity of Saint Barth\u00e9lemy",
+    "full_name": "Collectivity of Saint Barthelemy",
     "iso_3166_2": "BL",
     "iso_3166_3": "BLM",
-    "name": "Saint Barth\u00e9lemy",
+    "name": "Saint Barthelemy",
     "region_code": "019",
     "sub_region_code": "029",
     "eea": false,
-    "dial_code": "+590"
+    "dial_code": "+590",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Jamestown",
@@ -3547,7 +3871,9 @@
     "dial_code": "+290",
     "currency_symbol": "£",
     "currency_decimals": "2",
-    "flag": "SH.png"
+    "flag": "SH.png",
+    "minLength": 4,
+    "maxLength": 4
 },
 {
     "capital": "Basseterre",
@@ -3566,7 +3892,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "KN.png"
+    "flag": "KN.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "The Valley",
@@ -3585,7 +3913,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "AI.png"
+    "flag": "AI.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Castries",
@@ -3604,7 +3934,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "LC.png"
+    "flag": "LC.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Marigot",
@@ -3620,7 +3952,9 @@
     "region_code": "019",
     "sub_region_code": "029",
     "eea": false,
-    "dial_code": "+590"
+    "dial_code": "+590",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Saint-Pierre",
@@ -3639,7 +3973,9 @@
     "dial_code": "+508",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "PM.png"
+    "flag": "PM.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Kingstown",
@@ -3658,7 +3994,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "VC.png"
+    "flag": "VC.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "San Marino",
@@ -3677,7 +4015,9 @@
     "dial_code": "+378",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "SM.png"
+    "flag": "SM.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "S\u00e3o Tom\u00e9",
@@ -3696,7 +4036,9 @@
     "dial_code": "+239",
     "currency_symbol": "Db",
     "currency_decimals": "2",
-    "flag": "ST.png"
+    "flag": "ST.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Riyadh",
@@ -3715,7 +4057,9 @@
     "dial_code": "+966",
     "currency_symbol": "﷼",
     "currency_decimals": "2",
-    "flag": "SA.png"
+    "flag": "SA.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Dakar",
@@ -3734,7 +4078,9 @@
     "dial_code": "+221",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "SN.png"
+    "flag": "SN.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Belgrade",
@@ -3750,7 +4096,9 @@
     "region_code": "150",
     "sub_region_code": "039",
     "eea": false,
-    "dial_code": "+381"
+    "dial_code": "+381",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Victoria",
@@ -3769,7 +4117,9 @@
     "dial_code": "+248",
     "currency_symbol": "₨",
     "currency_decimals": "2",
-    "flag": "SC.png"
+    "flag": "SC.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Freetown",
@@ -3788,7 +4138,9 @@
     "dial_code": "+232",
     "currency_symbol": "Le",
     "currency_decimals": "2",
-    "flag": "SL.png"
+    "flag": "SL.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Singapore",
@@ -3807,7 +4159,9 @@
     "dial_code": "+65",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "SG.png"
+    "flag": "SG.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Bratislava",
@@ -3826,7 +4180,9 @@
     "dial_code": "+421",
     "currency_symbol": "Sk",
     "currency_decimals": "2",
-    "flag": "SK.png"
+    "flag": "SK.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Hanoi",
@@ -3838,14 +4194,16 @@
     "full_name": "Socialist Republic of Vietnam",
     "iso_3166_2": "VN",
     "iso_3166_3": "VNM",
-    "name": "Viet Nam",
+    "name": "VietNam",
     "region_code": "142",
     "sub_region_code": "035",
     "eea": false,
     "dial_code": "+84",
     "currency_symbol": "₫",
     "currency_decimals": "2",
-    "flag": "VN.png"
+    "flag": "VN.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Ljubljana",
@@ -3864,7 +4222,9 @@
     "dial_code": "+386",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "SI.png"
+    "flag": "SI.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Mogadishu",
@@ -3883,7 +4243,9 @@
     "dial_code": "+252",
     "currency_symbol": "S",
     "currency_decimals": "2",
-    "flag": "SO.png"
+    "flag": "SO.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Pretoria (ZA1)",
@@ -3902,7 +4264,9 @@
     "dial_code": "+27",
     "currency_symbol": "R",
     "currency_decimals": "2",
-    "flag": "ZA.png"
+    "flag": "ZA.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Harare",
@@ -3921,7 +4285,9 @@
     "dial_code": "+263",
     "currency_symbol": "Z$",
     "currency_decimals": "2",
-    "flag": "ZW.png"
+    "flag": "ZW.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Madrid",
@@ -3940,7 +4306,9 @@
     "dial_code": "+34",
     "currency_symbol": "€",
     "currency_decimals": "2",
-    "flag": "ES.png"
+    "flag": "ES.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Juba",
@@ -3956,7 +4324,9 @@
     "region_code": "002",
     "sub_region_code": "015",
     "eea": false,
-    "dial_code": "+211"
+    "dial_code": "+211",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Khartoum",
@@ -3972,7 +4342,9 @@
     "region_code": "002",
     "sub_region_code": "015",
     "eea": false,
-    "dial_code": "+249"
+    "dial_code": "+249",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Al aaiun",
@@ -3991,7 +4363,9 @@
     "dial_code": "+212",
     "currency_symbol": "MAD",
     "currency_decimals": "2",
-    "flag": "EH.png"
+    "flag": "EH.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Paramaribo",
@@ -4010,7 +4384,9 @@
     "dial_code": "+597",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "SR.png"
+    "flag": "SR.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Longyearbyen",
@@ -4029,7 +4405,9 @@
     "dial_code": "+47",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "SJ.png"
+    "flag": "SJ.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Mbabane",
@@ -4048,7 +4426,9 @@
     "dial_code": "+268",
     "currency_symbol": "SZL",
     "currency_decimals": "2",
-    "flag": "SZ.png"
+    "flag": "SZ.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Stockholm",
@@ -4067,7 +4447,9 @@
     "dial_code": "+46",
     "currency_symbol": "kr",
     "currency_decimals": "2",
-    "flag": "SE.png"
+    "flag": "SE.png",
+    "minLength": 13,
+    "maxLength": 13
 },
 {
     "capital": "Berne",
@@ -4086,7 +4468,9 @@
     "dial_code": "+41",
     "currency_symbol": "CHF",
     "currency_decimals": "2",
-    "flag": "CH.png"
+    "flag": "CH.png",
+    "minLength": 12,
+    "maxLength": 12
 },
 {
     "capital": "Damascus",
@@ -4105,7 +4489,9 @@
     "dial_code": "+963",
     "currency_symbol": "£",
     "currency_decimals": "2",
-    "flag": "SY.png"
+    "flag": "SY.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Dushanbe",
@@ -4124,7 +4510,9 @@
     "dial_code": "+992",
     "currency_symbol": "TJS",
     "currency_decimals": "2",
-    "flag": "TJ.png"
+    "flag": "TJ.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Bangkok",
@@ -4143,7 +4531,9 @@
     "dial_code": "+66",
     "currency_symbol": "฿",
     "currency_decimals": "2",
-    "flag": "TH.png"
+    "flag": "TH.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Lom\u00e9",
@@ -4162,7 +4552,9 @@
     "dial_code": "+228",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "TG.png"
+    "flag": "TG.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "(TK2)",
@@ -4181,7 +4573,9 @@
     "dial_code": "+690",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "TK.png"
+    "flag": "TK.png",
+    "minLength": 4,
+    "maxLength": 4
 },
 {
     "capital": "Nuku\u2019alofa",
@@ -4200,7 +4594,9 @@
     "dial_code": "+676",
     "currency_symbol": "T$",
     "currency_decimals": "2",
-    "flag": "TO.png"
+    "flag": "TO.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Port of Spain",
@@ -4219,7 +4615,9 @@
     "dial_code": "+1",
     "currency_symbol": "TT$",
     "currency_decimals": "2",
-    "flag": "TT.png"
+    "flag": "TT.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Abu Dhabi",
@@ -4238,7 +4636,9 @@
     "dial_code": "+971",
     "currency_symbol": "AED",
     "currency_decimals": "2",
-    "flag": "AE.png"
+    "flag": "AE.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Tunis",
@@ -4257,7 +4657,9 @@
     "dial_code": "+216",
     "currency_symbol": "TND",
     "currency_decimals": "3",
-    "flag": "TN.png"
+    "flag": "TN.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Ankara",
@@ -4276,7 +4678,9 @@
     "dial_code": "+90",
     "currency_symbol": "₺",
     "currency_decimals": "2",
-    "flag": "TR.png"
+    "flag": "TR.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Ashgabat",
@@ -4295,7 +4699,9 @@
     "dial_code": "+993",
     "currency_symbol": "m",
     "currency_decimals": "2",
-    "flag": "TM.png"
+    "flag": "TM.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Cockburn Town",
@@ -4314,7 +4720,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "TC.png"
+    "flag": "TC.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Funafuti",
@@ -4333,7 +4741,9 @@
     "dial_code": "+688",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "TV.png"
+    "flag": "TV.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Kampala",
@@ -4352,7 +4762,9 @@
     "dial_code": "+256",
     "currency_symbol": "UGX",
     "currency_decimals": "0",
-    "flag": "UG.png"
+    "flag": "UG.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Kiev",
@@ -4371,7 +4783,9 @@
     "dial_code": "+380",
     "currency_symbol": "₴",
     "currency_decimals": "2",
-    "flag": "UA.png"
+    "flag": "UA.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Skopje",
@@ -4390,7 +4804,9 @@
     "dial_code": "+389",
     "currency_symbol": "ден",
     "currency_decimals": "2",
-    "flag": "MK.png"
+    "flag": "MK.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Cairo",
@@ -4409,7 +4825,9 @@
     "dial_code": "+20",
     "currency_symbol": "£",
     "currency_decimals": "2",
-    "flag": "EG.png"
+    "flag": "EG.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "London",
@@ -4428,7 +4846,9 @@
     "dial_code": "+44",
     "currency_symbol": "£",
     "currency_decimals": "2",
-    "flag": "GB.png"
+    "flag": "GB.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "St Peter Port",
@@ -4444,7 +4864,9 @@
     "region_code": "150",
     "sub_region_code": "154",
     "eea": false,
-    "dial_code": "+44"
+    "dial_code": "+44",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "St Helier",
@@ -4460,7 +4882,9 @@
     "region_code": "150",
     "sub_region_code": "154",
     "eea": false,
-    "dial_code": "+44"
+    "dial_code": "+44",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Douglas",
@@ -4476,7 +4900,9 @@
     "region_code": "150",
     "sub_region_code": "154",
     "eea": false,
-    "dial_code": "+44"
+    "dial_code": "+44",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Dodoma (TZ1)",
@@ -4495,7 +4921,9 @@
     "dial_code": "+255",
     "currency_symbol": "TZS",
     "currency_decimals": "2",
-    "flag": "TZ.png"
+    "flag": "TZ.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Washington DC",
@@ -4514,7 +4942,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "US.png"
+    "flag": "US.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Charlotte Amalie",
@@ -4533,7 +4963,9 @@
     "dial_code": "+1",
     "currency_symbol": "$",
     "currency_decimals": "2",
-    "flag": "VI.png"
+    "flag": "VI.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "Ouagadougou",
@@ -4552,7 +4984,9 @@
     "dial_code": "+226",
     "currency_symbol": "XOF",
     "currency_decimals": "0",
-    "flag": "BF.png"
+    "flag": "BF.png",
+    "minLength": 8,
+    "maxLength": 8
 },
 {
     "capital": "Montevideo",
@@ -4571,7 +5005,9 @@
     "dial_code": "+598",
     "currency_symbol": "$U",
     "currency_decimals": "0",
-    "flag": "UY.png"
+    "flag": "UY.png",
+    "minLength": 11,
+    "maxLength": 11
 },
 {
     "capital": "Tashkent",
@@ -4590,7 +5026,9 @@
     "dial_code": "+998",
     "currency_symbol": "лв",
     "currency_decimals": "2",
-    "flag": "UZ.png"
+    "flag": "UZ.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Caracas",
@@ -4609,7 +5047,9 @@
     "dial_code": "+58",
     "currency_symbol": "Bs",
     "currency_decimals": "2",
-    "flag": "VE.png"
+    "flag": "VE.png",
+    "minLength": 10,
+    "maxLength": 10
 },
 {
     "capital": "Mata-Utu",
@@ -4628,7 +5068,9 @@
     "dial_code": "+681",
     "currency_symbol": "XPF",
     "currency_decimals": "0",
-    "flag": "WF.png"
+    "flag": "WF.png",
+    "minLength": 6,
+    "maxLength": 6
 },
 {
     "capital": "Apia",
@@ -4647,7 +5089,9 @@
     "dial_code": "+685",
     "currency_symbol": "WS$",
     "currency_decimals": "2",
-    "flag": "WS.png"
+    "flag": "WS.png",
+    "minLength": 7,
+    "maxLength": 7
 },
 {
     "capital": "San’a",
@@ -4666,7 +5110,9 @@
     "dial_code": "+967",
     "currency_symbol": "﷼",
     "currency_decimals": "2",
-    "flag": "YE.png"
+    "flag": "YE.png",
+    "minLength": 9,
+    "maxLength": 9
 },
 {
     "capital": "Lusaka",
@@ -4685,5 +5131,7 @@
     "dial_code": "+260",
     "currency_symbol": "ZK",
     "currency_decimals": "2",
-    "flag": "ZM.png"
+    "flag": "ZM.png",
+    "minLength": 9,
+    "maxLength": 9
 }]

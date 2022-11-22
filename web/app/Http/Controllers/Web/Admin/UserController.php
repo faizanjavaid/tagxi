@@ -19,6 +19,14 @@ use App\Base\Libraries\QueryFilter\QueryFilterContract;
 use App\Base\Services\ImageUploader\ImageUploaderContract;
 use App\Models\Request\Request as RequestRequest;
 use App\Base\Filters\Admin\RequestFilter;
+use App\Models\Payment\UserWalletHistory;
+use App\Models\Payment\UserWallet;
+use App\Http\Requests\Admin\User\AddUserMoneyToWalletRequest;
+use App\Base\Constants\Setting\Settings;
+use Illuminate\Support\Str;
+use App\Base\Constants\Masters\WalletRemarks;
+
+
 
 class UserController extends BaseController
 {
@@ -132,7 +140,6 @@ class UserController extends BaseController
 
         $user->attachRole(RoleSlug::USER);
 
-        // $user->userDetails()->create($created_params);
 
         $message = trans('succes_messages.user_added_succesfully');
 
@@ -192,12 +199,18 @@ class UserController extends BaseController
     }
     public function delete(User $user)
     {
+        if(env('APP_FOR')=='demo'){
+
+        $message = 'you cannot delete the user. this is demo version';
+
+        return $message;
+
+        }
         $user->delete();
 
         $message = trans('succes_messages.user_deleted_succesfully');
 
         return $message;
-        // return redirect('users')->with('success', $message);
     }
 
     public function UserTripRequest(QueryFilterContract $queryFilter, User $user)
@@ -220,8 +233,75 @@ class UserController extends BaseController
          $query = RequestRequest::where('user_id',$user->id);
         $results = $queryFilter->builder($query)->customFilter(new RequestFilter)->defaultSort('-created_at')->paginate();
 
-        // dd($results);
 
         return view('admin.users.user-request-list', compact('results','card','main_menu','sub_menu'));
+    }
+    public function userPaymentHistory(User $user)
+    {
+        $main_menu = 'users';
+        $sub_menu = 'user_details';
+        $item = $user;
+
+        $amount = UserWallet::where('user_id',$user->id)->first();
+
+    if ($amount == null) {
+         $card = [];
+         $card['total_amount'] = ['name' => 'total_amount', 'display_name' => 'Total Amount ', 'count' => "0", 'icon' => 'fa fa-flag-checkered text-green'];
+        $card['amount_spent'] = ['name' => 'amount_spent', 'display_name' => 'Spend Amount ', 'count' => "0", 'icon' => 'fa fa-ban text-red'];
+        $card['balance_amount'] = ['name' => 'balance_amount', 'display_name' => 'Balance Amount', 'count' => "0", 'icon' => 'fa fa-ban text-red'];
+
+         $history = UserWalletHistory::where('user_id',$user->id)->orderBy('created_at','desc')->paginate(10);
+        }else{
+
+         $card = [];
+        $card['total_amount'] = ['name' => 'total_amount', 'display_name' => 'Total Amount ', 'count' => $amount->amount_added, 'icon' => 'fa fa-flag-checkered text-green'];
+        $card['amount_spent'] = ['name' => 'amount_spent', 'display_name' => 'Spend Amount ', 'count' => $amount->amount_spent, 'icon' => 'fa fa-ban text-red'];
+        $card['balance_amount'] = ['name' => 'balance_amount', 'display_name' => 'Balance Amount', 'count' => $amount->amount_balance, 'icon' => 'fa fa-ban text-red'];
+
+         $history = UserWalletHistory::where('user_id',$user->id)->orderBy('created_at','desc')->paginate(10);
+
+        // dd($history);
+        }
+        return view('admin.users.user-payment-wallet', compact('card','main_menu','sub_menu','item','history'));
+    }
+     public function StoreUserPaymentHistory(AddUserMoneyToWalletRequest $request,User $user)
+    {
+// dd($request);
+
+        $currency = get_settings(Settings::CURRENCY);
+
+        // $converted_amount_array =  convert_currency_to_usd($user_currency_code, $request->input('amount'));
+
+        // $converted_amount = $converted_amount_array['converted_amount'];
+        // $converted_type = $converted_amount_array['converted_type'];
+        // $conversion = $converted_type.':'.$request->amount.'-'.$converted_amount;
+        $transaction_id = Str::random(6);
+
+
+            $wallet_model = new UserWallet();
+            $wallet_add_history_model = new UserWalletHistory();
+            $user_id = $user->id;
+
+
+        $user_wallet = $wallet_model::firstOrCreate([
+            'user_id'=>$user_id]);
+        $user_wallet->amount_added += $request->amount;
+        $user_wallet->amount_balance += $request->amount;
+        $user_wallet->save();
+
+        $wallet_add_history_model::create([
+            'user_id'=>$user_id,
+            'card_id'=>null,
+            'amount'=>$request->amount,
+            'transaction_id'=>$transaction_id,
+            'merchant'=>null,
+            'remarks'=>WalletRemarks::MONEY_DEPOSITED_TO_E_WALLET_FROM_ADMIN,
+            'is_credit'=>true]);
+
+
+         $message = "money_added_successfully";
+        return redirect()->back()->with('success', $message);
+
+
     }
 }

@@ -29,6 +29,8 @@ class CountriesTableSeeder extends Seeder
                 'currency_name'   => ((isset($country['currency'])) ? $country['currency'] : null),
                 'currency_code'   => ((isset($country['currency_code'])) ? $country['currency_code'] : null),
                 'currency_symbol'   => ((isset($country['currency_symbol'])) ? $country['currency_symbol'] : null),
+                'dial_min_length'   => ((isset($country['minLength'])) ? $country['minLength'] : null),
+                'dial_max_length'   => ((isset($country['maxLength'])) ? $country['maxLength'] : null),
             ]);
         }
         // }

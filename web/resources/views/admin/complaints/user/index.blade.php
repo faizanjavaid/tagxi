@@ -52,9 +52,9 @@
                                     <td>
                                         @if ($result->complaint_type == 'request_help')
                                             <span
-                                                class="badge badge-warning"> Trip Complaint</span>
+                                                class="badge badge-warning"> @lang('view_pages.trip_complaint')</span>
                                         @else
-                                            <span class="badge badge-danger">General Complaint</span>
+                                            <span class="badge badge-danger"> @lang('view_pages.general_complaint')</span>
                                         @endif
                                     </td>
                                     <td>{{ $result->user->name }}</td>
@@ -102,7 +102,7 @@
                                         <p id="no_data" class="lead no-data text-center">
                                             <img src="{{ asset('assets/img/dark-data.svg') }}"
                                                 style="width:150px;margin-top:25px;margin-bottom:25px;" alt="">
-                                        <h4 class="text-center" style="color:#333;font-size:25px;">NO DATA FOUND</h4>
+                                        <h4 class="text-center" style="color:#333;font-size:25px;">@lang('view_pages.no_data_found')</h4>
                                         </p>
                                     </td>
                                 </tr>

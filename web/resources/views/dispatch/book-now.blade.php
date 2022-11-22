@@ -43,34 +43,7 @@
 
                                         </div>
                                     </div>
-                                    {{-- <div class="card p-3 mb-3 book">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6 class="box-title">Receiver Details</h6>
-                                    </div>
-                                    
-                                    <input id="receiverDialCode" name="receiverDialCode" type="hidden">
-
-                                    <div class="col-md-6">
-                                        <div class="form-check" style="float: right;padding: 0;">
-                                            <input class="form-check-input" id="same_as_sender" type="checkbox"/>
-                                            <label class="form-check-label" for="same_as_sender">Same as Sender</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <input class="form-control w-100 required_for_valid" type="text" placeholder="Name" name="receiverName" id="receiverName">
-                                            <span class="text-danger" id="error-receiverName">{{ $errors->first('receiverName') }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-3">
-                                            <input class="form-control" type="text" name="receiverPhone" id="receiverPhone">
-                                            <span class="text-danger" id="receiverPhone-error">{{ $errors->first('receiverPhone') }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+                                   
                                     <div class="card p-3 mb-3 book">
                                         <div class="row">
                                             <div class="col-12">
@@ -751,10 +724,10 @@
                 // var receiver = document.querySelector("#receiverPhone");
 
                 var iti = window.intlTelInput(input, {
-                    initialCountry: "GB",
-                    allowDropdown: false,
+                    initialCountry: "IN",
+                    allowDropdown: true,
                     separateDialCode: true,
-                    onlyCountries: ['gb'],
+                    // onlyCountries: ['gb'],
                     utilsScript: util,
                 });
 

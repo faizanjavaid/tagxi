@@ -13,14 +13,14 @@
             <div class="row">
                 <div class="col-md-4 col-12">
                     <div class="profile-user-info">
-                      <p>Email :<span class="text-gray pl-10">{{ $user->email }}</span> </p>
-                      <p>Phone :<span class="text-gray pl-10">{{ $user->mobile }}</span></p>
-                      <p>Address :<span class="text-gray pl-10">{{ $user->admin ? $user->admin->address : '' }}</span></p>
+                      <p>@lang('view_pages.email') :<span class="text-gray pl-10">{{ $user->email }}</span> </p>
+                      <p>@lang('view_pages.mobile') :<span class="text-gray pl-10">{{ $user->mobile }}</span></p>
+                      <p>@lang('view_pages.address') :<span class="text-gray pl-10">{{ $user->admin ? $user->admin->address : '' }}</span></p>
                   </div>
                </div>
                 <div class="col-md-3 col-12">
                     {{-- <div class="profile-user-info">						
-                      <p class="margin-bottom">Social Profile</p>
+                      <p class="margin-bottom">@lang('view_pages.social_profile')</p>
                       <div class="user-social-acount">
                           <button class="btn btn-circle btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></button>
                           <button class="btn btn-circle btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></button>
@@ -47,8 +47,8 @@
       <div class="col-12">
         <div class="nav-tabs-custom box-profile">
           <ul class="nav nav-tabs">
-            <li><a class="{{ old('tab','basic_info') == 'basic_info' ? 'active' : ''}}" href="#basic_info" data-toggle="tab">Basic Information</a></li>
-            <li><a class="{{ old('tab') == 'manage_password' ? 'active' : ''}}" href="#manage_password" data-toggle="tab">Manage Password</a></li>
+            <li><a class="{{ old('tab','basic_info') == 'basic_info' ? 'active' : ''}}" href="#basic_info" data-toggle="tab">@lang('view_pages.basic_information')</a></li>
+            <li><a class="{{ old('tab') == 'manage_password' ? 'active' : ''}}" href="#manage_password" data-toggle="tab">@lang('view_pages.manage_password')</a></li>
           </ul>
                       
           <div class="tab-content"> 
@@ -115,8 +115,8 @@
                             <label for="profile_picture">@lang('view_pages.profile')</label><br>
                             <img id="blah" src="{{ $user->profile_picture ?? asset('assets/img/user-dummy.svg') }}" class="rounded-circle mb-4" alt="" style="max-width: 25%;"><br>
                             <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
-                            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
-                            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+                            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">@lang('view_pages.browse')</button>
+                            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">@lang('view_pages.remove')</button><br>
                             <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
                     </div>
                     </div>

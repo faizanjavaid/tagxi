@@ -26,11 +26,9 @@ class AdHocUserTransformer extends Transformer
         $params = [
             'id' => $user->id,
             'name' => $user->name,
-            'last_name' => null,
-            'username' => null,
             'email' => $user->email,
             'mobile' => $user->mobile,
-            'profile_picture' => $user->profile_picture,
+            'profile_picture' => $user->profile_pic,
             'active' => $user->active,
             'rating' => 0,
 

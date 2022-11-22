@@ -4,6 +4,7 @@ namespace App\Transformers\Payment;
 
 use App\Transformers\Transformer;
 use App\Models\Payment\DriverWallet;
+use App\Base\Constants\Setting\Settings;
 
 class DriverWalletTransformer extends Transformer
 {
@@ -23,7 +24,7 @@ class DriverWalletTransformer extends Transformer
      */
     public function transform(DriverWallet $wallet_history)
     {
-        $user_currency_code = auth()->user()->countryDetail->currency_code?:env('SYSTEM_DEFAULT_CURRENCY');
+        $user_currency_code = get_settings('currency_code');
 
         $params = [
             'id' => $wallet_history->id,
@@ -32,7 +33,7 @@ class DriverWalletTransformer extends Transformer
             'amount_balance' => $wallet_history->amount_balance,
             'amount_spent' => $wallet_history->amount_spent,
             'currency_code'=>$user_currency_code,
-            'currency_symbol'=>auth()->user()->countryDetail->currency_symbol,
+            'currency_symbol'=>get_settings('currency_symbol'),
             'created_at' => $wallet_history->converted_created_at,
             'updated_at' => $wallet_history->converted_updated_at,
         ];

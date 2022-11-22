@@ -17,7 +17,6 @@ class FleetStoreRequest extends FormRequest
             'brand' => 'required',
             'model' => 'required',
             'license_number' => 'required',
-            'permission_number' => 'required',
             'type' => 'required',
             
         ];

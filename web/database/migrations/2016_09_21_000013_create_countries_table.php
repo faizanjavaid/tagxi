@@ -17,12 +17,14 @@ class CreateCountriesTable extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->string('dial_code', 255);
+            $table->integer('dial_min_length')->default(0);
+            $table->integer('dial_max_length')->default(0);
             $table->string('code', 255)->nullable();
             $table->string('currency_name')->nullable();
             $table->string('currency_code')->nullable();
             $table->string('currency_symbol')->nullable();
             $table->string('flag', 255)->nullable();
-            $table->boolean('active')->default(false);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

@@ -87,7 +87,7 @@
     @endforeach
 @endif
 <select name="payment_type[]" id="payment_type" class="form-control select2" multiple="multiple" required>
-    <option value="card" {{ $card }}>@lang('view_pages.card')</option>
+    <!-- <option value="card" {{ $card }}>@lang('view_pages.card')</option> -->
     <option value="cash" {{ $cash }}>@lang('view_pages.cash')</option>
     <option value="wallet" {{ $wallet }}>@lang('view_pages.wallet')</option>
 </select>
@@ -115,7 +115,7 @@
 <div class="col-12">
     <div class="box box-solid box-info">
         <div class="box-header with-border">
-        <h4 class="box-title">Ride Now</h4>
+        <h4 class="box-title">@lang('view_pages.ride_now')</h4>
         </div>
 
         <div class="box-body">
@@ -167,7 +167,6 @@
                 </div>
                 </div>
 
-<!-- 
                 <div class="col-sm-6">
                 <div class="form-group">
                 <label for="waiting_charge">@lang('view_pages.waiting_charge')<span class="text-danger">*</span></label>
@@ -175,7 +174,23 @@
                 <span class="text-danger">{{ $errors->first('ride_now_waiting_charge') }}</span>
 
                 </div>
-                </div> -->
+                </div>
+                 <div class="col-sm-6">
+                <div class="form-group">
+                <label for="free_waiting_time_in_mins_before_trip_start">@lang('view_pages.free_waiting_time_in_mins_before_trip_start')<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" id="ride_now_free_waiting_time_in_mins_before_trip_start" name="ride_now_free_waiting_time_in_mins_before_trip_start" value="{{old('ride_now_free_waiting_time_in_mins_before_trip_start',$ride_now->free_waiting_time_in_mins_before_trip_start)}}" required="" placeholder="@lang('view_pages.enter') @lang('view_pages.free_waiting_time_in_mins_before_trip_start')">
+                <span class="text-danger">{{ $errors->first('ride_now_free_waiting_time_in_mins_before_trip_start') }}</span>
+
+                </div>
+                </div>
+                 <div class="col-sm-6">
+                <div class="form-group">
+                <label for="free_waiting_time_in_mins_after_trip_start">@lang('view_pages.free_waiting_time_in_mins_after_trip_start')<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" id="ride_now_free_waiting_time_in_mins_after_trip_start" name="ride_now_free_waiting_time_in_mins_after_trip_start" value="{{old('ride_now_free_waiting_time_in_mins_after_trip_start',$ride_now->free_waiting_time_in_mins_after_trip_start)}}" required="" placeholder="@lang('view_pages.enter') @lang('view_pages.free_waiting_time_in_mins_after_trip_start')">
+                <span class="text-danger">{{ $errors->first('ride_now_free_waiting_time_in_mins_after_trip_start') }}</span>
+
+                </div>
+                </div>
         </div>
     </div>
 </div>
@@ -186,7 +201,7 @@
     <div class="col-12">
         <div class="box box-solid box-info">
         <div class="box-header with-border">
-        <h4 class="box-title">Ride Later</h4>
+        <h4 class="box-title">@lang('view_pages.ride_later')</h4>
         </div>
 
         <div class="box-body">
@@ -240,14 +255,32 @@
                 </div>
 
 
-               <!--  <div class="col-sm-6">
+                <div class="col-sm-6">
                 <div class="form-group">
                 <label for="waiting_charge">@lang('view_pages.waiting_charge')<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" id="ride_later_waiting_charge" name="ride_later_waiting_charge" value="{{old('ride_later_waiting_charge',$ride_later->waiting_charge)}}" required="" placeholder="@lang('view_pages.enter') @lang('view_pages.waiting_charge')">
                 <span class="text-danger">{{ $errors->first('ride_later_waiting_charge') }}</span>
 
                 </div>
-                </div> -->
+                </div>
+                <div class="col-sm-6">
+                <div class="form-group">
+                <label for="free_waiting_time_in_mins_before_trip_start">@lang('view_pages.free_waiting_time_in_mins_before_trip_start')<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" id="ride_later_free_waiting_time_in_mins_before_trip_start" name="ride_later_free_waiting_time_in_mins_before_trip_start" value="{{old('ride_later_free_waiting_time_in_mins_before_trip_start',$ride_later->free_waiting_time_in_mins_before_trip_start)}}" required="" placeholder="@lang('view_pages.enter') @lang('view_pages.free_waiting_time_in_mins_before_trip_start')">
+                <span class="text-danger">{{ $errors->first('ride_later_free_waiting_time_in_mins_before_trip_start') }}</span>
+
+                </div>
+                </div>
+
+                 <div class="col-sm-6">
+                <div class="form-group">
+                <label for="free_waiting_time_in_mins_after_trip_start">@lang('view_pages.free_waiting_time_in_mins_after_trip_start')<span class="text-danger">*</span></label>
+                <input class="form-control" type="text" id="ride_later_free_waiting_time_in_mins_after_trip_start" name="ride_later_free_waiting_time_in_mins_after_trip_start" value="{{old('ride_later_free_waiting_time_in_mins_after_trip_start',$ride_later->free_waiting_time_in_mins_after_trip_start)}}" required="" placeholder="@lang('view_pages.enter') @lang('view_pages.free_waiting_time_in_mins_after_trip_start')">
+                <span class="text-danger">{{ $errors->first('ride_later_free_waiting_time_in_mins_after_trip_start') }}</span>
+
+                </div>
+                </div>
+                
         </div>
     </div>
 </div>

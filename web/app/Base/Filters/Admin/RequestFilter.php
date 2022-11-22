@@ -53,7 +53,7 @@ class RequestFilter implements FilterContract
 
     public function is_later($builder, $value=0)
     {        
-            $builder->where('is_later', $value);
+       $builder->where('is_later', $value)->where('is_completed',false)->where('is_cancelled',false);
         
     }
 

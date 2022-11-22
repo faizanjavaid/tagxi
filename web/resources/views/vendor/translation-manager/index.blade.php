@@ -442,18 +442,18 @@
             <section class="content">
                 <div class="box">
                     <div class="box-body">
-                        <p>Warning, translations are not visible until they are exported back to the app/lang file, using <code>php artisan translation:export</code> command or publish button.</p>
+                        <p>@lang('view_pages.warning_text') <code>php artisan translation:export</code> @lang('view_pages.command or publish button').</p>
                         <div class="alert alert-success success-import" style="display:none;">
-                            <p>Done importing, processed <strong class="counter">N</strong> items! Reload this page to refresh the groups!</p>
+                            <p>@lang('view_pages.done_importing'),@lang('view_pages.processed')<strong class="counter">N</strong> @lang('view_pages.items')@lang('view_pages.reload_this_page_to_refresh_the_groups')</p>
                         </div>
                         <div class="alert alert-success success-find" style="display:none;">
-                            <p>Done searching for translations, found <strong class="counter">N</strong> items!</p>
+                            <p>@lang('view_pages.done_searching_for_translations_found')<strong class="counter">N</strong> @lang('view_pages.items')!</p>
                         </div>
                         <div class="alert alert-success success-publish" style="display:none;">
-                            <p>Done publishing the translations for group '<?php echo $group ?>'!</p>
+                            <p>@lang('view_pages.done_publishing_the_translations_for_group')'<?php echo $group ?>'!</p>
                         </div>
                         <div class="alert alert-success success-publish-all" style="display:none;">
-                            <p>Done publishing the translations for all group!</p>
+                            <p>@lang('view_pages.done_publishing_the_translations_for_all_group')</p>
                         </div>
 
                         <?php if (Session::has('successPublish')) : ?>
@@ -469,12 +469,12 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <select name="replace" class="form-control">
-                                                    <option value="0">Append new translations</option>
-                                                    <option value="1">Replace existing translations</option>
+                                                    <option value="0">@lang('view_pages.append_new_translation')</option>
+                                                    <option value="1">@lang('view_pages.replace_existing_translations')</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-2">
-                                                <button type="submit" class="btn btn-success btn-sm" data-disable-with="Loading..">Import groups</button>
+                                                <button type="submit" class="btn btn-success btn-sm" data-disable-with="Loading..">@lang('view_pages.import_groups')</button>
                                             </div>
                                         </div>
                                     </div>
@@ -482,22 +482,22 @@
                                 <form class="form-find" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postFind') ?>" data-remote="true" role="form" data-confirm="Are you sure you want to scan you app folder? All found translation keys will be added to the database.">
                                     <div class="form-group">
                                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                        <button type="submit" class="btn btn-info btn-sm" data-disable-with="Searching..">Find translations in files</button>
+                                        <button type="submit" class="btn btn-info btn-sm" data-disable-with="Searching..">@lang('view_pages.find_translations_in_files')</button>
                                     </div>
                                 </form>
                             <?php endif; ?>
                             <?php if (isset($group)) : ?>
                                 <form class="form-inline form-publish" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postPublish', $group) ?>" data-remote="true" role="form" data-confirm="Are you sure you want to publish the translations group '<?php echo $group ?>? This will overwrite existing language files.">
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                    <button type="submit" class="btn btn-info btn-sm mr-4" data-disable-with="Publishing..">Publish translations</button>
-                                    <a href="<?= action('\Barryvdh\TranslationManager\Controller@getIndex') ?>" class="btn btn-danger btn-sm">Back</a>
+                                    <button type="submit" class="btn btn-info btn-sm mr-4" data-disable-with="Publishing..">@lang('view_pages.publish_translations')</button>
+                                    <a href="<?= action('\Barryvdh\TranslationManager\Controller@getIndex') ?>" class="btn btn-danger btn-sm">@lang('view_pages.back')</a>
                                 </form>
                             <?php endif; ?>
                         </p>
                         <form role="form" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postAddGroup') ?>">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group">
-                                <p>Choose a group to display the group translations. If no groups are visisble, make sure you have run the migrations and imported the translations.</p>
+                                <p>@lang('view_pages.translation_text1').</p>
                                 <select name="group" id="group" class="form-control group-select">
                                     <?php foreach ($groups as $key => $value) : ?>
                                         <option value="<?php echo $key ?>" <?php echo $key == $group ? ' selected' : '' ?>><?php echo $value ?></option>
@@ -505,7 +505,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Enter a new group name and start edit translations in that group</label>
+                                <label>@lang('view_pages.translation_text2')</label>
                                 <input type="text" class="form-control" name="new-group" />
                             </div>
                             <div class="form-group">
@@ -516,7 +516,7 @@
                             <form action="<?php echo action('\Barryvdh\TranslationManager\Controller@postAdd', array($group)) ?>" method="POST" role="form">
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <div class="form-group">
-                                    <label>Add new keys to this group</label>
+                                    <label>@lang('view_pages.add_new_keys_to_this_group')</label>
                                     <textarea class="form-control" rows="3" name="keys" placeholder="Add 1 key per line, without the group prefix"></textarea>
                                 </div>
                                 <div class="form-group">
@@ -525,7 +525,7 @@
                             </form>
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <span class="btn btn-default btn-sm enable-auto-translate-group">Use Auto Translate</span>
+                                    <span class="btn btn-default btn-sm enable-auto-translate-group">@lang('view_pages.use_auto_translate')</span>
                                 </div>
                             </div>
                             <form class="form-add-locale autotranslate-block-group hidden" method="POST" role="form" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postTranslateMissing') ?>">
@@ -533,7 +533,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="base-locale">Base Locale for Auto Translations</label>
+                                            <label for="base-locale">@lang('view_pages.base_locale_for_auto_translations')</label>
                                             <select name="base-locale" id="base-locale" class="form-control">
                                                 <?php foreach ($locales as $locale) : ?>
                                                     <option value="<?= $locale ?>"><?= $locale ?></option>
@@ -541,7 +541,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="new-locale">Enter target locale key</label>
+                                            <label for="new-locale">@lang('view_pages.enter_target_locale_key')</label>
                                             <input type="text" name="new-locale" class="form-control" id="new-locale" placeholder="Enter target locale key" />
                                         </div>
                                         <?php if (!config('laravel_google_translate.google_translate_api_key')) : ?>
@@ -552,7 +552,7 @@
                                         <div class="form-group">
                                             <input type="hidden" name="with-translations" value="1">
                                             <input type="hidden" name="file" value="<?= $group ?>">
-                                            <button type="submit" class="btn btn-default btn-sm" data-disable-with="Adding..">Auto translate missing translations</button>
+                                            <button type="submit" class="btn btn-default btn-sm" data-disable-with="Adding..">@lang('view_pages.auto_translate_missing_translations')</button>
                                         </div>
                                     </div>
                                 </div>
@@ -594,9 +594,9 @@
                             </table>
                         <?php else : ?>
                             <fieldset>
-                                <legend>Supported locales</legend>
+                                <legend>@lang('view_pages.supported_locales')</legend>
                                 <p>
-                                    Current supported locales:
+                                   @lang('view_pages.current_supported_locales') :
                                 </p>
                                 <form class="form-remove-locale" method="POST" role="form" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postRemoveLocale') ?>" data-confirm="Are you sure to remove this locale and all of data?">
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -618,24 +618,24 @@
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                     <div class="form-group">
                                         <p>
-                                            Enter new locale key:
+                                          @lang('view_pages.enter_new_locale_key') :
                                         </p>
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <input type="text" name="new-locale" class="form-control" />
                                             </div>
                                             <div class="col-sm-2">
-                                                <button type="submit" class="btn btn-default btn-sm" data-disable-with="Adding..">Add new locale</button>
+                                                <button type="submit" class="btn btn-default btn-sm" data-disable-with="Adding.."> @lang('view_pages.add_new_locale')</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </fieldset>
                             <fieldset>
-                                <legend>Export all translations</legend>
+                                <legend>@lang('view_pages.export_all_translations')</legend>
                                 <form class="form-inline form-publish-all" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postPublish', '*') ?>" data-remote="true" role="form" data-confirm="Are you sure you want to publish all translations group? This will overwrite existing language files.">
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                    <button type="submit" class="btn btn-primary btn-sm" data-disable-with="Publishing..">Publish all</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" data-disable-with="Publishing..">@lang('view_pages.publish_all')</button>
                                 </form>
                             </fieldset>
 

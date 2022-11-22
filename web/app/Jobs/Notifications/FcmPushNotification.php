@@ -46,12 +46,12 @@ class FcmPushNotification extends BaseNotification implements ShouldQueue
     public function __construct($title, $body, $device_token=null)
     {
         $this->title = $title;
-        $this->body = $body;
+        $this->body = $body['result'];
         $this->device_token = $device_token;
     }
 
     
-     public function handle()
+    public function handle()
     {
 
        try{
@@ -72,7 +72,7 @@ class FcmPushNotification extends BaseNotification implements ShouldQueue
            // prep the bundle
            $msg = array
            (
-               'message'    => $this->body,
+               'message'    => json_encode((object)$this->body),
                'title'      => $this->title,
                'vibrate'    => 1,
                'sound'      => 1,

@@ -145,6 +145,5 @@ class SosController extends BaseController
 
         $message = trans('succes_messages.sos_deleted_succesfully');
         return $message;
-        // return redirect('sos')->with('success', $message);
     }
 }

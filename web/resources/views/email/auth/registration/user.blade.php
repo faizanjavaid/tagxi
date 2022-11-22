@@ -7,24 +7,24 @@
         </div>
         <div class="content-body">
             <p>Hi {{ $user->name }},</p>
-            <p>Thank you for registering with us. We are happy to have you.</p>
+            <p> @lang('view_pages.welcome_email').</p>
 
             <div class="text-center">
                 <a href="{{ url('/') }}" target="_blank" class="btn btn-default">
-                    Login to your account
+                    @lang('view_pages.login_to_your_account')
                 </a>
             </div>
 
             <div class="hr-line"></div>
 
-            <p>We are committed to offering not just a Convenience but a Choice Driven by Technology.</p>
+            <p>@lang('view_pages.commitment_text').</p>
 
             <ul>
-                <li>Choice of genuine and verified drivers</li>
-                <li>Schedule Rides</li>
-                <li>No hidden charges</li>
-                <li>Secured online payment</li>
-                <li>Spend extra quality time with your family.</li>
+                <li>@lang('view_pages.choice_of_genuine_and_verified_drivers')</li>
+                <li>@lang('view_pages.schedule_rides')</li>
+                <li>@lang('view_pages.no_hidden_charges')</li>
+                <li>@lang('view_pages.secured_online_payment')</li>
+                <li>@lang('view_pages.spend_extra_quality_time_with_your_family').</li>
             </ul>
         </div>
     </div>

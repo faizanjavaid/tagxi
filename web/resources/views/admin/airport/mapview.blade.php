@@ -76,7 +76,7 @@ margin: 5px;
 </div>
 </div>
 
-   <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&sensor=false&libraries=places"></script>
+   <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&sensor=false&libraries=places"></script>
 
     <script type="text/javascript">
         var drawingManager;

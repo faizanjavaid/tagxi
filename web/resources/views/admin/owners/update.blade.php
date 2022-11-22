@@ -15,19 +15,23 @@
 <div class="row p-0 m-0">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18">Edit Owner</h4>
+            <h4 class="mb-0 font-size-18">@lang('view_pages.edit_owner')</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{url('owners/by_area',$item->service_location_id) }}">Manage Owner</a>
+                    <li class="breadcrumb-item"><a href="{{url('owners/by_area',$item->service_location_id) }}">@lang('view_pages.manage_owner')</a>
                     </li>
-                    <li class="breadcrumb-item active">Edit Owner</li>
+                    <li class="breadcrumb-item active">@lang('view_pages.edit_owner')</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
-
+@if ($errors)
+    @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+    @endforeach
+@endif
 <div class="row p-0 m-0">
     <div class="col-12">
         <div class="card">
@@ -196,24 +200,14 @@
                                                 </div>
 
                                                 <div class="col-sm-6 float-left mb-md-3">
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <div class="form-group">
-                                                                <label for="code">@lang('view_pages.country_code')</label>
-                                                                <input type="text" value="+91" readonly class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-9">
-                                                            <div class="form-group">
-                                                                <label for="mobile">@lang('view_pages.mobile')<span
-                                                                        class="text-danger">*</span></label>
-                                                                <input class="form-control" type="text" id="mobile"
-                                                                    name="mobile" value="{{ old('mobile',$item->mobile) }}" required=""
-                                                                    placeholder="9521832670">
-                                                                <span
-                                                                    class="text-danger">{{ $errors->first('mobile') }}</span>
-                                                            </div>
-                                                        </div>
+                                                    <div class="form-group">
+                                                        <label for="mobile">@lang('view_pages.mobile')<span
+                                                                class="text-danger">*</span></label>
+                                                        <input class="form-control" type="text" id="mobile"
+                                                            name="mobile" value="{{ old('mobile',$item->mobile) }}" required=""
+                                                            placeholder="9521832670">
+                                                        <span
+                                                            class="text-danger">{{ $errors->first('mobile') }}</span>
                                                     </div>
                                                 </div>
 
@@ -452,7 +446,7 @@ $('form').on('submit', function(event) {
         
         autocomplete = new google.maps.places.Autocomplete(input);
        
-        autocomplete.setComponentRestrictions({'country': ['de']});
+        // autocomplete.setComponentRestrictions({'country': ['de']});
         autocomplete.setFields(["address_component"]);
         autocomplete.addListener("place_changed", fillInAddress);
     }

@@ -30,13 +30,13 @@
                                 </button>
                             </div>
 
-
+                            
                             <div class="col-md-7 text-center text-md-right">
                                 <a href="{{ url('service_location/create') }}" class="btn btn-primary btn-sm">
                                     <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_service_location')</a>
-                                <!--  <a class="btn btn-danger">
-                                                Export</a> -->
+                               
                             </div>
+
                         </div>
                         <!-- <div class="box-controls pull-right">
                             <div class="lookup lookup-circle lookup-right">
@@ -48,7 +48,7 @@
 
                     <div id="js-service_location-partial-target">
                         <include-fragment src="service_location/fetch">
-                            <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                            <span style="text-align: center;font-weight: bold;"> @lang('view_pages.loading')</span>
                         </include-fragment>
                     </div>
 

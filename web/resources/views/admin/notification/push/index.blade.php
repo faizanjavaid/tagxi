@@ -21,17 +21,18 @@
                             @lang('view_pages.search')
                         </button>
                     </div> --}}
-                        
+                    @if (env('APP_FOR')!='demo')
                     <div class="col-12 text-right">
                         <a href="{{url('notifications/push/view')}}" class="btn btn-primary btn-sm">
                             <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.send_push')</a>
                     </div>
+                    @endif
                 </div>
             </div>
 
         <div id="js-pushnotification-partial-target">
             <include-fragment src="push/fetch">
-                <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                <span style="text-align: center;font-weight: bold;">@lang('view_pages.loading').</span>
             </include-fragment>
         </div>
 

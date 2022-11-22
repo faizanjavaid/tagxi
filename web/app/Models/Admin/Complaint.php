@@ -13,7 +13,7 @@ class Complaint extends Model
     use HasActive,UuidModel,SearchableTrait;
 
     protected $fillable = [
-        'user_type','user_id','request_id','complaint_type','complaint_title_id','description','status'
+        'user_type','user_id','request_id','complaint_type','complaint_title_id','description','status','driver_id'
     ];
 
     /**
@@ -44,5 +44,8 @@ class Complaint extends Model
     } 
     public function driver(){
         return $this->belongsTo(Driver::class,'driver_id','id');
+    }
+    public function owner(){
+        return $this->belongsTo(Owner::class,'owner_id','id');
     }
 }

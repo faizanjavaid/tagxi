@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return array (
   'dashboard' => 'Dashboard',
   'roles' => 'Privileges',
   'add_role' => 'Add Role',
@@ -60,11 +60,10 @@ return array(
   'promo_codes' => 'Promo Code',
   'notifications' => 'Custom Notification',
   'push_notification' => 'Push Notification',
-  'map_view' => "God's Eye",
-  'driver_duties_report'=>'Driver Duties Report',
+  'map_view' => 'God\'s Eye',
+  'driver_duties_report' => 'Driver Duties Report',
   'user_complaints' => 'User Complaint',
   'driver_complaints' => 'Driver Complaint',
-
   'master' => 'Master Data',
   'carmake' => 'Car Make',
   'carmodel' => 'Car Model',
@@ -77,7 +76,22 @@ return array(
   'edit_zone_type_package_price' => 'Edit zone Type Package Prices',
   'owners' => 'Manage Owners',
   'manage_owners' => 'Manage Owner',
-   'add-owner' => 'Add Owner',
+  'add-owner' => 'Add Owner',
   'edit-owner' => 'Edit Owner',
   'delete-owner' => 'Delete Owner',
+  'cancellation_rides' => 'Cancellation Rides',
+  'map_view_mapbox' => 'God\'s Eye Mapbox',
+  'general_complaints' => 'General Complaint',
+  'request_complaints' => 'Request Complaint',
+  'owner_needed_doc' => 'Owner Needed Document',
+  'manage_fleet' => 'Manage Fleet',
+  'driver_ratings' => 'Driver Ratings',
+  'admin-dashboard' => 'Test Dashboard',
+  'rides' => 'Rides',
+  'scheduled_rides' => 'Scheduled Rides',
+  'airport' => 'Airport',
+  'withdrawal_requests' => 'Withdrawal Requests',
+  'approved_drivers' => 'Approved Drivers',
+  'pending_approvals' => 'Approval Pending Drivers',
+  'negative_balance_drivers' => 'Negative Balance Drivers',
 );

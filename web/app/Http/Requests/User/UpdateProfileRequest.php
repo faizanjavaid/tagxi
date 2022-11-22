@@ -15,7 +15,7 @@ class UpdateProfileRequest extends BaseRequest
     {
         return [
             'name' => 'required|max:50',
-            'email' => 'required|email|max:150|unique:users,email,' . $this->user()->id,
+            'email' => 'required|email|max:150',
             // 'mobile' => 'required|mobile_number|unique:users,mobile,' . $this->user()->id,
             'profile_picture' => $this->userProfilePictureRule(),
         ];

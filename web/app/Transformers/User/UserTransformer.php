@@ -10,7 +10,8 @@ use App\Transformers\Requests\TripRequestTransformer;
 use App\Models\Admin\Sos;
 use App\Transformers\Common\SosTransformer;
 use App\Transformers\User\FavouriteLocationsTransformer;
-
+use App\Base\Constants\Setting\Settings;
+use Carbon\Carbon;
 
 class UserTransformer extends Transformer
 {
@@ -20,7 +21,7 @@ class UserTransformer extends Transformer
      * @var array
      */
     protected $availableIncludes = [
-        'roles','onTripRequest','metaRequest','favouriteLocations'
+        'roles','onTripRequest','metaRequest','favouriteLocations','laterMetaRequest'
     ];
     /**
      * Resources that can be included default.
@@ -45,7 +46,7 @@ class UserTransformer extends Transformer
             'last_name' => $user->last_name,
             'username' => $user->username,
             'email' => $user->email,
-            'mobile' => $user->mobile,
+            'mobile' => $user->countryDetail->dial_code.$user->mobile,
             'profile_picture' => $user->profile_picture,
             'active' => $user->active,
             'email_confirmed' => $user->email_confirmed,
@@ -55,17 +56,32 @@ class UserTransformer extends Transformer
             'rating' => round($user->rating, 2),
             'no_of_ratings' => $user->no_of_ratings,
             'refferal_code'=>$user->refferal_code,
-            'currency_code'=>$user->countryDetail->currency_code,
-            'currency_symbol'=>$user->countryDetail->currency_symbol,
-            'map_key'=>env('GOOGLE_MAP_KEY'),
+            'currency_code'=>get_settings('currency_code'),
+            'currency_symbol'=>get_settings('currency_symbol'),
+            //'map_key'=>get_settings('google_map_key'),
+            'mqtt_ip'=>'54.172.163.200',
             'show_rental_ride'=>true,
+            'show_ride_later_feature'=>true,
             // 'created_at' => $user->converted_created_at->toDateTimeString(),
             // 'updated_at' => $user->converted_updated_at->toDateTimeString(),
         ];
 
+        if(get_settings('show_rental_ride_feature')=='0'){
+            $params['show_rental_ride'] = false;  
+        }
+        
+        if(get_settings('show_ride_later_feature')=='0'){
+            $params['show_ride_later_feature'] = false;  
+        }
+        
         $referral_comission = get_settings('referral_commision_for_user');
         $referral_comission_string = 'Refer a friend and earn'.$user->countryDetail->currency_symbol.''.$referral_comission;
         $params['referral_comission_string'] = $referral_comission_string;
+
+        $params['user_can_make_a_ride_after_x_miniutes'] = get_settings(Settings::USER_CAN_MAKE_A_RIDE_AFTER_X_MINIUTES);
+
+        $params['maximum_time_for_find_drivers_for_regular_ride'] = (get_settings(Settings::MAXIMUM_TIME_FOR_FIND_DRIVERS_FOR_REGULAR_RIDE) * 60);
+
         return $params;
     }
 
@@ -106,6 +122,31 @@ class UserTransformer extends Transformer
     public function includeMetaRequest(User $user)
     {
         $request = $user->requestDetail()->where('is_completed', false)->where('is_cancelled', false)->where('user_rated', false)->where('driver_id', null)->where('is_later', 0)->first();
+
+        return $request
+        ? $this->item($request, new TripRequestTransformer)
+        : $this->null();
+    }
+
+    /**
+    * Include the request meta of the user.
+    *
+    * @param User $user
+    * @return \League\Fractal\Resource\Collection|\League\Fractal\Resource\NullResource
+    */
+    public function includeLaterMetaRequest(User $user)
+    {
+        $current_date = Carbon::now()->format('Y-m-d H:i:s');
+
+        $findable_duration = get_settings('minimum_time_for_search_drivers_for_schedule_ride');
+        if(!$findable_duration){
+            $findable_duration = 45;
+        }
+        $add_45_min = Carbon::now()->addMinutes($findable_duration)->format('Y-m-d H:i:s');
+
+
+        $request = $user->requestDetail()->where('is_completed', false)->where('is_cancelled', false)->where('user_rated', false)->where('is_later',true)->where('driver_id', null)->where('is_later', 0)->where('trip_start_time', '<=', $add_45_min)
+                    ->where('trip_start_time', '>', $current_date)->first();
 
         return $request
         ? $this->item($request, new TripRequestTransformer)

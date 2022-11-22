@@ -40,11 +40,6 @@ class PromoCodeController extends BaseController
     {
         $query = $this->promo->query();
 
-        if (env('APP_FOR')=='demo') {
-            $query = $this->promo->whereHas('serviceLocation', function ($query) {
-                $query->where('company_key', auth()->user()->company_key);
-            });
-        }
         $results = $queryFilter->builder($query)->customFilter(new CommonMasterFilter)->paginate();
 
         return view('admin.promo._promo', compact('results'));

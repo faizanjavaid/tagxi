@@ -13,33 +13,24 @@ class FleetDocument extends Model
     use UuidModel,SoftDeletes,HasActive;
 
     protected $fillable = [
-        'fleet_id','name','image','expiry_date'
+        'fleet_id','name','image','expiry_date','document_id','document_status','comment','identify_number'
     ];
 
     public function fleet(){
         return $this->belongsTo(Fleet::class,'fleet_id','id');
     }
 
-    public function getRegistrationCertificateImageAttribute(){
-        $image = $this->whereName('registration_certificate')->pluck('image')->first();
-        if (empty($image)) {
-            return null;
-        }
+    public function getImageAttribute($value){
 
-        return Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path($this->uploadPath(), $image));
-    }
-
-    public function getVehicleBackSideImageAttribute(){
-        $image = $this->whereName('vehicle_back_side')->pluck('image')->first();
-        if (empty($image)) {
-            return null;
-        }
-
-        return Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path($this->uploadPath(), $image));
+        return Storage::disk(env('FILESYSTEM_DRIVER'))->url(file_path($this->uploadPath(), $value));
     }
     
     public function uploadPath()
     {
-        return config('base.fleets.upload.images.path');
+        if (!$this->fleet()->exists()) {
+            return null;
+        }
+
+        return folder_merge(config('base.fleets.upload.images.path'), $this->fleet->id);
     }
 }

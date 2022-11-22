@@ -25,6 +25,7 @@ class SosTransformer extends Transformer {
 			'id' => $sos->id,
 			'name' => $sos->name,
 			'number' => $sos->number,
+			'user_type' => $sos->user_type,
 			'status' => (bool) $sos->active,
 		];
 	}

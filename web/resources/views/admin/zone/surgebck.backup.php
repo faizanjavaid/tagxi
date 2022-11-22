@@ -35,7 +35,7 @@
                     <th> @lang('view_pages.start_time') </th>
                     <th>@lang('view_pages.end_time') </th>
                     <th> @lang('view_pages.price') </th>
-                    <th style="width:100px;">Action</th>
+                    <th style="width:100px;"> @lang('view_pages.action') </th>
                 </thead>
                 <tbody class="append_row">
                     <tr>

@@ -38,6 +38,41 @@ Route::middleware('guest')->namespace('Admin')->group(function () {
 });
 
 Route::middleware('auth:web')->group(function () {
+
+        //cMS
+    Route::group(['prefix' => 'cms'], function () {
+    
+            Route::post('/frontpagecmsadd','FrontPageController@frontpageadd')->name('frontpagecmsadd');
+            Route::get('/frontpagecms', 'FrontPageController@frontpage')->name('frontpagecms');
+            Route::post('/safetypageadd','FrontPageController@safetypagecmsadd')->name('safetypageadd');
+            Route::get('/safetypagecms', 'FrontPageController@safetypagecms')->name('safetypagecms');
+            Route::post('/servicepageadd','FrontPageController@servicepagecmsadd')->name('servicepageadd');
+            Route::get('/servicepage', 'FrontPageController@servicepagecms')->name('servicepage');
+            Route::post('/privacypageadd','FrontPageController@privacypagecmsadd')->name('privacypageadd');
+            Route::get('/privacypagecms', 'FrontPageController@privacypagecms')->name('privacypagecms');
+            Route::post('/dmvpageadd','FrontPageController@dmvpagecmsadd')->name('dmvpageadd');
+            Route::get('/dmvpagecms', 'FrontPageController@dmvpagecms')->name('dmvpagecms');
+            Route::post('/complaincepageadd','FrontPageController@complaincepagecmsadd')->name('complaincepageadd');
+            Route::get('/complaincepagecms', 'FrontPageController@complaincepagecms')->name('complaincepagecms');
+            Route::post('/termspageadd','FrontPageController@termspagecmsadd')->name('termspageadd');
+            Route::get('/termspagecms', 'FrontPageController@termspagecms')->name('termspagecms');
+            Route::post('/drreqpageadd','FrontPageController@drreqpagecmsadd')->name('drreqpageadd');
+            Route::get('/drreqpagecms', 'FrontPageController@drreqpagecms')->name('drreqpagecms');
+            Route::post('/applydriverpageadd','FrontPageController@applydriverpagecmsadd')->name('applydriverpageadd');
+            Route::get('/applydriverpagecms', 'FrontPageController@applydriverpagecms')->name('applydriverpagecms');
+            Route::post('/howdriverpageadd','FrontPageController@howdriverpagecmsadd')->name('howdriverpageadd');
+            Route::get('/howdriverpagecms', 'FrontPageController@howdriverpagecms')->name('howdriverpagecms');
+            Route::post('/contactpageadd','FrontPageController@contactpagecmsadd')->name('contactpageadd');
+            Route::get('/contactpagecms', 'FrontPageController@contactpagecms')->name('contactpagecms');
+            Route::post('/playstorepageadd','FrontPageController@playstorepagecmsadd')->name('playstorepageadd');
+            Route::get('/playstorepagecms', 'FrontPageController@playstorepagecms')->name('playstorepagecms');
+            Route::post('/footerpageadd','FrontPageController@footerpagecmsadd')->name('footerpageadd');
+            Route::get('/footerpagecms', 'FrontPageController@footerpagecms')->name('footerpagecms');
+            Route::post('/colorthemepageadd','FrontPageController@colorthemepagecmsadd')->name('colorthemepageadd');
+            Route::get('/colorthemepagecms', 'FrontPageController@colorthemepagecms')->name('colorthemepagecms');
+
+    });
+
     Route::namespace('Admin')->group(function () {
         Route::get('dispatcher-request','AdminViewController@dispatchRequest');
     // Owner Management (Company Management)
@@ -72,6 +107,13 @@ Route::middleware('auth:web')->group(function () {
         Route::get('toggle_approve/{fleet}', 'FleetController@toggleApprove')->name('toggleFleetApprove');
         Route::get('delete/{fleet}', 'FleetController@delete')->name('deleteFleet');
         Route::post('update/decline/reason', 'FleetController@updateFleetDeclineReason')->name('updateFleetDeclineReason');
+        Route::get('assign_driver/{fleet}', 'FleetController@assignDriverView')->name('assignFleetToDriverView');
+        Route::post('assign_driver/{fleet}', 'FleetController@assignDriver')->name('assignFleetToDriver');
+        Route::get('document/view/{fleet}', 'FleetDocumentController@index')->name('FleetDocumentView');
+        Route::get('upload/document/{fleet}/{needed_document}', 'FleetDocumentController@documentUploadView');
+        Route::post('upload/document/{fleet}/{needed_document}', 'FleetDocumentController@uploadDocument')->name('updateFleetDocument');
+        Route::post('approve/documents', 'FleetDocumentController@approveFleetDocument')->name('approveFleetDocument');
+
     });
 
     // Driver Management
@@ -88,9 +130,6 @@ Route::middleware('auth:web')->group(function () {
         Route::get('toggle_available/{driver}', 'DriverController@toggleAvailable');
         Route::get('delete/{driver}', 'DriverController@delete');
         Route::get('document/view/{driver}', 'DriverDocumentController@index')->name('companyDriverDocumentView');
-        // Route::get('upload/document/{driver}/{needed_document}', 'DriverDocumentController@documentUploadView');
-        // Route::post('upload/document/{driver}/{needed_document}', 'DriverDocumentController@uploadDocument')->name('companyUpdateDriverDocument');
-        // Route::post('approve/documents', 'DriverDocumentController@approveDriverDocument')->name('companyApproveDriverDocument');
         Route::get('get/carmodel', 'DriverController@getCarModel')->name('getCarModel');
         Route::get('profile/{driver}', 'DriverController@profile');
         Route::get('hire/view', 'DriverController@hireDriverView')->name('hireDriverView');
@@ -110,10 +149,6 @@ Route::middleware('guest')->namespace('Dispatcher')->group(function () {
     Route::get('dispatch-login', 'DispatcherController@loginView');
 });
 
-// Route::middleware('guest')->namespace('Owner')->group(function () {
-    
-//     Route::get('company-login', 'DispatcherController@loginView');
-// });
 
 Route::namespace('Admin')->group(function () {
     Route::get('track/request/{request}', 'AdminViewController@trackTripDetails');
@@ -151,7 +186,8 @@ Route::middleware('auth:web')->group(function () {
         // Change Locale
         Route::get('/change/lang/{lang}', 'AdminViewController@changeLocale')->name('changeLocale');
 
-        Route::get('dashboard', 'AdminViewController@dashboard');
+        Route::get('dashboard', 'DashboardController@dashboard');
+        // Route::get('dashboard', 'AdminViewController@dashboard');
         Route::get('/admin_dashboard', 'AdminViewController@viewTestDashboard')->name('admin_dashboard');
         Route::get('/driver_profile_dashboard', 'AdminViewController@driverPrfDashboard')->name('driver_profile_dashboard');
         Route::get('/driver_profile_dashboard_view/{driver}', 'AdminViewController@driverPrfDashboardView');
@@ -169,36 +205,84 @@ Route::middleware('auth:web')->group(function () {
             Route::get('delete/{company}', 'CompanyController@delete');
         });
 
-        Route::group(['prefix' => 'drivers'], function () {
-            // prefix('drivers')->group(function () {
-            Route::get('/', 'DriverController@index');
-            Route::get('/fetch', 'DriverController@getAllDrivers');
-            Route::get('/create', 'DriverController@create');
-            Route::post('store', 'DriverController@store');
-            Route::get('/{driver}', 'DriverController@getById');
-            Route::get('request-list/{driver}', 'DriverController@DriverTripRequestIndex');
-            Route::get('request-list/{driver}/fetch', 'DriverController@DriverTripRequest');
-            Route::get('payment-history/{driver}', 'DriverController@DriverPaymentHistory');
-            Route::post('payment-history/{driver}', 'DriverController@StoreDriverPaymentHistory');
-            Route::post('update/{driver}', 'DriverController@update');
-            Route::get('toggle_status/{driver}', 'DriverController@toggleStatus');
-            Route::get('toggle_approve/{driver}/{approval_status}', 'DriverController@toggleApprove');
-            Route::get('toggle_available/{driver}', 'DriverController@toggleAvailable');
-            Route::get('delete/{driver}', 'DriverController@delete');
-            Route::get('document/view/{driver}', 'DriverDocumentController@index');
-            Route::get('upload/document/{driver}/{needed_document}', 'DriverDocumentController@documentUploadView');
-            Route::post('upload/document/{driver}/{needed_document}', 'DriverDocumentController@uploadDocument');
-            Route::post('approve/documents', 'DriverDocumentController@approveDriverDocument')->name('approveDriverDocument');
-            Route::get('get/carmodel', 'DriverController@getCarModel')->name('getCarModel');
-            Route::post('update/decline/reason', 'DriverController@UpdateDriverDeclineReason')->name('UpdateDriverDeclineReason');
-           
+//drivers
+
+    Route::group(['prefix' => 'drivers'], function () {
+        // prefix('drivers')->group(function () {
+        Route::get('/', 'DriverController@index');
+        Route::get('/fetch/approved', 'DriverController@getApprovedDrivers');
+
+        Route::get('/waiting-for-approval', 'DriverController@approvalPending');
+        // Route::get('/fetch', 'DriverController@getAllDrivers');
+        Route::get('/fetch/approval-pending-drivers', 'DriverController@getApprovalPendingDrivers');
+        Route::get('/fetch/driver-ratings', 'DriverController@fetchDriverRatings');
+
+        Route::get('/create', 'DriverController@create');
+        Route::post('store', 'DriverController@store');
+        Route::get('/{driver}', 'DriverController@getById');
+        Route::get('request-list/{driver}', 'DriverController@DriverTripRequestIndex');
+        Route::get('request-list/{driver}/fetch', 'DriverController@DriverTripRequest');
+        Route::get('payment-history/{driver}', 'DriverController@DriverPaymentHistory');
+        Route::post('payment-history/{driver}', 'DriverController@StoreDriverPaymentHistory');
+        Route::post('update/{driver}', 'DriverController@update');
+        Route::get('toggle_status/{driver}', 'DriverController@toggleStatus');
+        Route::get('toggle_approve/{driver}/{approval_status}', 'DriverController@toggleApprove');
+        Route::get('toggle_available/{driver}', 'DriverController@toggleAvailable');
+        Route::get('delete/{driver}', 'DriverController@delete');
+        Route::get('document/view/{driver}', 'DriverDocumentController@index');
+        Route::get('upload/document/{driver}/{needed_document}', 'DriverDocumentController@documentUploadView');
+        Route::post('upload/document/{driver}/{needed_document}', 'DriverDocumentController@uploadDocument');
+        Route::post('approve/documents', 'DriverDocumentController@approveDriverDocument')->name('approveDriverDocument');
+        Route::get('get/carmodel', 'DriverController@getCarModel')->name('getCarModel');
+        Route::post('update/decline/reason', 'DriverController@UpdateDriverDeclineReason')->name('UpdateDriverDeclineReason');
+       
         });
 
         Route::group(['prefix'=>'driver-ratings'], function () {
              Route::get('/','DriverController@driverRatings');
              Route::get('/view/{driver}','DriverController@driverRatingView');
         });
+         Route::group(['prefix'=>'withdrawal-requests-lists'], function () {
+             Route::get('/','DriverController@withdrawalRequestsList');
+             Route::get('/view/{driver}','DriverController@withdrawalRequestDetail');
+             Route::get('/approve/{wallet_withdrawal_request}','DriverController@approveWithdrawalRequest');
+             Route::get('/decline/{wallet_withdrawal_request}','DriverController@declineWithdrawalRequest');
+       Route::get('/negative_balance_drivers','DriverController@NeagtiveBalanceDrivers');
+       Route::get('fetch/negative-balance-drivers', 'DriverController@NegativeBalanceFetch');
+        });
 
+//Fleet drivers
+
+    Route::group(['prefix' => 'fleet-drivers'], function () {
+        // prefix('drivers')->group(function () {
+        Route::get('/', 'FleetDriverController@index');
+        Route::get('/fetch/approved', 'FleetDriverController@getApprovedFleetDrivers');
+
+        Route::get('/waiting-for-approval', 'FleetDriverController@approvalPending');
+        // Route::get('/fetch', 'DriverController@getAllDrivers');
+        Route::get('/fetch/approval-pending-drivers', 'FleetDriverController@getApprovalPendingFleetDrivers');
+        Route::get('/fetch/driver-ratings', 'FleetDriverController@fetchFleetDriverRatings');
+
+        Route::get('/create', 'FleetDriverController@create');
+        Route::post('store', 'FleetDriverController@store');
+        Route::get('/{driver}', 'FleetDriverController@getById');
+        Route::get('request-list/{driver}', 'FleetDriverController@DriverTripRequestIndex');
+        Route::get('request-list/{driver}/fetch', 'FleetDriverController@FleetDriverTripRequest');
+        Route::get('payment-history/{driver}', 'FleetDriverController@FleetDriverPaymentHistory');
+        Route::post('payment-history/{driver}', 'FleetDriverController@StoreFleetDriverPaymentHistory');
+        Route::post('update/{driver}', 'FleetDriverController@update');
+        Route::get('toggle_status/{driver}', 'FleetDriverController@toggleStatus');
+        Route::get('toggle_approve/{driver}/{approval_status}', 'FleetDriverController@toggleApprove');
+        Route::get('toggle_available/{driver}', 'FleetDriverController@toggleAvailable');
+        Route::get('delete/{driver}', 'FleetDriverController@delete');
+        Route::get('document/view/{driver}', 'FleetDriverDocumentController@index');
+        Route::get('upload/document/{driver}/{needed_document}', 'FleetDriverDocumentController@documentUploadView');
+        Route::post('upload/document/{driver}/{needed_document}', 'FleetDriverDocumentController@uploadDocument');
+        Route::post('approve/documents', 'FleetDriverDocumentController@approveFleetDriverDocument')->name('approveFleetDriverDocument');
+        Route::get('get/carmodel', 'FleetDriverController@getCarModel')->name('getCarModel');
+        Route::post('update/decline/reason', 'FleetDriverController@UpdateDriverDeclineReason')->name('UpdateFleetDriverDeclineReason');
+       
+        });
         Route::group(['prefix' => 'admins',  'middleware' => 'permission:admin'], function () {
             // prefix('admins')->group(function () {
             Route::get('/', 'AdminController@index');
@@ -273,6 +357,12 @@ Route::middleware('auth:web')->group(function () {
             Route::get('toggle_status/{user}', 'UserController@toggleStatus');
             Route::get('delete/{user}', 'UserController@delete');
             Route::get('/request-list/{user}', 'UserController@UserTripRequest');
+            Route::get('payment-history/{user}', 'UserController@userPaymentHistory');
+            Route::post('payment-history/{user}', 'UserController@StoreUserPaymentHistory');      
+
+
+
+
         });
 
         Route::group(['prefix' => 'sos',  'middleware' => 'permission:view-sos'], function () {
@@ -307,7 +397,8 @@ Route::middleware('auth:web')->group(function () {
             Route::get('trip_view/{request}','RequestController@requestDetailedView');
             Route::get('/request/{request}', 'RequestController@fetchSingleRequest');
             Route::get('/fetch/request/{request}', 'RequestController@retrieveSingleRequest');
-       
+            Route::get('view-customer-invoice/{request_detail}','RequestController@viewCustomerInvoice');
+            Route::get('view-driver-invoice/{request_detail}','RequestController@viewDriverInvoice');
 
            
         });
@@ -393,6 +484,9 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/drivers', 'ComplaintController@driverComplaint');
              Route::get('/drivers/general', 'ComplaintController@driverGeneralComplaint');
             Route::get('/drivers/request', 'ComplaintController@driverRequestComplaint');
+            Route::get('/owner', 'ComplaintController@ownerComplaint');
+             Route::get('/owner/general', 'ComplaintController@ownerGeneralComplaint');
+            Route::get('/owner/request', 'ComplaintController@ownerRequestComplaint');
             Route::get('/taken/{complaint}', 'ComplaintController@takeComplaint');
             Route::get('/solved/{complaint}', 'ComplaintController@solveComplaint');
         });
@@ -401,6 +495,10 @@ Route::middleware('auth:web')->group(function () {
         Route::group(['prefix' => 'reports',  'middleware' => 'permission:reports'], function () {
             Route::get('/user', 'ReportController@userReport')->name('userReport');
             Route::get('/driver', 'ReportController@driverReport')->name('driverReport');
+
+            Route::get('/owner', 'ReportController@ownerReport')->name('ownerReport');
+
+
             Route::get('/driver-duties', 'ReportController@driverDutiesReport')->name('driverDutiesReport');
             Route::get('/travel', 'ReportController@travelReport')->name('travelReport');
             Route::any('/download', 'ReportController@downloadReport')->name('downloadReport');
@@ -414,46 +512,9 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/get/zone', 'MapController@getZoneByServiceLocation')->name('getZoneByServiceLocation');
         });
 
-        Route::group(['prefix' => 'project'], function () {
-            Route::get('/', 'ProjectController@index');
-            Route::get('/fetch', 'ProjectController@getAllProject');
-            Route::get('/create', 'ProjectController@create');
-            Route::post('store', 'ProjectController@store');
-            Route::get('edit/{project}', 'ProjectController@getById');
-            Route::post('update/{project}', 'ProjectController@update');
-            Route::get('toggle_status/{project}', 'ProjectController@toggleStatus');
-            Route::get('fetch/flavours', 'ProjectController@fetchFlavoursByProject')->name('fetchFlavour');
-            Route::get('delete/{project}', 'ProjectController@delete');
-
-            Route::get('added/clients/{project}', 'ProjectController@addedClient');
-            Route::get('add/client/{project}', 'ProjectController@addClient');
-            Route::post('store/client/{project}', 'ProjectController@storeClient');
-            Route::get('client/edit/{user}', 'ProjectController@editClient');
-            Route::post('update/client/{user}', 'ProjectController@updateClient');
-            Route::get('client/toggle_status/{project}', 'ProjectController@toggleClientStatus');
-            Route::get('client/delete/{user}', 'ProjectController@deleteClient');
-
-            Route::get('added/flavour/{project}', 'ProjectController@addedFlavour');
-            Route::get('add/flavour/{project}', 'ProjectController@addFlavour');
-            Route::post('store/flavour/{project}', 'ProjectController@storeFlavour');
-            Route::get('flavour/edit/{projectflavour}', 'ProjectController@editFlavour');
-            Route::post('update/flavour/{projectflavour}', 'ProjectController@updateFlavour');
-            Route::get('flavour/toggle_status/{projectflavour}', 'ProjectController@toggleFlavourStatus');
-            Route::get('flavour/delete/{projectflavour}', 'ProjectController@deleteFlavour');
-        });
     });
 
     Route::namespace('Master')->group(function () {
-        Route::group(['prefix' => 'developer'], function () {
-            Route::get('/', 'DeveloperController@index');
-            Route::get('/fetch', 'DeveloperController@getAllDeveloper');
-            Route::get('/create', 'DeveloperController@create');
-            Route::post('store', 'DeveloperController@store');
-            Route::get('edit/{developer}', 'DeveloperController@getById');
-            Route::post('update/{developer}', 'DeveloperController@update');
-            Route::get('toggle_status/{user}', 'DeveloperController@toggleStatus');
-            Route::get('delete/{developer}', 'DeveloperController@delete');
-        });
 
         Route::prefix('roles')->group(function () {
             Route::get('/', 'RoleController@index');
@@ -467,17 +528,6 @@ Route::middleware('auth:web')->group(function () {
         Route::prefix('system/settings')->group(function () {
             Route::get('/', 'SettingController@index');
             Route::post('/', 'SettingController@store');
-        });
-
-        Route::prefix('builds')->group(function () {
-            Route::get('/projects', 'BuildController@index');
-            Route::get('/fetch/projects', 'BuildController@fetchProject');
-            Route::get('environments/{project_id}/{flavour_id}', 'BuildController@buildEnvironments');
-            Route::get('flavours/{project_id}/', 'BuildController@buildFlavours');
-            Route::get('/{project_id}/{flavour_id}/{environment}', 'BuildController@listBuildsByEnvironment');
-            Route::get('create', 'BuildController@create');
-            Route::post('store', 'BuildController@store');
-            Route::any('app/delete/{mobile_build}', 'BuildController@deleteBuild');
         });
 
         // Car Make CRUD
@@ -526,7 +576,17 @@ Route::middleware('auth:web')->group(function () {
                     Route::get('toggle_status/{needed_doc}', 'OwnerNeededDocumentController@toggleStatus');
                     Route::get('delete/{needed_doc}', 'OwnerNeededDocumentController@delete');
                 }); 
-
+          // Fleet Needed Document CRUD
+            Route::group(['prefix' => 'fleet_needed_doc',  'middleware' => 'permission:manage-fleet-needed-document'], function () {
+                Route::get('/', 'FleetNeededDocumentController@index');
+                Route::get('/fetch', 'FleetNeededDocumentController@fetch');
+                Route::get('/create', 'FleetNeededDocumentController@create');
+                Route::post('store', 'FleetNeededDocumentController@store');
+                Route::get('/{needed_doc}', 'FleetNeededDocumentController@getById');
+                Route::post('update/{needed_doc}', 'FleetNeededDocumentController@update');
+                Route::get('toggle_status/{needed_doc}', 'FleetNeededDocumentController@toggleStatus');
+                Route::get('delete/{needed_doc}', 'FleetNeededDocumentController@delete');
+                }); 
         // Package type CRUD
         Route::group(['prefix' => 'package_type',  'middleware' => 'permission:package-type'], function () {
             Route::get('/', 'PackageTypeController@index');

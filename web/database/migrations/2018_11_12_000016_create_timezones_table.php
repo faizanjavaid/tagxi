@@ -17,7 +17,7 @@ class CreateTimezonesTable extends Migration
             $table->uuid('id')->primary();
             $table->string('name')->nullable();
             $table->string('timezone')->nullable();
-            $table->boolean('active')->default(false);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

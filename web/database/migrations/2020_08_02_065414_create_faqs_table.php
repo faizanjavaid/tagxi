@@ -18,7 +18,7 @@ class CreateFaqsTable extends Migration
             $table->uuid('service_location_id');
             $table->longText('question');
             $table->longText('answer');
-            $table->enum('user_type',['user','driver','both']);
+            $table->enum('user_type',['user','driver','owner','all']);
             $table->boolean('active');
             
             $table->timestamps();

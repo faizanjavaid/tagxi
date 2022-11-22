@@ -3,7 +3,6 @@
 /public/storage
 /storage/*.key
 /vendor
-/public/docs
 *.kml
 .env
 .env.backup
@@ -12,3 +11,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+composer.lock

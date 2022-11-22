@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="x-pjax-version" content="{{ mix('/css/app.css') }}">
-    <title>{{ app_name() ?? 'Tagyourtaxi' }} - Admin App</title>
+    <title>{{ app_name() ?? 'Tagxi' }} - Admin App</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta content="Tag your taxi Admin portal, helps to manage your fleets and trip requests" name="description" />

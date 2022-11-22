@@ -50,6 +50,7 @@ class ServiceLocationController extends BaseController
 
     public function create()
     {
+        
         $timezones = TimeZone::active()->get();
         $countries = Country::active()->get();
         $page = trans('pages_names.add_service_location');
@@ -60,6 +61,12 @@ class ServiceLocationController extends BaseController
 
     public function store(CreateServiceLocationRequest $request)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('service_location')->with('warning', $message);
+        }
+
         $created_params = $request->only(['name','currency_name','currency_code','currency_symbol','country','timezone']);
         $created_params['active'] = 1;
 
@@ -73,6 +80,8 @@ class ServiceLocationController extends BaseController
 
     public function getById(ServiceLocation $serviceLocation)
     {
+        
+
         $item = $serviceLocation;
         $timezones = TimeZone::active()->get();
         $countries = Country::active()->get();
@@ -84,6 +93,12 @@ class ServiceLocationController extends BaseController
 
     public function update(UpdateServiceLocationRequest $request, ServiceLocation $serviceLocation)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('service_location')->with('warning', $message);
+        }
+        
         $updated_params = $request->all();
         $serviceLocation->update($updated_params);
         $message = trans('succes_messages.service_location_updated_succesfully');
@@ -92,6 +107,12 @@ class ServiceLocationController extends BaseController
 
     public function toggleStatus(ServiceLocation $serviceLocation)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('service_location')->with('warning', $message);
+        }
+        
         $status = $serviceLocation->isActive() ? false: true;
         $serviceLocation->update(['active' => $status]);
 
@@ -101,12 +122,13 @@ class ServiceLocationController extends BaseController
 
     public function delete(ServiceLocation $serviceLocation)
     {
-        $serviceLocation->delete();
+        if(env('APP_FOR')!='demo'){
+        $serviceLocation->delete();                        
+        }
 
         $message = trans('succes_messages.service_location_deleted_succesfully');
 
         return $message;
-        // return redirect('service_location')->with('success', $message);
     }
 
     public function getCurrencyByCountry(Request $request)

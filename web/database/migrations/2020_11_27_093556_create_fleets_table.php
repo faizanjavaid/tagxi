@@ -15,7 +15,7 @@ class CreateFleetsTable extends Migration
     {
         Schema::create('fleets', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->text('fleet_id');
+            $table->text('fleet_id')->nullable();
             $table->text('qr_image')->nullable();
             $table->unsignedInteger('owner_id');
             $table->integer('brand')->unsigned();

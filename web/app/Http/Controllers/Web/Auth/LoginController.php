@@ -109,21 +109,17 @@ class LoginController extends ApiController
     {
         if (auth()->user()->hasRole(Role::DISPATCHER)) {
             $redirect = 'dispatch-login';
-        } else {
-            if (auth()->user()->hasRole('owner')) {
+        } else if (auth()->user()->hasRole('owner')) {
             $redirect = 'company-login';
         }else{
             $redirect = 'login';
         }
-        }
 
-
-        
         auth('web')->logout();
 
         $request->session()->invalidate();
 
-        return redirect('login');
+        return redirect($redirect);
     }
 
     /**
@@ -163,9 +159,7 @@ class LoginController extends ApiController
      */
     protected function loginUserAccount($request, $role, $needsToken = true, array $conditions = [])
     {
-        // if ($needsToken && !$request->has(['client_id', 'client_secret'])) {
-        //     return $this->respondBadRequest('Missing password grant client credentials');
-        // }
+        
 
         if ($request->has('social_id')) {
             return $this->setLoginIdentifier('social_id')
@@ -449,7 +443,6 @@ class LoginController extends ApiController
     {
         event(new UserLogin($user));
 
-
         if ($needsToken) {
             $client_tokens = DB::table('oauth_clients')->where('password_client', 1)->first();
             // dd($client_tokens);
@@ -474,13 +467,23 @@ class LoginController extends ApiController
             } else {
                 $client_tokens = DB::table('oauth_clients')->where('personal_access_client', 1)->first();
 
+                $token = $user->createToken('personal_access', [])->accessToken;
+
+                if($request->has('new_flow') && $request->new_flow){
+                    return response()->json(['success'=>true,'message'=>'success','access_token'=>$token]);
+                }
+
+
                 return $this->issueToken([
                 'grant_type' => 'personal_access',
                 'client_id' => $client_tokens->id,
                 'client_secret' => $client_tokens->secret,
                 'user_id' => $user->id,
                 'scope' => [],
-            ]);
+                ]);
+
+
+
             }
         }
 

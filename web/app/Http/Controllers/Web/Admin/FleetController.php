@@ -10,12 +10,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\BaseController;
 use App\Http\Requests\Admin\Fleet\FleetStoreRequest;
 use App\Models\Admin\AreaType;
+use App\Models\Admin\Driver;
 use App\Models\Admin\Fleet;
 use App\Models\Admin\VehicleType;
 use App\Models\Master\CarMake;
 use App\Models\Master\CarModel;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Models\Admin\FleetNeededDocument;
+use App\Jobs\Notifications\AndroidPushNotification;
 
 class FleetController extends BaseController
 {
@@ -64,12 +67,7 @@ class FleetController extends BaseController
 
         $carmake = CarMake::active()->get();
          $carmodel = CarModel::active()->get();
-        // $types = AreaType::whereActive(true);
-
-        // if(auth()->user()->hasRole(RoleSlug::OWNER)){
-        //     $types = $types->whereServiceLocationId(auth()->user()->owner->service_location_id);
-        // }
-        // $types = $types->get();
+       
         $types = VehicleType::active()->get();
 
         return view('admin.fleets.create', compact('page', 'main_menu', 'sub_menu','carmake','types','carmodel'));
@@ -77,7 +75,6 @@ class FleetController extends BaseController
 
     public function store(FleetStoreRequest $request)
     {
-        // dd($request->all());
         $authUser = auth()->user();
         $vehicleToRegister = $authUser->owner->no_of_vehicles;
 
@@ -88,12 +85,6 @@ class FleetController extends BaseController
         $created_params = $request->only(['brand','model','license_number','permission_number']);
         $created_params['vehicle_type'] = $request->type;
         $created_params['owner_id'] = $authUser->id;
-
-        // if($request->has('class_one'))
-        //     $created_params['class_one'] = true;
-
-        // if($request->has('class_two'))
-        //     $created_params['class_two'] = true;
 
         $fleet = $this->fleet->create($created_params);
 
@@ -135,7 +126,7 @@ class FleetController extends BaseController
 
         $carmake = CarMake::active()->get();
          $carmodel = CarModel::active()->get();
-        // $types = AreaType::whereActive(true)->whereServiceLocationId($fleet->user->owner->service_location_id)->get();
+        
         $types = VehicleType::active()->get();
 
         return view('admin.fleets.update', compact('page', 'item', 'main_menu', 'sub_menu','types','carmake','carmodel'));
@@ -147,12 +138,7 @@ class FleetController extends BaseController
         $updated_params = $request->only(['brand','model','license_number','permission_number']);
         $updated_params['vehicle_type'] = $request->type;
 
-        // if($request->has('class_one'))
-        //     $updated_params['class_one'] = true;
-
-        // if($request->has('class_two'))
-        //     $updated_params['class_two'] = true;
-
+        
         $fleet->update($updated_params);
    
         if ($uploadedFile = $this->getValidatedUpload('registration_certificate', $request)) {
@@ -193,9 +179,49 @@ class FleetController extends BaseController
     public function toggleApprove(Fleet $fleet)
     {
         $status = $fleet->approve == 1 ? 0 : 1;
+
+
+        if ($status) {
+            $err = false;
+            $neededDoc = FleetNeededDocument::count();
+
+            $uploadedDoc = count($fleet->fleetDocument);
+
+            if ($neededDoc != $uploadedDoc) {
+                return redirect('fleets/document/view/'.$fleet->id);
+            }
+
+            foreach ($fleet->fleetDocument as $fleetDoc) {
+                if ($fleetDoc->document_status != 1) {
+                    $err = true;
+                }
+            }
+
+            if ($err) {
+                $message = trans('succes_messages.driver_document_not_approved');
+                return redirect('fleets/document/view/'.$fleet->id);
+            }
+
+        }
+
         $fleet->update([
             'approve' => $status
         ]);
+
+        $fleet->fresh();
+
+        $user = $fleet->user;
+
+        $title = trans('push_notifications.fleet_declined_title');
+        $body = trans('push_notifications.fleet_declined_body');
+
+        if($status){
+            $title = trans('push_notifications.fleet_approved_title');
+            $body = trans('push_notifications.fleet_approved_body');
+    
+        }
+        
+        $user->notify(new AndroidPushNotification($title, $body));
 
         $message = trans('succes_messages.fleet_approval_status_changed_succesfully');
         return redirect('fleets')->with('success', $message);
@@ -230,5 +256,39 @@ class FleetController extends BaseController
             ->generate($code, storage_path('app/public/uploads/qr-codes/'.$qr_code_image_name));
 
         return ['code'=>$code,'qrcode'=>$qr_code_image_name];
+    }
+
+    public function assignDriverView(Fleet $fleet)
+    {
+        $page = trans('pages_names.fleets');
+        $main_menu = 'manage_fleet';
+        $sub_menu = '';
+
+        $drivers = Driver::whereOwnerId(auth()->user()->owner->id)->whereNull('fleet_id')->get();
+
+        return view('admin.fleets.assign_driver', compact('page', 'main_menu', 'sub_menu','drivers','fleet'));
+    }
+
+    public function assignDriver(Request $request,Fleet $fleet)
+    {
+        $driver = Driver::whereId($request->driver)->first();
+        $isVehicleAlreadyAssigned = Driver::whereFleetId($fleet->id)->whereApprove(true)->whereActive(true)->whereAvailable(false)->exists();
+
+        if ($isVehicleAlreadyAssigned) {
+            return back()->withErrors('Fleet already assigned with another driver')->withInput($request->all());
+        }
+
+        if ($driver->fleet_id != null) {
+            return back()->withErrors('Selected driver is already assigned with another vehicle')->withInput($request->all());
+        }
+
+        $driver->update([
+            'fleet_id' => $fleet->id,
+            'vehicle_type' => $fleet->vehicle_type
+        ]);
+        
+        $message = trans('succes_messages.driver_assigned_succesfully');
+
+        return redirect('fleets')->with('success', $message);
     }
 }

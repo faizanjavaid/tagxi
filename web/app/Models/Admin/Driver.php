@@ -14,6 +14,9 @@ use App\Models\Admin\DriverAvailability;
 use App\Models\Payment\DriverWalletHistory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use App\Models\Payment\WalletWithdrawalRequest;
+use App\Models\Payment\DriverSubscription;
+use App\Models\Request\DriverRejectedRequest;
 
 class Driver extends Model
 {
@@ -31,7 +34,7 @@ class Driver extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','service_location_id', 'name','mobile','email','address','state','city','country','postal_code','gender','vehicle_type','car_make','car_model','car_color','car_number','today_trip_count','total_accept','total_reject','acceptance_ratio','last_trip_date','active','approve','available','reason','uuid'
+        'user_id','owner_id','service_location_id', 'name','mobile','email','address','state','city','country','postal_code','gender','vehicle_type','car_make','car_model','car_color','car_number','today_trip_count','total_accept','total_reject','acceptance_ratio','last_trip_date','active','approve','available','reason','uuid','fleet_id','vehicle_year'
     ];
     /**
     * The accessors to append to the model's array form.
@@ -39,7 +42,7 @@ class Driver extends Model
     * @var array
     */
     protected $appends = [
-        'profile_picture','vehicle_type_name','car_make_name','car_model_name','rating','no_of_ratings','driver_lat','driver_lng','driver_bearing','timezone'
+        'profile_picture','vehicle_type_name','car_make_name','car_model_name','rating','no_of_ratings','timezone','vehicle_type_image'
     ];
 
 
@@ -89,21 +92,13 @@ class Driver extends Model
         return $this->user->timezone?:env('SYSTEM_DEFAULT_TIMEZONE');
     }
 
-    public function getDriverLatAttribute()
-    {
-        return $this->driverDetail->latitude;
-    }
-    public function getDriverLngAttribute()
-    {
-        return $this->driverDetail->longitude;
-    }
-    public function getDriverBearingAttribute()
-    {
-        return $this->driverDetail->bearing;
-    }
     public function getVehicleTypeNameAttribute()
     {
         return $this->vehicleType?$this->vehicleType->name:null;
+    }
+    public function getVehicleTypeImageAttribute()
+    {
+        return $this->vehicleType?$this->vehicleType->icon:null;
     }
     public function getCarMakeNameAttribute()
     {
@@ -124,6 +119,20 @@ class Driver extends Model
     public function requestDetail()
     {
         return $this->hasMany(Request::class, 'driver_id', 'id');
+    }
+    public function rejectedRequestDetail()
+    {
+        return $this->hasMany(DriverRejectedRequest::class, 'driver_id', 'id');
+    }
+    public function subscriptions()
+    {
+        return $this->hasMany(DriverSubscription::class, 'driver_id', 'id');
+    }
+
+    public function currentRide(){
+
+        return $this->requestDetail()->where('is_completed',false)->where('is_cancelled',false)->exists();
+        
     }
     public function driverAvailabilities()
     {
@@ -153,6 +162,12 @@ class Driver extends Model
     {
         return $this->belongsTo(CarMake::class, 'car_make', 'id');
     }
+
+    public function fleetDetail()
+    {
+        return $this->belongsTo(Fleet::class, 'fleet_id', 'id');
+    }
+
     public function carModel()
     {
         return $this->belongsTo(CarModel::class, 'car_model', 'id');
@@ -194,6 +209,11 @@ class Driver extends Model
     public function driverPaymentWalletHistory()
     {
         return $this->hasMany(DriverWalletHistory::class, 'driver_id', 'id');
+    }
+
+    public function withdrawalRequestsHistory()
+    {
+        return $this->hasMany(WalletWithdrawalRequest::class, 'driver_id', 'id');
     }
 
     public function driverPaymentWallet()
@@ -244,4 +264,5 @@ class Driver extends Model
         $rate=  User::where('id',$user_id)->first();
         return $rate->rating;
     }
+
 }

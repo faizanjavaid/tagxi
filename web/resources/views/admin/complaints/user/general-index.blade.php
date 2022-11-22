@@ -102,7 +102,7 @@
                                         <p id="no_data" class="lead no-data text-center">
                                             <img src="{{ asset('assets/img/dark-data.svg') }}"
                                                 style="width:150px;margin-top:25px;margin-bottom:25px;" alt="">
-                                        <h4 class="text-center" style="color:#333;font-size:25px;">NO DATA FOUND</h4>
+                                        <h4 class="text-center" style="color:#333;font-size:25px;">@lang('view_pages.no_data_found')</h4>
                                         </p>
                                     </td>
                                 </tr>

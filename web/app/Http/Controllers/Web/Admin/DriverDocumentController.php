@@ -17,6 +17,7 @@ use App\Jobs\Notifications\AndroidPushNotification;
 use App\Base\Constants\Masters\DriverDocumentStatus;
 use App\Base\Services\ImageUploader\ImageUploaderContract;
 use App\Http\Requests\Admin\Driver\DriverDocumentUploadRequest;
+use Kreait\Firebase\Database;
 
 class DriverDocumentController extends BaseController
 {
@@ -34,9 +35,10 @@ class DriverDocumentController extends BaseController
      *
      * @param \App\Models\Admin\Driver $driver
      */
-    public function __construct(ImageUploaderContract $imageUploader)
+    public function __construct(ImageUploaderContract $imageUploader,Database $database)
     {
         $this->imageUploader = $imageUploader;
+        $this->database = $database;
     }
 
     public function index(Driver $driver)
@@ -57,7 +59,6 @@ class DriverDocumentController extends BaseController
         if ($needed_document->driverDocument) {
             $driverDoc = $needed_document->driverDocument->where('driver_id', $driver->id)->whereDocumentId($needed_document->id)->first();
         }
-        // dd($needed_document);
 
         $page = trans('pages_names.driver_document');
         $main_menu = 'drivers';
@@ -68,7 +69,6 @@ class DriverDocumentController extends BaseController
 
     public function uploadDocument(DriverDocumentUploadRequest $request, Driver $driver, DriverNeededDocument $needed_document)
     {
-        // dd("hi");
         $created_params = $request->only(['identify_number','expiry_date']);
 
         $created_params['driver_id'] = $driver->id;
@@ -124,6 +124,10 @@ class DriverDocumentController extends BaseController
     public function toggleApprove(Driver $driver, $status)
     {
         $status = $status == true ? 1 : 0;
+
+        $this->database->getReference('drivers/'.$driver->id)->update(['approve'=>(int)$status,'updated_at'=> Database::SERVER_TIMESTAMP]);
+
+
         $driver->update([
             'approve' => $status
         ]);
@@ -151,11 +155,8 @@ class DriverDocumentController extends BaseController
         $socket_data->success_message  = $socket_success_message;
         $socket_data->data  = $socket_params;
 
-        // Form a socket sturcture using users'id and message with event name
-        $socket_message = structure_for_socket($driver_details->id, 'driver', $socket_data, 'approval_status');
-        dispatch(new NotifyViaSocket('transfer_msg', $socket_message));
-
-        dispatch(new NotifyViaMqtt('approval_status_'.$driver_details->id, json_encode($socket_data), $driver_details->id));
+        
+        // dispatch(new NotifyViaMqtt('approval_status_'.$driver_details->id, json_encode($socket_data), $driver_details->id));
 
         $user->notify(new AndroidPushNotification($title, $body, $push_data));
     }

@@ -80,10 +80,10 @@
             <div class="col-8 col-sm-auto text-right pl-2">
                 <div class="d-none" id="customers-actions">
                     <div class="input-group input-group-sm"><select class="custom-select cus" aria-label="Bulk actions">
-                            <option selected="">Bulk actions</option>
-                            <option value="Delete">Delete</option>
-                            <option value="Archive">Archive</option>
-                        </select><button class="btn btn-falcon-default btn-sm ml-2" type="button">Apply</button>
+                            <option selected="">@lang('view_pages.bulk_actions')</option>
+                            <option value="Delete">@lang('view_pages.delete')</option>
+                            <option value="Archive">@lang('view_pages.archive')</option>
+                        </select><button class="btn btn-falcon-default btn-sm ml-2" type="button">@lang('view_pages.apply')</button>
                     </div>
                 </div>
                 <div id="customer-table-actions">
@@ -160,7 +160,7 @@
                                         </span>
                                     @else
                                         <span class="badge badge rounded-capsule badge-soft-dark">
-                                            Progress
+                                            @lang('view_pages.progress')
                                             <div class="spinner-border text-dark" style="width: 1rem;height: 1rem;"
                                                 role="status">
                                                 <span class="sr-only">Loading...</span>

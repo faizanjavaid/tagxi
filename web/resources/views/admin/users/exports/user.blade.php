@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th> @lang('view_pages.s_no')</th>
+            <th> @lang('view_pages.date')</th>
             <th> @lang('view_pages.name')</th>
             <th> @lang('view_pages.email')</th>
             <th> @lang('view_pages.mobile')</th>
@@ -16,14 +17,15 @@
         @forelse($results as $key => $result)
             <tr>
                 <td>{{ $i++ }} </td>
+                <td>{{ $result->created_at->format("m/d/Y") }} </td>
                 <td> {{ $result->name }}</td>
                 <td>{{ $result->email }}</td>
                 <td>{{ $result->mobile }}</td>
                 <td>{{ $result->userDetails ? $result->userDetails->address : '-' }}</td>
                 @if ($result->active)
-                    <td><span class="label label-success">Active</span></td>
+                    <td><span class="label label-success">@lang('view_pages.active')</span></td>
                 @else
-                    <td><span class="label label-danger">InActive</span></td>
+                    <td><span class="label label-danger">@lang('view_pages.inactive')</span></td>
                 @endif
             </tr>
         @empty

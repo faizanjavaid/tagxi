@@ -157,7 +157,7 @@ margin: 5px;
 </div>
 </div>
 
-<script src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=drawing,geometry,places"></script>
+<script src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=drawing,geometry,places"></script>
 
     <script type="text/javascript">
         // cod jQuery

@@ -8,7 +8,7 @@
 </div>
 @endsection
 @section('map-script')
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=visualization"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=visualization"></script>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
@@ -20,20 +20,20 @@
     var heatmapData = [];
     var pickLat = [];
     var pickLng = [];
-     var default_lat = '{{$default_lat ?? env("DEFAULT_LAT")}}';
-    var default_lng = '{{$default_lng ?? env("DEFAULT_LNG")}}';
+    var default_lat = '{{ $default_lat ??  get_settings('default_latitude') }}';
+    var default_lng = '{{ $default_lng ?? get_settings('default_longitude') }}';
     var driverLat,driverLng,bearing,type;
 
     // Your web app's Firebase configuration
     var firebaseConfig = {
-    apiKey: "AIzaSyBVE-WE-lwXhxWFHJthZ6FleF1WQ3NmGAU",
-    authDomain: "cabeezie.firebaseapp.com",
-    databaseURL: "https://cabeezie.firebaseio.com",
-    projectId: "cabeezie",
-    storageBucket: "cabeezie.appspot.com",
-    messagingSenderId: "656697310655",
-    appId: "1:656697310655:web:b2b93485dff3591cb9f50a",
-    measurementId: "G-TJZ64ECJB0"
+        apiKey: "{{get_settings('firebase-api-key')}}",
+    authDomain: "{{get_settings('firebase-auth-domain')}}",
+    databaseURL: "{{get_settings('firebase-db-url')}}",
+    projectId: "{{get_settings('firebase-project-id')}}",
+    storageBucket: "{{get_settings('firebase-storage-bucket')}}",
+    messagingSenderId: "{{get_settings('firebase-messaging-sender-id')}}",
+    appId: "{{get_settings('firebase-app-id')}}",
+    measurementId: "{{get_settings('firebase-measurement-id')}}"
   };
 
     // Initialize Firebase

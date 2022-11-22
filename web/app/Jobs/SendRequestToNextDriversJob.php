@@ -13,6 +13,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use App\Jobs\Notifications\AndroidPushNotification;
 use App\Transformers\Requests\TripRequestTransformer;
 use App\Transformers\Requests\CronTripRequestTransformer;
+use Kreait\Firebase\Database;
 
 class SendRequestToNextDriversJob implements ShouldQueue
 {
@@ -25,9 +26,10 @@ class SendRequestToNextDriversJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($request_meta_ids)
+    public function __construct($request_meta_ids,Database $database)
     {
         $this->request_meta_ids = $request_meta_ids;
+        $this->database = $database;
     }
 
     /**
@@ -39,6 +41,9 @@ class SendRequestToNextDriversJob implements ShouldQueue
     {
         foreach ($this->request_meta_ids as $key => $request_meta_id) {
             $request_meta_detail = RequestMeta::find($request_meta_id);
+
+            // Add Meta Driver into Firebase Request Meta
+            $this->database->getReference('request-meta/'.$request_meta_detail->request_id.'/'.$request_meta_detail->driver_id)->set(['driver_id'=>$request_meta_detail->driver_id,'request_id'=>$request_meta_detail->request_id,'user_id'=>$request_meta_detail->user_id,'active'=>1,'updated_at'=> Database::SERVER_TIMESTAMP]);
 
             $request_result =  fractal($request_meta_detail->request, new CronTripRequestTransformer)->parseIncludes('userDetail');
 
@@ -55,11 +60,11 @@ class SendRequestToNextDriversJob implements ShouldQueue
                 $socket_data->success_message  = PushEnums::REQUEST_CREATED;
                 $socket_data->result = $request_result;
                 // Form a socket sturcture using users'id and message with event name
-                $socket_message = structure_for_socket($driver->id, 'driver', $socket_data, 'create_request');
+                // $socket_message = structure_for_socket($driver->id, 'driver', $socket_data, 'create_request');
+                
+                // dispatch(new NotifyViaSocket('transfer_msg', $socket_message));
 
-                dispatch(new NotifyViaSocket('transfer_msg', $socket_message));
-
-                dispatch(new NotifyViaMqtt('create_request_'.$driver->id, json_encode($socket_data), $driver->id));
+                // dispatch(new NotifyViaMqtt('create_request_'.$driver->id, json_encode($socket_data), $driver->id));
 
                 $notifiable_driver = $request_meta_detail->driver->user;
 

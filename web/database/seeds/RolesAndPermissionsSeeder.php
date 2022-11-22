@@ -251,6 +251,15 @@ class RolesAndPermissionsSeeder extends Seeder
             'sort' => 15.3,
             'icon' => 'fa fa-circle-thin'
         ],
+        PermissionSlug::OWNER_COMPLAINT => [
+            'name' => 'owner-complaint',
+            'description' => 'Manage Owner Complaint',
+            'main_menu'=>'complaints',
+            'sub_menu'=> 'owner-complaint',
+            'sub_link'=>'complaint/owner',
+            'sort' => 15.3,
+            'icon' => 'fa fa-circle-thin'
+        ],
         PermissionSlug::REPORTS => [
             'name' => 'reports',
             'description' => 'View reports',
@@ -278,12 +287,21 @@ class RolesAndPermissionsSeeder extends Seeder
             'sort' => 16.2,
             'icon' => 'fa fa-circle-thin'
         ],
-        PermissionSlug::TRAVEL_REPORT => [
-            'name' => 'travel-report',
-            'description' => 'Download Travel Report',
+        PermissionSlug::FINANCE_REPORT => [
+            'name' => 'finance-report',
+            'description' => 'Download Finance Report',
             'main_menu'=>'reports',
             'sub_menu'=> 'travel_report',
             'sub_link'=>'reports/travel',
+            'sort' => 16.3,
+            'icon' => 'fa fa-circle-thin'
+        ],
+        PermissionSlug::OWNER_REPORT => [
+            'name' => 'owner-report',
+            'description' => 'Download Owner Report',
+            'main_menu'=>'reports',
+            'sub_menu'=> 'owner_report',
+            'sub_link'=>'reports/owner',
             'sort' => 16.3,
             'icon' => 'fa fa-circle-thin'
         ],
@@ -461,13 +479,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'description' => 'Admin group with restricted access',
             'permissions' => [PermissionSlug::GET_ALL_ROLES, PermissionSlug::GET_ALL_PERMISSIONS,PermissionSlug::ACCESS_DASHBOARD,PermissionSlug::SETTINGS,PermissionSlug::VIEW_COMPANIES,PermissionSlug::DRIVERS_MENU,PermissionSlug::VIEW_DRIVERS,PermissionSlug::VIEW_TYPES,PermissionSlug::VIEW_ZONE,PermissionSlug::MAP_MENU,PermissionSlug::VIEW_SYSTEM_SETINGS,PermissionSlug::USER_MENU,PermissionSlug::VIEW_USERS,PermissionSlug::USER_SOS,PermissionSlug::SERVICE_LOCATION,PermissionSlug::ADMIN,PermissionSlug::DISPATCH_REQUEST,PermissionSlug::LIST_AIRPORTS,PermissionSlug::ADD_EDIT_AIRPORTS],
         ],
-        RoleSlug::AREA_MANAGER => [
-            'name' => 'Area Manager',
-            'description' => 'Admin group with restricted access',
-            'permissions' => [
-                PermissionSlug::ACCESS_DASHBOARD
-            ],
-        ],
+       
          RoleSlug::OWNER=>[
             'name' => 'Owner',
             'description' => 'Owner for company management',

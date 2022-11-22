@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request - TagyourTaxi</title>
+    <title>Request - Tagxi</title>
     <link rel="shortcut icon" href="{{ fav_icon() ?? asset('assets/images/favicon.png')}}">
     <link rel="stylesheet" href="{!! asset('css/track-request.css') !!}">
 </head>
@@ -43,7 +43,7 @@
             <div class="flex justify-center">
                 <img src="{{ asset('map/tick.png') }}" alt="" class="rounded w-10 h-10">
             </div>
-            <p class="mt-5">The trip has ended</p>
+            <p class="mt-5">@lang('view_pages.the_trip_has_ended')</p>
         </div>
     </div>
     @else
@@ -55,13 +55,13 @@
                     <!-- <div class="w-full text-center"> -->
                     <strong class="text-blue-900">{{ $request->request_number }} -</strong>
                     @if ($request->is_completed)
-                    <p class="text-md text-black font-bold ml-3 trip_status">Trip Completed</p>
+                    <p class="text-md text-black font-bold ml-3 trip_status">@lang('view_pages.trip_completed')</p>
                     @elseif ($request->is_cancelled)
-                    <p class="text-md text-black font-bold ml-3 trip_status">Trip Cancelled</p>
+                    <p class="text-md text-black font-bold ml-3 trip_status">@lang('view_pages.trip_cancelled')</p>
                     @elseif ($request->is_trip_start)
-                    <p class="text-md text-black font-bold ml-3 trip_status">On Going Ride</p>
+                    <p class="text-md text-black font-bold ml-3 trip_status">@lang('view_pages.on_going_ride')</p>
                     @else
-                    <p class="text-md text-black font-bold ml-3 trip_status">Driver is on the way</p>
+                    <p class="text-md text-black font-bold ml-3 trip_status">@lang('view_pages.driver_is_on_the_way')</p>
                     @endif
 
                     <!-- </div> -->
@@ -69,8 +69,8 @@
                 <hr>
                 <div class="flex justify-between items-center m-3">
                     <div class="flex-column">
-                        <p class="font-sans leading-relaxed text-lg text-gray-700 text-center font-extrabold">Pickup</p>
-                        <p class="font-sans leading-relaxed text-lg text-gray-700 text-center font-extrabold">Drop</p>
+                        <p class="font-sans leading-relaxed text-lg text-gray-700 text-center font-extrabold">@lang('view_pages.pickup')</p>
+                        <p class="font-sans leading-relaxed text-lg text-gray-700 text-center font-extrabold">@lang('view_pages.drop')</p>
                     </div>
                     <div class="flex-column">
                         <p class="font-serif leading-relaxed text-lg text-black text-center font-hairline">{{ str_limit($request->requestPlace->pick_address,30) }}</p>
@@ -131,7 +131,7 @@
 
 
 
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&sensor=false&libraries=places"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
@@ -147,14 +147,14 @@
 
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyBVE-WE-lwXhxWFHJthZ6FleF1WQ3NmGAU",
-            authDomain: "cabeezie.firebaseapp.com",
-            databaseURL: "https://cabeezie.firebaseio.com",
-            projectId: "cabeezie",
-            storageBucket: "cabeezie.appspot.com",
-            messagingSenderId: "656697310655",
-            appId: "1:656697310655:web:b2b93485dff3591cb9f50a",
-            measurementId: "G-TJZ64ECJB0"
+                apiKey: "{{get_settings('firebase-api-key')}}",
+    authDomain: "{{get_settings('firebase-auth-domain')}}",
+    databaseURL: "{{get_settings('firebase-db-url')}}",
+    projectId: "{{get_settings('firebase-project-id')}}",
+    storageBucket: "{{get_settings('firebase-storage-bucket')}}",
+    messagingSenderId: "{{get_settings('firebase-messaging-sender-id')}}",
+    appId: "{{get_settings('firebase-app-id')}}",
+    measurementId: "{{get_settings('firebase-measurement-id')}}"
         };
 
         // Initialize Firebase

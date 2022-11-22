@@ -13,7 +13,12 @@
 <div class="box">
 
     <div class="box-header with-border">
+
+                <!-- <div>
+                    <strong class="text-danger" style="font-size: 18px;">Note: We are currently working on this update, you may get this update soon</strong>
+                </div><br> -->
         <div class="row text-right">
+
 
                             <div class="col-2">
                                 <div class="form-group">
@@ -46,7 +51,7 @@
 
     <div id="js-project-partial-target">
         <include-fragment src="fetch/{{$area->id}}">
-            <span style="text-align: center;font-weight: bold;"> Loading...</span>
+            <span style="text-align: center;font-weight: bold;"> @lang('view_pages.loading')</span>
         </include-fragment>
     </div>
 

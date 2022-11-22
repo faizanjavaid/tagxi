@@ -76,7 +76,7 @@
             <th> @lang('view_pages.s_no')</th>
             <th> @lang('view_pages.request_id')</th>
             <th> @lang('view_pages.date')</th>
-            {{-- <th> @lang('view_pages.user_name')</th> --}}
+            <th> @lang('view_pages.user_name')</th> 
             <th> @lang('view_pages.driver_name')</th>
             <th> @lang('view_pages.trip_status')</th>
             <th> @lang('view_pages.is_paid')</th>
@@ -95,7 +95,7 @@
             <td>{{ $i++ }} </td>
             <td>{{$result->request_number}}</td>
             <td>{{ $result->trip_start_time }}</td>
-            {{-- <td>{{$result->userDetail ? $result->userDetail->name : '-'}}</td> --}}
+          <td>{{$result->userDetail ? $result->userDetail->name : '-'}}</td>
             <td>{{$result->driverDetail ? $result->driverDetail->name : '-'}}</td>
 
             @if($result->is_cancelled == 1)
@@ -172,7 +172,7 @@
     </section>
 
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=visualization"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=visualization"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>

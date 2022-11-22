@@ -25,8 +25,8 @@ class UpdateServiceLocationRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:50|unique:service_locations,name,'.$this->service_location->id.',id,deleted_at,NULL',
-            'currency_code' => 'required',
-            'currency_symbol' => 'required',
+            // 'currency_code' => 'required',
+            // 'currency_symbol' => 'required',
             'timezone' => 'required',
             'country' => 'required'
         ];

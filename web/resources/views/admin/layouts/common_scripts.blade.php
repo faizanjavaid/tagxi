@@ -244,6 +244,9 @@ $(document).on('click','.chooseLanguage',function(){
 
     var link = "<?php echo url('/change/lang')?>";
     var finalLink = link+'/'+langValue;
+
+    console.log(finalLink);
+
     window.location = finalLink;
 });
 </script>
@@ -273,21 +276,21 @@ $(document).on('click','.chooseLanguage',function(){
 
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyBVE-WE-lwXhxWFHJthZ6FleF1WQ3NmGAU",
-            authDomain: "cabeezie.firebaseapp.com",
-            databaseURL: "https://cabeezie.firebaseio.com",
-            projectId: "cabeezie",
-            storageBucket: "cabeezie.appspot.com",
-            messagingSenderId: "656697310655",
-            appId: "1:656697310655:web:b2b93485dff3591cb9f50a",
-            measurementId: "G-TJZ64ECJB0"
+                apiKey: "{{get_settings('firebase-api-key')}}",
+    authDomain: "{{get_settings('firebase-auth-domain')}}",
+    databaseURL: "{{get_settings('firebase-db-url')}}",
+    projectId: "{{get_settings('firebase-project-id')}}",
+    storageBucket: "{{get_settings('firebase-storage-bucket')}}",
+    messagingSenderId: "{{get_settings('firebase-messaging-sender-id')}}",
+    appId: "{{get_settings('firebase-app-id')}}",
+    measurementId: "{{get_settings('firebase-measurement-id')}}"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
 
         var sosRef = firebase.database().ref('SOS');
-
+        
         sosRef.on('value', async function(snapshot) {
             var sosData = snapshot.val();
 

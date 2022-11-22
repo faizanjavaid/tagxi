@@ -11,13 +11,13 @@
 <div class="row p-0 m-0">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18">Manage Document</h4>
+            <h4 class="mb-0 font-size-18"> @lang('view_pages.manage_document')</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('ownerByArea',$owner->service_location_id) }}">Manage Owner</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('ownerDocumentView',$owner->id) }}">Manage Document</a></li>
-                    <li class="breadcrumb-item active">Upload Document</li>
+                    <li class="breadcrumb-item"><a href="{{ route('ownerByArea',$owner->service_location_id) }}"> @lang('view_pages.manage_owner')</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('ownerDocumentView',$owner->id) }}">@lang('view_pages.manage_document')</a></li>
+                    <li class="breadcrumb-item active">@lang('view_pages.upload_document')</li>
                 </ol>
             </div>
 
@@ -79,7 +79,7 @@
                                     <div class="col-md-8 float-left input-group p-0">
                                         <span class="input-group-btn">
                                             <span class="btn btn-default btn-file">
-                                                Browse… <input type="file" name="document" id="imgInp" {{ $ownerDoc ? '' : 'required' }} accept="image/*,.pdf">
+                                                @lang('view_pages.browse')… <input type="file" name="document" id="imgInp" {{ $ownerDoc ? '' : 'required' }} accept="image/*,.pdf">
                                             </span>
                                         </span>
                                         <input type="text" class="form-control" readonly>

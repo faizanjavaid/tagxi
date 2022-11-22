@@ -49,7 +49,6 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <div class="dropdown">
     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
     </button>
         <div class="dropdown-menu">
@@ -73,7 +72,7 @@
 {{-- 
                                         <td class="action">
                                             <div class="dropdown">
-                                                <button class="dropbtn">Actions</button>
+                                                <button class="dropbtn">@lang('view_pages.action')</button>
                                                 <div class="dropdown-content">
                                                     @if (auth()->user()->can('edit-owner'))
                                                         <a class="grey-text text-darken-2" href="{{url('owners',$result->id) }}">{{ trans('view_pages.edit')}}</a>

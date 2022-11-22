@@ -15,7 +15,7 @@ class UpdateDriverProfileRequest extends BaseRequest
     {
         return [
             'name' => 'sometimes|required|max:50',
-            'email' => 'sometimes|required|email|max:150|unique:users,email,' . $this->user()->id,
+            'email' => 'sometimes|required|email|max:150',
             // 'mobile' => 'sometimes|required|mobile_number|unique:users,mobile,' . $this->user()->id,
             'profile_picture' => $this->userProfilePictureRule(),
             'vehicle_type'=>'sometimes|required|exists:vehicle_types,id',

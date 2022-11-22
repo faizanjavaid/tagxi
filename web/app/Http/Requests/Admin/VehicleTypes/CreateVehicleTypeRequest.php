@@ -14,7 +14,7 @@ class CreateVehicleTypeRequest extends BaseRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50|unique:vehicle_types,name,NULL,id,deleted_at,NULL',
+            'name' => 'required|max:50',
             'icon'=>$this->vechicleTypeImageRule(),
             'capacity'=>'required|min:1',
             'description'=>'required|max:300',

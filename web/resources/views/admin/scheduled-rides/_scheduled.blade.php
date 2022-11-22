@@ -22,7 +22,7 @@
         <tr>
             <td>{{ $i++ }} </td>
             <td>{{$result->request_number}}</td>
-            <td>{{ $result->trip_start_time }}</td>
+            <td>{{ $result->converted_trip_start_time }}</td>
             <td>{{$result->userDetail ? $result->userDetail->name : '-'}}</td>
             <td>{{$result->driverDetail ? $result->driverDetail->name : '-'}}</td>
 

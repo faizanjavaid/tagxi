@@ -24,7 +24,7 @@
 <div class="box">
 
     <div class="box-header with-border">
-        <a href="{{ url('drivers') }}">
+        <a href="{{ url()->previous() }}">
             <button class="btn btn-danger btn-sm pull-right" type="submit">
                 <i class="mdi mdi-keyboard-backspace mr-2"></i>
                 @lang('view_pages.back')
@@ -40,7 +40,8 @@
             <thead>
                 <tr>
                     <th> @lang('view_pages.s_no')</th>
-                    <th> @lang('view_pages.name')</th>
+                    <th> @lang('view_pages.driver_name')</th>
+                    <th> @lang('view_pages.document_name')</th>
                     <th> @lang('view_pages.expiry_date')</th>
                     <th> @lang('view_pages.status')</th>
                     <th> @lang('view_pages.comment')</th>
@@ -79,6 +80,9 @@
                     <input type="hidden" name="comment[]" class="comment" value="{{$doc_comment}}">
 
                     <td>{{ $i++ }}</td>
+                    <td>
+                        {{ $driver->name }}
+                    </td>
                     <td>
                         {{ $item->name }}
                     </td>
@@ -178,7 +182,7 @@
                 <img src="" class="imagepreview" style="height: 80vh;">
             </div>
             <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-danger btn-sm float-right">Close</button>
+                <button type="button" data-bs-dismiss="modal" class="btn btn-danger btn-sm float-right">Close</button>
                 <a href="" class="downloadImage" download>
                     <button type="button" class="btn btn-success btn-sm float-right mr-2">Download</button>
                 </a>

@@ -31,10 +31,9 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="vehicle_type">@lang('view_pages.vehicle_type') <span
-                                            class="text-danger">*</span></label>
+                                    <label for="vehicle_type">@lang('view_pages.vehicle_type')</label>
                                     <select name="vehicle_type" id="vehicle_type" class="form-control" required>
-                                        <option value="" selected disabled>@lang('view_pages.select_vehicle_type')</option>
+                                        <option value="" selected >@lang('view_pages.select_vehicle_type')</option>
                                         @foreach ($vehicletype as $type)
                                             <option value="{{ $type->id }}">{{ $type->name }}</option>
                                         @endforeach
@@ -45,10 +44,9 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="trip_status">@lang('view_pages.trip_status') <span
-                                            class="text-danger">*</span></label>
+                                    <label for="trip_status">@lang('view_pages.trip_status') </label>
                                     <select name="trip_status" id="trip_status" class="form-control" required>
-                                        <option value="" selected disabled>@lang('view_pages.select_trip_status')</option>
+                                        <option value="" selected >@lang('view_pages.select_trip_status')</option>
                                         <option value="1" data-col="is_completed">@lang('view_pages.completed')</option>
                                         <option value="1" data-col="is_cancelled">@lang('view_pages.cancelled')</option>
                                     </select>
@@ -58,10 +56,9 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="payment_opt">@lang('view_pages.payment_opt') <span
-                                            class="text-danger">*</span></label>
+                                    <label for="payment_opt">@lang('view_pages.payment_opt')</label>
                                     <select name="payment_opt" id="payment_opt" class="form-control" required>
-                                        <option value="" selected disabled>@lang('view_pages.select_payment_opt')</option>
+                                        <option value=" " selected >@lang('view_pages.select_payment_opt')</option>
                                         <option value="0">@lang('view_pages.card')</option>
                                         <option value="1">@lang('view_pages.cash')</option>
                                         <option value="2">@lang('view_pages.wallet')</option>
@@ -72,8 +69,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="date_option">@lang('view_pages.date_option') <span
-                                            class="text-danger">*</span></label>
+                                    <label for="date_option">@lang('view_pages.date_option') </label>
                                     <select name="date_option" id="date_option" class="form-control">
                                         <option value="date">@lang('view_pages.date')</option>
                                         <option value="today">@lang('view_pages.today')</option>
@@ -87,7 +83,8 @@
 
                             <div class="col-md-6 dateDiv">
                                 <div class="form-group">
-                                    <label for="from">@lang('view_pages.from') <span class="text-danger">*</span></label>
+                                    <label for="from">@lang('view_pages.from')<span
+                                            class="text-danger">*</span></label>
                                     <input class="form-control datepicker" type="text" id="from" name="from"
                                         value="{{ old('from') }}" required
                                         placeholder="{{ now()->startOfMonth()->format('Y-m-d') }}" autocomplete="off">
@@ -97,7 +94,8 @@
 
                             <div class="col-md-6 dateDiv">
                                 <div class="form-group">
-                                    <label for="to">@lang('view_pages.to') <span class="text-danger">*</span></label>
+                                    <label for="to">@lang('view_pages.to')<span
+                                            class="text-danger">*</span> </label>
                                     <input class="form-control datepicker" type="text" id="to" name="to"
                                         value="{{ old('to') }}" required placeholder="{{ now()->format('Y-m-d') }}"
                                         autocomplete="off">

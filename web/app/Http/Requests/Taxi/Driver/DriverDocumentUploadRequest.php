@@ -15,7 +15,7 @@ class DriverDocumentUploadRequest extends BaseRequest
     {
         return [
             // 'identify_number' => 'sometimes|required',
-            'expiry_date' => request()->has('expiry_date') ? $this->requiredDateRule() : '',
+            // 'expiry_date' => request()->has('expiry_date') ? $this->requiredDateRule() : '',
             // 'document '=> $this->needed_document->driverDocument()->where('driver_id', request()->driver->id)->exists() ? $this->driverDocumentRule() : 'required|'.$this->driverDocumentRule()
         ];
     }

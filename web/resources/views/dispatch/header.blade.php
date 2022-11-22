@@ -5,7 +5,7 @@
                 <div class="d-flex align-items-center"><img class="me-2"
                         src="{{ app_logo() ?? asset('images/email/logo.svg') }}" style="width: 26px;padding-right: 5px;" alt="" />
                         <span>
-                            {{ app_name() ?? 'Tagyourtaxi' }}
+                            {{ app_name() ?? 'Tagxi' }}
                         </span>
                         
                     </div>
@@ -13,15 +13,15 @@
 
             @if (request()->route()->getName() != 'dispatcherProfile')
                 <button type="button" class="btn btn-primary btn-sm turned-button mx-4 booking_screen" data-bs-toggle="modal" data-id="book-later">
-                    Book Later
+                   @lang('view_pages.book_later')
                 </button>
 
                 <button type="button" class="btn btn-primary btn-sm turned-button mr-auto booking_screen" data-id="book-now"
                     data-bs-toggle="modal">
-                    Book Now
+                   @lang('view_pages.book_now')
                 </button>
 
-                {{-- <a href="{{url('dispatch/book-now')}}" class="btn btn-primary btn-sm">Book Now</a> --}}
+                {{-- <a href="{{url('dispatch/book-now')}}" class="btn btn-primary btn-sm">@lang('view_pages.book_now')</a> --}}
             
             <ul class="navbar-nav navbar-nav-icons flex-row align-items-center" style="margin-left: auto;">
                 <li class="nav-item dropdown"><a class="nav-link pe-0" id="navbarDropdownUser" href="#"
@@ -36,9 +36,9 @@
                                     class="fas fa-crown me-1"></span><span>{{ ucfirst(auth()->user()->name) }}</span></span>
                             <div class="dropdown-divider"></div>
     
-                            {{-- <a class="dropdown-item" href="{{ url('dispatch/profile') }}">Profile</a> --}}
+                            {{-- <a class="dropdown-item" href="{{ url('dispatch/profile') }}">@lang('view_pages.profile')</a> --}}
                             
-                            <a class="dropdown-item" href="{{ url('api/spa/logout') }}">Logout</a>
+                            <a class="dropdown-item" href="{{ url('api/spa/logout') }}">@lang('view_pages.logout')</a>
                         </div>
                     </div>
                 </li>
@@ -46,7 +46,7 @@
             @else
                 <div class="pull-right" style="float: right">
                     <a href="{{ url('dispatch/dashboard') }}"  class="btn btn-danger btn-sm turned-button mr-auto">
-                        Back
+                        @lang('view_pages.back')
                     </a>
                 </div>
             @endif

@@ -25,8 +25,8 @@ class CreateServiceLocationRequest extends FormRequest
     {
         return [
             'name' => 'required|min:2|max:50|unique:service_locations,name,NULL,id,deleted_at,NULL',
-            'currency_code' => 'required',
-            'currency_symbol' => 'required',
+            // 'currency_code' => 'required',
+            // 'currency_symbol' => 'required',
             'timezone' => 'required',
             'country' => 'required',
         ];

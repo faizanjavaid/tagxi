@@ -4,6 +4,6 @@ namespace App\Base\Constants\Taxi;
 
 class UnitType
 {
-    const MILES = 0;
-    const KILOMETER = 1;
+    const MILES = '2';
+    const KILOMETER = '1';
 }

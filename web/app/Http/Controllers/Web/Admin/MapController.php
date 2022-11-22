@@ -23,7 +23,6 @@ class MapController extends Controller
                 $q->where('id', $request->zone_id);
             })->get();
 
-        // return $results;
         } else {
             $results = RequestRequest::companyKey()->get();
         }
@@ -46,8 +45,8 @@ class MapController extends Controller
         $main_menu = 'manage-map';
         $sub_menu = 'map';
 
-        $default_lat = env('DEFAULT_LAT');
-        $default_lng = env('DEFAULT_LNG');
+        $default_lat = get_settings('default_latitude');
+        $default_lng = get_settings('default_longitude');
 
         $zone = Zone::active()->companyKey()->first();
 
@@ -88,9 +87,9 @@ class MapController extends Controller
         $main_menu = 'manage-map';
         $sub_menu = 'map-mapbox';
 
-        $default_lat = env('DEFAULT_LAT');
-        $default_lng = env('DEFAULT_LNG');
-
+        $default_lat = get_settings('default_latitude');
+        $default_lng = get_settings('default_longitude');
+        
         $zone = Zone::active()->companyKey()->first();
 
         if ($zone) {

@@ -28,8 +28,9 @@ class DispatcherController extends BaseController
 
         $page = 'Dispatch Requests';
 
-        $default_lat = env('DEFAULT_LAT');
-        $default_lng = env('DEFAULT_LNG');
+        $default_lat = get_settings('default_latitude');
+        $default_lng = get_settings('default_longitude');
+
         return view('admin.dispatcher.dispatch', compact(['main_menu','sub_menu','page', 'default_lat', 'default_lng']));
     }
 
@@ -38,10 +39,10 @@ class DispatcherController extends BaseController
          $main_menu = 'dispatch_request';
 
         $sub_menu = null;
-         $default_lat = env('DEFAULT_LAT');
-        $default_lng = env('DEFAULT_LNG');
+       
+        $default_lat = get_settings('default_latitude');
+        $default_lng = get_settings('default_longitude');
 
-        // $page = 'Dispatch Requests';
         return view('dispatch.new-ui.book-now')->with(compact('main_menu','sub_menu','default_lat', 'default_lng'));
     }
 
@@ -67,7 +68,7 @@ class DispatcherController extends BaseController
     }
 
     public function fetchRequestLists(QueryFilterContract $queryFilter){
-        // $query = RequestRequest::where('if_dispatch', true)->where('dispatcher_id',auth()->user()->admin->id);
+
         $query = RequestRequest::query();
 
         $results = $queryFilter->builder($query)->customFilter(new RequestFilter)->paginate();

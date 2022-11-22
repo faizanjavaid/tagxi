@@ -2,25 +2,23 @@
 
 @section('content')
 
-<div class="row p-0 m-0">
-    <div class="col-12">
-        <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18">Add Fleet</h4>
+<div class="content">
+    <div class="container-fluid">
 
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{url('fleets') }}">Manage Fleet</a></li>
-                    <li class="breadcrumb-item active">Add Fleet</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box">
 
-<div class="row p-0 m-0">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
+                    <div class="box-header with-border">
+                        <a href="{{ url('fleets') }}">
+                            <button class="btn btn-danger btn-sm pull-right" type="submit">
+                                <i class="mdi mdi-keyboard-backspace mr-2"></i>
+                                @lang('view_pages.back')
+                            </button>
+                        </a>
+                    </div>
+                
+                <div class="col-12">
                 <form  method="post" action="{{url('fleets/store')}}" enctype="multipart/form-data">
                 @csrf
                     <div class="row">
@@ -63,22 +61,7 @@
                             </div>
                         </div>
 
-                      {{--   <div class="col-sm-4 float-left mb-md-3">
-                            <div class="form-group">
-                                <label for="model">@lang('view_pages.car_model')<span class="text-danger">*</span></label>
-                                <select name="model" id="model"  class="form-control select2" required>
-                                    <option value="" selected disabled>@lang('view_pages.select')</option>
-                                     @foreach ($carmodel as $key => $model)
-                                        <option value="{{ $model->id }}" {{ old('model') == $model->id ? 'selected' : '' }}>
-                                            {{ $model->name }}</option>
-                                    @endforeach
-                                </select>
-                                 <span class="text-danger">{{ $errors->first('model') }}</span>
-
-                                
-                            </div>
-                        </div>
- --}}
+                     
                         <div class="col-sm-6 float-left mb-md-3">
                             <div class="form-group">
                                 <label for="license_number">{{ trans('view_pages.license_number')}}<span class="text-danger">*</span></label>
@@ -87,118 +70,21 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-6 float-left mb-md-3">
-                            <div class="form-group">
-                                <label for="permission_number">{{ trans('view_pages.permission_number')}}<span class="text-danger">*</span></label>
-                                <input id="permission_number" name="permission_number" placeholder="{{ trans('view_pages.permission_number')}}" type="text" class="form-control" value="{{ old('permission_number') }}" required>
-                                <span class="text-danger">{{ $errors->first('permission_number') }}</span>
-                            </div>
                         </div>
 
-                        {{-- <div class="col-sm-6 float-left mb-md-3">
-                            <div class="form-group">
-                                <label for="">@lang('view_pages.chassis') <span class="text-danger">*</span></label>
-                                <select name="chassis" id="chassis" class="form-control">
-                                    <option value="" selected disabled>@lang('view_pages.select')</option>
-                                    <option value="low" {{ old('chassis') == 'low' ? 'selected' : '' }}>@lang('view_pages.low')</option>
-                                    <option value="high" {{ old('chassis') == 'high' ? 'selected' : '' }}>@lang('view_pages.high')</option>
-                                </select>
-                                <span class="text-danger">{{ $errors->first('chassis') }}</span>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-sm m-5 pull-right" type="submit">
+                                    @lang('view_pages.save')
+                                </button>
                             </div>
                         </div>
-
-                        <div class="col-sm-6 float-left mb-md-3">
-                            <div class="form-group">
-                                <label for="">@lang('view_pages.seats') <span class="text-danger">*</span></label>
-                                <select name="seats" id="seats" class="form-control">
-                                    <option value="" selected disabled>@lang('view_pages.select')</option>
-                                </select>
-                                <span class="text-danger">{{ $errors->first('seats') }}</span>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 float-left mb-md-3">
-                            <div class="form-group">
-                                <label for="">@lang('view_pages.luggage') <span class="text-danger">*</span></label>
-                                <select name="luggage" id="luggage" class="form-control">
-                                    <option value="" selected disabled>@lang('view_pages.select')</option>
-                                </select>
-                                <span class="text-danger">{{ $errors->first('luggage') }}</span>
-                            </div>
-                        </div> --}}
-
-                       {{--  <div class="col-sm-6 float-left mb-md-3">
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="class_one" name="class_one">
-                                <label class="form-check-label" for="class_one">
-                                    @lang('view_pages.class_one')
-                                </label>
-                            </div>
-                        </div>
- --}}
-                       {{--  <div class="col-sm-6 float-left mb-md-3">
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="class_two" name="class_two">
-                                <label class="form-check-label" for="class_two">
-                                    @lang('view_pages.class_two')
-                                </label>
-                            </div>
-                        </div> --}}
-
-                        <div class="col-sm-12">
-                            <h4 class="card-title mb-4">@lang('view_pages.vehicle_documnents')</h4>
-                        </div><hr>
-
-                        <div class="col-md-6 float-left">
-                            <div class="form-group profile-img">
-                                <label>{{ trans('view_pages.vehicle_registration_cert')}}</label>
-                                <div class="col-12" style="display: inline;">
-                                    <div class="col-md-12 float-left p-0">
-                                        <img class='img-upload' width="100px" class="rounded avatar-lg" />
-                                    </div>
-                                    <div class="col-md-12 float-left input-group p-0">
-                                        <span class="input-group-btn">
-                                            <span class="btn btn-default btn-file">
-                                                Browse… <input type="file" class="imgInp" name="registration_certificate" id="registration_certificate" required>
-                                            </span>
-                                        </span>
-                                        <input type="text" class="form-control" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 float-left">
-                            <div class="form-group profile-img">
-                                <label for="vehicle_back_side">{{ trans('view_pages.vehicle_back_side')}} </label>
-                                <div class="col-12" style="display: inline;">
-                                    <div class="col-md-12 float-left p-0">
-                                        <img class='img-upload' width="100px" class="rounded avatar-lg" />
-                                    </div>
-                                    <div class="col-md-12 float-left input-group p-0">
-                                        <span class="input-group-btn">
-                                    <span class="btn btn-default btn-file">
-                                        Browse… <input type="file" class="imgInp" name="vehicle_back_side" id="vehicle_back_side" required>
-                                    </span>
-                                        </span>
-                                        <input type="text" class="form-control" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 btn-group mt-3">
-                            <ul class="admin-add-btn">
-                               <button class="btn btn-primary pull-right m-5" type="submit">
-                @lang('view_pages.save')
-            </button>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

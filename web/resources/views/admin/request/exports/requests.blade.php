@@ -2,17 +2,21 @@
     <thead>
         <tr>
             <th> @lang('view_pages.s_no')</th>
-            <th> @lang('view_pages.request_id')</th>
             <th> @lang('view_pages.date')</th>
+            <th> @lang('view_pages.request_id')</th>
+            <th> @lang('trip_start_time')</th>
+            <th> @lang('trip_end_time')</th>
             <th> @lang('view_pages.user_name')</th>
             <th> @lang('view_pages.driver_name')</th>
+            <th> @lang('view_pages.owner_name')</th>
             <th> @lang('view_pages.trip_status')</th>
             <th> @lang('view_pages.is_paid_status')</th>
             <th> @lang('view_pages.payment_option')</th>
             <th> @lang('view_pages.vehicle_type')</th>
+            <th> @lang('view_pages.ride_type')</th> 
             <th> @lang('view_pages.trip_time')</th>
             <th> @lang('view_pages.trip_distance')</th>
-            <th> @lang('view_pages.driver_commission')</th>
+            <th> @lang('view_pages.driver_commission')</th>               
             <th> @lang('view_pages.admin_commission')</th>
             <th> @lang('view_pages.total_amount')</th>
         </tr>
@@ -24,10 +28,18 @@
         @forelse($results as $key => $result)
             <tr>
                 <td>{{ $i++ }} </td>
+                <td>{{ $result->created_at->format("m/d/Y") }} </td>
                 <td>{{$result->request_number}}</td>
-                <td>{{ $result->trip_start_time ?? '-' }}</td>
+                <td>{{ $result->converted_trip_start_time ?? '-' }}</td>
+                <td>{{ $result->converted_completed_at ?? '-' }}</td>
                 <td>{{$result->userDetail ? $result->userDetail->name : '-'}}</td>
                 <td>{{$result->driverDetail ? $result->driverDetail->name : '-'}}</td>
+
+                @if($result->owner_id)
+                <td>{{$result->ownerDetail ? $result->ownerDetail->owner_name : '-'}}</td>
+                @else
+                <td>{{"Individual"}}</td>
+                @endif
 
                 @if($result->is_cancelled == 1)
                     <td><span class="label label-danger">@lang('view_pages.cancelled')</span></td>
@@ -56,10 +68,35 @@
                 @endif
 
                 <td>{{ $result->vehicle_type_name }}</td>
+
+
+            @php
+               $later = $result->is_later;  
+               $rental = $result->is_rental;
+             @endphp
+             @if($later == 0)
+
+                @if(($later == 0) &&  ($rental == 0))           
+                <td><span class="label label-success">@lang('view_pages.regular_instant')</span> </td>
+                @else(($later == 0) &&  ($rental == 1)) 
+                <td><span class="label label-success"> @lang('view_pages.rental_instant') </span> </td>
+                @endif
+
+            @else($later == 1)
+               
+                @if(($later == 1) &&  ($rental == 0))           
+                <td><span class="label label-success">  @lang('view_pages.regular_scheduled') </span></td>
+                @else(($later == 1) &&  ($rental == 1 )) 
+                <td><span class="label label-success"> @lang('view_pages.rental_scheduled')</span></td>
+                @endif
+               
+            @endif
+
+
                 <td>{{ $result->total_time .' Mins' }}</td>
                 <td>{{ $result->total_distance .'  '. $result->request_unit}}</td>
-                <td>{{ $result->requestBill ? $result->currency .' '. $result->requestBill->driver_commission : '-' }}</td>
-                <td>{{ $result->requestBill ? $result->currency .' '. $result->requestBill->admin_commission : '-' }}</td>
+                <td>{{ $result->requestBill ? $result->currency .' '. $result->requestBill->driver_commision : '-' }}</td>
+                <td>{{ $result->requestBill ? $result->currency .' '. $result->requestBill->admin_commision : '-' }}</td>
                 <td>{{ $result->requestBill ? $result->currency .' '. $result->requestBill->total_amount : '-' }}</td>
             </tr>
         @empty

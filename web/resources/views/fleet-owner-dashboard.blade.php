@@ -2,8 +2,8 @@
 
 @section('content')
 
-	<!-- Morris charts -->
-	<link rel="stylesheet" href{!! asset('assets/vendor_components/morris.js/morris.css') !!}">
+    <!-- Morris charts -->
+    <link rel="stylesheet" href{!! asset('assets/vendor_components/morris.js/morris.css') !!}">
     <style>
         .text-red {
             color: red;
@@ -78,7 +78,7 @@
                             <div class="media-body">
                                 <div class="text-muted">
                                     <h5>Arjun</h5>
-                                    <p class="mb-1">arjun@tagyourtaxi.com</p>
+                                    <p class="mb-1">arjun@tagxi.com</p>
                                     <p class="mb-0">Id no: #SK0234</p>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Map View</h4>
+                        <h4 class="box-title">@lang('view_pages.map_view')</h4>
                 <div id="map"></div>
                 <div id="legend"><h3>@lang('view_pages.legend')</h3></div>
                 </div>
@@ -121,7 +121,7 @@
             <div class="col-12 col-lg-6">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Trip Overview</h4>
+                        <h4 class="box-title">@lang('view_pages.trip_verview')</h4>
                         <ul class="box-controls pull-right">
                             <li><a class="box-btn-slide" href="#"></a></li>
                             <li><a class="box-btn-fullscreen" href="#"></a></li>
@@ -138,7 +138,7 @@
             <div class="col-12 col-lg-6">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Earnings Overview</h4>
+                        <h4 class="box-title">@lang('view_pages.earnings_overview')</h4>
                         <ul class="box-controls pull-right">
                             <li><a class="box-btn-slide" href="#"></a></li>
                             <li><a class="box-btn-fullscreen" href="#"></a></li>
@@ -155,7 +155,7 @@
     </section>
 
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=visualization"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=visualization"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
@@ -166,22 +166,22 @@
     var heatmapData = [];
     var pickLat = [];
     var pickLng = [];
-     var default_lat = '{{$default_lat ?? env("DEFAULT_LAT")}}';
-    var default_lng = '{{$default_lng ?? env("DEFAULT_LNG")}}';
+    var default_lat = '{{ $default_lat ??  get_settings('default_latitude') }}';
+    var default_lng = '{{ $default_lng ?? get_settings('default_longitude') }}';
      var company_key='{{auth()->user()->company_key}}';
 
     var driverLat,driverLng,bearing,type;
 
     // Your web app's Firebase configuration
     var firebaseConfig = {
-    apiKey: "AIzaSyBVE-WE-lwXhxWFHJthZ6FleF1WQ3NmGAU",
-    authDomain: "cabeezie.firebaseapp.com",
-    databaseURL: "https://cabeezie.firebaseio.com",
-    projectId: "cabeezie",
-    storageBucket: "cabeezie.appspot.com",
-    messagingSenderId: "656697310655",
-    appId: "1:656697310655:web:b2b93485dff3591cb9f50a",
-    measurementId: "G-TJZ64ECJB0"
+        apiKey: "{{get_settings('firebase-api-key')}}",
+    authDomain: "{{get_settings('firebase-auth-domain')}}",
+    databaseURL: "{{get_settings('firebase-db-url')}}",
+    projectId: "{{get_settings('firebase-project-id')}}",
+    storageBucket: "{{get_settings('firebase-storage-bucket')}}",
+    messagingSenderId: "{{get_settings('firebase-messaging-sender-id')}}",
+    appId: "{{get_settings('firebase-app-id')}}",
+    measurementId: "{{get_settings('firebase-measurement-id')}}"
   };
 
     // Initialize Firebase
@@ -264,9 +264,9 @@
 
 @section('extra-scripts')
 
-	<!-- Morris.js charts -->
-	<script src="{{asset('assets/vendor_components/raphael/raphael.min.js') }}"></script>
-	<script src="{{asset('assets/vendor_components/morris.js/morris.min.js') }}"></script>
+    <!-- Morris.js charts -->
+    <script src="{{asset('assets/vendor_components/raphael/raphael.min.js') }}"></script>
+    <script src="{{asset('assets/vendor_components/morris.js/morris.min.js') }}"></script>
 
 <script>
 $(function () {
@@ -288,13 +288,13 @@ $(function () {
             return monthNames[index];
         },
         xLabels: "month",
-		ykeys: ['a'],
-		labels: ['Monthly Earnings'],
-		fillOpacity: 1,
-		lineWidth:1,
-		lineColors: ['#7460ee', '#ffb22b'],
-		hideHover: 'auto',
-		color: '#666666'
+        ykeys: ['a'],
+        labels: ['Monthly Earnings'],
+        fillOpacity: 1,
+        lineWidth:1,
+        lineColors: ['#7460ee', '#ffb22b'],
+        hideHover: 'auto',
+        color: '#666666'
     });
 
     var barData = JSON.parse('<?php echo json_encode($data) ?>');
@@ -303,14 +303,14 @@ $(function () {
       element: 'bar-chart',
       resize: true,
       data: barData,
-		barColors: ['#26c6da','#fc4b6c'],
-		barSizeRatio: 0.5,
-		barGap:5,
-		xkey: 'y',
-		ykeys: ['a', 'b'],
-		labels: ['Completed', 'Cancelled'],
-		hideHover: 'auto',
-		color: '#666666'
+        barColors: ['#26c6da','#fc4b6c'],
+        barSizeRatio: 0.5,
+        barGap:5,
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Completed', 'Cancelled'],
+        hideHover: 'auto',
+        color: '#666666'
     });
 });
 

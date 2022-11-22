@@ -8,6 +8,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use App\Models\Payment\OwnerWallet;
+use App\Models\Payment\OwnerWalletHistory;
+use Carbon\Carbon;
 
 class Owner extends Model
 {
@@ -54,5 +57,15 @@ class Owner extends Model
             'owners.mobile' => 20,
         ],
     ];
+
+    public function ownerWalletDetail()
+    {
+        return $this->hasOne(OwnerWallet::class, 'user_id', 'id');
+    }
+
+    public function ownerWalletHistoryDetail()
+    {
+        return $this->hasMany(OwnerWalletHistory::class, 'user_id', 'id');
+    }
 
 }

@@ -1,4 +1,4 @@
-<div class="box-body no-padding">
+<div class="box-body">
     <div class="table-responsive">
       <table class="table table-hover">
 <thead>
@@ -84,7 +84,7 @@
 <!-- @if($result->active)
 <td><button class="btn btn-success btn-sm">{{ trans('view_pages.active') }}</button></td>
 @else
-<td><button class="btn btn-danger btn-sm">{{ trans('view_pages.inactive') }}</button></td>
+<td><button class="btn btn-danger btn-sm">{{ trans('view_pages.iniive') }}</button></td>
 @endif -->
 
 @if($result->approve)
@@ -117,10 +117,11 @@
             @endforeach 
 
 <td>
-<div class="dropdown">
+
 <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
 </button>
-    <div class="dropdown-menu">
+@if($result->approve == 1)
+    <div class="dropdown-menu w-48 ">
         <a class="dropdown-item" href="{{url('drivers',$result->id)}}">
             <i class="fa fa-pencil"></i>@lang('view_pages.edit')
         </a>
@@ -159,7 +160,39 @@
         <a class="dropdown-item" href="{{url('driver_profile_dashboard_view',$result->id)}}">
         <i class="fa fa-dot-circle-o"></i>@lang('view_pages.view_profile')</a>
     </div>
+@else
+            <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{url('drivers',$result->id)}}">
+            <i class="fa fa-pencil"></i>@lang('view_pages.edit')
+        </a>
+
+        <!-- @if($result->active)
+        <a class="dropdown-item" href="{{url('drivers/toggle_status',$result->id)}}">
+        <i class="fa fa-dot-circle-o"></i>@lang('view_pages.inactive')</a>
+        @else
+        <a class="dropdown-item" href="{{url('drivers/toggle_status',$result->id)}}">
+        <i class="fa fa-dot-circle-o"></i>@lang('view_pages.active')</a>
+        @endif -->
+
+        <a class="dropdown-item decline" data-reason="{{ $result->reason }}" data-id="{{ $result->id }}" href="{{url('drivers/toggle_approve',['driver'=>$result->id,'approval_status'=>0])}}">
+        <i class="fa fa-dot-circle-o"></i>@lang('view_pages.disapproved')</a>
+
+        <a class="dropdown-item" href="{{url('drivers/toggle_approve',['driver'=>$result->id,'approval_status'=>1])}}">
+        <i class="fa fa-dot-circle-o"></i>@lang('view_pages.approved')</a>
+
+        <!-- @if($result->available)
+        <a class="dropdown-item" href="{{url('drivers/toggle_available',$result->id)}}">
+        <i class="fa fa-dot-circle-o"></i>@lang('view_pages.offline')</a>
+        @else
+        <a class="dropdown-item" href="{{url('drivers/toggle_available',$result->id)}}">
+        <i class="fa fa-dot-circle-o"></i>@lang('view_pages.online')</a>
+        @endif -->
+
+        <a class="dropdown-item sweet-delete" href="#" data-url="{{url('drivers/delete',$result->id)}}">
+        <i class="fa fa-trash-o"></i>@lang('view_pages.delete')</a> 
+
 </div>
+@endif
                      
 </td>   
 </a>

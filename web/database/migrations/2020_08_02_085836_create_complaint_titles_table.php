@@ -15,7 +15,7 @@ class CreateComplaintTitlesTable extends Migration
     {
         Schema::create('complaint_titles', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->enum('user_type',['user','driver']);
+            $table->enum('user_type',['user','driver','owner']);
             $table->string('complaint_type')->default('dispute');
             $table->text('title');
             $table->boolean('active')->default(true);

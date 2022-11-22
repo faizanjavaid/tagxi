@@ -108,13 +108,22 @@ td {
                                 <th>@lang('view_pages.name')</th>
                                 <th>@lang('view_pages.email')</th>
                                 <th>@lang('view_pages.mobile')</th>
+                                <th>@lang('view_pages.rating')</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                @if($item->userDetail()->exists())
                                 <td>{{ $item->userDetail->name }}</td>
                                 <td>{{ $item->userDetail->email }}</td>
                                 <td>{{ $item->userDetail->mobile }}</td>
+                                <td>{{ $item->requestRating()->where('user_rating',1)->pluck('rating')->first() }}</td>
+                                @else
+                                 <td>{{ $item->adHocuserDetail->name }}</td>
+                                <td>{{ $item->adHocuserDetail->email }}</td>
+                                <td>{{ $item->adHocuserDetail->mobile }}</td>
+                                <td>{{ $item->requestRating()->where('user_rating',1)->pluck('rating')->first() }}</td>
+                                @endif
                             </tr>
                         </tbody>
                     </table>
@@ -141,7 +150,7 @@ td {
                                 <td>{{ $item->driverDetail->name }}</td>
                                 <td>{{ $item->driverDetail->email }}</td>
                                 <td>{{ $item->driverDetail->mobile }}</td>
-                                <td>{{ $item->driverDetail->driverDetail->rating }}</td>
+                                <td>{{ $item->requestRating()->where('driver_rating',1)->pluck('rating')->first() }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -207,7 +216,7 @@ td {
 </section>
 
 <script type="text/javascript"
-    src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&sensor=false&libraries=places"></script>
+    src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&sensor=false&libraries=places"></script>
 
 <script type="text/javascript">
 var area1, area2, icon1, icon2;

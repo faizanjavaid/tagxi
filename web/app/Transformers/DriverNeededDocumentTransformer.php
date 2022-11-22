@@ -7,6 +7,7 @@ use App\Models\Admin\DriverNeededDocument;
 use App\Base\Constants\Masters\DriverDocumentStatus;
 use App\Transformers\Driver\DriverDocumentTransformer;
 use App\Base\Constants\Masters\DriverDocumentStatusString;
+use App\Transformers\Transformer;
 
 class DriverNeededDocumentTransformer extends Transformer
 {

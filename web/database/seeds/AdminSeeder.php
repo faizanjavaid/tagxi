@@ -16,7 +16,7 @@ class AdminSeeder extends Seeder
         $name = 'admin';
         $email = 'admin@admin.com';
         $password= 123456789;
-        $mobile = 7708098734;
+        $mobile = 9999999999;
 
         $users = User::all();
 
@@ -28,9 +28,9 @@ class AdminSeeder extends Seeder
             'mobile' => $mobile,
             'mobile_confirmed' => true,
         ]);
-            $user->attachRole(Role::SUPER_ADMIN);
+        $user->attachRole(Role::SUPER_ADMIN);
 
-        $created_params = ['name'=>$name,'email'=>$email,'mobile'=>$mobile];
+        $created_params = ['first_name'=>$name,'email'=>$email,'mobile'=>$mobile];
         
         $user->admin()->create($created_params);
 

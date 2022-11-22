@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Admin\OwnerHiredDriver;
 use App\Models\Admin\Fleet;
 use App\Models\Admin\DriverPrivilegedVehicle;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @resource Driver
@@ -94,7 +95,8 @@ class DriverController extends BaseController
         $url = request()->fullUrl(); //get full url
         return cache()->tags('drivers_list')->remember($url, Carbon::parse('10 minutes'), function () use ($queryFilter) {
             if (access()->hasRole(RoleSlug::SUPER_ADMIN) || access()->hasRole(RoleSlug::OWNER)) {
-                $query = Driver::orderBy('created_at', 'desc');
+                $query = Driver::whereOwnerId(auth()->user()->owner->id)->orderBy('created_at', 'desc');
+
                 if (env('APP_FOR')=='demo') {
                     $query = Driver::whereHas('user', function ($query) {
                         $query->whereCompanyKey(auth()->user()->company_key);
@@ -141,59 +143,58 @@ class DriverController extends BaseController
      */
     public function store(CreateDriverRequest $request)
     {
-        $created_params = $request->only(['service_location_id', 'name','mobile','email','address','state','city','country','gender','vehicle_type','car_make','car_model','car_color','car_number']);
-
+        $created_params = $request->only(['name','mobile','email','address','state','city','country','gender','car_color','car_number']);
+        $created_params['owner_id'] = auth()->user()->owner->id;
+        $created_params['service_location_id'] = auth()->user()->owner->service_location_id; 
+        $created_params['postal_code'] = $request->postal_code;
+        $created_params['uuid'] = driver_uuid();
 
         $validate_exists_email = $this->user->belongsTorole(Role::DRIVER)->where('email', $request->email)->exists();
 
         $validate_exists_mobile = $this->user->belongsTorole(Role::DRIVER)->where('mobile', $request->mobile)->exists();
 
         if ($validate_exists_email) {
-            return redirect()->back()->withErrors(['email'=>'Provided email hs already been taken'])->withInput();
+            return redirect()->back()->withErrors(['email'=>'Provided email has already been taken'])->withInput();
         }
         if ($validate_exists_mobile) {
-            return redirect()->back()->withErrors(['mobile'=>'Provided mobile hs already been taken'])->withInput();
+            return redirect()->back()->withErrors(['mobile'=>'Provided mobile has already been taken'])->withInput();
         }
-        $created_params['vehicle_type'] = $request->input('type');
-        $created_params['postal_code'] = $request->postal_code;
-        $created_params['uuid'] = driver_uuid();
-
-        $user = $this->user->create(['name'=>$request->input('name'),
-            'email'=>$request->input('email'),
-            'mobile'=>$request->input('mobile'),
-            'mobile_confirmed'=>true,
-            'password' => bcrypt($request->input('password')),
-            'company_key'=>auth()->user()->company_key,
-            'refferal_code'=> str_random(6)
-        ]);
-
-
-        if ($uploadedFile = $this->getValidatedUpload('profile', $request)) {
-            $created_params['profile'] = $this->imageUploader->file($uploadedFile)
-                ->saveDriverProfilePicture();
+        
+        DB::beginTransaction();
+        try {
+            $user = $this->user->create(['name'=>$request->input('name'),
+                'email'=>$request->input('email'),
+                'mobile'=>$request->input('mobile'),
+                'mobile_confirmed'=>true,
+                'password' => bcrypt($request->input('password')),
+                'company_key'=>auth()->user()->company_key,
+                'refferal_code'=> str_random(6)
+            ]);
+    
+            if ($uploadedFile = $this->getValidatedUpload('profile', $request)) {
+                $created_params['profile'] = $this->imageUploader->file($uploadedFile)
+                    ->saveDriverProfilePicture();
+            }
+    
+            $user->attachRole(RoleSlug::DRIVER);
+    
+            $driver = $user->driver()->create($created_params);
+    
+            $driver_detail = $driver->driverDetail()->create([
+                'is_company_driver' => true
+            ]);
+    
+            $message = trans('succes_messages.driver_added_succesfully');
+    
+            cache()->tags('drivers_list')->flush();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            // dd($th);
+            return back()->with('warning','Something went wrong!')->withInput();    
         }
+        DB::commit();
 
-        $user->attachRole(RoleSlug::DRIVER);
-
-        // if (access()->hasRole(RoleSlug::ADMIN))
-        // {
-        //  $this->validateAdmin();
-
-        //  $created_params['admin_id'] = $this->user->id;
-
-        // }
-
-        $driver = $user->driver()->create($created_params);
-
-        $driver_detail_data = $request->only(['is_company_driver','company']);
-
-        $driver_detail = $driver->driverDetail()->create($driver_detail_data);
-
-        $message = trans('succes_messages.driver_added_succesfully');
-
-        cache()->tags('drivers_list')->flush();
-
-        return redirect('drivers')->with('success', $message);
+        return redirect('company/drivers')->with('success', $message);
     }
 
     public function getById(Driver $driver)
@@ -216,11 +217,11 @@ class DriverController extends BaseController
 
     public function update(Driver $driver, UpdateDriverRequest $request)
     {
-        $updatedParams = $request->only(['service_location_id', 'name','mobile','email','address','state','city','country','gender','vehicle_type','car_make','car_model','car_color','car_number']);
+        $updatedParams = $request->only(['name','mobile','email','address','state','city','country','gender','car_color','car_number','postal_code']);
 
-        $validate_exists_email = $this->user->belongsTorole(Role::DRIVER)->where('email', $request->email)->where('id', '!=', $user->id)->exists();
+        $validate_exists_email = $this->user->belongsTorole(Role::DRIVER)->where('email', $request->email)->where('id', '!=', $driver->user_id)->exists();
 
-        $validate_exists_mobile = $this->user->belongsTorole(Role::DRIVER)->where('mobile', $request->mobile)->where('id', '!=', $user->id)->exists();
+        $validate_exists_mobile = $this->user->belongsTorole(Role::DRIVER)->where('mobile', $request->mobile)->where('id', '!=', $driver->user_id)->exists();
 
         if ($validate_exists_email) {
             return redirect()->back()->withErrors(['email'=>'Provided email hs already been taken'])->withInput();
@@ -229,20 +230,28 @@ class DriverController extends BaseController
             return redirect()->back()->withErrors(['mobile'=>'Provided mobile hs already been taken'])->withInput();
         }
 
+        
+        DB::beginTransaction();
+        try {
+            $driver->update($updatedParams);
+    
+            $driver->user()->update([
+                'name'=>$request->input('name'),
+                'email'=>$request->input('email'),
+                'mobile'=>$request->input('mobile')
+            ]);
 
-        $driver->update(['name'=>$request->input('name'),
-            'email'=>$request->input('email'),
-            'mobile'=>$request->input('mobile')
-        ]);
-
-        $driver->user->update(['name'=>$request->input('name'),
-            'email'=>$request->input('email'),
-            'mobile'=>$request->input('mobile')
-        ]);
-
-        $message = trans('succes_messages.driver_added_succesfully');
-        cache()->tags('drivers_list')->flush();
-        return redirect('drivers')->with('success', $message);
+            $message = trans('succes_messages.driver_updated_succesfully');
+    
+            cache()->tags('drivers_list')->flush();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            // dd($th);
+            return back()->with('warning','Something went wrong!')->withInput();    
+        }
+        DB::commit();
+        
+        return redirect('company/drivers')->with('success', $message);
     }
 
     public function toggleStatus(Driver $driver)
@@ -321,14 +330,12 @@ class DriverController extends BaseController
         $message = trans('succes_messages.driver_deleted_succesfully');
         return $message;
 
-        // return redirect('drivers')->with('success', $message);
     }
 
     public function getCarModel()
     {
         $carModel = request()->car_make;
 
-        // return CarModel::where('make_id',$carModel)->where('active','1')->get();
         return CarModel::active()->whereMakeId($carModel)->get();
     }
 
@@ -340,7 +347,8 @@ class DriverController extends BaseController
 
         return 'success';
     }
-public function profile(Driver $driver){
+
+    public function profile(Driver $driver){
         $page = trans('pages_names.driver_profile');
 
         $item = $driver;
@@ -364,19 +372,13 @@ public function profile(Driver $driver){
     }
 
     public function hireDriver(Request $request){
-        // dd(auth()->user()->owner->id);
         Validator::make($request->all(),[
             'driver' => 'required|exists:drivers,uuid'
         ])->validate();
 
         $uuid = $request->driver;
         $driver = Driver::whereUuid($uuid)->first();
-        // dd($driver);
-
-        // if($driver->owner_id){
-        //     $message = trans('success_messages.driver_already_hired_by_one');
-        //     return back()->with('warning', $message);
-        // }
+        
         
         if(!OwnerHiredDriver::whereDriverId($driver->id)->whereOwnerId(auth()->user()->owner->id)->exists()){
             OwnerHiredDriver::create([
@@ -392,7 +394,6 @@ public function profile(Driver $driver){
             'owner_id' => auth()->user()->owner->id
         ]);
 
-        // $driver->update(['owner_id' => auth()->user()->owner->id]);
 
         $message = trans('succes_messages.driver_hired_succesfully');
 
@@ -417,7 +418,6 @@ public function profile(Driver $driver){
 
         $driver->privilegedVehicle()->delete();
         foreach($request->fleets as $fleet){
-             // dd($driver->privilegedVehicle());
             $driver->privilegedVehicle()->create([
                 'fleet_id' => $fleet,
                 'owner_id' => auth()->user()->owner->id

@@ -330,13 +330,16 @@ if (!function_exists('set_settings')) {
 if (!function_exists('get_settings')) {
     function get_settings($key)
     {
-        if (Cache::has('setting_cache_set')) {
-            return Cache::get($key)?:null;
-        } else {
-            $array = set_settings();
+        // if (Cache::has('setting_cache_set')) {
+        //     return Cache::get($key)?:null;
+        // } else {
+        //     $array = set_settings();
 
-            return Cache::get($key)?:null;
-        }
+        //     return Cache::get($key)?:null;
+        // }
+
+        return Setting::whereName($key)->pluck('value')->first();
+        
     }
 }
 
@@ -350,7 +353,7 @@ if (!function_exists('find_zone')) {
     {
         $point = new Point($lat, $lng);
 
-        $zone = Zone::companyKey()->contains('coordinates', $point)->where('active', 1)->first();
+        $zone = Zone::contains('coordinates', $point)->where('active', 1)->first();
 
         return $zone;
     }
@@ -368,7 +371,7 @@ if (!function_exists('find_airport')) {
 }
 
 if (!function_exists('get_distance_matrix')) {
-    function get_distance_matrix($pick_lat, $pick_lng, $drop_lat, $drop_lng, $traffic = fals)
+    function get_distance_matrix($pick_lat, $pick_lng, $drop_lat, $drop_lng, $traffic = false)
     {
         $client = new \GuzzleHttp\Client();
         $url = 'https://maps.googleapis.com/maps/api/distancematrix/json';
@@ -376,7 +379,7 @@ if (!function_exists('get_distance_matrix')) {
           'units' => "imperial",
           'origins' => "$pick_lat,$pick_lng",
           'destinations' => "$drop_lat,$drop_lng",
-          'key' => env('GOOGLE_MAP_KEY')
+          'key' => get_settings('google_map_key_for_distance_matrix')
         ];
         //AIzaSyDsgTHjo-lusijguNf8XO8aLNyYHe9mRE4
 
@@ -529,6 +532,33 @@ if (!function_exists('find_given_points_in_single_zone_bound')) {
         } else {
             return false;
         }
+    }
+}
+
+
+if (!function_exists('distance_between_two_coordinates')) {
+    function distance_between_two_coordinates($lat1, $lon1, $lat2, $lon2, $unit)
+    {
+        if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+    return 0;
+  }
+  else {
+    $theta = $lon1 - $lon2;
+    $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+    $dist = acos($dist);
+    $dist = rad2deg($dist);
+    $miles = $dist * 60 * 1.1515;
+    $unit = strtoupper($unit);
+
+    if ($unit == "K") {
+      return ($miles * 1.609344);
+    } else if ($unit == "M") {
+      return ($miles * 0.8684);
+    } else {
+      return $miles;
+    }
+  }
+
     }
 }
 
@@ -1200,6 +1230,7 @@ if (!function_exists('app_logo')) {
         return $setting->app_logo;
     }
 }
+
 if (!function_exists('app_name')) {
     function app_name()
     {

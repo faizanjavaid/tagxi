@@ -39,13 +39,12 @@
     <td>{{$result->name}}</td>
     <td>{{$result->number}}</td>
     @if($result->active)
-    <td><span class="label label-success">Active</span></td>
+    <td><span class="label label-success">@lang('view_pages.active')</span></td>
     @else
-    <td><span class="label label-danger">InActive</span></td>
+    <td><span class="label label-danger">@lang('view_pages.inactive')</span></td>
     @endif
     <td>
 
-    <div class="dropdown">
     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
     </button>
         <div class="dropdown-menu">

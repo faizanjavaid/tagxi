@@ -30,7 +30,7 @@ class CreateOwnersTable extends Migration
             $table->integer('postal_code')->nullable();
             $table->string('city', 50)->nullable();
             $table->date('expiry_date')->nullable();
-            $table->integer('no_of_vehicles');
+            $table->integer('no_of_vehicles')->default(0);
             $table->string('tax_number');
             $table->string('bank_name')->nullable();
             $table->string('iban');

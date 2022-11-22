@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
+                       <!--  <div class="col-md-6">
                             <div class="form-group m-20">
                                 <label for="service_location">@lang('view_pages.service_location') <span
                                         class="text-danger">*</span></label>
@@ -52,17 +52,13 @@
                                 </select>
                             </div>
                         </div>
-
+ -->
                         <div class="col-12">
                             <div id="floating-panel">
-                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="toggleHeatmap()">Toggle
-                                    Heatmap</button>
-                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="changeGradient()">Change
-                                    gradient</button>
-                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="changeRadius()">Change
-                                    radius</button>
-                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="changeOpacity()">Change
-                                    opacity</button>
+                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="toggleHeatmap()">@lang('view_pages.toggle_heatmap')</button>
+                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="changeGradient()">@lang('view_pages.change_gradient')</button>
+                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="changeRadius()">@lang('view_pages.change_radius')</button>
+                                <button class="btn btn-sm btn-danger mt-1 mt-md-0" onclick="changeOpacity()">@lang('view_pages.change_opacity')</button>
                             </div>
 
                             <div id="map"></div>
@@ -76,7 +72,7 @@
 
 
     <script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initialize&libraries=visualization"
+        src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&callback=initialize&libraries=visualization"
         async defer></script>
 
     <script type="text/javascript">
@@ -85,11 +81,14 @@
         var pickLng = [];
         let map, heatmap;
         
-       new google.maps.event.addDomListener(window, 'load', initialize);
+       // new google.maps.event.addDomListener(window, 'load', initialize);
 
         function initialize() {
+
             var results = {!! $results !!};
 
+            console.log(results);
+            
             results.forEach(element => {
                 heatmapData.push(new google.maps.LatLng(element.request_place.pick_lat, element.request_place
                     .pick_lng));

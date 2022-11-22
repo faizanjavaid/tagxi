@@ -35,9 +35,9 @@
                                     <td>
                                         @if ($result->complaint_type == 'request_help')
                                             <span
-                                                class="badge badge-warning">Trip Complaint</span>
+                                                class="badge badge-warning">@lang('view_pages.trip_complaint')</span>
                                         @else
-                                            <span class="badge badge-danger">General Complaint</span>
+                                            <span class="badge badge-danger">@lang('view_pages.general_complaint')</span>
                                         @endif
                                     </td>
                                     <td>{{ $result->driver->name }}</td>

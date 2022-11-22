@@ -114,13 +114,13 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="profile_picture">@lang('view_pages.profile')</label><br>
-                                            <img id="blah" src="{{ $results->profile_pic }}" alt=" "><br>
+ <img class="user-image" id="blah" src="{{asset( $results->profile_picture) }}" alt=" "><br>
                                             <input type="file" id="profile" onchange="readURL(this)" name="profile_picture"
                                                 style="display:none">
                                             <button class="btn btn-primary btn-sm" type="button"
-                                                onclick="$('#profile').click()" id="upload">Browse</button>
+                                                onclick="$('#profile').click()" id="upload">@lang('view_pages.browse')</button>
                                             <button class="btn btn-danger btn-sm" type="button" id="remove_img"
-                                                style="display: none;">Remove</button><br>
+                                                style="display: none;">@lang('view_pages.remove')</button><br>
                                             <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
                                         </div>
                                     </div>

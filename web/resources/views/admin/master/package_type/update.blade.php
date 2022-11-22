@@ -27,7 +27,7 @@
                                 @csrf
 
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-6">
                                         <div class="form-group">
                                             <label for="name">@lang('view_pages.name') <span class="text-danger">*</span></label>
                                             <input class="form-control" type="text" id="name" name="name"
@@ -36,6 +36,23 @@
                                             <span class="text-danger">{{ $errors->first('name') }}</span>
                                         </div>
                                     </div>
+                                       <div class="col-6">
+        <div class="form-group m-b-25">
+            <label for="short_description">@lang('view_pages.short_description') <span class="text-danger">*</span></label>
+            <input class="form-control" type="text" id="name" name="short_description" value="{{old('short_description',$item->short_description)}}" required="" placeholder="@lang('view_pages.enter_short_description')">
+            <span class="text-danger">{{ $errors->first('short_description') }}</span>
+
+        </div>
+    </div>
+     <div class="col-6">
+        <div class="form-group m-b-25">
+            <label for="description">@lang('view_pages.description') <span class="text-danger">*</span></label>
+            <textarea name="description" id="description" class="form-control" placeholder="@lang('view_pages.enter_description')">{{old('description',$item->description)}}</textarea>
+           
+            <span class="text-danger">{{ $errors->first('description') }}</span>
+
+        </div>
+    </div> 
                                 </div>
 
 

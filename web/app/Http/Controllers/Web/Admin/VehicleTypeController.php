@@ -103,13 +103,22 @@ class VehicleTypeController extends BaseController
      */
     public function store(CreateVehicleTypeRequest $request)
     {
-        // cache()->tags('vehilce_types')->flush();
-        $created_params = $request->only(['name', 'capacity','is_accept_share_ride','description','supported_vehicles','short_description']);
+         if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('types')->with('warning', $message);
+        }
+        // dd($request->transport_type);
+        $created_params = $request->only(['name', 'capacity','is_accept_share_ride','description','supported_vehicles','short_description', 'transport_type']);
+
         if ($uploadedFile = $this->getValidatedUpload('icon', $request)) {
             $created_params['icon'] = $this->imageUploader->file($uploadedFile)
                 ->saveVehicleTypeImage();
         }
         $created_params['active'] = true;
+
+        $created_params['is_taxi'] = $request->transport_type;
+
 
         $this->vehicle_type->create($created_params);
 
@@ -123,9 +132,10 @@ class VehicleTypeController extends BaseController
     *
     */
     public function edit($id)
-    {
+    {   
         $page = trans('pages_names.edit_type');
         $type = $this->vehicle_type->where('id', $id)->first();
+        // dd($type->is_taxi);
         // $admins = User::doesNotBelongToRole(RoleSlug::SUPER_ADMIN)->get();
         // $services = ServiceLocation::whereActive(true)->get();
         $main_menu = 'types';
@@ -148,13 +158,22 @@ class VehicleTypeController extends BaseController
      */
     public function update(UpdateVehicleTypeRequest $request, VehicleType $vehicle_type)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('types')->with('warning', $message);
+        }
+        // dd($request->all());
         $this->validateAdmin();
-        $created_params = $request->only(['name', 'capacity','is_accept_share_ride','description','supported_vehicles','short_description']);
+        $created_params = $request->only(['name', 'capacity','is_accept_share_ride','description','supported_vehicles','short_description','transport_type']);
 
         if ($uploadedFile = $this->getValidatedUpload('icon', $request)) {
             $created_params['icon'] = $this->imageUploader->file($uploadedFile)
                 ->saveVehicleTypeImage();
         }
+
+        $created_params['is_taxi'] = $request->transport_type;
+
 
         $vehicle_type->update($created_params);
 
@@ -165,6 +184,12 @@ class VehicleTypeController extends BaseController
     }
     public function toggleStatus(VehicleType $vehicle_type)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('types')->with('warning', $message);
+        }
+        
         $status = $vehicle_type->active == 1 ? 0 : 1;
         $vehicle_type->update([
             'active' => $status
@@ -187,10 +212,15 @@ class VehicleTypeController extends BaseController
 
     public function delete(VehicleType $vehicle_type)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('types')->with('warning', $message);
+        }
+
         $vehicle_type->delete();
 
         $message = trans('succes_messages.vehicle_type_deleted_succesfully');
         return $message;
-        // return redirect('types')->with('success', $message);
     }
 }

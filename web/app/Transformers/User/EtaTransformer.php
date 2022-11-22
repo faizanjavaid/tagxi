@@ -76,7 +76,7 @@ class EtaTransformer extends Transformer
         $distance_in_unit = 0;
         $dropoff_time_in_seconds = 0;
 
-        if (request()->has('drop_lat') && request()->has('drop_lng')) {
+        if (request()->has('drop_lat') && request()->has('drop_lng') && request()->drop_lat) {
             // get previous place json or store current one
             $previous_pickup_dropoff = $this->db_query_previous_pickup_dropoff($pick_lat, $pick_lng, $drop_lat, $drop_lng);
 
@@ -86,8 +86,9 @@ class EtaTransformer extends Transformer
 
             if ($dropoff_distance_in_meters) {
                 $distance_in_unit = $dropoff_distance_in_meters / 1000;
-                if ($zone_type->zone->unit==0) {
+                if ($zone_type->zone->unit==2) {
                     $distance_in_unit = kilometer_to_miles($distance_in_unit);
+
                 }
             }
             $dropoff_time_in_seconds = get_duration_value_from_distance_matrix($place_details);
@@ -132,9 +133,10 @@ class EtaTransformer extends Transformer
         }
 
 
-        $driver_to_pickup = $this->db_query_previous_pickup_dropoff($driver_lat, $driver_lng, $pick_lat, $pick_lng);
 
-        $driver_to_pickup_response = json_decode($driver_to_pickup->json_result);
+        // $driver_to_pickup = $this->db_query_previous_pickup_dropoff($driver_lat, $driver_lng, $pick_lat, $pick_lng);
+
+        // $driver_to_pickup_response = json_decode($driver_to_pickup->json_result);
         if ($zone_type->zone->unit==1) {
             $unit_in_words = 'KM';
         } else {
@@ -143,7 +145,7 @@ class EtaTransformer extends Transformer
         // $unit_in_words = EtaConstants::ENGLISH_UNITS[$zone_type->zone->unit];
         $translated_unit_in_words = $unit_in_words;
 
-        $ride = $this->calculateRideFares($driver_to_pickup_response, $distance_in_unit, $dropoff_time_in_seconds, $zone_type, $type_prices, $coupon_detail);
+        $ride = $this->calculateRideFares($distance_in_unit, $dropoff_time_in_seconds, $zone_type, $type_prices, $coupon_detail);
 
         if ($near_driver_status != 0) {
             if ($ride->pickup_duration != 0) {
@@ -177,10 +179,10 @@ class EtaTransformer extends Transformer
         $response['approximate_value'] = 1;
         $response['min_amount'] = $ride->total_price;
         $response['max_amount'] = ($ride->total_price * 1.05);
-        $response['currency'] = $zone_type->zone->serviceLocation->currency_symbol;
-        $response['currency_name'] = $zone_type->zone->serviceLocation->currency_name;
+        $response['currency'] = get_settings('currency_symbol');
+        $response['currency_name'] = get_settings('currency_code');
         $response['type_name'] = $zone_type->vehicleType->name;
-        $response['unit'] = $zone_type->unit;
+        $response['unit'] = $zone_type->zone->unit;
         $response['unit_in_words_without_lang'] = $unit_in_words;
         $response['unit_in_words'] = $translated_unit_in_words;
         $response['driver_arival_estimation'] = $driver_arival_estimation;
@@ -215,37 +217,51 @@ class EtaTransformer extends Transformer
         }
     }
 
-    private function calculateRideFares($driver_to_pickup_response, $distance_in_unit, $dropoff_time_in_seconds, $zone_type, $type_prices, $coupon_detail)
+    private function calculateRideFares($distance_in_unit, $dropoff_time_in_seconds, $zone_type, $type_prices, $coupon_detail)
     {
-        $pickup_time_in_seconds = get_duration_value_from_distance_matrix($driver_to_pickup_response);
+        // $pickup_time_in_seconds = get_duration_value_from_distance_matrix($driver_to_pickup_response);
+        $pickup_time_in_seconds = 0;
         $wait_time_in_seconds = 180; // can be change
-        /**
-        * @TODO surge price calculations
-        */
-        $distance_price = ($distance_in_unit * $type_prices->price_per_distance);
 
-        $surgePrice = ZoneSurgePrice::whereZoneId($zone_type->zone_id)->get();
-        $peakValue = 0;
-        foreach ($surgePrice as $surge) {
-            $startDate = now()->parse($surge->start_time);
-            $endDate = now()->parse($surge->end_time);
+        $calculatable_distance = ($distance_in_unit - $type_prices->base_distance);
+        
+        if($calculatable_distance < 0 ){
 
-            // if(now()->between($startDate,$endDate)){
-            if (now()->gte($startDate)  && now()->lte($endDate)) {
-                $peakValue = $distance_price * ($surge->value / 100);
-            }
+            $calculatable_distance = 0;
+        }   
+
+        $price_per_distance = $type_prices->price_per_distance;
+
+        // Validate if the current time in surge timings
+
+        $timezone = $zone_type->zone->serviceLocation->timezone;
+
+        $current_time = Carbon::now()->setTimezone($timezone);
+
+        $current_time = $current_time->toTimeString();
+
+        $zone_surge_price = ZoneSurgePrice::whereZoneId($zone_type->zone_id)->whereTime('start_time','<=',$current_time)->whereTime('end_time','>=',$current_time)->first();
+
+        if($zone_surge_price){
+
+            $surge_percent = $zone_surge_price->value;
+
+            $surge_price_additional_cost = ($price_per_distance * ($surge_percent / 100));
+
+            $price_per_distance += $surge_price_additional_cost;
+
         }
 
-        $distance_price = $distance_price + $peakValue;
-        // $check_if_peak_time = $this->checkIfPeakTime($zone_type, request()->ride_type);
+        $distance_price = ($calculatable_distance * $price_per_distance);
+
         $time_price = ($dropoff_time_in_seconds / 60) * $type_prices->price_per_time;
         $base_price = $type_prices->base_price;
         // additon of base and distance price
         $base_and_distance_price = ($base_price + $distance_price);
         $base_distance = $type_prices->base_distance;
-        if ($distance_in_unit < $base_distance) {
-            $base_and_distance_price = $base_price;
-        }
+        // if ($distance_in_unit < $base_distance) {
+        //     $base_and_distance_price = $base_price;
+        // }
         $subtotal_price = $base_and_distance_price + $time_price;
         $discount_amount = 0;
         $coupon_applied_sub_total = $base_and_distance_price + $time_price;
@@ -264,9 +280,9 @@ class EtaTransformer extends Transformer
         // Get Admin Commision
         $service_fee = get_settings('admin_commission');
         // Admin commision
-        $without_discount_admin_commision = ($subtotal_price + $discount_amount * ($service_fee / 100));
+        $without_discount_admin_commision = (($subtotal_price + $discount_amount) * ($service_fee / 100));
         $tax_percent = get_settings('service_tax');
-        $with_out_discount_tax_amount = $subtotal_price + $discount_amount * ($tax_percent / 100);
+        $with_out_discount_tax_amount = (($subtotal_price + $discount_amount) * ($tax_percent / 100));
         $total_price = $subtotal_price + $with_out_discount_tax_amount + $without_discount_admin_commision;
 
         $discount_admin_commision = ($coupon_applied_sub_total * ($service_fee / 100));
@@ -303,12 +319,7 @@ class EtaTransformer extends Transformer
             ];
     }
 
-    /**
-    * Check if peak time
-    */
-    private function checkIfPeakTime($zone_type, $ride_type)
-    {
-    }
+
     //vehicle type id should be zone_type id
     private function findNearestDriver($pick_lat, $pick_lng, $vehicle_type)
     {
@@ -398,8 +409,8 @@ class EtaTransformer extends Transformer
                 'destination_addresses'=>$distance_matrix->destination_addresses[0],
                 'destination_lat'=>$drop_lat,
                 'destination_lng'=>$drop_lng,
-                'distance'=> get_distance_text_from_distance_matrix($distance_matrix),
-                'duration'=> get_duration_text_from_distance_matrix($distance_matrix),
+                'distance'=> get_distance_text_from_distance_matrix($distance_matrix)==null?0:get_distance_text_from_distance_matrix($distance_matrix),
+                'duration'=> get_duration_text_from_distance_matrix($distance_matrix)==null?0:get_duration_text_from_distance_matrix($distance_matrix),
                 'json_result'=> \GuzzleHttp\json_encode($distance_matrix)
                 ];
 
@@ -419,18 +430,18 @@ class EtaTransformer extends Transformer
         // Validate if the promo is expired
         $current_date = Carbon::today()->toDateTimeString();
 
-        $expired = Promo::where('code', $promo_code)->where('from', '<=', $current_date)->orWhere('to', '>=', $current_date)->where('service_location_id', $service_location)->first();
+        $expired = Promo::where('code', $promo_code)->where('to', '>', $current_date)->where('service_location_id', $service_location)->first();
 
         if (!$expired) {
             $this->throwCustomException('provided promo code expired or invalid');
         }
-        $exceed_usage = PromoUser::where('promo_code_id', $expired->id)->where('user_id', $user->id)->get()->count();
-        if ($exceed_usage >= $expired->uses_per_user) {
-            $this->throwCustomException('you have exceeded your limit for this promo');
-        }
-        if ($expired->total_uses > $expired->total_uses+1) {
-            $this->throwCustomException('provided promo code expired');
-        }
+        // $exceed_usage = PromoUser::where('promo_code_id', $expired->id)->where('user_id', $user->id)->get()->count();
+        // if ($exceed_usage >= $expired->uses_per_user) {
+        //     $this->throwCustomException('you have exceeded your limit for this promo');
+        // }
+        // if ($expired->total_uses > $expired->total_uses+1) {
+        //     $this->throwCustomException('provided promo code expired');
+        // }
         return $expired;
     }
 }

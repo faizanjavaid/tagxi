@@ -129,6 +129,29 @@ class ImageUploader implements ImageUploaderContract
 
         return $filename;
     }
+    /**
+     * Save the user profile picture.
+     *
+     * @return string Returns the saved filename
+     */
+    public function saveFleetDocument($fleet_id)
+    {
+        $this->validateFile();
+
+        $config = $this->config('fleets.upload.images');
+
+        $this->setDefaultResize(data_get($config, 'image.store_resolution'));
+
+        $image = $this->encodeImage();
+
+        $filename = $this->hashGenerator->extension($this->format)->make();
+
+        $filePath = file_path(data_get($config, 'path'), $filename, $fleet_id);
+
+        Storage::put($filePath, $image);
+
+        return $filename;
+    }
 
     /**
      * Save the user profile picture.
@@ -186,7 +209,6 @@ class ImageUploader implements ImageUploaderContract
     public function saveSystemAdminLogo()
     {
         $this->validateFile();
-
         $config = $this->config('system-admin.upload.logo');
 
         $this->setDefaultResize(data_get($config, 'image.store_resolution'));

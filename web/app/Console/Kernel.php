@@ -7,7 +7,11 @@ use App\Console\Commands\ChangeDriversToTrips;
 use App\Console\Commands\OfflineUnAvailableDrivers;
 use App\Console\Commands\NotifyDriverDocumentExpiry;
 use App\Console\Commands\AssignDriversForScheduledRides;
+use App\Console\Commands\AssignDriversForRegularRides;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\ClearDemoDatabase;
+use App\Console\Commands\ClearRequestTable;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -20,7 +24,11 @@ class Kernel extends ConsoleKernel
         ChangeDriversToTrips::class,
         NotifyDriverDocumentExpiry::class,
         AssignDriversForScheduledRides::class,
-        OfflineUnAvailableDrivers::class
+        OfflineUnAvailableDrivers::class,
+        AssignDriversForRegularRides::class,
+        ClearDemoDatabase::class,
+        ClearRequestTable::class,
+
     ];
 
     /**
@@ -33,10 +41,12 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('drivers:totrip')
                  ->everyMinute();
+         $schedule->command('assign_drivers:for_regular_rides')
+                 ->everyMinute();
         $schedule->command('assign_drivers:for_schedule_rides')
                  ->everyFiveMinutes();
-        $schedule->command('offline:drivers')
-                 ->everyFifteenMinutes();
+        // $schedule->command('clear:database')
+        //          ->daily();
     }
 
     /**

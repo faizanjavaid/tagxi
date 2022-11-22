@@ -32,7 +32,7 @@ class ZoneTypeTransformer extends Transformer
             'capacity'=>$zone_type->vehicleType->capacity,
             'is_accept_share_ride'=>$zone_type->vehicleType->is_accept_share_ride,
             'active'=>$zone_type->vehicleType->active,
-            'currency' => $zone_type->zone->serviceLocation->currency_symbol,
+            'currency' => get_settings('currency_symbol'),
             'unit' => $zone_type->zone->unit,
             'unit_in_words' => $zone_type->zone->unit ? 'Km' : 'Miles',
 

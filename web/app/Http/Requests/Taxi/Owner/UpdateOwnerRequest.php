@@ -23,7 +23,7 @@ class UpdateOwnerRequest extends FormRequest
             'postal_code'=>'required|numeric',
 			'city'=>'required',
             'service_location_id' => 'sometimes',
-            'expiry_date' => 'required',
+            'expiry_date' => 'sometimes|required',
             'no_of_vehicles' => 'required|numeric',
             'tax_number' => 'required',
             'name' => 'required',

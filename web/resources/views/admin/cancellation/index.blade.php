@@ -33,7 +33,7 @@
 
         <div id="js-cancellation-partial-target">
             <include-fragment src="cancellation/fetch">
-                <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                <span style="text-align: center;font-weight: bold;">@lang('view_pages.loading')</span>
             </include-fragment>
         </div>
 

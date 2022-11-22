@@ -3,22 +3,20 @@
         <div class="card">
             <div class="card-body">
 
-               
-
                 <div class="col-sm-12 p-0">
                     <table class="table table-hover" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                         <thead>
                             <tr>
                                  <th>{{ trans('view_pages.s_no')}}</th>
+                                 <th>{{ trans('view_pages.driver')}}</th>
                                  <th>{{ trans('view_pages.vehicle_type')}}</th>
                                  <th>{{ trans('view_pages.car_brand')}}</th>
                                  <th>{{ trans('view_pages.car_model')}}</th>
-                                 <th>{{ trans('view_pages.qr_code')}}</th>
+                                <th> @lang('view_pages.document_view')</th>
+                                 <!-- <th>{{ trans('view_pages.qr_code')}}</th> -->
                                  <th>{{ trans('view_pages.license_number')}}</th>
-                                 <th>{{ trans('view_pages.status')}}</th>
-                                 @if (!auth()->user()->hasRole('owner'))
-                                    <th>{{ trans('view_pages.action')}}</th>
-                                 @endif
+                                 <th>{{ trans('view_pages.status')}}</th> 
+                                <th>{{ trans('view_pages.action')}}</th>
                                  
                             </tr>
                         </thead>
@@ -35,10 +33,17 @@
                             @foreach ($results as $key => $result)
                                 <tr class="odd">
                                     <td>{{ $i++ }}</td>
+                                    <td>{{ $result->driver ? $result->driver->name : '-' }}</td>
                                     <td>{{ $result->vehicleType->name }}</td>
                                     <td>{{ $result->carBrand->name }}</td>
                                     <td>{{ $result->carModel->name }}</td>
-                                    <td>
+                                    <td class="manage-driver text-center">
+                                    <a href="{{url('fleets/document/view', $result->id) }}" class="btn btn-social-icon btn-bitbucket">
+                                    <i class="fa fa-file-code-o"></i>
+                                    </a>
+                                    </td>
+
+<!--                                     <td>
                                         @if ($result->approve)
                                             <a href="{{ $result->qr_code_image }}" download title="Click to Download">
                                                 <img src="{{ $result->qr_code_image }}" alt="" width="30" height="30">    
@@ -47,7 +52,7 @@
                                             -
                                         @endif
                                         
-                                    </td>
+                                    </td> -->
                                     <td>{{ $result->license_number }}</td>
                                     <td>
                                         @if($result->approve)
@@ -57,34 +62,35 @@
                                         @endif
                                     </td>
 
-                                    @if (!auth()->user()->hasRole('owner'))
+                                    
                                     <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
                                              </button>
                                            <div class="dropdown-menu">
-
-                                                @if (auth()->user()->can('edit-fleet'))
-                                                <a class="dropdown-item" href="{{url('fleets/edit',$result->id) }}">{{ trans('view_pages.edit')}}</a>
-                                                @endif
-
-                                              
-                                                @if (auth()->user()->can('toggle-fleet-approval'))
-                                                @if($result->approve)
-                                                {{-- sweet-decline   --}}
-                                                    <a class="decline dropdown-item" data-reason="{{ $result->reason }}" data-id="{{ $result->id }}" href="{{url('fleets/toggle_approve',$result->id)}}">@lang('view_pages.decline')</a>
+                                                @if (auth()->user()->hasRole('owner'))
+                                                <a class="dropdown-item" href="{{url('fleets/assign_driver',$result->id) }}">{{ trans('view_pages.assign_driver')}}</a>
                                                 @else
-                                                    <a class="sweet-approve dropdown-item" href="{{url('fleets/toggle_approve',$result->id)}}">@lang('view_pages.approve')</a>
-                                                @endif
-                                                @endif
+                                                    @if (auth()->user()->can('edit-fleet'))
+                                                    <a class="dropdown-item" href="{{url('fleets/edit',$result->id) }}">{{ trans('view_pages.edit')}}</a>
+                                                    @endif
 
-                                                @if (auth()->user()->can('delete-fleet'))
-                                                <a class="sweet-delete dropdown-item" href="{{url('fleets/delete',$result->id) }}">{{ trans('view_pages.delete')}}</a>
+                                                    @if (auth()->user()->can('toggle-fleet-approval'))
+                                                        @if($result->approve)
+                                                        {{-- sweet-decline   --}}
+                                                            <a class="decline dropdown-item" data-reason="{{ $result->reason }}" data-id="{{ $result->id }}" href="{{url('fleets/toggle_approve',$result->id)}}">@lang('view_pages.decline')</a>
+                                                        @else
+                                                            <a class="sweet-approve dropdown-item" href="{{url('fleets/toggle_approve',$result->id)}}">@lang('view_pages.approve')</a>
+                                                        @endif
+                                                    @endif
+
+                                                    @if (auth()->user()->can('delete-fleet'))
+                                                    <a class="sweet-delete dropdown-item" href="{{url('fleets/delete',$result->id) }}">{{ trans('view_pages.delete')}}</a>
+                                                    @endif
                                                 @endif
                                             </div>
                                         </div>
                                     </td>
-                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>

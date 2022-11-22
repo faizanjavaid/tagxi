@@ -16,7 +16,7 @@ class CreateRequestRatingsTable extends Migration
         Schema::create('request_ratings', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('request_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('driver_id');
             $table->float('rating')->default(0);
             $table->string('comment')->nullable();

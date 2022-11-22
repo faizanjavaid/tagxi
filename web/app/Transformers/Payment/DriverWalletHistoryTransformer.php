@@ -5,6 +5,7 @@ namespace App\Transformers\Payment;
 use App\Transformers\Transformer;
 use App\Models\Payment\DriverWalletHistory;
 use App\Models\Payment\UserWalletAddedHistory;
+use App\Base\Constants\Setting\Settings;
 
 class DriverWalletHistoryTransformer extends Transformer
 {
@@ -36,6 +37,8 @@ class DriverWalletHistoryTransformer extends Transformer
             'is_credit'=>$wallet_history->is_credit,
             'created_at' => $wallet_history->converted_created_at,
             'updated_at' => $wallet_history->converted_updated_at,
+            'currency_code'=>get_settings('currency_code'),
+            'currency_symbol'=>get_settings('currency_symbol'),
         ];
 
         return $params;

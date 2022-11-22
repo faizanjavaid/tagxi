@@ -9,13 +9,13 @@
 <div class="row p-0 m-0">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18">Driver Profile</h4>
+            <h4 class="mb-0 font-size-18">@lang('view_pages.driver_profile')</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{url('company/drivers') }}">Manage Driver</a>
+                    <li class="breadcrumb-item"><a href="{{url('company/drivers') }}">@lang('view_pages.manage_driver')</a>
                     </li>
-                    <li class="breadcrumb-item active">Driver Profile</li>
+                    <li class="breadcrumb-item active">@lang('view_pages.driver_profile')</li>
                 </ol>
             </div>
         </div>
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             {{-- <div class="mt-4">
-                                <a href="#" class="btn btn-primary waves-effect waves-light btn-sm">View Profile <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                <a href="#" class="btn btn-primary waves-effect waves-light btn-sm">@lang('view_pages.view_profile') <i class="mdi mdi-arrow-right ml-1"></i></a>
                             </div> --}}
                         </div>
                     </div>

@@ -16,7 +16,7 @@ class CreateFleetDocumentsTable extends Migration
         Schema::create('fleet_documents', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('fleet_id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('image');
             $table->timestamp('expiry_date')->nullable();
 

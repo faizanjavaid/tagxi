@@ -150,7 +150,7 @@ margin: 5px;
 </div>
 </div>
 
-<script src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=drawing,geometry,places"></script>
+<script src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=drawing,geometry,places"></script>
 
 <script src="{{asset('assets/js/polygon/main.js')}}"></script>
 <script src="{{asset('assets/js/polygon/nucleu.js')}}"></script>
@@ -195,9 +195,7 @@ margin: 5px;
     });
 
     function getCoordsByKeyword(keyword){
-        // $('#loader').css('display','block');
-        // $('#map').css('display','none');
-
+        
         $.ajax({
             url: "{{ url('zone/coords/by_keyword') }}/"+keyword,
             data: '',
@@ -205,11 +203,6 @@ margin: 5px;
             success: function(results){
                 if(results){
                     $('#city_polygon').val(results);
-
-                    // setTimeout(function(){
-                        // $('#loader').css('display','none');
-                        // $('#map').css('display','block');
-                    // }, 1000);
                     window.onload = initMap()
                 }
             }

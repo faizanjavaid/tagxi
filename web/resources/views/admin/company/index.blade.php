@@ -44,7 +44,7 @@
 
         <div id="js-company-partial-target">
             <include-fragment src="company/fetch">
-                <span style="text-align: center;font-weight: bold;"> Loading...</span>
+                <span style="text-align: center;font-weight: bold;"> @lang('view_pages.loading')</span>
             </include-fragment>
         </div>
 

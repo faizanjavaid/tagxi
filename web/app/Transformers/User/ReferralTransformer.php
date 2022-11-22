@@ -43,8 +43,8 @@ class ReferralTransformer extends Transformer
             'profile_picture' => $user->profile_picture,
             'active' => $user->active,
             'refferal_code'=>$user->refferal_code,
-            'currency_code'=>$user->countryDetail->currency_code,
-            'currency_symbol'=>$user->countryDetail->currency_symbol,
+            'currency_code'=>get_settings('currency_code'),
+            'currency_symbol'=>get_settings('currency_symbol'),
         ];
 
         $referral_comission = get_settings('referral_commision_for_user');

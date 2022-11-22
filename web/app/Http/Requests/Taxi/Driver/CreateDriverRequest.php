@@ -20,7 +20,7 @@ class CreateDriverRequest extends BaseRequest
             'surname' => 'required|max:50',
             'username' => 'required|unique:users,username',
             'mobile'=>'required|mobile_number|unique:users,mobile',
-            'password'=>'required|min:8|max:32|confirmed',
+            // 'password'=>'required|min:8|max:32|confirmed',
             'address'=>'required|min:10',
             'street'=>'required|max:100',
             'house_number'=>'required',

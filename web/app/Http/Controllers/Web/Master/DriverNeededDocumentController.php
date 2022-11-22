@@ -56,6 +56,13 @@ class DriverNeededDocumentController extends BaseController
 
     public function store(Request $request)
     {
+
+        // dd($request);
+          if(env('APP_FOR')=='demo'){
+            $message = 'you cannot perform this action. this is demo version';
+        return redirect('needed_doc')->with('success', $message);
+            
+        }
         Validator::make($request->all(), [
             'name' => 'required|unique:driver_needed_documents,name'
         ])->validate();
@@ -70,6 +77,9 @@ class DriverNeededDocumentController extends BaseController
 
         $created_params['active'] = 1;
 
+        $created_params['is_individual'] = $request->document_for;
+
+
         $this->neededDoc->create($created_params);
 
         $message = trans('succes_messages.needed_doc_added_succesfully');
@@ -79,6 +89,7 @@ class DriverNeededDocumentController extends BaseController
 
     public function getById(DriverNeededDocument $neededDoc)
     {
+        // dd($neededDoc);
         $page = trans('pages_names.edit_needed_doc');
 
         $main_menu = 'master';
@@ -91,11 +102,20 @@ class DriverNeededDocumentController extends BaseController
 
     public function update(Request $request, DriverNeededDocument $neededDoc)
     {
+        // dd($request);
+          if(env('APP_FOR')=='demo'){
+            $message = 'you cannot perform this action. this is demo version';
+        return redirect('needed_doc')->with('success', $message);
+            
+        }
         Validator::make($request->all(), [
             'name' => 'required|unique:driver_needed_documents,name,'.$neededDoc->id
         ])->validate();
 
         $updated_params = $request->only(['name','has_expiry_date','has_identify_number']);
+       
+        $updated_params['is_individual'] = $request->document_for;
+
 
         if($request->has_identify_number){
             $updated_params['identify_number_locale_key'] = $request->identify_number_locale_key;
@@ -112,6 +132,11 @@ class DriverNeededDocumentController extends BaseController
 
     public function toggleStatus(DriverNeededDocument $neededDoc)
     {
+          if(env('APP_FOR')=='demo'){
+            $message = 'you cannot perform this action. this is demo version';
+        return redirect('needed_doc')->with('success', $message);
+            
+        }
         $status = $neededDoc->isActive() ? false: true;
         $neededDoc->update(['active' => $status]);
 
@@ -121,6 +146,11 @@ class DriverNeededDocumentController extends BaseController
 
     public function delete(DriverNeededDocument $neededDoc)
     {
+          if(env('APP_FOR')=='demo'){
+            $message = 'you cannot perform this action. this is demo version';
+        return redirect('needed_doc')->with('success', $message);
+            
+        }
         $neededDoc->delete();
 
         $message = trans('succes_messages.needed_doc_deleted_succesfully');

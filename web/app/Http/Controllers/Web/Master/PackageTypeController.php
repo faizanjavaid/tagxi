@@ -63,6 +63,12 @@ class PackageTypeController extends BaseController
      */
     public function store(Request $request)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('package_type')->with('warning', $message);
+        }
+
         Validator::make($request->all(), [
             'name' => 'required|unique:package_types,name'
         ])->validate();
@@ -93,6 +99,12 @@ class PackageTypeController extends BaseController
 
     public function update(Request $request, PackageType $package)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('package_type')->with('warning', $message);
+        }
+
         Validator::make($request->all(), [
             'name' => 'required|unique:package_types,name,'.$package->id
         ])->validate();
@@ -105,6 +117,12 @@ class PackageTypeController extends BaseController
 
      public function toggleStatus(PackageType $package)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('package_type')->with('warning', $message);
+        }
+
         $status = $package->isActive() ? false: true;
         $package->update(['active' => $status]);
 
@@ -114,6 +132,12 @@ class PackageTypeController extends BaseController
 
     public function delete(PackageType $package)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('package_type')->with('warning', $message);
+        }
+        
         $package->delete();
 
         $message = trans('succes_messages.package_type_deleted_succesfully');

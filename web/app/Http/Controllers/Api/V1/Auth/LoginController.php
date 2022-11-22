@@ -26,7 +26,7 @@ class LoginController extends BaseLoginController
      * @return \Illuminate\Http\JsonResponse
      * @bodyParam email string optional email of the user entered
      * @bodyParam mobile string optional mobile of the user entered
-     * @bodyParam password string required password of the user entered
+     * @bodyParam password string optional password of the user entered
      * @bodyParam device_token string required fcm_token of the user entered
 
      * @response {
@@ -63,7 +63,17 @@ class LoginController extends BaseLoginController
 }*/
     public function loginDriver(GenericAppLoginRequest $request)
     {
+
+        if($request->has('role') && $request->role=='driver'){
+            return $this->loginUserAccountApp($request, Role::DRIVER);
+        }
+
+        if($request->has('role') && $request->role=='owner'){
+            return $this->loginUserAccountApp($request, Role::OWNER);
+        }
+            
         return $this->loginUserAccountApp($request, Role::DRIVER);
+
     }
 
 

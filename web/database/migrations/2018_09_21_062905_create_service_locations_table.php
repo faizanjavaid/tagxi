@@ -17,8 +17,8 @@ class CreateServiceLocationsTable extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('currency_name')->nullable();
-            $table->string('currency_code');
-            $table->string('currency_symbol');
+            $table->string('currency_code')->nullable();
+            $table->string('currency_symbol')->nullable();
             $table->string('timezone');
             $table->unsignedInteger('country');
             $table->boolean('active');

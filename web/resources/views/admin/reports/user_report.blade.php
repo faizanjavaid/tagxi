@@ -30,8 +30,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="status">@lang('view_pages.select_status') <span
-                                            class="text-danger">*</span></label>
+                                    <label for="status">@lang('view_pages.select_status')</label>
                                     <select name="status" id="status" class="form-control" required>
                                         <option value="" selected disabled>@lang('view_pages.select_status')</option>
                                         <option value="1">@lang('view_pages.active')</option>
@@ -43,8 +42,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="date_option">@lang('view_pages.date_option') <span
-                                            class="text-danger">*</span></label>
+                                    <label for="date_option">@lang('view_pages.date_option')</label>
                                     <select name="date_option" id="date_option" class="form-control">
                                         <option value="date">@lang('view_pages.date')</option>
                                         <option value="today">@lang('view_pages.today')</option>

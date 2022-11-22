@@ -77,12 +77,21 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-pascal@paycheap.co.za
 
-+254 733556200 - arnold
-+234 7036639440
-+44 7435988111
-+63 9161234562 - phillippines
-+691 3202418
-+966 114012755 - Riyadh
+{
+  "rules": {
+    "drivers": {
+      ".read": "auth == null",
+      "$uid": {
+        ".indexOn": ".value",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "requests": {
+      ".read": true,
+      ".write": "auth != null"
+    }
+   }
+ }
+
 

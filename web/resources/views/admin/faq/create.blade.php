@@ -50,7 +50,8 @@
                                                 <option value="" selected disabled>@lang('view_pages.select')</option>
                                                 <option value="user" {{ old('user_type') == 'user' ? 'selected' : '' }} >@lang('view_pages.user')</option>
                                                 <option value="driver" {{ old('user_type') == 'driver' ? 'selected' : '' }} >@lang('view_pages.driver')</option>
-                                                <option value="both" {{ old('user_type') == 'both' ? 'selected' : '' }} >@lang('view_pages.both')</option>
+                                                <option value="owner" {{ old('user_type') == 'owner' ? 'selected' : '' }} >@lang('view_pages.owner')</option>
+                                                <option value="all" {{ old('user_type') == 'all' ? 'selected' : '' }} >@lang('view_pages.all')</option>
                                             </select>
                                             <span class="text-danger">{{ $errors->first('user_type') }}</span>
                                         </div>

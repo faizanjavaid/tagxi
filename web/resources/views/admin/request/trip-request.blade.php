@@ -91,7 +91,7 @@
            <div class="row">
                                     <div class="col card detail-overflow">
                                         <h5 class="off mt-3" style="font-weight: 900;">
-                                            Order ID : {{ $item->request_number }}
+                                          @lang('view_pages.order_id') : {{ $item->request_number }}
                                         </h5>
                                         {{-- <h5 class=" mb-3 color-03 font-dancing">
                                             <img class="rounded-circle ms-2"
@@ -101,12 +101,12 @@
                                         <div class="row">
                                             <div class="col-12 mb-3">
                                                 <h5 class="bg-secondary p-2 text-white">
-                                                    Trip Details :
+                                                    @lang('view_pages.trip_details') :
                                                 </h5>
 
                                                 <p class="mb-1 f-12">
 
-                                                    Vehicle Type : <b>{{ $item->vehicle_type_name }}</b>
+                                                  @lang('view_pages.vehicle_type') : <b>{{ $item->vehicle_type_name }}</b>
                                                 </p>
                                                 <!--  <p class="mb-1 f-12">
                                                                                                     Weight : <b>{{ $item->zoneType->vehicleType->maximum_weight_can_carrying }}</b>
@@ -115,17 +115,17 @@
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <h5 class="bg-secondary p-2 text-white">
-                                                    Payment Details:
+                                                   @lang('view_pages.payment_details') :
                                                 </h5>
                                                 <!--  <p class="mb-1 f-12">
                                                                                                     Paid By : <b>{{ $item->paid_by == 1 ? 'Sender' : 'Receiver' }}</b>
                                                                                                 </p> -->
                                                 <p class="mb-1 f-12">
 
-                                                    Payment Type : <b>{{ $item->payment_opt == 1 ? 'Cash' : 'Card' }}</b>
+                                                     @lang('view_pages.payment_type') : <b>{{ $item->payment_opt == 1 ? 'Cash' : 'Card' }}</b>
                                                 </p>
                                                 <p class="mb-1 f-12">
-                                                    Amount :
+                                                    @lang('view_pages.amount') :
                                                     @if ($item->requestBill)
                                                         <b>{{ $item->currency . ' ' . $item->requestBill->total_amount }}</b>
                                                     @else
@@ -137,7 +137,7 @@
                                             @if ($item->driverDetail)
                                                 <div class="col-12">
                                                     <h5 class="bg-secondary p-2 text-white">
-                                                        Driver Details:
+                                                        @lang('view_pages.driver_details'):
                                                     </h5>
                                                 </div>
                                                 <div class="col-5 my-3">
@@ -148,16 +148,16 @@
                                                 </div>
                                                 <div class="col-7 my-3">
                                                     <p class="mb-1 f-12">
-                                                        Name : <b>{{ $item->driverDetail->name }}</b>
+                                                        @lang('view_pages.name') : <b>{{ $item->driverDetail->name }}</b>
                                                     </p>
                                                     <p class="mb-1 f-12">
-                                                        Email : <b>{{ $item->driverDetail->email }}</b>
+                                                        @lang('view_pages.email') : <b>{{ $item->driverDetail->email }}</b>
                                                     </p>
                                                     <p class="mb-1 f-12">
-                                                        Phone : <b>{{ $item->driverDetail->mobile }}</b>
+                                                         @lang('view_pages.phone') : <b>{{ $item->driverDetail->mobile }}</b>
                                                     </p>
                                                     <p class="mb-1 f-12">
-                                                        Ratings : <b>{{ $item->driverDetail->driverDetail->rating }} <i
+                                                        @lang('view_pages.ratings') : <b>{{ $item->driverDetail->driverDetail->rating }} <i
                                                                 class="fas fa-star" style="color: yellow;"></i></b>
                                                     </p>
                                                 </div>
@@ -166,7 +166,7 @@
                                             @if ($item->zoneType->vehicleType)
                                                 <div class="col-12">
                                                     <h5 class="bg-secondary p-2 text-white">
-                                                        Vehicle Details:
+                                                        @lang('view_pages.vehicle_details'):
                                                     </h5>
                                                 </div>
                                                 <div class="col-5 my-3">
@@ -177,7 +177,7 @@
                                                 </div>
                                                 <div class="col-7 my-3">
                                                     <p class="mb-1 f-12">
-                                                        Plate No :
+                                                       @lang('view_pages.plate_no'):
                                                         <b>{{ $item->driverDetail ? $item->driverDetail->vehicle_number : '-' }}</b>
                                                     </p>
                                                     <p class="mb-1 f-12">
@@ -185,14 +185,14 @@
                                                         <b>{{ $item->driverDetail ? $item->driverDetail->car_color : '-' }}</b>
                                                     </p>
                                                     <p class="mb-1 f-12">
-                                                        Type : <b>{{ $item->vehicle_type_name }}</b>
+                                                        @lang('view_pages.type'): <b>{{ $item->vehicle_type_name }}</b>
                                                     </p>
                                                     <p class="mb-1 f-12">
-                                                        Make :
+                                                       @lang('view_pages.make') :
                                                         <b>{{ $item->driverDetail ? $item->driverDetail->carMake->name : '-' }}</b>
                                                     </p>
                                                     <p class="mb-1 f-12">
-                                                        Model :
+                                                         @lang('view_pages.model') :
                                                         <b>{{ $item->driverDetail ? $item->driverDetail->carModel->name : '-' }}</b>
                                                     </p>
                                                 </div>
@@ -204,30 +204,30 @@
                                         <div class="row">
                                             <div class="col-12 mt-3">
                                                 <h5 class="bg-secondary p-2 text-white">
-                                                    Customer Details :
+                                                    @lang('view_pages.customer_details') :
                                                 </h5>
                                             </div>
                                             <div class="col-6">
                                                 <p class="mb-0 text-decoration-underline">
-                                                    <b>Customer Detail :</b>
+                                                    <b>@lang('view_pages.customer_detail') :</b>
                                                 </p>
                                                 <p class="mb-1 f-12">
-                                                    Name : <b>{{ $item->adHocuserDetail->name ?? $item->userDetail->name}}</b>
+                                                     @lang('view_pages.name') : <b>{{ $item->adHocuserDetail->name ?? $item->userDetail->name}}</b>
                                                 </p>
                                                 <p class="mb-1 f-12">
-                                                    Number : <b>{{ $item->adHocuserDetail->mobile?? $item->userDetail->mobile }}</b>
+                                                     @lang('view_pages.phone') : <b>{{ $item->adHocuserDetail->mobile?? $item->userDetail->mobile }}</b>
                                                 </p>
                                             </div>
 
                                             <div class="col-12 my-3 tripTimeline">
                                                 <h5 class="bg-secondary p-2 text-white mb-3">
-                                                    Activity Timeline :
+                                                    @lang('view_pages.activity_timeline') :
                                                 </h5>
                                                 <ul class="time-line">
                                                      @if ($item->converted_created_at)
                                                     <li>
                                                         <p>
-                                                            <b>Request Made at :</b> <br>
+                                                            <b>@lang('view_pages.request_made_at') :</b> <br>
                                                             <small>{{ $item->converted_created_at }}</small>
                                                         </p>
                                                     </li>
@@ -235,7 +235,7 @@
                                                      @if ($item->converted_accepted_at)
                                                     <li>
                                                         <p>
-                                                            <b>Accepted at :</b> <br>
+                                                            <b>@lang('view_pages.accepted_at') :</b> <br>
                                                             <small>{{ $item->converted_accepted_at }}</small>
                                                         </p>
                                                     </li>
@@ -243,7 +243,7 @@
                                                     @if ($item->converted_arrived_at)
                                                     <li>
                                                         <p>
-                                                            <b>Arrived at :</b> <br>
+                                                            <b>@lang('view_pages.arrived_at') :</b> <br>
                                                             <small>{{ $item->converted_arrived_at }}</small>
                                                         </p>
                                                     </li>
@@ -251,7 +251,7 @@
                                                     @if ($item->converted_trip_start_time)
                                                     <li>
                                                         <p>
-                                                            <b>Trip Started at
+                                                            <b>@lang('view_pages.trip_started_at')
                                                                 :</b> <br>
                                                             <small>{{ $item->converted_trip_start_time }}</small>
                                                         </p>
@@ -260,7 +260,7 @@
                                                       @if ($item->converted_completed_at)
                                                     <li>
                                                         <p>
-                                                            <b>Reached to Drop location at
+                                                            <b>@lang('view_pages.reached_to_drop_location_at')
                                                                 :</b> <br>
                                                             <small>{{ $item->converted_completed_at }}</small>
                                                         </p>
@@ -275,7 +275,7 @@
                                         <div class="row">
                                             <div class="col-12 mt-3">
                                                 <h5 class="bg-secondary p-2 text-white">
-                                                    Pickup Details :
+                                                   @lang('view_pages.pickup_details') :
                                                 </h5>
                                             </div>
                                             <div class="col-12">
@@ -283,18 +283,18 @@
                                                     {{-- <b>Coimbatore</b> --}}
                                                 </p>
                                                 <p class="mb-1 f-12">
-                                                    <b>Location : </b><br>
+                                                    <b>@lang('view_pages.location') : </b><br>
                                                     {{ $item->requestPlace->pick_address }}
                                                 </p>
                                                 <p class="mb-1 f-12">
-                                                    <b>Time : </b><br>
+                                                    <b>@lang('view_pages.time') : </b><br>
                                                     {{ $item->converted_trip_start_time }}
                                                 </p>
                                             </div>
 
                                             <div class="col-12 mt-3">
                                                 <h5 class="bg-secondary p-2 text-white">
-                                                    Drop Details :
+                                                    @lang('view_pages.drop_details') :
                                                 </h5>
                                             </div>
                                             <div class="col-12">
@@ -302,11 +302,11 @@
                                                     {{-- <b>Coimbatore</b> --}}
                                                 </p>
                                                 <p class="mb-1 f-12">
-                                                    <b>Location : </b><br>
+                                                    <b>@lang('view_pages.location') : </b><br>
                                                     {{ $item->requestPlace->drop_address }}
                                                 </p>
                                                 <p class="mb-1 f-12">
-                                                    <b>Time : </b><br>
+                                                    <b>@lang('view_pages.time') : </b><br>
                                                     {{ $item->converted_completed_at }}
                                                 </p>
                                             </div>
@@ -318,7 +318,7 @@
 </main>
 </section>
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=places"></script>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
@@ -348,14 +348,14 @@
 
     // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyBVE-WE-lwXhxWFHJthZ6FleF1WQ3NmGAU",
-            authDomain: "cabeezie.firebaseapp.com",
-            databaseURL: "https://cabeezie.firebaseio.com",
-            projectId: "cabeezie",
-            storageBucket: "cabeezie.appspot.com",
-            messagingSenderId: "656697310655",
-            appId: "1:656697310655:web:b2b93485dff3591cb9f50a",
-            measurementId: "G-TJZ64ECJB0"
+                apiKey: "{{get_settings('firebase-api-key')}}",
+    authDomain: "{{get_settings('firebase-auth-domain')}}",
+    databaseURL: "{{get_settings('firebase-db-url')}}",
+    projectId: "{{get_settings('firebase-project-id')}}",
+    storageBucket: "{{get_settings('firebase-storage-bucket')}}",
+    messagingSenderId: "{{get_settings('firebase-messaging-sender-id')}}",
+    appId: "{{get_settings('firebase-app-id')}}",
+    measurementId: "{{get_settings('firebase-measurement-id')}}"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);

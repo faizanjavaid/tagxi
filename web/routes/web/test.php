@@ -18,16 +18,3 @@ Route::get('passport', function () {
     return view('spa');
 });
 
-
-Route::get('test-view', function () {
-    Redis::set('name', 'vignesh');
-    return Redis::get('name');
-});
-
-Route::get('fire', function () {
-    // this fires the event
-    event(new App\Events\TestEvent());
-    return "event fired";
-});
-
-Route::get('test', 'HomeController@test');

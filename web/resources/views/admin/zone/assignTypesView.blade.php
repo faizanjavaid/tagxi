@@ -91,9 +91,9 @@
 				</td>
 				<td> {{$result->zone->name}}</td>
 				@if($result->active)
-				<td><button class="btn btn-success btn-sm">Active</button></td>
+				<td><button class="btn btn-success btn-sm">@lang('view_pages.active')</button></td>
 				@else
-				<td><button class="btn btn-danger btn-sm">InActive</button></td>
+				<td><button class="btn btn-danger btn-sm">@lang('view_pages.inactive')</button></td>
 				@endif
 				<td>
 
@@ -103,6 +103,7 @@
 				    <div class="dropdown-menu" x-placement="bottom-start">
 				        <a class="dropdown-item" href="{{url('zone/types/edit',$result->id)}}"><i class="fa fa-pencil"></i>@lang('view_pages.edit')</a> 
 
+				        
 				        <a class="dropdown-item" href="{{url('zone/types/zone_package_price/index',$result->id)}}"><i class="fa fa-plus"></i>@lang('view_pages.zone_package_price')</a>
 				        @if ($result->active)
 				        <a class="dropdown-item" href="{{url('zone/types/toggleStatus',$result->id)}}"><i class="fa fa-dot-circle-o"></i>@lang('view_pages.inactive')</a>
@@ -113,8 +114,10 @@
 						@if ($result->active == 1 && $result->zone->default_vehicle_type != $result->type_id)
 				        	<a class="dropdown-item" href="{{url('zone/set/default',$result->id)}}"><i class="fa fa-dot-circle-o"></i>@lang('view_pages.set_as_default')</a>
 						@endif
-
+					
+						
 				        <a class="dropdown-item sweet-delete" href="{{url('zone/types/delete',$result->id)}}"><i class="fa fa-trash-o"></i>@lang('view_pages.delete')</a>
+				        
 				    </div>
 
 				</td>

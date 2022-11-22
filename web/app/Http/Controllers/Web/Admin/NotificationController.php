@@ -71,6 +71,12 @@ class NotificationController extends BaseController
 
     public function sendPush(Request $request)
     {
+        if (env('APP_FOR')=='demo') {
+            $message = trans('succes_messages.you_are_not_authorised');
+
+            return redirect('notifications/push')->with('warning', $message);
+        }
+        
         $created_params = $request->only(['title']);
         $created_params['push_enum'] = PushEnums::GENERAL_NOTIFICATION;
         $created_params['body'] = $request->message;

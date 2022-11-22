@@ -14,8 +14,8 @@ class AddMoneyToWalletRequest extends BaseRequest
     public function rules()
     {
         return [
-            'card_id'=>'required|exists:card_info,id',
             'amount'=>'required|double',
+            'payment_nonce'=>'required',
         ];
     }
 }

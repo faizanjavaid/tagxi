@@ -20,7 +20,7 @@ class CreateAdminDetailsTable extends Migration
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->text('address')->nullable();
-            $table->unsignedInteger('country');
+            $table->unsignedInteger('country')->nullable();
             $table->string('state', 50)->nullable();
             $table->string('city', 50)->nullable();
             $table->integer('pincode')->nullable();

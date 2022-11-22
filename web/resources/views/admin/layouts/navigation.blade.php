@@ -1,3 +1,13 @@
+
+@php
+  
+
+if(str_contains((string)request()->path(),'translations')){
+  $main_menu = 'settings';
+  $sub_menu = 'translations';
+}
+@endphp
+
 <aside class="main-sidebar">
   <!-- sidebar-->
   <section class="sidebar">
@@ -81,9 +91,14 @@
           </li>
           @endif  
           @if(auth()->user()->can('manage-owner-needed-document'))
-          <!-- <li class="{{ 'owner_needed_document' == $sub_menu ? 'active' : '' }}">
+          <li class="{{ 'owner_needed_document' == $sub_menu ? 'active' : '' }}">
             <a href="{{url('/owner_needed_doc')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.owner_needed_doc')</a>
-          </li> -->
+          </li>
+          @endif 
+          @if(auth()->user()->can('manage-fleet-needed-document'))
+          <li class="{{ 'fleet_needed_document' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/fleet_needed_doc')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.fleet_needed_doc')</a>
+          </li>
           @endif 
           @if(auth()->user()->can('package-type'))
           <li class="{{ 'package_type' == $sub_menu ? 'active' : '' }}">
@@ -106,7 +121,7 @@
         $areas = App\Models\Admin\ServiceLocation::companyKey()->active(true)->get();
       @endphp
 
-        @if(auth()->user()->can('manage-owner') && env('APP_FOR')=='demo1')
+        @if(auth()->user()->can('manage-owner'))
         <li class="treeview {{ 'manage_owners' == $main_menu ? 'active menu-open' : '' }}">
         <a href="javascript: void(0);">
           <i class="fa fa-code-fork"></i>
@@ -128,7 +143,7 @@
             @endif
 
     
-             @if(auth()->user()->can('manage-fleet') && env('APP_FOR')=='demo1')
+             @if(auth()->user()->can('manage-fleet'))
             <li class="{{ $main_menu == 'manage_fleet' ? 'active' : ''}}">
                 <a href="{{ route('viewFleet') }}">
                     <i class="fa fa-bus"></i>
@@ -238,21 +253,73 @@
         <ul class="treeview-menu">
           @if(auth()->user()->can('view-drivers'))
           <li class="{{ 'driver_details' == $sub_menu ? 'active' : '' }}">
-            <a href="{{url($route)}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.driver_details')</a>
+            <a href="{{url($route)}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.approved_drivers')</a>
           </li>
           @endif
+
+          @if(auth()->user()->can('view-drivers'))
+          <li class="{{ 'driver_approval_pending' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/drivers/waiting-for-approval')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.pending_approvals')</a>
+          </li>
+          @endif
+
+
           @if(auth()->user()->can('view-drivers'))
           <li class="{{ 'driver_ratings' == $sub_menu ? 'active' : '' }}">
             <a href="{{url('/driver-ratings')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.driver_ratings')</a>
           </li>
           @endif
-
-
+          @if(auth()->user()->can('view-drivers'))
+          <li class="{{ 'withdrawal_requests' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/withdrawal-requests-lists')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.withdrawal_requests')</a>
+          </li>
+          @endif   
+          @if(auth()->user()->can('view-drivers'))
+          <li class="{{ 'negative_balance_drivers' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('withdrawal-requests-lists/negative_balance_drivers')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.negative_balance_drivers')</a>
+          </li>
+          @endif         
         </ul> 
        
       </li>
       @endif
+       @if(auth()->user()->can('fleet-drivers-menu'))
+            @if (auth()->user()->hasRole('owner'))
+                @php
+                    $route = 'company/drivers';
+                @endphp
+            @else
+                @php
+                    $route = 'fleet-drivers';
+                @endphp
+            @endif
 
+     
+      <li class="treeview {{ 'fleet-drivers' == $main_menu ? 'active menu-open' : '' }}">
+        <a href="javascript: void(0);">
+          <i class="fa fa-users"></i>
+          <span> @lang('pages_names.fleet_drivers') </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+
+        <ul class="treeview-menu">
+          @if(auth()->user()->can('view-fleet-drivers'))
+          <li class="{{ 'driver_details' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url($route)}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.approved_fleet_drivers')</a>
+          </li>
+          @endif
+
+          @if(auth()->user()->can('view-fleet-drivers'))
+          <li class="{{ 'driver_approval_pending' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/fleet-drivers/waiting-for-approval')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.pending_approvals')</a>
+          </li>
+          @endif
+        </ul> 
+       
+      </li>
+      @endif
       @if(auth()->user()->can('user-menu'))
       <li class="treeview {{ 'users' == $main_menu ? 'active menu-open' : '' }}">
         <a href="javascript: void(0);">
@@ -314,9 +381,7 @@
         <a href="{{url('/cancellation')}}">
           <i class="fa fa-ban"></i> <span>@lang('pages_names.cancellation')</span>
         </a>
-      </li> 
-
-     
+      </li>  
       @endif
 
       @if(auth()->user()->can('complaint-title'))
@@ -377,6 +442,29 @@
              </ul>
           </li>
           @endif
+
+          @if(auth()->user()->can('owner-complaint'))
+          <li class="treeview {{ 'owner-complaint' == $sub_menu ? 'active' : '' }}">
+             <a href="javascript: void(0);">
+                <i class="fa fa-circle-thin"></i>
+                <span> @lang('pages_names.owner_complaints') </span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-right pull-right"></i>
+                </span>
+              </a>
+
+          {{--   <a href="{{url('/complaint/owner')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.owner_complaints')</a> --}}
+             <ul class="treeview-menu">
+               <li class="{{ 'owner-general-complaint' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/complaint/owner/general')}}">@lang('pages_names.general_complaints')</a></li>
+            
+               <li class="{{ 'owner-request-complaint' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/complaint/owner/request')}}">@lang('pages_names.request_complaints')</a></li>
+             </ul>
+          </li>
+          @endif
+
+
         </ul>
       </li>
       @endif
@@ -405,14 +493,20 @@
           </li>
           @endif
           @if(auth()->user()->can('driver-report'))
-          <li class="{{ 'driver_duties_report' == $sub_menu ? 'active' : '' }}">
+         <!--  <li class="{{ 'driver_duties_report' == $sub_menu ? 'active' : '' }}">
             <a href="{{url('/reports/driver-duties')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.driver_duties_report')</a>
+          </li> -->
+          @endif
+
+          @if(auth()->user()->can('owner-report'))
+          <li class="{{ 'owner_report' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/reports/owner')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.owner_report')</a>
           </li>
           @endif
 
-          @if(auth()->user()->can('travel-report'))
-          <li class="{{ 'travel_report' == $sub_menu ? 'active' : '' }}">
-            <a href="{{url('/reports/travel')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.travel_report')</a>
+          @if(auth()->user()->can('finance-report'))
+          <li class="{{ 'finance_report' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/reports/travel')}}"><i class="fa fa-circle-thin"></i>@lang('pages_names.finance_report')</a>
           </li>
           @endif
         </ul>
@@ -456,7 +550,62 @@
         </a>
       </li>
       @endif
+      @if(auth()->user())
+      <li class="treeview {{ 'cms' == $main_menu ? 'active menu-open' : '' }}">
+        <a href="javascript: void(0);">
+          <i class="fa fa-file-pdf-o"></i>
+          <span> CMS </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ 'cms_frontpage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/frontpagecms')}}"><i class="fa fa-circle-thin"></i>Home Page CMS</a>
+          </li>
+          <li class="{{ 'cms_safetypage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/safetypagecms')}}"><i class="fa fa-circle-thin"></i>Safety Page CMS</a>
+          </li>
+          <li class="{{ 'cms_servicepage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/servicepage')}}"><i class="fa fa-circle-thin"></i>Serviceas Page CMS</a>
+          </li>
+          <li class="{{ 'cms_privacypage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/privacypagecms')}}"><i class="fa fa-circle-thin"></i>Privacy Page CMS</a>
+          </li>
+          <li class="{{ 'cms_dmvpage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/dmvpagecms')}}"><i class="fa fa-circle-thin"></i>DMV Page CMS</a>
+          </li>
+          <li class="{{ 'cms_complaincepage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/complaincepagecms')}}"><i class="fa fa-circle-thin"></i>Complaince Page CMS</a>
+          </li>
+          <li class="{{ 'cms_termspage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/termspagecms')}}"><i class="fa fa-circle-thin"></i>Terms Page CMS</a>
+          </li>
+          <li class="{{ 'cms_drreqpage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/drreqpagecms')}}"><i class="fa fa-circle-thin"></i>Driver Req. Page CMS</a>
+          </li>
+          <li class="{{ 'cms_applydriverpage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/applydriverpagecms')}}"><i class="fa fa-circle-thin"></i>Apply To Drive</a>
+          </li>
+          <li class="{{ 'cms_howdriverpage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/howdriverpagecms')}}"><i class="fa fa-circle-thin"></i>How It Works Page CMS</a>
+          </li>
+          <li class="{{ 'cms_contactpage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/contactpagecms')}}"><i class="fa fa-circle-thin"></i>Contact Us Page CMS</a>
+          </li>
+          <li class="{{ 'cms_playstorepage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/playstorepagecms')}}"><i class="fa fa-circle-thin"></i>Playstore Link Page CMS</a>
+          </li>
+          <li class="{{ 'cms_footerpage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/footerpagecms')}}"><i class="fa fa-circle-thin"></i>Footer Page CMS</a>
+          </li>
+          <li class="{{ 'cms_colorthemepage' == $sub_menu ? 'active' : '' }}">
+            <a href="{{url('/cms/colorthemepagecms')}}"><i class="fa fa-circle-thin"></i>Color Theme Page CMS</a>
+          </li>
 
+        </ul>
+      </li>
+      @endif
       <!--  @if(auth()->user()->can('view-companies'))
           <li class="{{'company' == $main_menu ? 'active' : '' }}">
             <a href="{{url('/company')}}">

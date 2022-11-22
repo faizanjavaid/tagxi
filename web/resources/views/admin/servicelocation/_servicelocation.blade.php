@@ -16,11 +16,11 @@
     <span style="float: right;">
     </span>
     </th>
-    <th> @lang('view_pages.currency_name')
+    <th> @lang('view_pages.timezone')
     <span style="float: right;">
     </span>
     </th>
-    <th>@lang('view_pages.currency_code')</th>
+    <!-- <th>@lang('view_pages.currency_code')</th> -->
     <th> @lang('view_pages.status')
     <span style="float: right;">
     </span>
@@ -41,22 +41,22 @@
     <tr>
     <td>{{ $i++ }} </td>
     <td>{{$result->name}}</td>
-    <td>{{$result->currency_name}}</td>
-    <td>{{$result->currency_code}}</td>
+    <td>{{$result->timezone}}</td>
     @if($result->active)
-    <td><span class="label label-success">Active</span></td>
+    <td><span class="label label-success">@lang('view_pages.active')</span></td>
     @else
-    <td><span class="label label-danger">InActive</span></td>
+    <td><span class="label label-danger">@lang('view_pages.inactive')</span></td>
     @endif
     <td>
-
-    <div class="dropdown">
     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang('view_pages.action')
     </button>
         <div class="dropdown-menu">
+            
             <a class="dropdown-item" href="{{url('service_location/edit',$result->id)}}">
             <i class="fa fa-pencil"></i>@lang('view_pages.edit')</a>
+            
 
+           
             @if($result->active)
             <a class="dropdown-item" href="{{url('service_location/toggle_status',$result->id)}}">
             <i class="fa fa-dot-circle-o"></i>@lang('view_pages.inactive')</a>
@@ -64,10 +64,12 @@
             <a class="dropdown-item" href="{{url('service_location/toggle_status',$result->id)}}">
             <i class="fa fa-dot-circle-o"></i>@lang('view_pages.active')</a>
             @endif
-            <a class="dropdown-item sweet-delete" data-url="{{url('service_location/delete',$result->id)}}" href="#">
-            <i class="fa fa-trash-o"></i>@lang('view_pages.delete')</a>
+
+           <!--  <a class="dropdown-item sweet-delete" data-url="{{url('service_location/delete',$result->id)}}" href="#">
+            <i class="fa fa-trash-o"></i>@lang('view_pages.delete')</a> -->
         </div>
     </div>
+   
 
     </td>
     </tr>

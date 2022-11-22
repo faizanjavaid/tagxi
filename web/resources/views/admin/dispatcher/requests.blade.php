@@ -99,7 +99,7 @@
 
     <div class="col-md-4 p-0 float-left" style="background:#1e88e5;">
         <div class=" col-12 route-details text-center pb-0 ">
-            <h2>Route Details</h2>
+            <h2> @lang('view_pages.route_details')</h2>
             <div class="col-md-12">
                <div class="form-group" style="border-radius:0px;">
                   <div class="col-md-10 float-left pr-0">
@@ -137,7 +137,7 @@
             </div>
         </div>
         <div class=" col-12 route-details chs-cls text-center pt-0">
-            <h2>Choose Type</h2>
+            <h2>@lang('view_pages.choose_type')</h2>
 
             <div class="col-md-3 float-left">
               <ul class="choose-type">
@@ -169,8 +169,8 @@
             </div>
         </div>
         <div class="col-md-12 text-center" style="padding-top:10px;padding-bottom:25px;">
-          <a href="" class="con-order">Confirm Order</a><br/><br/>
-          <a href="" class="cancel-order mt-3">Cancel</a>
+          <a href="" class="con-order">@lang('view_pages.confirm_order')</a><br/><br/>
+          <a href="" class="cancel-order mt-3">@lang('view_pages.cancel')</a>
         </div>
     </div>
     <div class="col-md-8">
@@ -193,7 +193,7 @@
     <script src="{{asset('assets/vendor_components/jquery/dist/jquery.js')}}"></script>
 
     <script type="text/javascript"
-            src="http://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=places">
+            src="http://maps.googleapis.com/maps/api/js?key={{get_settings('google_map_key')}}&libraries=places">
     </script>
     <script>
 

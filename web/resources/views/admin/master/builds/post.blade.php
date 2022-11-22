@@ -66,8 +66,8 @@
     </label>
     <select name="environment" id="environment" class="form-control">
         <option value="" selected disabled>@lang('view_pages.select_environment')</option>
-        <option value="stage">Stage</option>
-        <option value="prod">Production</option>
+        <option value="stage">@lang('view_pages.stage')</option>
+        <option value="prod">@lang('view_pages.production')</option>
     </select>
 </div>
 </div>

@@ -47,7 +47,6 @@ class RequestController extends Controller
     } 
 
     public function fetchSingleRequest(RequestRequest $request){
-        // dd($request);
         return $request;
     }
 
@@ -76,5 +75,29 @@ class RequestController extends Controller
 
         return view('admin.scheduled-rides._scheduled', compact('results'));
     }
+
+    /**
+     * View Invoice
+     * 
+     * */
+    public function viewCustomerInvoice(RequestRequest $request_detail){
+
+        $data = $request_detail;
+        
+        return view('email.invoice',compact('data'));
+
+    }
+    /**
+     * View Invoice
+     * 
+     * */
+    public function viewDriverInvoice(RequestRequest $request_detail){
+
+        $data = $request_detail;
+        
+        return view('email.driver_invoice',compact('data'));
+
+    }
+
      
 }

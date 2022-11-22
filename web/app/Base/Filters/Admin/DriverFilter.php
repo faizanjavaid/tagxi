@@ -22,7 +22,9 @@ class DriverFilter implements FilterContract {
 	}
 
 	public function active($builder, $value = 0) {
-		$builder->where('active', $value);
+		$builder->whereHas('user', function($q)use($value){
+			$q->where('active',$value);
+		});
     }
     
 	public function approve($builder, $value = 0) {
@@ -38,7 +40,7 @@ class DriverFilter implements FilterContract {
 		$to = now()->endOfDay()->toDateTimeString();
 
         if($value == 'today'){
-            $from = $today->toDateTimeString();
+            $from = $today->startOfDay()->toDateTimeString();
         }elseif($value == 'week'){
             $from = $today->startOfWeek()->toDateTimeString();
         }elseif($value == 'month'){

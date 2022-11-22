@@ -145,8 +145,8 @@
                                         <label for="zone_admin" class="">@lang('view_pages.select_unit')<sup>*</sup></label>
                                           <select name="unit" id="unit" class="form-control" required>
                                             <option value="" selected disabled>@lang('view_pages.select_unit')</option>
-                                            <option value="1">Kilo-Meter</option>
-                                            <option value="2">Miles</option>
+                                            <option value="1">@lang('view_pages.kilo_meter')</option>
+                                            <option value="2">@lang('view_pages.miles')</option>
                                         </select>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@
                                     <div class="sk-cube sk-cube3" style="width: 20px;height: 20px;"></div>
                                     <div class="sk-cube sk-cube4" style="width: 20px;height: 20px;"></div>
 
-                                    <p style="text-align: center;font-weight: bold;width: 81px;margin-left: -10px;">Getting Map Data</p>
+                                    <p style="text-align: center;font-weight: bold;width: 81px;margin-left: -10px;">@lang('view_pages.getting_map_data')</p>
                                 </div>
 
                                 <div id="map" style="width: 100%;height: 400px;">
@@ -178,7 +178,7 @@
                     <!-- dropdown menu-->
                     <ul id="side-menu" style="display: none;position: absolute;z-index: 1;width: 100%;">
                         <li class="dropdown-content" style="display: block;"><a style="padding: 6px 19px;" href="#" class="tool1" data-id="reset">
-                                <i class="fa fa-refresh" aria-hidden="true"></i> Reset
+                                <i class="fa fa-refresh" aria-hidden="true"></i>@lang('view_pages.reset')
                             </a>
                         </li>
                     </ul>
@@ -204,7 +204,7 @@
 
                             <div class="form-group text-right m-b-0"><br>
                                 <button class="btn btn-custom waves-effect waves-light" type="submit">
-                                    save
+                                    @lang('view_pages.save')
                                 </button>
                             </div>
 

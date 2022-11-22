@@ -38,83 +38,63 @@
                             <div class="col-5 col-md-1 text-left">
                                 <button class="btn btn-outline btn-sm btn-danger py-2" type="button" data-toggle="modal"
                                     data-target="#modal-default">
-                                    Filter drivers
+                                     @lang('view_pages.filter_drivers')
                                 </button>
                             </div>
 
-                            {{-- <div class="col-7 col-md-7 text-right">
-                                <a href="{{ url('drivers/create') }}" class="btn btn-primary btn-sm">
+                           <div class="col-7 col-md-7 text-right">
+                                <a href="{{ url('company/drivers/create') }}" class="btn btn-primary btn-sm">
                                     <i class="mdi mdi-plus-circle mr-2"></i>@lang('view_pages.add_driver')</a>
-                               
                             </div>
-                        </div> --}}
-
-                         {{-- @if (auth()->user()->can('add-driver')) --}}
-                         <div class="col-7 col-md-7 text-right">
-                        <div class="add-admin mr-0">
-                            <label class="control-label"></label><br/>
-                            <a href="#" class="add-driver" title="Add Driver"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                            <ul class="add-driver-hover">
-                                {{-- <li>
-                                    <a href="{{ url('company/drivers/create') }}">{{ trans('view_pages.add_driver')}}</a>
-                                </li>     --}}
-
-                               
-                                    <a href="{{ url('company/drivers/hire/view') }}">{{ trans('view_pages.hire_driver')}}</a>
-                               
-                            </ul>
                         </div>
-                        {{-- @endif --}}
                     </div>
-                </div>
 
                         <!-- Modal -->
                         <div class="modal fade" id="modal-default">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Filter Drivers</h4>
+                                        <h4 class="modal-title">@lang('view_pages.filter_drivers')</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body text-left">
                                         <div class="driver-status">
-                                            <h4>Active Status</h4>
+                                            <h4>@lang('view_pages.active_status')</h4>
                                             <div class="demo-radio-button">
                                                 <input name="active" type="radio" id="active" data-val="1"
                                                     class="with-gap radio-col-green">
-                                                <label for="active">Active</label>
+                                                <label for="active">@lang('view_pages.active)</label>
                                                 <input name="active" type="radio" id="inactive" data-val="0"
                                                     class="with-gap radio-col-grey">
-                                                <label for="inactive">Inactive</label>
+                                                <label for="inactive">@lang('view_pages.inactive)</label>
                                             </div>
-                                            <h4>Approval Status</h4>
+                                            <h4>@lang('view_pages.approve_status)</h4>
                                             <div class="demo-radio-button">
                                                 <input name="approve" type="radio" id="approved" data-val="1"
                                                     class="with-gap radio-col-green">
-                                                <label for="approved">Approved</label>
+                                                <label for="approved">@lang('view_pages.approved)</label>
                                                 <input name="approve" type="radio" id="disapproved" data-val="0"
                                                     class="with-gap radio-col-grey">
-                                                <label for="disapproved">Disapproved</label>
+                                                <label for="disapproved">@lang('view_pages.disapproved)</label>
                                             </div>
-                                            <h4>Online Status</h4>
+                                            <h4>@lang('view_pages.online_status)</h4>
                                             <div class="demo-radio-button">
                                                 <input name="available" type="radio" id="online" data-val="1"
                                                     class="with-gap radio-col-green">
-                                                <label for="online">Online</label>
+                                                <label for="online">@lang('view_pages.online)</label>
                                                 <input name="available" type="radio" id="offline" data-val="0"
                                                     class="with-gap radio-col-grey">
-                                                <label for="offline">Offline</label>
+                                                <label for="offline">@lang('view_pages.offline)</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" data-dismiss="modal"
-                                            class="btn btn-success btn-sm float-right filter">Apply Filters</button>
+                                            class="btn btn-success btn-sm float-right filter">@lang('view_pages.apply_filters)</button>
 
                                         <button type="button" data-dismiss="modal"
-                                            class="btn btn-danger btn-sm resetfilter float-right mr-2">Reset
-                                            Filters</button>
+                                            class="btn btn-danger btn-sm resetfilter float-right mr-2">@lang('view_pages.reset_filters)</button>
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
@@ -122,13 +102,14 @@
                             <!-- /.modal-dialog -->
                         </div>
                         <!-- /.modal -->
+
+                        <div id="js-drivers-partial-target">
+                            <include-fragment src="drivers/fetch">
+                                <span style="text-align: center;font-weight: bold;"> @lang('view_pages.loading')</span>
+                            </include-fragment>
+                        </div>
                     </div>
 
-                    <div id="js-drivers-partial-target">
-                        <include-fragment src="drivers/fetch">
-                            <span style="text-align: center;font-weight: bold;"> Loading...</span>
-                        </include-fragment>
-                    </div>
                 </div>
             </div>
         </div>
@@ -138,7 +119,6 @@
 
 
         <script src="{{ asset('assets/js/fetchdata.min.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
              $(document).ready(function() {
         $(".add-admin").mouseover(function() {

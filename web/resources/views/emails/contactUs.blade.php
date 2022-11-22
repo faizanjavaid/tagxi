@@ -65,7 +65,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            Name
+                          @lang('view_pages.name')
                         </td>
                         <td>
                             {{ $data['name'] }}
@@ -73,7 +73,7 @@
                     </tr>
                     <tr>
                         <td>
-                            E-Mail
+                           @lang('view_pages.email')
                         </td>
                         <td>
                             {{ $data['email'] }}
@@ -81,7 +81,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Country
+                           @lang('view_pages.country')
                         </td>
                         <td>
                             {{ $data['country'] }}
@@ -89,7 +89,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Mobile Number
+                            @lang('view_pages.phone')
                         </td>
                         <td>
                             {{ $data['mobile'] }}
@@ -97,7 +97,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Message
+                          @lang('view_pages.message')
                         </td>
                         <td>
                             {{ $data['message'] }}
